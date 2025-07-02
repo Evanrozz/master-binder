@@ -1,5 +1,3 @@
-
-cat > "00 Automation/hash_and_log.py" << 'EOF'
 #!/usr/bin/env python3
 """
 hash_and_log.py
