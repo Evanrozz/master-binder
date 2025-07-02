@@ -1,0 +1,1954 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a05:7412:8e11:b0:14b:bfe4:5ab0 with SMTP id bv17csp4577468rdb;
+        Wed, 4 Jun 2025 12:52:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH3lT3AV5pq1Vq9vnHk3DsNyphqwXNWvtmpvWXzxD1w5u+giivVc+Olu44XNM3EuH22WJuP
+X-Received: by 2002:a05:6402:35c9:b0:5fc:bff8:c60a with SMTP id 4fb4d7f45d1cf-606ea39710amr4208489a12.26.1749066724313;
+        Wed, 04 Jun 2025 12:52:04 -0700 (PDT)
+Return-Path: <FIPPAUnitA@gov.mb.ca>
+Received: from mx0d-004a1001.pphosted.com (mx0d-004a1001.pphosted.com. [67.231.150.154])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-606942cb223si4839504a12.448.2025.06.04.12.52.03
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 04 Jun 2025 12:52:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of fippaunita@gov.mb.ca designates 67.231.150.154 as permitted sender) client-ip=67.231.150.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=2-9-24 header.b=nVjSpj5r;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=XiDk2oLz;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of fippaunita@gov.mb.ca designates 67.231.150.154 as permitted sender) smtp.mailfrom=FIPPAUnitA@gov.mb.ca;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274426.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 554HpluU002066
+	for <evanroz@gmail.com>; Wed, 4 Jun 2025 14:52:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=2-9-24; bh=1yAgNeLBqdVyUWsZ1PzhQG6YePZ
+	W3bkewQftSkK/Tr8=; b=nVjSpj5rkBSdhOUmOXMI0umPrIMNOWLqWQKpmGAUjKt
+	PIW3/lB6BurbsTjhYfhDLcAEq4geB/3Lm5zTrA85QcmtN6YrRpFdcNKp5wsO8Br5
+	NPNhspvursb1+2y4+PJdT9ViglOL6agBqIQYU2yKuLxWpKzs4xfJzy3rDl1wYck+
+	3Qmn001404BLhrpqz/Gtq0q1hnlR4gPwjl0NXvhEg9XgsPNootTNKJKdSEHkL8aq
+	MfLQitKdJXHG7dEUEYNn5QV64ZJ25nNSYdZ+Mc0Ew/mqFRnGc/RbtAHP7S246IdP
+	fhVburG3hUpxWDw2lr3edcFcY+i2Zt3UO0YOlyJeVlA==
+Received: from yt6pr01cu002.outbound.protection.outlook.com (mail-canadacentralazon11012042.outbound.protection.outlook.com [40.107.193.42])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 471gb5b27x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Wed, 04 Jun 2025 14:52:01 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o8L9jDwlIluWv3lNRm0BnozsJAMfLBD3Of8KOhjJQq6qJwvxkJS3CXPFT/nI7xwbc86EphrwQ0gHV00bxyDGsl9b4snDt81mlIl0Hv4EPDYLUhv19fFrRXJc2Sql1rCEbnmOwJnjfgxZSiPwnQJTncvMLQlxRhOMA7zy8X810AYYIGlFI/Dn2W5+NaSR3bhqrST71JZTeclUBLPUiYmVBaOGSWyiHtvH5lo0eqjr4M/kYKnXY6SRW30Kz1doI0MSrW4jzFpKxZfoWPwpDI+E4B55L8HDGoUI7qeo1sfLwq6FxjeUGxAOLBgM+E8w7kwEuAJoYS5KWVJQiN9n1yAsGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H76cFxQDksO9azjAiPJNujepwTPCCOLDVz+z0js81qo=;
+ b=YRCaGzitiiaFWHP044MhmUQ47GiSc1rN6KIGlIBNkCT7NYrwCB8A6qvs5aumGGN/XW2nBKvkNEiEbQ5q2BfgoXaWZuYrROshx2Rw0/JrQw3dccfOzzwMCeUpV7KPF6iWn1pQFE/hyHovzpt6yewrSrPVVpbHM1veBQXPesvWQLYED6/hM7BqSPvnTf/KoNvlBTAusx0mwFbP3F/frl0/6Od0jEM3T80kkMq2GnKtNlv3KiSIeY2qU7cg5DcUAb/7lTKwA8jnH9m6ZEeu2xVRrQZETfuSc6Fh9iFSaa0NgDPlYUG7e+kK2Ip2pDCXApZnH/tt9w7kV501iusXs5V3OQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H76cFxQDksO9azjAiPJNujepwTPCCOLDVz+z0js81qo=;
+ b=XiDk2oLza0zkPklM35yCGDYIsiNv4K72OeegvZcb7Jqkqyyi+raxOczh4H8nHuCN+fkC/PvdouGBfPW3xhGmaMX0UVQPEnks3Bp0DEqDULYnynNDvuIeT+76XI3wiL2nZQda/ihdPvNeNHAhJnF4z9ouTHMr5u+nwEuflEpJ0GI=
+Received: from YQBPR0101MB8784.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:5b::19) by YT1PR01MB8411.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:c3::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.35; Wed, 4 Jun
+ 2025 19:52:00 +0000
+Received: from YQBPR0101MB8784.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::7bda:9d0b:3d2d:63d4]) by YQBPR0101MB8784.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::7bda:9d0b:3d2d:63d4%6]) with mapi id 15.20.8792.034; Wed, 4 Jun 2025
+ 19:51:59 +0000
+From: +WPG725 - FIPPA Unit A <FIPPAUnitA@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>,
+        +WPG725 - FIPPA Unit A
+	<FIPPAUnitA@gov.mb.ca>
+Subject: RE: 2526-PSD-0559, 2526-PSD-0569, 2526-PSD-0617, 2526-PSD-0618,
+ 2526-PSD-0629, 2526-PSD-0630, 2526-PSD-0631, 2526-PSD-0632 and 2526-PSD-0639
+Thread-Topic: 2526-PSD-0559, 2526-PSD-0569, 2526-PSD-0617, 2526-PSD-0618,
+ 2526-PSD-0629, 2526-PSD-0630, 2526-PSD-0631, 2526-PSD-0632 and 2526-PSD-0639
+Thread-Index: AdvUqsHOBdf7wbDoTlC0e5NpvDu9MAAARSkAADdwd+A=
+Date: Wed, 4 Jun 2025 19:51:59 +0000
+Message-ID:
+ <YQBPR0101MB8784214EB481967BB64C9B14A26CA@YQBPR0101MB8784.CANPRD01.PROD.OUTLOOK.COM>
+References:
+ <YQBPR0101MB8784B017F0E6F9DE21233A7FA26DA@YQBPR0101MB8784.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09GbKXawaQgnOch5==x2MaxsYU8m_Vx6-kX6fkk=sfPK7Q@mail.gmail.com>
+In-Reply-To:
+ <CABQF09GbKXawaQgnOch5==x2MaxsYU8m_Vx6-kX6fkk=sfPK7Q@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YQBPR0101MB8784:EE_|YT1PR01MB8411:EE_
+x-ms-office365-filtering-correlation-id: 7b28975a-c9ac-4e9a-b7cc-08dda3a144f0
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|1800799024|376014|38070700018|8096899003|7053199007|4053099003|4013099003;
+x-microsoft-antispam-message-info:
+ =?utf-8?B?em1mdEFLSzYvQ0JSOG1CYXVqZFRMSjA2M01vS1N1RStmRk5GUWsxbWxZRXJL?=
+ =?utf-8?B?SGFQY2VObUZRdGs5eGwvNkNPL2V5NVVWbFJ2N1ZqTm9INHpBMFJaY2pJUnJM?=
+ =?utf-8?B?aHFzUkJGRWlsTjJwTno1bGs3LzV0VXBqeWlEV1EvV0pCc1cxS2hiZGg5cVdC?=
+ =?utf-8?B?L1prdzRmRUpOclhrSDc2UTc2RnJuWHovZ0lZeWJFNkJvZ2NTdExJZFk4eDk3?=
+ =?utf-8?B?UTQxU2lmWG1VTE0xdVNLcm1jUkpnd2tIYlFBV2dtMWRJR2IzSDFVWHltc01x?=
+ =?utf-8?B?cnpxVmxsNnJtcUljMzJaN1Yxb0ZFeGhRNndUR1g4VzRKMkV3ejJhZk1jeHZ6?=
+ =?utf-8?B?TjBxMm1iTVVBaXlzYjN4dDRaQ3FqKzVHUHl3SmxUSjM3ZnpBTHRyc3B5aTZ1?=
+ =?utf-8?B?TFBHTjkrbER3TmdrUUluVGZ1YUtuMjhOSGdMcVhJeUE0cW01UDR6Z2FDTmNh?=
+ =?utf-8?B?Z0E2UnJ0N0d3UGRoSFFWUkNaTnBvdkdRS2xsMDh6MmZSV05nS1dWNkFmTVhH?=
+ =?utf-8?B?NlZtTkJ4dFREaHB0WHB5eHBXdnZaUld6ejJGQ3NnVG5IZ0pvSjdwcmdoT0gz?=
+ =?utf-8?B?SXB3bGh6K2VqdjJzMldGSXBBN3hMODQ2S0JyR1FoNHhEZkluWWlpRk8wbE83?=
+ =?utf-8?B?VFNNd2JlUU1aVklIQnpCOFJKQytGemx2NmJ4VmlmazRYZkR1THF2NW5ubTZv?=
+ =?utf-8?B?aXpOdUVEUmoxWERlSmV0Vlo5U2JFQW92VW5GVURGUTFSOXg1VTcxR0NYcWlZ?=
+ =?utf-8?B?VGVnTmZQMUsxVFZHellZQUkvaUxybkpLcDV6TnJ3MGJhQkNEMVR1UUJhL1Bs?=
+ =?utf-8?B?NEJ2Z1E1YnNsamRnVEdkeFVtZmVaNXcvOVE1OVJsV1VtVUpaNm5jcnRsWVF3?=
+ =?utf-8?B?QnJjajVIemswSHpCU2pCV1l5Qk5abys0Y29GNkx4OXNCNUNWSm9hVmlQZ2dQ?=
+ =?utf-8?B?Z3daVVkzSVhFNkVTNDU2cmd5SXhXRnVodkRuaUdpVjNQVDdZZlIxYTlYYnc2?=
+ =?utf-8?B?NnZsWENOQ3BiWDhqQU5hMnNJVU9XUEJFbkQ3Y1U2djdhOHkzcG4xUDBtTkVx?=
+ =?utf-8?B?SDNidlZGUUY0cGRVc3ZWZytTOEJyR2ZyQ2k3bW9NYk91Y1hyTmpSMUl1VlFN?=
+ =?utf-8?B?Rm5jYzdZUE5UNTloMlZLejVraEpjSGVZMExzaFVkbzBNYmdyUjYzc0d1U2N3?=
+ =?utf-8?B?d095MGZia2d3MG0xUFZDdm1SQWdnVmZXa2FXaVovZUNmRXI3Z1FVNDR4Mncx?=
+ =?utf-8?B?aFQ2Y1h6OUlIRkJYMlF3bEloWTdtaVgybmFwOUZLQnc3TmdJb21wL2s1MEFR?=
+ =?utf-8?B?NWg1anpLSVRZU1lMYTRteDVST0trdmtrQzkrNXRKck9rc29OQnh1NDVZOCsy?=
+ =?utf-8?B?T1Zncm5sbWpmNnpSd2JVZlR3bjlDTzlVNFlYZ1p4UWE0ZlBoaHVvWjRoU3dV?=
+ =?utf-8?B?U2J1ZnZCUC8xL0tiQmhlTXVxaHEvcjE0d3hxb2JKYW9uMW5GdHRRV2tCV0Jh?=
+ =?utf-8?B?RUZ3Z2NJWi9YNzBZellxYnpTaHlzaGdiSWprRUhITS9ab3NJMGl0dTVUY0pZ?=
+ =?utf-8?B?NHdESStrVldxNFBzQ05BSEdjY1VibnZOK012OXJPTlRFVjFodkZhRkZiaVVx?=
+ =?utf-8?B?R1RySWIwYWxpcU5sSy9BYk1oT2dwTGFWMFlscjFVZE1QWE14SCtmem5TYnJE?=
+ =?utf-8?B?ZDlQZno4K0pLSmdBRG1MMGVQbTVCT0hTVS96RzVPSkNUM3dNc3A5SE9jdXYx?=
+ =?utf-8?B?VnRnWWtJM3Bwd1VWYTlJMy9oVVZmd2cvLzl6OVlLRzQ4LzlSNDVVdUFvaHJO?=
+ =?utf-8?B?WnVNc2JORVQ1RGtndnBLT2Z6NzB0R2hFNnZpUnNSbFg3YlJwUk9neHVER1FT?=
+ =?utf-8?B?dm1obW5wZzJTVzJXQ3pXNWxiRnpUVnVGYmwxNWxCaDJoTzNNQzZFU21vUjJj?=
+ =?utf-8?B?b25HY29sRHMrcnVmUVlCWitxL3FLRU5ETGJvT3FGbXpwRUsrVG5EYVhSRnNH?=
+ =?utf-8?Q?bRkhp9IBZynaXk+bHyf+arTPD+AI00=3D?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YQBPR0101MB8784.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018)(8096899003)(7053199007)(4053099003)(4013099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?L0ErNUN2RkM5NWpuYWdSb1NrM3FIOWFTeGlKWXJHNXlNZVhUbDdjM0xZU1lk?=
+ =?utf-8?B?NVg4Z0UvNFdJQnNFOTlUZm1SdC9wOHBDQzhZUERVY2pmeDVPdzJOZitFcity?=
+ =?utf-8?B?eERaWW9KalZKTHBJbXB2ckVaWDdCRFJGcUJ6aFpOeEg1TTJMelZ2MExKVUZO?=
+ =?utf-8?B?dk9FUk9JbnhjVUFQcmJoK3BBK1VlTjloWnRlaU9QNGsvK3ZoL0hWNHk4Rk9H?=
+ =?utf-8?B?VUVrRXE2YWZIMkI2WHJaem95RDk0c0YxY3F5OVcxcXM5N2tuWU5WUG5NazZL?=
+ =?utf-8?B?VlpsWUVmMGEvNUpnZGxHNTdKb0cxekVqWlBEVkxRRmtLSE50TC9qS2o5QXov?=
+ =?utf-8?B?NFZPakxtRjgraDIyQW1jZEdaQ0dGRnU2aTc4eWVOMUQ2NTR3QTEyTmVVUDls?=
+ =?utf-8?B?NUNhZXA5SVREVUxTL3VtdHN6WWhRUDc1c3FRRUx0bFRkbW1PVjhDcFBGb2lM?=
+ =?utf-8?B?aWxpcGdhejJGWmhFQjVqcm5PVUhNOXVWbkI4KzlDdWFIKy9TdGd2K0VlN2Ex?=
+ =?utf-8?B?WGFBOUlLVXFPallBbkMyTTdrOEcyUWs2YmFYdEVXM0VFbm5rMTVtc3ptYjha?=
+ =?utf-8?B?ZE5TNEFaejVNWk8xUitiVm9zenhiUWoxQ1BoK3pwQThEa0hCS1VsUmp4SDFn?=
+ =?utf-8?B?VGdScFNtMTNnc3hZQ2RzYWdnWGxLQklkTldpUy9DZmtweFhldmY2R25IYW16?=
+ =?utf-8?B?T05DS2pIK0twNkRkRHIzQTZZd1RDdG9rOUtLcFZwVlBpUldlSno0MkZ5K1Mz?=
+ =?utf-8?B?WE9TeWI3cDNqbnk0MmU2VHhBTWFhRGQ3S2tSVjViREttNldnTlhqZktqcnVR?=
+ =?utf-8?B?SVNLT1g3TWRhTS9yeEVQVHZUeGJuOFBRc1RkeFo2QTJseTd6UVZuYUthWnQ5?=
+ =?utf-8?B?cWRGS3R1Tk9iNHRhaE9HTm9aRTVOUHVqOWZ4aWtvUi9zR2dtaXRsbGVUN3pB?=
+ =?utf-8?B?VGpYOER3RmJLMmtDcUw4b3BDU1lnNmE0VjVVeGVzWmw2QnVlbEtIcFpGUEti?=
+ =?utf-8?B?Yjl0YXQrbWpGMGd5QzFQbzdWTDNHdlVHSnhVNEtaTzEwTWZDbzlDNjFtRE1E?=
+ =?utf-8?B?ZTNxeURNb3FaRUl6cVk2UlVNQzdmSlJEdzRCQUxJcERtYVlYdlprSUxtQUpq?=
+ =?utf-8?B?aVhVNzRmRzBuSkhmN1A0b0t0QS9hTEJpZjhhamlGZDI5WE1GeW9aeWtybnpu?=
+ =?utf-8?B?YUJCZXZ1T2hYWlFtM09COFR3bGRWbTVLUlN0YTRmMlY0dEZPbUcvRG1Zcmlw?=
+ =?utf-8?B?SG9UdFJYSTQ0U0gvRmZMQjdONXQ4eU9vZTZXOGthcUkvTXkrZDRIUU04S2NV?=
+ =?utf-8?B?NVB3azVOV1g0WlFzR1RpYThiVENybFFOWitSN0Q5aEtHVHJDa1VrRGluakhK?=
+ =?utf-8?B?eHlkUlNKNVlhcVhLbGR5M2NXdURqODNML2JiVDZxNGZTZk5HOTkrcFZOYzFj?=
+ =?utf-8?B?a3VrN2VLNXdjUEZJeW1oaHp6MDFpemg5UTlxcWF5cW9XcUtjNG9RWXZOZE9E?=
+ =?utf-8?B?TStLWWJBYmt2RTVhUjFwS0Z0N3ZjZUwwL0NwS0tCNUlNbG55ZktyVlBqZEtP?=
+ =?utf-8?B?VjVJYTdtTm0vRjRkaUFRT1Z1Y2hMS0Q2VXhlVDM3RzYwNUtobnVIeXNWclEr?=
+ =?utf-8?B?Znc0WUJDUWxuZENCSTlQRTRVa0djTXQrd0RiSldIWXZ5bkprdjA4emxvYnNG?=
+ =?utf-8?B?SFlqeEpSYUVqNEJBclduby9wUFF4MWkyZXV4QnJqdWVoSWhqQlYzTjc3M1or?=
+ =?utf-8?B?M1BKY01PSGZHTWs5V3E5WHRSWHVFd2RweGpaS3lGMUxGTUdBYjAzV09mZzU4?=
+ =?utf-8?B?Q2NqNkFZQ1hLRjhCYWJ4WWhFT0tFaStxKzk3YjVVaTdZQTljY3NxUDNUNW92?=
+ =?utf-8?B?OVdDQ0QyRTJBYXRud29EWW41VjhsV212K2xqbFJzUlRKVEU2WmtiRTFBNUdn?=
+ =?utf-8?B?VjUyamJ5Z0NHSll0Y2xzSDNoLzgwWms0dmo5OWltUzdxQUxhVzVnMncyZzF6?=
+ =?utf-8?B?MUJmSTkyZEtFczJoR0FxL2Ruay9vNnIyMVo5OHdCVTZIUkFKaTlZOTF4SExZ?=
+ =?utf-8?B?TFhabGZhS2RzR0xXUXJsM01qNitDZkZXYVVqM2l5djFDQW1sY2dZUjdXRkxG?=
+ =?utf-8?B?bmpUVVYwc3owZE13cHlsSG9Ja1NEZmw2MTVnS01yNTVmc0hoVU9TTytzNjZM?=
+ =?utf-8?B?Tnc9PQ==?=
+Content-Type: multipart/related;
+	boundary="_004_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YQBPR0101MB8784.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b28975a-c9ac-4e9a-b7cc-08dda3a144f0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2025 19:51:59.7812
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: QPWdFdQ1mAQTal6MFBhqGDqDlZmA6I45/iVAruEYIDp9oDCqfkpiBigGB+HU9Ud3hUFmMN2Km9Q2ELylq7JXUlU5xwf8MPOzpe9yj4Nh/Yw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT1PR01MB8411
+X-Proofpoint-ORIG-GUID: 238ztTVra_zkw4_phXuv10HiwgJi6Bzj
+X-Authority-Analysis: v=2.4 cv=OtxPyz/t c=1 sm=1 tr=0 ts=6840a3e1 cx=c_pps
+ a=NJUwhDIy67HU3mFx7lZgHA==:117 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=6IFa9wvqVegA:10 a=qMn8_65rDqkA:10 a=-gmA-2aLAAAA:8
+ a=pGLkceISAAAA:8 a=ciWXNeMwiIDFkd9pQYcA:9 a=NgsB8GZQXFqRYKjL:21
+ a=QEXdDO2ut3YA:10 a=yMhMjlubAAAA:8 a=SSmOFEACAAAA:8 a=4JhK0WrZMHQVnpXJ:21
+ a=gKO2Hq4RSVkA:10 a=UiCQ7L4-1S4A:10 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10
+ a=lqcHg5cX4UMA:10 a=lxZ7SLlo3eNhwB2A950A:9 a=HXjIzolwW10A:10
+ a=T6a71-JsGAwA:10 a=xbBoOLimK6mgVFY3T0w9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA0MDE1OCBTYWx0ZWRfX1vYixI6VBE7/
+ p40lPabIzeX/F8ebQc76aWnLH872Gq7cn2te7TTQkaFEAmNrn4mbX/bFukB4+zYA7oeCGgthRE0
+ ZfBxuzljbwqSeraXFcIgU12jxo1pvnz00TBo4PpYZ4wFLCiFe5TSbJ7P9gvm6PCFai4lPwbomfQ
+ jtYcXELTDY4JsZQQ8kugTVsTWVGGfy/W43ToEvP8X7+iMbscp/g0cPceSoRvsi1+nQyp6L7BU4X
+ IqIFEEv52bYQcHDn2Ww/vOQl8uGoi2Q3vajIZQTgOUgMmd+pG1GP07gX7mCEfJVJ/MKEmD8OgEz
+ cFfqYepxY0IGH8BxQoIImfo7Y0gEo02mHYAC6asDzl+xzX7SuSMkruhClZE/TGQdlIrly2DCmZk
+ 1IkDkdD02kOXtvxrO2i55KZ8zraLZJR3fxDTYpxwDY/snAgGvG+vzC4LtsLCbQgAUbej4SOY
+X-Proofpoint-GUID: 238ztTVra_zkw4_phXuv10HiwgJi6Bzj
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-04_04,2025-06-03_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 spamscore=0 impostorscore=0 mlxscore=0
+ mlxlogscore=999 malwarescore=0 bulkscore=0 phishscore=0 clxscore=1015
+ lowpriorityscore=0 priorityscore=1501 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506040158
+
+--_004_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_
+Content-Type: multipart/alternative;
+	boundary="_000_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_"
+
+--_000_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Evan,
+
+The legislated timeframe to respond to the requests is 45 days unless unles=
+s the time period is extended under section 15 of FIPPA, the time for respo=
+nding is suspended until you respond to a request for additional informatio=
+n to process your request in accordance with section 12.1 of FIPPA or until=
+ you respond to a fee estimate in accordance with section 82 of FIPPA; or i=
+f notice is given to an affected third party under section 33 of FIPPA.
+
+If there is a fee estimate, a letter will be issued outlining the fee proce=
+ss and how to ask for a fee waiver.
+
+Duplicate documents will be removed or noted in the files.
+
+Redactions will be applied according to the legislation and will be process=
+ed in accordance with our branch procedures.
+
+Thanks,
+Paige Mackelson [cid:image001.png@01DBD560.37A3A5D0]
+Access Manager, Access and Privacy Branch
+Government of Manitoba
+204-945-3262| paige.mackelson@gov.mb.ca<mailto:paige.mackelson@gov.mb.ca>
+
+From: Evan Rosner <evanroz@gmail.com>
+Sent: June 3, 2025 12:21 PM
+To: +WPG725 - FIPPA Unit A <FIPPAUnitA@gov.mb.ca>
+Subject: Re: 2526-PSD-0559, 2526-PSD-0569, 2526-PSD-0617, 2526-PSD-0618, 25=
+26-PSD-0629, 2526-PSD-0630, 2526-PSD-0631, 2526-PSD-0632 and 2526-PSD-0639
+
+Hello Pagie, File No. Final scope (confirmed) Action 2526-PSD-0559 Form 3 /=
+ Schedule 3 =E2=80=93 Landlord=E2=80=99s Summary Information =E2=80=93 Appl=
+ication for AGI for 585 Corydon (years 2017, 2018, 2023, 2024, 2025). Retai=
+n 2526-PSD-0569 For Kathryn Ateah (Suite
+
+Hello Pagie,
+
+
+File No.
+Final scope (confirmed)
+Action
+2526-PSD-0559
+Form 3 / Schedule 3 =E2=80=93 Landlord=E2=80=99s Summary Information =E2=80=
+=93 Application for AGI for 585 Corydon (years 2017, 2018, 2023, 2024, 2025=
+).
+Retain
+2526-PSD-0569
+For Kathryn Ateah (Suite 11) =E2=80=93 Form 8, Form 5, Form 16 & Form 17 (1=
+ Nov 2021 =E2=80=93 1 May 2025).
+Retain =E2=80=93 Branch to obtain Kathryn=E2=80=99s written consent.
+2526-PSD-0617
+For Julie Laube & Kodi Gilchrist (Suite 4) =E2=80=93 Form 8, Form 5, Form 1=
+6 & Form 17 (1 Mar 2021 =E2=80=93 30 Apr 2025).
+Retain =E2=80=93 Branch to obtain Julie & Kodi=E2=80=99s written consent.
+2526-PSD-0629
+Maintenance/inspection reports submitted by the landlord re: common-area la=
+undry, storage lockers, unit renovations & in-suite laundry for each suite =
+at 585 Corydon (1 Jan 2024 =E2=80=93 1 May 2025).
+Retain
+2526-PSD-0631
+Reason for Decision for Above-Guideline Rent Increase (AGI) for 585 Corydon=
+ (1 Jan 2020 =E2=80=93 1 May 2025).
+Retain
+2526-PSD-0639
+E-mails regarding issuance of RTB Order WD2024-001539 and the related Form =
+8 =E2=80=93 Notice to Tenant =E2=80=93 Permanent Reduction or Withdrawal of=
+ Service for Suite 10 (1 Jan 2017 =E2=80=93 1 May 2025).
+Retain =E2=80=93 Order number confirmed.
+2526-PSD-0618
+=E2=80=94
+Withdrawn (scope now covered by other files).
+2526-PSD-0630
+=E2=80=94
+Withdrawn (duplicates 0569/0617/0639).
+2526-PSD-0632
+=E2=80=94
+Withdrawn (information already on file).
+
+
+Please confirm that:
+
+  1.  Each active file retains the original 45-day statutory response deadl=
+ine (3 Jun =E2=86=92 18 Jul 2025).
+  2.  Any fee estimates will reflect these narrowed scopes and our public-i=
+nterest fee-waiver request under s. 82(1).
+  3.  Duplicate documents will be indexed once and cross-referenced, not co=
+pied.
+  4.  Given the statutory deadlines in the RTB appeal process, I request th=
+at documents requiring little or no redactio be disclosed as soon as they a=
+re located, rather than held to Day 45. This interim release would satisfy =
+FIPPA s. 9=E2=80=99s =E2=80=98without delay=E2=80=99 duty while the Branch =
+completes its review of the remaining material
+
+I appreciate your assistance in streamlining the process.
+
+Best regards,
+Evan Rosner
+Suite 10 =E2=80=93 585 Corydon Ave., Winnipeg
+(204) 899-1499 | evanroz@gmail.com<mailto:evanroz@gmail.com>
+
+
+On Tue, Jun 3, 2025 at 12:13=E2=80=AFPM +WPG725 - FIPPA Unit A <FIPPAUnitA@=
+gov.mb.ca<mailto:FIPPAUnitA@gov.mb.ca>> wrote:
+Hi Evan,
+
+Thanks for the call today. As discussed, below are the requests we discusse=
+d today.
+
+
+2526-PSD-0559
+All Residential Tenancies Branch records that contain my personal informati=
+on as tenant of Suite 10, 585 Corydon Avenue, including but not limited to:=
+ Form 3 / Schedule 3 Above-Guideline Rent Increase applications that list S=
+uite 10 or 585 Corydon (2017, 2023, 2024, 2025) Form 4 Renewal or Amendment=
+ of Tenancy Agreement Form 8, 16 or 17 Withdrawal / Reduction of Service no=
+tices or valuations Any RTB Orders, Decisions, Notices of Hearing, Complian=
+ce or Penalty files naming Evan Rosner or Suite 10 All correspondence (lett=
+ers, e-mails, inspection notes) in RTB files that reference me or Suite 10 =
+(2023-2025)
+
+January 1, 2018 =E2=80=93 May 1, 2025
+
+You noted that you wanted to be sure you have all the Form 3/Schedule 3 - L=
+andlord=E2=80=99s Summary Information - Application for Above-Guideline Inc=
+rease for the following years: 2017, 2018, 2023, 2024, 2025
+
+Suggested Revised Request:
+
+Form 3/Schedule 3 - Landlord=E2=80=99s Summary Information - Application fo=
+r Above-Guideline Increase for 585 Corydon Avenue for the following years: =
+2017, 2018, 2023, 2024, 2025
+
+
+
+2526-PSD-0569
+All records held by the Residential Tenancies Branch and Residential Tenanc=
+ies Commission relating to Kathryn Ateah, 585 Corydon Ave, Suite 11, Winnip=
+eg (tenancy commenced Nov 2021). Please include rent-increase notices, Form=
+ 3/8 filings, work-order logs, complaint files, and any related inspection =
+records.
+
+November 1, 2021 =E2=80=93 May 1, 2025
+
+We discussed that Form 3/Schedule 3 would be for the complex, which you sho=
+uld received for 2526-PSD-559. You noted that what you=E2=80=99re intereste=
+d in is Form 8 - Notice to Tenant =E2=80=93 Permanent Reduction or Withdraw=
+al of Service, Form 5 =E2=80=93 Rental Unit Condition Report, Form 16 =E2=
+=80=93 Notice to Tenant =E2=80=93 Reduction or Withdrawal of Tenant Service=
+s and Form 17 - Application to Fix Value of Reduction or Withdrawal of Tena=
+nt Services  Before End of Fixed-Term Tenancy Agreement.
+
+Suggested Revised Request:
+
+For Kathryn Ateah, Suite 11 - 585 Corydon Ave:  Form 8 - Notice to Tenant =
+=E2=80=93 Permanent Reduction or Withdrawal of Service, Form 5 =E2=80=93 Re=
+ntal Unit Condition Report, Form 16 =E2=80=93 Notice to Tenant =E2=80=93 Re=
+duction or Withdrawal of Tenant Services and Form 17 - Application to Fix V=
+alue of Reduction or Withdrawal of Tenant Services  Before End of Fixed-Ter=
+m Tenancy Agreement.
+
+November 1, 2021 =E2=80=93 May 1, 2025
+
+*additional note, as Kathryn did not authorize these forms, once you confir=
+m the revision, we will reach out to Kathryn for authorization for consent.
+
+
+
+2526-PSD-0617
+All Residential Tenancies Branch records that contain the persona informati=
+on of the following tenants of Suite 4, 585 Corydon Avenue: Julie Laube ten=
+ancy Feb 2022 to present Kodi Gilchrist tenancy Feb 2022 to present. Includ=
+ing, but not limited to: Form 3 / Schedule 3 Above-Guideline Rent Increase =
+applications listing Suite 4 or 585 Corydon, Form 8, 16 or 17 Withdrawal / =
+Reduction of Service notices or valuations naming Suite 4.
+
+March 1, 2021 =E2=80=93 April 30, 2025
+
+We discussed that Form 3/Schedule 3 would be for the complex, which you sho=
+uld received for 2526-PSD-559. You noted that what you=E2=80=99re intereste=
+d in is Form 8 - Notice to Tenant =E2=80=93 Permanent Reduction or Withdraw=
+al of Service, Form 5 =E2=80=93 Rental Unit Condition Report, Form 16 =E2=
+=80=93 Notice to Tenant =E2=80=93 Reduction or Withdrawal of Tenant Service=
+s and Form 17 - Application to Fix Value of Reduction or Withdrawal of Tena=
+nt Services  Before End of Fixed-Term Tenancy Agreement.
+
+Suggested Revised Request:
+
+For Julie Laube and Kodi Gilchrist, Suite 4 - 585 Corydon Ave:  Form 8 - No=
+tice to Tenant =E2=80=93 Permanent Reduction or Withdrawal of Service, Form=
+ 5 =E2=80=93 Rental Unit Condition Report, Form 16 =E2=80=93 Notice to Tena=
+nt =E2=80=93 Reduction or Withdrawal of Tenant Services and Form 17 - Appli=
+cation to Fix Value of Reduction or Withdrawal of Tenant Services  Before E=
+nd of Fixed-Term Tenancy Agreement.
+
+March 1, 2021 =E2=80=93 April 30, 2025
+
+*additional note, as Julie and Kodi did not authorize these forms, once you=
+ confirm the revision, we will reach out to them for authorization for cons=
+ent.
+
+
+
+
+2526-PSD-0618
+All Residential Tenancies Branch records for the property at 585 Corydon Av=
+enue, Winnipeg MB, that do **not** contain tenants personal information, in=
+cluding: All Form 1A Notices of Rent Increase filed for any suite from 2017=
+-present, plus the RTBs filing index for Form 1A at this address. All Form =
+3 / Schedule 3 Above-Guideline Rent Increase (AGI) applications and RTB or =
+RTC Decisions regarding those AGIs for 2017-present. All Form 8, Form 16 or=
+ Form 17 Withdrawal/Reduction of Service notices, applications, or value-fi=
+xing Orders filed for 585 Corydon Avenue (any suite or common-area service)=
+. Any Administrative-Penalty files, Compliance Orders, Warning Letters, or =
+Inspection Reports issued to the owner or agent (Thorwin Properties, My Pla=
+ce Realty, or affiliates) for 585 Corydon Avenue since 2017. A print-out or=
+ electronic export from the RTB Orders System listing **every RTB Order** t=
+hat references 585 Corydon Avenue (regardless of suite) for 2017-present. A=
+ny Form 15 Notice of Tenant Service-Charge Increase, Form 5A/5B Rehabilitat=
+ion Scheme applications, or other applications that alter rent or service t=
+erms for the property during the same period. If personal information must =
+be severed under FIPPA, please release the remainder forthwith (s. 7(2)).
+
+January 1, 2017 =E2=80=93 April 30, 2025
+
+We discussed there various forms were related to Kathryn, Julie and Kodi, t=
+he forms were going to be added to their revised requests, therefore seekin=
+g confirmation with withdraw this request.
+
+
+
+2526-PSD-0629
+Pursuant to The Freedom of Information and Protection of Privacy Act (FIPPA=
+), I hereby request copies of the following records held by the Residential=
+ Tenancies Branch (RTB):    All correspondence (including e-mails, internal=
+ memos, notes, phone logs and attachments) dated 1 January 2023 to the pres=
+ent that contain any of the following names or e-mail addresses and referen=
+ce the residential complex 585 Corydon Avenue, Winnipeg or RTB File Nos. W2=
+024-005149-001, W2024-002994, W2021-003524-006:        Grant Steele (Thorwi=
+n Asset/Area Manager)        Celena Funk (Property Manager)        Dasha Do=
+rofeeva (Resident Community Manager)        Norma Leclerc-Behma (RTB Office=
+r / Rent Regulation)        Emma Pinpin (Thorwin Finance)        Robert Stu=
+rgeon (Thorwin Maintenance / Construction Lead)    Any Form 8 or Form 9 app=
+lications (and related submissions) filed by Thorwin Properties for 585 Cor=
+ydon Ave between 1 January 2024 and today, including amendments, decisions,=
+ and correspondence with RTB staff.    Maintenance or inspection reports cr=
+eated or received by the RTB relating to common-area laundry removal, stora=
+ge-locker removal, or unit renovations at 585 Corydon Ave for the same peri=
+od. Please provide the records in electronic form (PDF or original e-mail f=
+ormat). If portions must be severed under FIPPA s.17(1), kindly apply the s=
+everance principle in s.7(2) and release all remaining material. Fee waiver=
+ request: The records are sought to pursue tenants statutory rights under T=
+he Residential Tenancies Act and for submission to the Ombudsman; releasing=
+ them serves a public-interest purpose (FIPPA s.82(1)).
+
+January 1, 2024 =E2=80=93 May 1, 2025
+
+We discussed this request should focus on maintenance reports submitted by =
+the landlord related to common area laundry, storage lockers , unit renovat=
+ions and in-suit laundry - for each suit at 585 Corydon Ave
+
+Suggested Revised Request:
+
+Maintenance reports submitted by the landlord related to common area laundr=
+y, storage lockers , unit renovations and in-suit laundry and for each suit=
+ at 585 Corydon Ave.
+
+January 1, 2024 =E2=80=93 May 1, 2025
+
+
+
+2526-PSD-0630
+Pursuant to FIPPA, Im requesting the following: All versions of Form 8 and =
+Form 9 submitted by Thorwin Properties for 585 Corydon Avenue (Winnipeg), i=
+ncluding any cover letters, supporting documents, or date-stamped receipts;=
+ Related internal notes, decision memos, or correspondence linked to RTB Fi=
+le WD2024-001539 or associated applications.I am a tenant directly impacted=
+ by these filings. Please advise of any fees in advance. Electronic copies =
+preferred.
+
+January 1, 2024 =E2=80=93 May 1, 2025
+
+We discussed this request would be responded to in 2526-PSD-0569, 2526-PSD-=
+0617 and 2526-PSD-0639, therefore seeking confirmation with withdraw this r=
+equest.
+
+
+
+2526-PSD-0631
+I request access to all Above Guideline Increase (AGI) decisions, applicati=
+ons, and orders submitted by Thorwin Properties (or any affiliated entity) =
+between 2020 and 2025 across Manitoba. Specifically, I am seeking copies of=
+ NORIs, RTB orders, and AGI hearing decisions for addresses managed by Thor=
+win (e.g. 585 Corydon Ave, 81 Hargrave, etc.).Electronic PDF format preferr=
+ed. Thank you.
+
+January 1 2020 =E2=80=93 May 1, 2025
+
+We discussed that you were focused on the decision for the above guideline =
+rent increase.
+
+Suggested Revised Request:
+
+Reason for Decision for Rent Increase Above Guideline Increase for 585 Cory=
+don Ave
+
+January 1 2020 =E2=80=93 May 1, 2025
+
+
+
+2526-PSD-0632
+I am the tenant applicant in Residential Tenancies Branch file WD2024-00153=
+9 (Thorwin Properties  585 Corydon Avenue, Suite 10).For purposes of proper=
+ service and future communication, please confirm the current agent or lega=
+l counsel of record for the landlord in this matter. If available, kindly p=
+rovide:    Firm or individual name    Mailing address    Email address or f=
+ax number    Date of appointment on fileIf an administrative fee applies, p=
+lease let me know and I will remit payment promptly.Thank you for your assi=
+stance. I look forward to your reply.
+
+January 1, 2017 =E2=80=93 May 1, 2025
+
+We discussed you already had this information now, therefore seeking confir=
+mation with withdraw this request.
+
+
+
+2526-PSD-0639
+Dear FIPPA Coordinator, Pursuant to The Freedom of Information and Protecti=
+on of Privacy Act (FIPPA), I request access to the following records held b=
+y the Residential Tenancies Branch (RTB):    All Notices of Administrative =
+Penalty, Investigation Reports, Directors Decisions, and Payment Confirmati=
+ons issued between 1 January 2017 and today that name any of the following =
+entities or officers:        Thorwin Properties Inc. (including any numbere=
+d corporations under that brand)        My Place Realty Group of Companies =
+Ltd.        Kristjan Thorkelson (a.k.a. Kristjan Thorkelson), President/CEO=
+    Any Residential Tenancies Commission appeal filings or decisions arisin=
+g from the above penalties. If no responsive records exist, please provide =
+a no records confirmation letter.
+
+January 1, 2017 =E2=80=93 May 1, 2025
+
+We discussed you are looking for communication about RTB Order W2024-001539=
+ and Form 8
+
+Suggested Revised Request:
+Emails regarding the decision to issue order RTB Order W2024-001539 and For=
+m 8 - Notice to Tenant =E2=80=93 Permanent Reduction or Withdrawal of Servi=
+ce for Suite 10 - 585 Corydon Ave
+
+January 1, 2017 =E2=80=93 May 1, 2025
+
+*additional note, please confirm the Order Number!
+
+
+
+
+Look forward to your response,
+
+Thanks,
+
+
+Paige Mackelson [cid:image001.png@01DBD560.37A3A5D0]
+Access Manager, Access and Privacy Branch
+Government of Manitoba
+204-945-3262| paige.mackelson@gov.mb.ca<mailto:paige.mackelson@gov.mb.ca>
+
+
+--_000_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Sylfaen;
+	panose-1:1 10 5 2 5 3 6 3 3 3;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.EmailStyle22
+	{mso-style-type:personal-reply;
+	font-family:"Sylfaen",serif;
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:11.0pt;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:375785505;
+	mso-list-template-ids:295968194;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:1137143542;
+	mso-list-template-ids:1524299410;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1173570395;
+	mso-list-template-ids:-109034742;}
+@list l2:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3
+	{mso-list-id:1425032909;
+	mso-list-template-ids:-109034742;}
+@list l3:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4
+	{mso-list-id:1912155284;
+	mso-list-template-ids:-349004936;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:=EF=82=B7;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">Hi Evan,
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US"><o:p>&nbsp;</o:=
+p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">The legislated =
+timeframe to respond to the requests is 45 days unless
+</span><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&quot;Syl=
+faen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">unless the time =
+period is extended under section 15 of FIPPA<i>,
+</i>the time for responding is suspended until you respond to a request for=
+ additional information to process your request in accordance with section =
+12.1 of FIPPA or until you respond to a fee estimate in accordance with sec=
+tion 82 of FIPPA; or if notice is
+ given to an affected third party under section 33 of FIPPA.<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+<o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+If there is a fee estimate, a letter will be issued outlining the fee proce=
+ss and how to ask for a fee waiver.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+<o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+Duplicate documents will be removed or noted in the files.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+<o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+Redactions will be applied according to the legislation and will be process=
+ed in accordance with our branch procedures.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+<o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-=
+family:&quot;Sylfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US">=
+Thanks,
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Sylfaen&quot;,seri=
+f;color:#1F497D;mso-fareast-language:EN-US"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:black">Paige Mackelson</span><span style=3D"font-si=
+ze:11.0pt;color:#1F497D">
+</span><span style=3D"color:#1F497D"><img width=3D"50" height=3D"52" style=
+=3D"width:.5166in;height:.5416in" id=3D"Picture_x0020_471348799" src=3D"cid=
+:image001.png@01DBD560.37A3A5D0"></span><span style=3D"font-size:11.0pt;fon=
+t-family:&quot;Sylfaen&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:black">Access Manager, Access and Privacy Branch<o:=
+p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:black">Government of Manitoba<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:black">204-945-3262|</span><span style=3D"font-size=
+:11.0pt;font-family:&quot;Sylfaen&quot;,serif;color:#1F497D">&nbsp;</span><=
+span style=3D"color:#1F497D"><a href=3D"mailto:paige.mackelson@gov.mb.ca"><=
+span style=3D"font-size:11.0pt;font-family:&quot;Sylfaen&quot;,serif;color:=
+#0563C1">paige.mackelson@gov.mb.ca</span></a></span><span style=3D"font-siz=
+e:11.0pt;font-family:&quot;Sylfaen&quot;,serif;color:#1F497D"><o:p></o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Sy=
+lfaen&quot;,serif;color:#1F497D;mso-fareast-language:EN-US"><o:p>&nbsp;</o:=
+p></span></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif">From:</span></b><span lang=3D"EN-=
+US" style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"> =
+Evan Rosner &lt;evanroz@gmail.com&gt;
+<br>
+<b>Sent:</b> June 3, 2025 12:21 PM<br>
+<b>To:</b> +WPG725 - FIPPA Unit A &lt;FIPPAUnitA@gov.mb.ca&gt;<br>
+<b>Subject:</b> Re: 2526-PSD-0559, 2526-PSD-0569, 2526-PSD-0617, 2526-PSD-0=
+618, 2526-PSD-0629, 2526-PSD-0630, 2526-PSD-0631, 2526-PSD-0632 and 2526-PS=
+D-0639<o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Hello Pagie, File No. Final scope (confirmed) A=
+ction 2526-PSD-0559 Form 3 / Schedule 3 =E2=80=93 Landlord=E2=80=99s Summar=
+y Information =E2=80=93 Application for AGI for 585 Corydon (years
+ 2017, 2018, 2023, 2024, 2025). Retain 2526-PSD-0569 For Kathryn Ateah (Sui=
+te<o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"3" cellpadding=
+=3D"0">
+<thead>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b>Hell=
+o Pagie,<br>
+<br>
+<br>
+File No.<o:p></o:p></b></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b>Fina=
+l scope (confirmed)<o:p></o:p></b></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><b>Acti=
+on<o:p></o:p></b></p>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0559</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><em><span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">Form 3 / Schedule 3 =E2=80=93 Landlord=E2=80=99s Summary Informati=
+on =E2=80=93 Application for AGI</span></em> for
+<strong><span style=3D"font-family:&quot;Aptos&quot;,sans-serif">585 Corydo=
+n</span></strong> (years 2017, 2018, 2023, 2024, 2025).<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Retain</span></strong><o:p></o:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0569</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal">For <strong><span style=3D"font-family:&quot;Aptos&q=
+uot;,sans-serif">Kathryn Ateah (Suite 11)</span></strong> =E2=80=93 Form 8,=
+ Form 5, Form 16 &amp; Form 17 (1 Nov 2021 =E2=80=93 1 May 2025).<o:p></o:p=
+></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Retain</span></strong> =E2=80=93 Branch to obtain Kathryn=E2=
+=80=99s written consent.<o:p></o:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0617</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal">For <strong><span style=3D"font-family:&quot;Aptos&q=
+uot;,sans-serif">Julie Laube &amp; Kodi Gilchrist (Suite 4)</span></strong>=
+ =E2=80=93 Form 8, Form 5, Form 16 &amp; Form 17 (1 Mar 2021 =E2=80=93 30 A=
+pr 2025).<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Retain</span></strong> =E2=80=93 Branch to obtain Julie &amp; =
+Kodi=E2=80=99s written consent.<o:p></o:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0629</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal">Maintenance/inspection reports submitted by the land=
+lord re: common-area laundry, storage lockers, unit renovations &amp; in-su=
+ite laundry for each suite at 585 Corydon (1 Jan 2024 =E2=80=93 1 May 2025)=
+.<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Retain</span></strong><o:p></o:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0631</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><em><span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">Reason for Decision</span></em> for Above-Guideline Rent Increase =
+(AGI) for
+<strong><span style=3D"font-family:&quot;Aptos&quot;,sans-serif">585 Corydo=
+n</span></strong> (1 Jan 2020 =E2=80=93 1 May 2025).<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Retain</span></strong><o:p></o:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0639</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal">E-mails regarding issuance of <strong><span style=3D=
+"font-family:&quot;Aptos&quot;,sans-serif">RTB Order WD2024-001539</span></=
+strong> and the related
+<em><span style=3D"font-family:&quot;Aptos&quot;,sans-serif">Form 8 =E2=80=
+=93 Notice to Tenant =E2=80=93 Permanent Reduction or Withdrawal of Service=
+</span></em> for
+<strong><span style=3D"font-family:&quot;Aptos&quot;,sans-serif">Suite 10</=
+span></strong> (1 Jan 2017 =E2=80=93 1 May 2025).<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Retain</span></strong> =E2=80=93 Order number confirmed.<o:p><=
+/o:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0618</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal">=E2=80=94<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Withdrawn</span></strong> (scope now covered by other files).<=
+o:p></o:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0630</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal">=E2=80=94<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Withdrawn</span></strong> (duplicates 0569/0617/0639).<o:p></o=
+:p></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">2526-PSD-0632</span></strong><o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal">=E2=80=94<o:p></o:p></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal"><strong><span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif">Withdrawn</span></strong> (information already on file).<o:p><=
+/o:p></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p>Please confirm that:<o:p></o:p></p>
+<ol start=3D"1" type=3D"1">
+<li style=3D"mso-list:l2 level1 lfo2">Each <strong><span style=3D"font-fami=
+ly:&quot;Aptos&quot;,sans-serif">active file retains the original 45-day st=
+atutory response deadline (3 Jun =E2=86=92 18 Jul 2025)</span></strong>.<o:=
+p></o:p></li><li style=3D"mso-list:l2 level1 lfo2">Any fee estimates will r=
+eflect these narrowed scopes and our public-interest fee-waiver request und=
+er s. 82(1).<o:p></o:p></li><li style=3D"mso-list:l2 level1 lfo2">Duplicate=
+ documents will be indexed once and cross-referenced, not copied.<o:p></o:p=
+></li><li class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-b=
+ottom-alt:auto;mso-list:l2 level1 lfo2">
+Given the statutory deadlines in the RTB appeal process, I request that doc=
+uments requiring little or no redactio be disclosed as soon as they are loc=
+ated, rather than held to Day 45. This interim release would satisfy FIPPA =
+s. 9=E2=80=99s =E2=80=98without delay=E2=80=99 duty while
+ the Branch completes its review of the remaining material<o:p></o:p></li><=
+/ol>
+<p>I appreciate your assistance in streamlining the process.<o:p></o:p></p>
+<p>Best regards,<br>
+<strong><span style=3D"font-family:&quot;Aptos&quot;,sans-serif">Evan Rosne=
+r</span></strong><br>
+Suite 10 =E2=80=93 585 Corydon Ave., Winnipeg<br>
+(204) 899-1499 | <a href=3D"mailto:evanroz@gmail.com">evanroz@gmail.com</a>=
+<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Tue, Jun 3, 2025 at 12:13<span style=3D"font-fami=
+ly:&quot;Arial&quot;,sans-serif">=E2=80=AF</span>PM +WPG725 - FIPPA Unit A =
+&lt;<a href=3D"mailto:FIPPAUnitA@gov.mb.ca">FIPPAUnitA@gov.mb.ca</a>&gt; wr=
+ote:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-right:0cm">
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Hi Evan,
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Thanks for t=
+he call today. As discussed, below are the requests we discussed today.
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0559</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">All Resident=
+ial Tenancies Branch records that contain my personal information as tenant=
+ of Suite 10, 585 Corydon Avenue, including but
+ not limited to: Form 3 / Schedule 3 Above-Guideline Rent Increase applicat=
+ions that list Suite 10 or 585 Corydon (2017, 2023, 2024, 2025) Form 4 Rene=
+wal or Amendment of Tenancy Agreement Form 8, 16 or 17 Withdrawal / Reducti=
+on of Service notices or valuations
+ Any RTB Orders, Decisions, Notices of Hearing, Compliance or Penalty files=
+ naming Evan Rosner or Suite 10 All correspondence (letters, e-mails, inspe=
+ction notes) in RTB files that reference me or Suite 10 (2023-2025)</span><=
+o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+018 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">You noted th=
+at you wanted to be sure you have all the Form 3/Schedule 3 - Landlord=E2=
+=80=99s Summary Information - Application for Above-Guideline
+ Increase for the following years: 2017, 2018, 2023, 2024, 2025</span><o:p>=
+</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Suggested=
+ Revised Request:</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Form 3/Sched=
+ule 3 - Landlord=E2=80=99s Summary Information - Application for Above-Guid=
+eline Increase for 585 Corydon Avenue for the following
+ years: 2017, 2018, 2023, 2024, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0569</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">All records =
+held by the Residential Tenancies Branch and Residential Tenancies Commissi=
+on relating to Kathryn Ateah, 585 Corydon Ave, Suite
+ 11, Winnipeg (tenancy commenced Nov 2021). Please include rent-increase no=
+tices, Form 3/8 filings, work-order logs, complaint files, and any related =
+inspection records.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">November 1, =
+2021 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ that Form 3/Schedule 3 would be for the complex, which you should received=
+ for 2526-PSD-559. You noted that what you=E2=80=99re interested
+ in is Form 8 - Notice to Tenant =E2=80=93 Permanent Reduction or Withdrawa=
+l of Service, Form 5 =E2=80=93 Rental Unit Condition Report, Form 16 =E2=80=
+=93 Notice to Tenant =E2=80=93 Reduction or Withdrawal of Tenant Services a=
+nd Form 17 -
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,serif"=
+>Application to Fix Value of Reduction or Withdrawal of Tenant Services &nb=
+sp;Before End of Fixed-Term Tenancy Agreement.
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</s=
+pan></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Suggested=
+ Revised Request:</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">For Kathryn =
+Ateah, Suite 11 - 585 Corydon Ave: &nbsp;Form 8 - Notice to Tenant =E2=80=
+=93 Permanent Reduction or Withdrawal of Service, Form 5 =E2=80=93 Rental
+ Unit Condition Report, Form 16 =E2=80=93 Notice to Tenant =E2=80=93 Reduct=
+ion or Withdrawal of Tenant Services and Form 17 -
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,serif"=
+>Application to Fix Value of Reduction or Withdrawal of Tenant Services &nb=
+sp;Before End of Fixed-Term Tenancy Agreement.
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,seri=
+f">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">November 1, =
+2021 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,seri=
+f">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,seri=
+f">*additional note, as Kathryn did not authorize these forms, once you con=
+firm the revision, we will reach out to Kathryn for
+ authorization for consent. </span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</s=
+pan></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0617</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">All Resident=
+ial Tenancies Branch records that contain the persona information of the fo=
+llowing tenants of Suite 4, 585 Corydon Avenue:
+ Julie Laube tenancy Feb 2022 to present Kodi Gilchrist tenancy Feb 2022 to=
+ present. Including, but not limited to: Form 3 / Schedule 3 Above-Guidelin=
+e Rent Increase applications listing Suite 4 or 585 Corydon, Form 8, 16 or =
+17 Withdrawal / Reduction of Service
+ notices or valuations naming Suite 4.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">March 1, 202=
+1 =E2=80=93 April 30, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ that Form 3/Schedule 3 would be for the complex, which you should received=
+ for 2526-PSD-559. You noted that what you=E2=80=99re interested
+ in is Form 8 - Notice to Tenant =E2=80=93 Permanent Reduction or Withdrawa=
+l of Service, Form 5 =E2=80=93 Rental Unit Condition Report, Form 16 =E2=80=
+=93 Notice to Tenant =E2=80=93 Reduction or Withdrawal of Tenant Services a=
+nd Form 17 -
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,serif"=
+>Application to Fix Value of Reduction or Withdrawal of Tenant Services &nb=
+sp;Before End of Fixed-Term Tenancy Agreement.
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</s=
+pan></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Suggested=
+ Revised Request:</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">For Julie La=
+ube and Kodi Gilchrist, Suite 4 - 585 Corydon Ave: &nbsp;Form 8 - Notice to=
+ Tenant =E2=80=93 Permanent Reduction or Withdrawal of Service,
+ Form 5 =E2=80=93 Rental Unit Condition Report, Form 16 =E2=80=93 Notice to=
+ Tenant =E2=80=93 Reduction or Withdrawal of Tenant Services and Form 17 -
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,serif"=
+>Application to Fix Value of Reduction or Withdrawal of Tenant Services &nb=
+sp;Before End of Fixed-Term Tenancy Agreement.
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,seri=
+f">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">March 1, 202=
+1 =E2=80=93 April 30, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,seri=
+f">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,seri=
+f">*additional note, as Julie and Kodi did not authorize these forms, once =
+you confirm the revision, we will reach out to them
+ for authorization for consent. </span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-family:&quot;Sylfaen&quot;,seri=
+f">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0618</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">All Resident=
+ial Tenancies Branch records for the property at 585 Corydon Avenue, Winnip=
+eg MB, that do **not** contain tenants personal
+ information, including: All Form 1A Notices of Rent Increase filed for any=
+ suite from 2017-present, plus the RTBs filing index for Form 1A at this ad=
+dress. All Form 3 / Schedule 3 Above-Guideline Rent Increase (AGI) applicat=
+ions and RTB or RTC Decisions regarding
+ those AGIs for 2017-present. All Form 8, Form 16 or Form 17 Withdrawal/Red=
+uction of Service notices, applications, or value-fixing Orders filed for 5=
+85 Corydon Avenue (any suite or common-area service). Any Administrative-Pe=
+nalty files, Compliance Orders,
+ Warning Letters, or Inspection Reports issued to the owner or agent (Thorw=
+in Properties, My Place Realty, or affiliates) for 585 Corydon Avenue since=
+ 2017. A print-out or electronic export from the RTB Orders System listing =
+**every RTB Order** that references
+ 585 Corydon Avenue (regardless of suite) for 2017-present. Any Form 15 Not=
+ice of Tenant Service-Charge Increase, Form 5A/5B Rehabilitation Scheme app=
+lications, or other applications that alter rent or service terms for the p=
+roperty during the same period.
+ If personal information must be severed under FIPPA, please release the re=
+mainder forthwith (s. 7(2)).</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+017 =E2=80=93 April 30, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ there various forms were related to Kathryn, Julie and Kodi, the forms wer=
+e going to be added to their revised requests, therefore
+ seeking confirmation with withdraw this request. </span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0629</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Pursuant to =
+The Freedom of Information and Protection of Privacy Act (FIPPA), I hereby =
+request copies of the following records held by
+ the Residential Tenancies Branch (RTB):&nbsp;&nbsp;&nbsp; All corresponden=
+ce (including e-mails, internal memos, notes, phone logs and attachments) d=
+ated 1 January 2023 to the present that contain any of the following names =
+or e-mail addresses and reference the residential
+ complex 585 Corydon Avenue, Winnipeg or RTB File Nos. W2024-005149-001, W2=
+024-002994, W2021-003524-006:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gra=
+nt Steele (Thorwin Asset/Area Manager)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp; Celena Funk (Property Manager)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; Dasha Dorofeeva (Resident Community Manager)&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; Norma
+ Leclerc-Behma (RTB Officer / Rent Regulation)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp; Emma Pinpin (Thorwin Finance)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp; Robert Sturgeon (Thorwin Maintenance / Construction Lead)&nbsp;&=
+nbsp;&nbsp; Any Form 8 or Form 9 applications (and related submissions) fil=
+ed by Thorwin Properties for 585 Corydon Ave
+ between 1 January 2024 and today, including amendments, decisions, and cor=
+respondence with RTB staff.&nbsp;&nbsp;&nbsp; Maintenance or inspection rep=
+orts created or received by the RTB relating to common-area laundry removal=
+, storage-locker removal, or unit renovations at
+ 585 Corydon Ave for the same period. Please provide the records in electro=
+nic form (PDF or original e-mail format). If portions must be severed under=
+ FIPPA s.17(1), kindly apply the severance principle in s.7(2) and release =
+all remaining material. Fee waiver
+ request: The records are sought to pursue tenants statutory rights under T=
+he Residential Tenancies Act and for submission to the Ombudsman; releasing=
+ them serves a public-interest purpose (FIPPA s.82(1)).</span><o:p></o:p></=
+p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+024 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ this request should focus on maintenance reports submitted by the landlord=
+ related to common area laundry, storage lockers
+ , unit renovations and in-suit laundry - for each suit at 585 Corydon Ave<=
+/span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Suggested=
+ Revised Request:</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Maintenance =
+reports submitted by the landlord related to common area laundry, storage l=
+ockers , unit renovations and in-suit laundry and
+ for each suit at 585 Corydon Ave.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+024 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0630</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Pursuant to =
+FIPPA, Im requesting the following: All versions of Form 8 and Form 9 submi=
+tted by Thorwin Properties for 585 Corydon Avenue
+ (Winnipeg), including any cover letters, supporting documents, or date-sta=
+mped receipts; Related internal notes, decision memos, or correspondence li=
+nked to RTB File WD2024-001539 or associated applications.I am a tenant dir=
+ectly impacted by these filings.
+ Please advise of any fees in advance. Electronic copies preferred.</span><=
+o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+024 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ this request would be responded to in 2526-PSD-0569, 2526-PSD-0617 and 252=
+6-PSD-0639, therefore seeking confirmation with
+ withdraw this request. </span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0631</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">I request ac=
+cess to all Above Guideline Increase (AGI) decisions, applications, and ord=
+ers submitted by Thorwin Properties (or any affiliated
+ entity) between 2020 and 2025 across Manitoba. Specifically, I am seeking =
+copies of NORIs, RTB orders, and AGI hearing decisions for addresses manage=
+d by Thorwin (e.g. 585 Corydon Ave, 81 Hargrave, etc.).Electronic PDF forma=
+t preferred. Thank you.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1 20=
+20 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ that you were focused on the decision for the above guideline rent increas=
+e.
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Suggested=
+ Revised Request:</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Reason for D=
+ecision for Rent Increase Above Guideline Increase for 585 Corydon Ave</spa=
+n><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1 20=
+20 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0632</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">I am the ten=
+ant applicant in Residential Tenancies Branch file WD2024-001539 (Thorwin P=
+roperties&nbsp; 585 Corydon Avenue, Suite 10).For purposes
+ of proper service and future communication, please confirm the current age=
+nt or legal counsel of record for the landlord in this matter. If available=
+, kindly provide:&nbsp;&nbsp;&nbsp; Firm or individual name&nbsp;&nbsp;&nbs=
+p; Mailing address&nbsp;&nbsp;&nbsp; Email address or fax number&nbsp;&nbsp=
+;&nbsp; Date of appointment
+ on fileIf an administrative fee applies, please let me know and I will rem=
+it payment promptly.Thank you for your assistance. I look forward to your r=
+eply.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+017 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ you already had this information now, therefore seeking confirmation with =
+withdraw this request.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">2526-P=
+SD-0639</span></u></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Dear FIPPA C=
+oordinator, Pursuant to The Freedom of Information and Protection of Privac=
+y Act (FIPPA), I request access to the following
+ records held by the Residential Tenancies Branch (RTB):&nbsp;&nbsp;&nbsp; =
+All Notices of Administrative Penalty, Investigation Reports, Directors Dec=
+isions, and Payment Confirmations issued between 1 January 2017 and today t=
+hat name any of the following entities or officers:&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;
+ Thorwin Properties Inc. (including any numbered corporations under that br=
+and)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; My Place Realty Group of Com=
+panies Ltd.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kristjan Thorkelson (=
+a.k.a. Kristjan Thorkelson), President/CEO&nbsp;&nbsp;&nbsp; Any Residentia=
+l Tenancies Commission appeal filings or decisions
+ arising from the above penalties. If no responsive records exist, please p=
+rovide a no records confirmation letter.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+017 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">We discussed=
+ you are looking for communication about RTB Order W2024-001539 and Form 8
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Suggested=
+ Revised Request:</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Emails regar=
+ding the decision to issue order RTB Order W2024-001539 and Form 8 - Notice=
+ to Tenant =E2=80=93 Permanent Reduction or Withdrawal of
+ Service for Suite 10 - 585 Corydon Ave</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">January 1, 2=
+017 =E2=80=93 May 1, 2025</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">*additional =
+note, please confirm the Order Number!
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Look forward=
+ to your response,
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">Thanks,
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&nbsp;</span=
+><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif;color:black">=
+Paige Mackelson</span>
+<img border=3D"0" width=3D"50" height=3D"52" style=3D"width:.5166in;height:=
+.5416in" id=3D"m_-4279695471463474885Picture_x0020_1" src=3D"cid:image001.p=
+ng@01DBD560.37A3A5D0"><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif;color:black">=
+Access Manager, Access and Privacy Branch</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif;color:black">=
+Government of Manitoba</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-family:&quot;Sylfaen&quot;,serif;color:black">=
+204-945-3262|</span><span style=3D"font-family:&quot;Sylfaen&quot;,serif">&=
+nbsp;</span><a href=3D"mailto:paige.mackelson@gov.mb.ca" target=3D"_blank">=
+<span style=3D"font-size:11.0pt;font-family:&quot;Sylfaen&quot;,serif;color=
+:#0563C1">paige.mackelson@gov.mb.ca</span></a><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_--
+
+--_004_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=5141;
+	creation-date="Wed, 04 Jun 2025 19:51:59 GMT";
+	modification-date="Wed, 04 Jun 2025 19:51:59 GMT"
+Content-ID: <image001.png@01DBD560.37A3A5D0>
+Content-Transfer-Encoding: base64
+
+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
+AAAASUVORK5CYII=
+
+--_004_YQBPR0101MB8784214EB481967BB64C9B14A26CAYQBPR0101MB8784_--

@@ -1,0 +1,31 @@
+**SHA-256 Hashes for Uploaded Bike-Storage PDFs**
+
+| File Name                 | SHA-256 Digest                                                     |
+| ------------------------- | ------------------------------------------------------------------ |
+| Bike Storage Closet 1.pdf | `c6aec6cd668da8d8a48e9dc8ce2eb909ee910efcfff5c1830d711042f63d4b15` |
+| Bike Storage Closet 2.pdf | `8b700c02069826c4c3526c85480e39f253808c8307f8ec618477b5a32af543aa` |
+| NewBikeStorageMay291.pdf  | `c1d20a02e7c50a6b2e77b34df72d2f78a3704c89b3a5ec97bb5e3a5532fb3e3c` |
+| NewBikeStorageMay292.pdf  | `4e91260af1e065446a097589d47228c97036ef868b847ec7d085c8bca754759f` |
+
+---
+
+## Change Log: Evolution of the Bike-Storage Room
+
+1. **Baseline Entry (Bike Storage Closet 1 → 2)**
+
+   * **Door view**: originally a secure locker-room door with keypad reader, no interior visible .
+   * **Interior contents**: next image shows the room opened, revealing a folding chair, wooden pallet, paint buckets, and general construction debris .
+
+2. **First Update (Bike Storage Closet 2 → NewBikeStorageMay291)**
+
+   * **New equipment**: a full-size refrigerator and a portable dehumidifier have been placed inside, further encroaching on the bike-storage footprint .
+   * **Layout shift**: these items occupy the back wall, replacing any rack or bicycle-specific storage features.
+
+3. **Second Update (NewBikeStorageMay291 → NewBikeStorageMay292)**
+
+   * **Additional materials**: wooden pallets, two paint buckets, a broom, and various loose construction supplies now fill the room more densely .
+   * **Obstruction escalation**: the accumulating debris illustrates progressive repurposing and complete withholding of the space from tenants.
+
+---
+
+*These SHA-256 hashes and the documented change log establish a verifiable chain of custody and clearly trace how the bike-storage area has been transformed over time.*

@@ -1,0 +1,5 @@
+*.DS_Store
+__pycache__/
+00 Automation/*.log
+*.zip
+*.sha256.txt

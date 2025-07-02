@@ -1,0 +1,401 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a05:612c:2d84:b0:4d4:ff59:c909 with SMTP id jb4csp4351993vqb;
+        Wed, 4 Jun 2025 13:24:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEp5xZaBUOxHThsa+Pmyf+e7xhk8K7H4go+iBmMq0AqMNemJQ+bi2e4DP7Hpv6dOJ/YNHwC
+X-Received: by 2002:a05:6402:50c9:b0:604:e602:77a5 with SMTP id 4fb4d7f45d1cf-606ea17c95emr4086292a12.15.1749068666953;
+        Wed, 04 Jun 2025 13:24:26 -0700 (PDT)
+Return-Path: <rtb@gov.mb.ca>
+Received: from mx0d-004a1001.pphosted.com (mx0d-004a1001.pphosted.com. [67.231.150.154])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-6070c569244si1004129a12.122.2025.06.04.13.24.26
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 04 Jun 2025 13:24:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rtb@gov.mb.ca designates 67.231.150.154 as permitted sender) client-ip=67.231.150.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=2-9-24 header.b=HMWfgrOk;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=AiL0KYzU;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of rtb@gov.mb.ca designates 67.231.150.154 as permitted sender) smtp.mailfrom=rtb@gov.mb.ca;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274428.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 554Hdwf4016825
+	for <evanroz@gmail.com>; Wed, 4 Jun 2025 15:24:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=2-9-24; bh=btU7ZXleC77xoAQ/kPFItNVpqcP
+	iSctcPs/+5qxCkHo=; b=HMWfgrOked2jSLwIA/dyORYd5jcPYgODuvfUJLCdBYW
+	U1nJzPQVVXazpLbNWbxEYa1NyELz9Gpvjd6aQ40ZM9b23//gE3AmKGp61XxKAo6W
+	xZ6JUd2fXX8xnZtTNeSt6zP/UDnHOvAgCpN1y9tLjr8IKwxk8prIJY2BZdlBU475
+	7iofbS7ezC3G9G2AiZb6FZLrfvqPD2r3zHTn2PhQBlITVM/oqdimpFIV6/InzYFX
+	z+K1c5I1ZIQ7TWcT5cbJVOZOxUY7Q0v4c5SQsFoLunbbZTdRrlJ5PQkIXJoT/I94
+	z0XZfRC2liVN2hkjI768redmClrbFgPcki7UsS1CdRQ==
+Received: from yt6pr01cu002.outbound.protection.outlook.com (mail-canadacentralazon11012044.outbound.protection.outlook.com [40.107.193.44])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 471r3gjh5y-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Wed, 04 Jun 2025 15:24:25 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R2jTrjePWZnfn2iN2MnCidSLCnE1mypI4qo6Gj9sTYXsY8Z5a0wg+IxPeSSjIad1QbYQ5K+q1oSZHbceQ0EUcpmFklaY5g9o7BjU2zNg8SWpSGyeRPw7SsqhpTpMePV4eI2zzCD5DJUGMkpukT2xkz4PcXBR+URMrIsco8oX/Z9p3l1orIV4/IyFLipI9kqQ4vVekRFWMiB33txAxe0tpNfmQZEqhuFtNCV8h31uKoWA+tVpT6dqAK2HVgUdg8+73m8nVYCEHr5r7p37pQQ0hE7+nCAls3QeEvuDBIzfrLFIWpiw5cHKbc0zh9nt6uG1GjVsm7q6pRWEz6I7MppfNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6eLsVWmn6rkth3TZUrVwxXCIKZ4CqH9dxRna0elL8aI=;
+ b=uw5UW2pIzBTrl78hbu1vHRBFet5pA7rq5LtkS6SPzfMlSiGHlGYAcOU2P6oy8Nc9CY+C5NyHIoe3zDUOLmJUJTz8wp718/wqBGjBnAI2Prdig80Lnp6XEWbJyZp+vzgxWCqtGuGkvpTsx6KCuXJhdEtdPO5jADZ+uXNfja41ttLGXXFcuLtuqfb2kMFlHqdiKIm9iJ8gs6vWBwzarTNbRXA6OONy+f0uQwREdr0sryxRfl0sStMaLhykqxbxyn1c6wiISjecbU29WzfStbTBph1nReEbrzNK2A2dRpQjNO42tMx/jaSyp1QWK1XnLmi/knKq/R6f8N9VFmJDfQiArA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6eLsVWmn6rkth3TZUrVwxXCIKZ4CqH9dxRna0elL8aI=;
+ b=AiL0KYzU9JtHwaPFvUsdWx6yZNpRVAuzN5H+RCzsISiRN0sNKGly0KjJjkjY36Cyuexgb2oML5wYwyN/xJowHCbajBQY7ppMS9g8sdFQ+mR8nRp8+k/aYkq9oK8uWehMJgJxWaZHTdeBCmc+z6Duc7ZA/6v36+4pPCA38GXDg+s=
+Received: from YT1PR01MB9130.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:cd::21)
+ by YT6PR01MB10903.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:11d::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Wed, 4 Jun
+ 2025 20:24:21 +0000
+Received: from YT1PR01MB9130.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::31bb:f885:f1f1:2261]) by YT1PR01MB9130.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::31bb:f885:f1f1:2261%4]) with mapi id 15.20.8792.034; Wed, 4 Jun 2025
+ 20:24:21 +0000
+From: +WPG725 - CCA RTB <rtb@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: RE: Tenant's Request for Repairs
+Thread-Topic: Tenant's Request for Repairs
+Thread-Index: AQHb1XCMnoDb7285AkagcoQKCjdenrPzckAA
+Date: Wed, 4 Jun 2025 20:24:21 +0000
+Message-ID:
+ <YT1PR01MB9130D5910AF4505CD6649465BC6CA@YT1PR01MB9130.CANPRD01.PROD.OUTLOOK.COM>
+References:
+ <CABQF09GTCw+6aOJF1A+2=2m9GpF_2T4G8DDoc5n4kmr+hbQ9=A@mail.gmail.com>
+In-Reply-To:
+ <CABQF09GTCw+6aOJF1A+2=2m9GpF_2T4G8DDoc5n4kmr+hbQ9=A@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT1PR01MB9130:EE_|YT6PR01MB10903:EE_
+x-ms-office365-filtering-correlation-id: 58e7f8c5-7612-4495-9676-08dda3a5ca64
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|376014|366016|7053199007|8096899003|38070700018;
+x-microsoft-antispam-message-info:
+ =?utf-8?B?VjVUVFpmWGJQeTVhK294ZnZ6M1hqd3pPS3FWS1Bld0RYWkxvMVlWUHExeTM3?=
+ =?utf-8?B?RWVqNkZKZjdmUDJtY2k5WHk1RDF3Ulc0SGdQY0l3NVlYRFhHdVhWa2Y4cmZx?=
+ =?utf-8?B?V3JoMWZaS244V3BkWXBJL3VCY1BkUzg4U1g1UFF5UmhDVnd3N2JDdW9IWU0x?=
+ =?utf-8?B?SlIwYlovcG5hY2Y3VWU4WWh2UjB5b3p4aE9TY2ludHNFS01nMlhBRVRBSFha?=
+ =?utf-8?B?YjNHbGc0WFF5TWU0aVk2cTdsN2VCZTYybDZ6Y1I1aEdLM1dpY2Z4dld3b3Vi?=
+ =?utf-8?B?aUduNjhzeGpsTVBZT2E4ck5NSVhWa1R0SzNEWkdndDZ6MEU0NkZ3SFJoSFE5?=
+ =?utf-8?B?ekZxTWZHTzQzRDByTXpYU3RJcE9WRkJJMUJoU2RLQUwrb1BzQ3h4S3VjSjNr?=
+ =?utf-8?B?YjczMEJZUTg2TG5JMFJWL0VFVkRUUVlEQWg1YTRrMUdGMjJrazFIZDRleER4?=
+ =?utf-8?B?MFBpZ0NZQTV1bVpiUWFOazFnT1g4U3JpWGdTc0ZwSTNBb1hoRW1laHplU0VW?=
+ =?utf-8?B?Z1VoRXF1a2d6bllSTEp0UmQySjIycXVIckNDU2ZFbEVUQWFnekNld3d4ZGl6?=
+ =?utf-8?B?eVpRWjRkWkxuenhLMTIwY253aFhyNHpwNm9XK2RsekNCUlgwR3JPVUozODYv?=
+ =?utf-8?B?aGc5RWJtaEphaDUrVklvN1FRYnlGZWhQZi83YUdyMUEzT25UWitQRnllck00?=
+ =?utf-8?B?dG43RDRLaXllazRMS0NST2ZWUTBobHNNUHd6UVBjZExldDBMT0gva0RVaUcv?=
+ =?utf-8?B?YzFHMzFLSGtGUko5N25Ya1BzNG9DRFdUS2lrbzBVR2IzT09tYUJMQ09tcUUw?=
+ =?utf-8?B?ZDVMSmRIRHBwSGVaYWpXenlReGt6VXJWOE9OTzNSdkdLZ2I4RUlaY2Q1REtO?=
+ =?utf-8?B?YVdZbHl5UkE0b2N6c0JhSzJheDZmUVNWMG5lQjhTSWp2MzVpbE5uL2ljUW96?=
+ =?utf-8?B?WWZ6N0tqZkZsd2FhVENqdjhRcmlNdlhrdXQrWmROMStnQWhCMW9tM1R0ZDdI?=
+ =?utf-8?B?V0hpWktCSEdOL09qcGNBZndqZVU1T2laYnVWY09TZTVUa1h2alI3Y0RsMHpR?=
+ =?utf-8?B?NmNNbytlR1pEYlhqNHkzRVFoZHdhL1JwZnBuWnRlc2NwY1k4ZFNjZGdGbzNN?=
+ =?utf-8?B?YVVLSWloNlYzc3BNeTNPcHkvZWZxV1IydWZnb3NuMHBDV0tZRkFvWFpzclVt?=
+ =?utf-8?B?dCtMZjEvemRVQlc5ZkdkekxNS3JicWhwOXpsbEl5RHhCdlRiS0w2bUVZTDVl?=
+ =?utf-8?B?ditmQ01qZzhaU0RlNUVnUG1jNmhBS2s3SDFJV0FoWVAvYll5bUUzYWNCaWpt?=
+ =?utf-8?B?cFhoRWcwY2t1QVRST1h5WWNVTDB4cUMrK3R6WFRkQzJpUlNrZ1FWckVNUG9U?=
+ =?utf-8?B?TnpQbG9iZExyUGdzdHNhRy9OeGFtUjk1UVhTRkc5RnowQThWTlRISVNzTStS?=
+ =?utf-8?B?VG40VmU1M01JV05vOVRJc0trRFgxdCtxdEtWTm9MMzRtZHREaEF2SU1SODRS?=
+ =?utf-8?B?RDJHL0hTK3JLM2dUdGZIV24yMFBId0hpdE9UTW1IbUpSb2d2aGpZaU45L25o?=
+ =?utf-8?B?RS9HT0VZTmhSaXBUazdHeCtKSFFKUDI1aWZ6ZjBsYjB0WmJCVFRuM2E1aDBQ?=
+ =?utf-8?B?TlRBVDZFVnpwUWxCTEhpRE1wR0RaMi9JcjBETjlyeW1EQ2MzMUsra1ArUzlH?=
+ =?utf-8?B?RDZoSlNsUHpEZ2Q1WGxFTVFWb2xwVlFyaWxwbVlBTUQ5clRxOEw4Y2duVzQ0?=
+ =?utf-8?B?RkZZVkFSc2VJVjA0MU9hMjRnZGlyMWpxazZEMmJ4SG1RMVltZmIyUXdzb0l1?=
+ =?utf-8?B?bUV1S3ZHK25MOFpyRFVnN1ZQdlNMVE80QlE3dmFBZHBadnJ4MWltYjNpdkpn?=
+ =?utf-8?B?Z2xnTUEzL2FKczVtV2hzRTA1TVFWNUVoMlA5eFR2elplU2liV1VUMS9oOU41?=
+ =?utf-8?B?M1lXb1VSbEpZa0pGaGZKdjBtVXB3d2NKTVd3bjdPWXBZUEtDZm5mVkc4TkJl?=
+ =?utf-8?Q?if8K+IftpV45nKDZWgNcDpAiSjKF/o=3D?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT1PR01MB9130.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007)(8096899003)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?UW1EdHcvaGkyVituczRqOGtPVXhOUG1tL0JiU3MxeFNUYmg3TkRraHhiUk4v?=
+ =?utf-8?B?K0l5MWJCWm1RbVZRUUhuQTFhU0hjYkdmaWhCTUQwakFCM1Z6VGNqSFJjKzB2?=
+ =?utf-8?B?L0FPYlZxb3F3dmk0L2hhdlJCM2JPZCtpcVVJbzNKSXA5T000cW5SWXpHWGxD?=
+ =?utf-8?B?YkRtaVpUUnowSkJtNWhQL1NmRlo2MjZQNGNRODJTbktFT2xzQ0s3M2cvMUlu?=
+ =?utf-8?B?dnNhT04rakFoeWxlTjd6Uks3ek0yL3FUM295V25tK2xma3FkTDFMN21tQlkx?=
+ =?utf-8?B?eGZ6M2I0cTg1Nk5tbTlpU01RMllGWnhnbjRwTnhnOFZ2TDNEdDUzSXJFOHFW?=
+ =?utf-8?B?bExGSDNjeGJ0bElzZzhKbG9QZWdBT25iK3ZaLzBLTFg2L0x3Z21WeTloOEUw?=
+ =?utf-8?B?SnRRVWRmOWswdElmRzRNVkZPcmNzcm45cjlFVXFDTGFQajZnN0puSUNuWUpH?=
+ =?utf-8?B?eFVNR1ZaaE1SN3MxQ3Qzdm9OQ2V0TlBWT0MyRHlkUWJtQnRYaFZqMDIwQUFh?=
+ =?utf-8?B?d1BRNTZRYlFWN2JyM040d0o3V2Z1Kys0ZGFlMTJHZTd3SGl5N21WeVdYSW1k?=
+ =?utf-8?B?TWw5UitSUTE4L0hTeVQ2RmVjb1h0K0sxZGVWWmtjaWk3MVJjNkYrYVpDS25J?=
+ =?utf-8?B?S3pTTUhGcEZ6ZHJQSmtUZXFpQ3ZnbDcvOFl4WXNIY2w0bDlyNGVuM0tvRCtt?=
+ =?utf-8?B?bEN5di9uREZSaHp3VzVDWFRLQ09BK1Z4OXpGSUNxNFhscEpiankwYmNTOFFn?=
+ =?utf-8?B?VG9BZ3YxM1A4MjJhc05heWx2b0J1dXVPbU9YQXpjTEhMdXdXZnVZOThUUHlv?=
+ =?utf-8?B?U2o1SHVWbWFVb2FCR04rNXFocFhPOGNlL0NJUThENjZ2V3JsbzZ5ZlZFblIz?=
+ =?utf-8?B?U3NienQ0RFoxQVdvL040S2RhdytUTGYxTnFoUzk4UXk2Ty9KeVFMczFzN1B2?=
+ =?utf-8?B?RGhzQWFZOURUUUFDZWxEV3B4YVlPUm55Mkt0VWQ0M2N1ckdHdzU4YnRWRHU5?=
+ =?utf-8?B?aHE3ODJaK00xTlRyWWRqbVFtRDVpYUI1cllDRkcrclBmT2M5L2VOWWNwY0U0?=
+ =?utf-8?B?aXFsNFZCOEwxTEdwR1JjYWRDYUxHeTVHaytIdUVuelgxNlowSDN1R3FqSzh6?=
+ =?utf-8?B?MVE5S0NjU2pDZDZ1NXprdG1BZ2c0NzNPYWRXdU9pV2JvR0V4ZXlsT3hXMXVN?=
+ =?utf-8?B?N2hXMlJheFZweEJZS3BVbzFLZEpsamRoeDY5UmxmRmhZcTdZWTFacTB3RzE5?=
+ =?utf-8?B?Y21SSUtJNzc2K1JKRDZBSGlDR01Ma29vYm1sMDFGQXFNYndYa1BZMmJWa2hJ?=
+ =?utf-8?B?YngzZGtweVZvZHBoUkJPcjN2WXRMZTZNNzJ5elNMN1lhRlp0dDJuSzVMbStU?=
+ =?utf-8?B?ZElNOXdGbEhsY21COFNXbmlLQWRGWDROS2FrYU5ySnpmR2hiVzZBMzdVbG95?=
+ =?utf-8?B?em0xNE1rbzBqZ2FoT0p4c1cxNll5anRxRkhndE11cDVtcm5sSXB3ZEZKRkd5?=
+ =?utf-8?B?ZGxyUjl2Y2t0Y21FenBWRHJ2YjhsODdhYWlsc1RZcmRjNzRHS3Zyckk3ZnVp?=
+ =?utf-8?B?MnNJVlFtVTZFOFdYcFBCWWQ0bGlqQ2ZDVHAvcmlVQUR0VUcwRExUR3RsSVlG?=
+ =?utf-8?B?eU1CcHYzZU1xNVNTOWlvN05DY3NFVXFLZFdrTnVERjZ4blVOUzFEZkR4U0Vu?=
+ =?utf-8?B?bVUwNnI0UjR0eFh3RHRQRmRwVER5dHF2V21PNEdteFNNWEVxbEU0ZzVzb0xZ?=
+ =?utf-8?B?MEN5ODRWQmY3QUNZWGhlNmJLQmowSnBmWGgrMUtXbVBORFNHNDk0dVcrWDJM?=
+ =?utf-8?B?dE9NVS9jcWhESU8xeWo1aGl5YXBseVNJSnNrd2toMWxzV09NSDA5YVFKTzNv?=
+ =?utf-8?B?UHdTa1BWSDRUeEJSTFF2N29KMXZTU1E5NXdjbE5iMEdtSTU5YThxeG5KcXNp?=
+ =?utf-8?B?dkVRaStSd3ZOeUFPeUlObHpyY3dER0FFT3hQNmNwRnYzeTd3ejlDQmVua0kz?=
+ =?utf-8?B?UjlHdkpHZkdtOXlQdXh0MnVPZ2Q0cmlyQzVTZkZJNDZtOTBiMy8zL0c0YmIx?=
+ =?utf-8?B?MUhOSkhmZDV1eEEvMFIvNGM3WFBHNVFiVTJHdm5iYW1GUjNsc2NaajAwL21v?=
+ =?utf-8?B?Y1lUM2dKOEVhQWtoN3MrNkZxcTZyblR4RjNLdW9iK1MvSXdFRjYvL3VHUnNw?=
+ =?utf-8?B?cWc9PQ==?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT1PR01MB9130D5910AF4505CD6649465BC6CAYT1PR01MB9130CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT1PR01MB9130.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58e7f8c5-7612-4495-9676-08dda3a5ca64
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2025 20:24:21.6629
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lXWcN4CPaHT5a8x3qPudG/sZSCHUSQv8/o4SdTasuwXnSdvj7iLohbFej1b8Jzts4LRoZfZqcb28R+3gBAIBdY0RnGAkc02gwQov217XlVc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT6PR01MB10903
+X-Authority-Analysis: v=2.4 cv=bNYWIO+Z c=1 sm=1 tr=0 ts=6840ab79 cx=c_pps
+ a=cl5KzF7SOQKgmBSpPsreSA==:117 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=6IFa9wvqVegA:10 a=qMn8_65rDqkA:10 a=pGLkceISAAAA:8
+ a=-gmA-2aLAAAA:8 a=1JNvCwXGy6pJ4e8yrzoA:9 a=QEXdDO2ut3YA:10 a=yMhMjlubAAAA:8
+ a=SSmOFEACAAAA:8 a=vwUFldxkE5GujFvq:21 a=gKO2Hq4RSVkA:10 a=UiCQ7L4-1S4A:10
+ a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10 a=xbBoOLimK6mgVFY3T0w9:22
+X-Proofpoint-ORIG-GUID: LFENhP6A_u09JO3ICznCORswhi8ElKex
+X-Proofpoint-GUID: LFENhP6A_u09JO3ICznCORswhi8ElKex
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA0MDE2MyBTYWx0ZWRfX886f76VkUq8S
+ L2OoSMNOp79ls+y+kxKMzxmD3GGsuFMP/w/03X3DNp19+fiRCBJldFxXkpcUiWu8XnPzXaX4+qB
+ GJuyvxdmuwpTkpFfvg9iZmWY6ZV6OW0QcgLorujyPlbfSTLhrQ2pMR5ZbMVXC4169jw9BQ+wymf
+ J8ziNC9HVw19XzY38w20jaTInFC2R5Exu1kuJ0vpNJV52PKvY90bg3TU+2C7XysGqZr9X5w0c/Y
+ PPwq7Yx9vGAotqzMwxWOpZKOuDu3aLo1/vD+uhu+UGiDxw1/WcB/pZqe2noLGq2LUUgI7gKR4S5
+ 7gDrK99OANURYAiIazw4pc+zjWtd+5ojR7HgHYab6T6rSO+7iUHCA7vbOJY5KuNakBXlqw6VKAt
+ QE/nUNWq/5p8fDsSAJZ9IEGg4gJhj6KdpB9Uy17x8tqy+mgstABmZNgdsEAEcrt62o88O9+e
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-04_04,2025-06-03_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 mlxlogscore=999 bulkscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 impostorscore=0 phishscore=0 priorityscore=1501
+ lowpriorityscore=0 mlxscore=0 spamscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506040163
+
+--_000_YT1PR01MB9130D5910AF4505CD6649465BC6CAYT1PR01MB9130CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+Thank you for your form. We will open a file and it will get assigned to an=
+ officer. Your landlord will be contacted and an officer may come out to in=
+spect your rental unit.
+
+If the repairs are items that fall under our jurisdiction and are deemed to=
+ be required, the repair officer may issue an Order to Repair if the landlo=
+rd does not complete the work.
+
+Thank you,
+MR/RTB
+
+
+From: Evan Rosner <evanroz@gmail.com>
+Sent: June 4, 2025 11:48 AM
+To: +WPG725 - CCA RTB <rtb@gov.mb.ca>
+Subject: Re: Tenant's Request for Repairs
+
+. =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D
+
+
+
+--_000_YT1PR01MB9130D5910AF4505CD6649465BC6CAYT1PR01MB9130CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+span.EmailStyle18
+	{mso-style-type:personal-reply;
+	font-family:"Arial",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:11.0pt;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Arial&quot;,sans-se=
+rif">Hello,<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Arial&quot;,sans-se=
+rif"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Arial&quot;,sans-se=
+rif">Thank you for your form.
+</span><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans-s=
+erif;mso-fareast-language:EN-US">We will open a file and it will get assign=
+ed to an officer. Your landlord will be contacted and an officer may come o=
+ut to inspect your rental unit.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ar=
+ial&quot;,sans-serif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span></=
+p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ar=
+ial&quot;,sans-serif;mso-fareast-language:EN-US">If the repairs are items t=
+hat fall under our jurisdiction and are deemed to be required, the repair o=
+fficer may issue an Order to Repair if the landlord
+ does not complete the work.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ar=
+ial&quot;,sans-serif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span></=
+p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Arial&quot;,sans-se=
+rif">Thank you,<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Arial&quot;,sans-se=
+rif">MR/RTB<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Arial&quot;,sans-se=
+rif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Arial&quot;,sans-se=
+rif;mso-fareast-language:EN-US"><o:p>&nbsp;</o:p></span></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif">From:</span></b><span lang=3D"EN-=
+US" style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"> =
+Evan Rosner &lt;evanroz@gmail.com&gt;
+<br>
+<b>Sent:</b> June 4, 2025 11:48 AM<br>
+<b>To:</b> +WPG725 - CCA RTB &lt;rtb@gov.mb.ca&gt;<br>
+<b>Subject:</b> Re: Tenant's Request for Repairs<o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">. =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D
+ =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D
+ =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=
+=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =
+=E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=80=8D =E2=
+=80=8D =E2=80=8D =E2=80=8D =E2=80=8D<o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT1PR01MB9130D5910AF4505CD6649465BC6CAYT1PR01MB9130CANP_--
