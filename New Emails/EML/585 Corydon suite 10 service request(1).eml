@@ -1,0 +1,228 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a1c:a382:0:0:0:0:0 with SMTP id m124csp15429086wme;
+        Mon, 4 Jan 2021 05:51:23 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyP7Sho4R92ErmQB6q2v1PBkM+1xebANBr3fqfXaS3coqGT35l2L8DNh8rnlGh5XwLYGugp
+X-Received: by 2002:a37:a481:: with SMTP id n123mr71914928qke.250.1609768283205;
+        Mon, 04 Jan 2021 05:51:23 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609768283; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=V8C5U1K0uJcz4RXXNk5IYsAe3K3GLq1LQ5sOq9/eVB32a+xsLtiOT1R5X69raTYUDN
+         xsbBzZoBkUwY2WnezTwO+e7tRZDFES8m3/h9MFSE2dQ2Xob0fn81jacoImu5I++ohLjH
+         XietTdK+fO7/6rgDXFHlZg8VeLo6O6lFOJRqJ9+L0q1as0CZNElEqbunIOG3puW6TjDB
+         Rev2+Tu59B/JagahvRlgpOgD/fA2PvPJexayK+9VVlx7ZBZtQBuM51fESjiPeLCr5Vp4
+         dkjD9cYNVuCFRqYpwrDpPEEyqH6YxfZEss1EeyC004hwq4LfukXglgOHsnpOzs5xb3bT
+         5BMA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:to
+         :from:dkim-signature;
+        bh=3qw13DhiSbjvtTRLu29rHBjlMkjv/geTp8Q7YeHlT7E=;
+        b=ZsWIKfjbe+5NXsDst6N2ds5GkuYOcrW1uNNOHaq2Geov0n5oMRMHsa+4s3fOSuei6u
+         gK2Dl6jHhu6zD95UiqqRAEDqAoiJ/A49rvXgTThe9Pe/0Co/Njc6qrLFxKJr8q/r6YyR
+         ygHqGujM6QPIQB2jpEWl+h9RLcs2Tdx4vB7breJ7yDVb+N0Dc9j3ROyeBhADzHwf9kW8
+         iAfrsftCIT80xMwHZxrhFayXHg6yQAxMrcrvzq7Md6sF0x0qkqD8Bj3Mr0OFtBx6157W
+         hYNiFprYKBgJuDGcTN96k9TQatKL2OgZoTVZN70q8d04ym5xC2RHpMiLq8BCEGrUUvjW
+         mm6g==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@myplacerealty.onmicrosoft.com header.s=selector2-myplacerealty-onmicrosoft-com header.b=DUXB4AFT;
+       arc=pass (i=1 spf=pass spfdomain=thorwin.ca dkim=pass dkdomain=thorwin.ca dmarc=pass fromdomain=thorwin.ca);
+       spf=pass (google.com: domain of eden.steele@thorwin.ca designates 40.107.66.53 as permitted sender) smtp.mailfrom=eden.steele@thorwin.ca
+Return-Path: <eden.steele@thorwin.ca>
+Received: from CAN01-QB1-obe.outbound.protection.outlook.com (mail-eopbgr660053.outbound.protection.outlook.com. [40.107.66.53])
+        by mx.google.com with ESMTPS id g17si32125102qko.247.2021.01.04.05.51.22
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 04 Jan 2021 05:51:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of eden.steele@thorwin.ca designates 40.107.66.53 as permitted sender) client-ip=40.107.66.53;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@myplacerealty.onmicrosoft.com header.s=selector2-myplacerealty-onmicrosoft-com header.b=DUXB4AFT;
+       arc=pass (i=1 spf=pass spfdomain=thorwin.ca dkim=pass dkdomain=thorwin.ca dmarc=pass fromdomain=thorwin.ca);
+       spf=pass (google.com: domain of eden.steele@thorwin.ca designates 40.107.66.53 as permitted sender) smtp.mailfrom=eden.steele@thorwin.ca
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=L/ca49MFQeeDgIXrMFI3pCZzisYBraK1iG8gktFQsQGsCSv2TFsNNRRUyqt997jFfVOEVtQSf5RXU3BzMZb2ZTARSwhlUuQKXGwXjwpCjyG/ALiR7cBk6n/MZk4Uk2D3dw3Y1Q1pf/jka6wfYkzLZSPgTGIogDbG+UeJBj3ywhW75Gh13tF5katnHTH5mF3ITXjSPxxZrsv/8MUNvYHOrFkeY19i54DJWBMBSLmu+nKztJDBuZQRbpJ+suEKIRNcTi+z8FvlT4P0bwA87GMLXuLtBAw3XbiUgEG9DFvepOkJsjz7hsP9U9nOB5yXp37AeOfyRDOn5AZgjPm/ZXaW4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3qw13DhiSbjvtTRLu29rHBjlMkjv/geTp8Q7YeHlT7E=;
+ b=MRJjzW28l5d2wFuuUT6qPZ2eun2XPaBI91zgygLWe2F8T4u27c/KOnpXhQTiuFQWCPrlZNk+BvEVM69OAGY95akBlhOWOA/mK4+YVTtGc6GyW4g/bhFC1q5gTYQnvPKT281wGUTQeO4tqh5LNlhEKCEsHig9FECPIawh7mg5PGhMy0tjOCSvp0U/FUPpmXeEGFMAt0u8Yaem5kXvqlbhViKI4oVSAtbXa/UnKksaRcQmmqwwDLMCrCahvcoqHOeTRIhvWLBeNuZVBWTI6pz2QA3av9f8UAx7IQ6/Pv1nyXpdORbVp3cTnOVVlxiHZixw5vnUnLnOuvsdAxq5i7tGUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=thorwin.ca; dmarc=pass action=none header.from=thorwin.ca;
+ dkim=pass header.d=thorwin.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=myplacerealty.onmicrosoft.com; s=selector2-myplacerealty-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3qw13DhiSbjvtTRLu29rHBjlMkjv/geTp8Q7YeHlT7E=;
+ b=DUXB4AFTUHOur9456jyP/F3tYnLQ7BiP9MBEgF1j74kwGz8Bm2K8yUfWUjyNojU/BQzpVEM1qheXToApVBrAFKhNY29XFlQyZpFxUrULHJ8c/Db0nfYs6HeWlOPAOh9WfXq4ESJj03KHISJ9FUr3H/3+/pwFE3PI3acpkeC4+wQ=
+Received: from YT1PR01MB3658.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:7::28)
+ by YTOPR0101MB2138.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b00:22::26) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3721.19; Mon, 4 Jan
+ 2021 13:51:21 +0000
+Received: from YT1PR01MB3658.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::ccd6:3ad3:4de1:45b4]) by YT1PR01MB3658.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::ccd6:3ad3:4de1:45b4%6]) with mapi id 15.20.3721.024; Mon, 4 Jan 2021
+ 13:51:21 +0000
+From: Eden Steele <eden.steele@thorwin.ca>
+To: Evan Rosner <evanroz@gmail.com>, Darren Wilcox <darren.wilcox@thorwin.ca>
+Subject: Re: 585 Corydon suite 10 service request
+Thread-Topic: 585 Corydon suite 10 service request
+Thread-Index: AQHW4gSiw1Uh68NHdE6zsTiFl3yimKoXfSdr
+Date: Mon, 4 Jan 2021 13:51:21 +0000
+Message-ID:
+ <YT1PR01MB36586995BA1A32ED31A2125D8DD20@YT1PR01MB3658.CANPRD01.PROD.OUTLOOK.COM>
+References:
+ <CABQF09GYbTOZgmi6yH-Hy5mHfMavkhtMNwarPfsWJK-Atm8EDQ@mail.gmail.com>
+In-Reply-To:
+ <CABQF09GYbTOZgmi6yH-Hy5mHfMavkhtMNwarPfsWJK-Atm8EDQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-CA
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=thorwin.ca;
+x-originating-ip: [2605:8d80:404:6e01:19c5:5e0e:c3f4:6100]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 7f140222-d1ca-4d20-70c2-08d8b0b7d1c1
+x-ms-traffictypediagnostic: YTOPR0101MB2138:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs:
+ <YTOPR0101MB213821B300EE39C49BD17CE68DD20@YTOPR0101MB2138.CANPRD01.PROD.OUTLOOK.COM>
+x-ms-oob-tlc-oobclassifiers: OLM:5236;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ AFQH/oBF/PGwRdBLQsn6pHDf1xF9UFm5Ychc8OQ/kK3/BabYHUpwAHhBw/MSSBIbs5RE5RPwfFKSu/fvpAMIm8MjfPa67TG/crmqhH1JSMnvgDK/oXsFPVI7TwuVWoFjHxPLd689bZxrM1bCxAKHLfi7vySDZM+/cJF+cSqWqUk70U8cPsfYJ2blsF3GbUTgIuWrrQacOeXBP77AQRaN76DleDuYDzg/c/LsrOOCA3rQL8dOfzwANsyaSTUJHxQgms9QJWOy+xCTuoH1PzKYfsy3BoH6S3JU98iZ/vlHxLUVwMyHmHm/DKzuhrtUdyQsA9QVSAQf0FaVTI6MGKwclSxYq7rbjUDN35RhgAAv9Fxi+rxirPbJmuqWHeJG+ip6W6V72MDYG2Rvka0FXxz0c5joC+vqMYyB0g6zvXCMlvsAtdefUX2LVOQm1qGsU5auAmRgkvTkLTYSBnRhSgJPiA==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT1PR01MB3658.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(376002)(366004)(136003)(396003)(39830400003)(346002)(52536014)(86362001)(76116006)(110136005)(9686003)(6636002)(45080400002)(55016002)(478600001)(7696005)(83380400001)(186003)(71200400001)(53546011)(8676002)(6506007)(66556008)(44832011)(66476007)(33656002)(8936002)(2906002)(5660300002)(66946007)(166002)(66446008)(316002)(64756008)(91956017);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata:
+ =?us-ascii?Q?rTuf96DGOiK0BRFVNJIKhoVAp4gfM63Mi+EiytmEwXYnsJta+AcYDBNSkYJt?=
+ =?us-ascii?Q?8TJRkPEOyVQ+qy89toidh0+TsoKqW0ohVNpi7l77eqXdNR4ixodwhhVApYy6?=
+ =?us-ascii?Q?WpHn4bW/T2RjLHLGKPs4jfTTpj7EblzQqpVMKxK6x24YszpjWD7sp7QkPWXG?=
+ =?us-ascii?Q?JVVY7t66dlEnZxLnUQPdV40zamjb7EcfPtbwNad+NFzXXTyRvS6hADPDpli6?=
+ =?us-ascii?Q?8zO/hC4jOYxRE49uaxyadbV+3BejkKKT2Kxda++avocgQQKKcBPStcXMsf12?=
+ =?us-ascii?Q?W8m3t34rStPJz6xf9AJSs/BlAqyDzlA61xiSalgmeYTV2FY2FI/8rUdiOEMf?=
+ =?us-ascii?Q?7C4Xuv5QxS5Oj49xKUpvQ8Ct4AQDoaG246F1+qnJq5QLeXBqLitR5bcLDUnx?=
+ =?us-ascii?Q?wf/S6W4F2D8/eO3WFnwOpYoWG6Gb4z/7waPGTuNpbkMrlLXmT6uDX4vAEZi9?=
+ =?us-ascii?Q?2naALVoDVY5PAd/ALb8ZHA4iNaSBMHzxo25htivqm9DutTxRzVzhbHhc+Sk8?=
+ =?us-ascii?Q?P/OuaNKU6R3KWZbIyhURAg14kIy0L4M9PgeQ8smXuP2rcvi7WThCfIpDhdUi?=
+ =?us-ascii?Q?8AuMJnhDOYoaIVMP3pbjiJkbyIGmWT9K10gEr/Y6J6Qa0Mvw1pBCUQJak39H?=
+ =?us-ascii?Q?RlO6qFv7geZNTxwgkIPZ4aznFvwsOVu79E/KWPcNIFTAERxMWy+WGBRg86R4?=
+ =?us-ascii?Q?u4vVsI+Dh2qCBstF4NdepBCbaFGRbmmYlMYWgK/VCFj1gr9Hc9dXrJ6xYIRB?=
+ =?us-ascii?Q?gJpyEEMfbum2vRyn7Ecyp3gqnJbN5nTFhc8plh7n0xiF3gdjAadPdbU14zIn?=
+ =?us-ascii?Q?qmQ0KspTv0vTCgPZC1Y3W0H1lNKfLzf56uVSy6oT5DmAtuzYstGMMuzkAWBs?=
+ =?us-ascii?Q?4zMl3gTKSmp5pWL7aDbc9FKlcUVhJk8x3SXIDaY1Fho6b/kZG8lii2zgF0K4?=
+ =?us-ascii?Q?2ohAT/EaQZaaxmoLhyX61AHygFx62bg1vja9B2RxlWM+acN0LvrHLFoTOgPR?=
+ =?us-ascii?Q?aimbAfR4uT03LFhAnZc3EnoyPWJC62FSkqWO9LWPa0QNY/gJ2RQNBOPhROrY?=
+ =?us-ascii?Q?xGZxVEw+gJvC1LKyAAJEg80UUWYf3g=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT1PR01MB36586995BA1A32ED31A2125D8DD20YT1PR01MB3658CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: thorwin.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT1PR01MB3658.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f140222-d1ca-4d20-70c2-08d8b0b7d1c1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jan 2021 13:51:21.6514
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 70729076-2f3a-4aae-8561-644ec21834dd
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: xW7Qjo2Ewd7j15Px3JsowUsZSt8qK9k9vpYbuWpAEm4LsCw/9ARQ8B4RqqAQwi4BqtqhRjqdRkCCoyhE/yiSRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YTOPR0101MB2138
+
+--_000_YT1PR01MB36586995BA1A32ED31A2125D8DD20YT1PR01MB3658CANP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Evan! I have submitted the request for service. I will contact you once =
+I hear back from the plumbing company's service coordinator with the servic=
+e appointment details. I will certainly let them know about your furry esca=
+pe artist.
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+________________________________
+From: Evan Rosner <evanroz@gmail.com>
+Sent: Sunday, January 3, 2021 1:14:04 PM
+To: Darren Wilcox <darren.wilcox@thorwin.ca>; Eden Steele <eden.steele@thor=
+win.ca>
+Subject: Re: 585 Corydon suite 10 service request
+
+Good morning and happy new year. I'm requesting a plumber to my apartment. =
+The toilet runs intermittently and doesn't flush completely. My shower wate=
+r is yellow and smells like onion. All the drains including the kitchen sin=
+k, washroom sink, and shower drain do not drain quickly and require the blo=
+ckage cleared.  I use a siege in each to prevent  accumulation of debris as=
+ discussed last time with the plumber. Also, the shower temperature is chao=
+tic and changes from hot to cold and is out of control. Can you please have=
+ the plumber come by to; fix the toilet running, clear the toilet blockage,=
+ clear each drain blockage, investigate and if necessary replace the shower=
+ head and the Thermostatic mixing valves.
+
+ I have used various basic solution such as drank but I believe the drains =
+require a snake.
+
+Anytime is fine. Please note that I do have a cat that loves to escape.
+
+Thank you. Evan 585 Corydon ave suite 10
+
+--_000_YT1PR01MB36586995BA1A32ED31A2125D8DD20YT1PR01MB3658CANP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<div>
+<div>
+<div style=3D"direction: ltr;">Hi Evan! I have submitted the request for se=
+rvice. I will contact you once I hear back from the plumbing company's serv=
+ice coordinator with the service appointment details. I will certainly
+<span id=3D"ms-outlook-ios-cursor"></span>let them know about your furry es=
+cape artist.
+</div>
+</div>
+<div><br>
+</div>
+<div class=3D"ms-outlook-ios-signature">Get <a href=3D"https://aka.ms/o0uke=
+f">Outlook for iOS</a></div>
+</div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Evan Rosner &lt;evanr=
+oz@gmail.com&gt;<br>
+<b>Sent:</b> Sunday, January 3, 2021 1:14:04 PM<br>
+<b>To:</b> Darren Wilcox &lt;darren.wilcox@thorwin.ca&gt;; Eden Steele &lt;=
+eden.steele@thorwin.ca&gt;<br>
+<b>Subject:</b> Re: 585 Corydon suite 10 service request</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div dir=3D"auto">Good morning and happy new year. I'm requesting a plumber=
+ to my apartment. The toilet runs intermittently and doesn't flush complete=
+ly. My shower water is yellow and smells like onion. All the drains includi=
+ng the kitchen sink, washroom sink,
+ and shower drain do not drain quickly and require the blockage cleared.&nb=
+sp; I use a siege in each to prevent &nbsp;accumulation of debris as discus=
+sed last time with the plumber. Also, the shower temperature is chaotic and=
+ changes from hot to cold and is out of control.
+ Can you please have the plumber come by to; fix the toilet running, clear =
+the toilet blockage, clear each drain blockage, investigate and if necessar=
+y replace the shower head and the Thermostatic mixing valves.</div>
+<div dir=3D"auto"><br>
+</div>
+<div dir=3D"auto">&nbsp;I have used various basic solution such as drank bu=
+t I believe the drains require a snake.&nbsp;</div>
+<div dir=3D"auto"><br>
+</div>
+<div dir=3D"auto">Anytime is fine. Please note that I do have a cat that lo=
+ves to escape.&nbsp;</div>
+<div dir=3D"auto"><br>
+</div>
+<div dir=3D"auto">Thank you. Evan 585 Corydon ave suite 10</div>
+</div>
+</body>
+</html>
+
+--_000_YT1PR01MB36586995BA1A32ED31A2125D8DD20YT1PR01MB3658CANP_--

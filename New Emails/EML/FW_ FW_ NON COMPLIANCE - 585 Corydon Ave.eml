@@ -1,0 +1,1241 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:ca22:0:b0:44c:c385:878b with SMTP id u2csp1468767vqt;
+        Mon, 5 Feb 2024 10:34:40 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGTbeNeKZP3zyec9S+JIRhyT+8Dg8v8USVAUSSdpMJk6fK1hGzrxmn8Uoj5o9cyjTJnBB3P
+X-Received: by 2002:a05:620a:1355:b0:784:da2:5799 with SMTP id c21-20020a05620a135500b007840da25799mr309387qkl.45.1707158079509;
+        Mon, 05 Feb 2024 10:34:39 -0800 (PST)
+Return-Path: <David.Maclean@gov.mb.ca>
+Received: from mx0c-004a1001.pphosted.com (mx0c-004a1001.pphosted.com. [67.231.159.213])
+        by mx.google.com with ESMTPS id z4-20020ae9f444000000b00783e04e2ff0si413455qkl.335.2024.02.05.10.34.39
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 05 Feb 2024 10:34:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.159.213 as permitted sender) client-ip=67.231.159.213;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=10-07-21 header.b=xnZDF88h;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=UNu4o0Cv;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.159.213 as permitted sender) smtp.mailfrom=David.Maclean@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274424.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 415AZ295012454
+	for <evanroz@gmail.com>; Mon, 5 Feb 2024 12:34:39 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	from:to:subject:date:message-id:references:in-reply-to
+	:content-type:mime-version; s=10-07-21; bh=pb7a6c1Hnsdut11Mj0rOm
+	2eN6rDrh4sJPDuAq91r3hI=; b=xnZDF88hOOMnb8Bz1TGCf5TBM6KatI3f7AaDl
+	PPps7WUVjklXQ/tgz5mb+Afs++GKV6rrgkpDrMCYtpBZDsoUWpLang9giflJ2cV/
+	iX/8l4GP5wO/vsFGLWz5HPAmSasxjziVGGDWU932fFk8mO5TGhL2iWZUazfgpy7y
+	RP05YEDFTwnDXq5GPnenBDMJxvkhR6uOHib5cyRY+a8xJgREjwHJjmei7P4hGygy
+	O/0k5s8xoCW0NffqMI5xl1b+zMBI/cTr2bp3hkUG1P3Su52DKUg2/Oum2scSkvX1
+	7LBcQNt9PJMlIuFPzwyUaqEEbC+HVVmzcf4K+5z+ESSfdwyoA==
+Received: from can01-yqb-obe.outbound.protection.outlook.com (mail-yqbcan01lp2232.outbound.protection.outlook.com [104.47.75.232])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3w1kwrst8e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Mon, 05 Feb 2024 12:34:38 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=W3NH29c5UJA9bh1GdwNi3HlcAcP9grKds7O+s06Eayjk3SislrrAxxtw36aDHW8a27hCSFUkdlxTCE0Kjvi4DNL33o7iNcdi0ZOS4WKgLDMUecdzEUEkMEPYu4114v7n+kVzdIteXJv55ZgLqDVZA1jfJYWgAHJrJbr62j/OT0cHsMJog+Yqtho7MOtcN5ujEGSAFRweE0PxXIFw4pelOW5f877otMrDk304NNaetVaDbgvR19eJbFmuyyFgU9gSIs8L6hzCGOcmc7YSw2CUJklKKiEYx9hvD9lPedPELXAMNdpZb3HNUeGYpWEzMFellNHvgfqDv9ygJnJuo3OSPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CyHlUl7dK93y8gM93IsH3uZwiiOfoUg0OCeLA00QjSU=;
+ b=jBEedRLe1IAuMG3n0/RfC/e6ojc/VLhiZVE8sox9WCkal1BLu5Z5Zvv+MhQ0lZgJlRet4e2f6DgTMPPpbwJYqJtc7HqW62qBpLk3aMBbZpFe79R2DBQDapBlsSVoniYJU7gyxSomUBh3AC1VcRezvYWMWy6ranJwhRIEAqJU9A4s48JoKjRxcY/zUM/0ACpWgSHEZ4hDDWSdTswgYzESbTDzdCwuaqXIgvPFmKU37jnfwvcTE7UBQfugEW3ffuTVlgnjM+2IQe8hypstT73go58v9Riouv3tTnkzfvjw1FiMFztaMSdzJsE5ba9Bl8D2LvSTr/SJqA8FhhXQbuohaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CyHlUl7dK93y8gM93IsH3uZwiiOfoUg0OCeLA00QjSU=;
+ b=UNu4o0CvSYlzJARlr9irvJxPSffYLhSVjL5jTa86a6Fu/jlFkigqunkv5ugkLW6MfJzetjhwv5iglTaHWDVuYQXnKG+Eyia/UP80VuBTC+QhaBIAhKqCXF7P7BigCFKtstaaCtVPME41qwXXbtqjdRH//wWlxtmmoBA+UbNJOT8=
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:e9::12)
+ by YQBPR0101MB5302.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:45::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.36; Mon, 5 Feb
+ 2024 18:34:36 +0000
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::f3e6:2ca6:a83f:4904]) by YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::f3e6:2ca6:a83f:4904%3]) with mapi id 15.20.7249.032; Mon, 5 Feb 2024
+ 18:34:36 +0000
+From: "Maclean, David" <David.Maclean@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: FW: FW: NON COMPLIANCE - 585 Corydon Ave
+Thread-Topic: FW: NON COMPLIANCE - 585 Corydon Ave
+Thread-Index: AQHaVI3PoH/XiebEQ06PIX2kfrYRv7D2A40AgAAEL0CAAVaDAIAEoKYggAAbJnA=
+Date: Mon, 5 Feb 2024 18:34:29 +0000
+Deferred-Delivery: Mon, 5 Feb 2024 18:34:10 +0000
+Message-ID: 
+ <YT4PR01MB9717AB88E11884A367E8575DB0472@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+References: 
+ <CABQF09G7M5K1HJfDkjwveNLtm44ns_trd9NVRL0VtSHZYnwF2g@mail.gmail.com>
+ <YT2PR01MB50873F5FD874376FE1B599EFEA7C2@YT2PR01MB5087.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09HybThynpx5WDB-pnjdqsqZ7O3HREShGzX4V6EE2ToCcg@mail.gmail.com>
+ <YT4PR01MB97174990ACFAAB31D44E19E5B0432@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+ <YT4PR01MB9717ED11DE77EB7DAD47725BB0432@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09EAnWewNpNzCthqps3mvs-KPHVwymNs2Han7BPY++2VtA@mail.gmail.com>
+ <YT4PR01MB9717B234D64C5629D4AF427EB0472@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: 
+ <YT4PR01MB9717B234D64C5629D4AF427EB0472@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT4PR01MB9717:EE_|YQBPR0101MB5302:EE_
+x-ms-office365-filtering-correlation-id: 806228c4-0c57-4246-7e5b-08dc26791abf
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ vAy8n7uJnR6zBFbXRTkUS7cms/noV4dDB3D13DWrU9aMIXjjkLv+eDBNhrBIg8/7gtlGya8gxFWudoH+SxBWx2Ove04OtZv9ZgP4GjkPQQKsCblpycuY5S7ULnXh9DNKXCxm6IQwlXDC83vVNRa33UZrpZA8HZgDAiuJcUqpMs1PVh/jbpoY9X4hV/dKpjzqkSKNy/IsubWf7RJ9CbgAGTbWT+GmdX891OkZaKwQoqY9pnWy2d2fd25Uwu+vTRC+yeeJmCtTEetvdhiPt+laFsOr6IjkKYgNo+LJ1DnBTUJD6jzaDt5RJDR+xl+SudCQRp6KGtZfHTE89y1YcF9vyIt8IhNJ+T1WT3vZpwGIrc8ODaR0HU7w6hsS24cR/b7J3xxd0vBXPldxAgjUApmKg94wCrnjUV2XxzT4+ewoi3r7WD71VgQrHLG15gEdasdjjcoFRp05ogzzuHxSJXgRTkcOYrIRkJP+s4hcaON/zLmgcrkOkywIXjn8rQF/hGdksb+WXwfhSJVwVJU+yao0UeKuL40y1ZzgfoeeILQdzzUlVG4cQPh9OWVtTFT+VUsIwtqEDrWXeB4gNJxEj2LvM1I/9djxuU1G7D8Rh5yaEt8=
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(396003)(366004)(346002)(136003)(376002)(39860400002)(230473577357003)(230273577357003)(230922051799003)(64100799003)(451199024)(1800799012)(186009)(38100700002)(122000001)(55016003)(99936003)(166002)(83380400001)(7696005)(86362001)(66574015)(6506007)(33656002)(26005)(478600001)(45080400002)(71200400001)(40140700001)(53546011)(6666004)(9686003)(2940100002)(316002)(41300700001)(76116006)(66556008)(66476007)(66446008)(64756008)(66946007)(6916009)(38070700009)(8936002)(8676002)(52536014)(2906002)(5660300002)(579004);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?utf-8?B?T3U4WXdYbEwybzBqUXk1QmZjcWpaYmJtM2xGV29UNUJ0aCtyNVpwMWlUdEhM?=
+ =?utf-8?B?T21pdzJLTkVOWFdDU0kwQTdSSUhHTTlLUXN5TmNBZ2ZHbGtmcGpCUEhBL29m?=
+ =?utf-8?B?VkxkRnA5ZjVSb0l6c2VoUnhRWHFCUXRMTEZZTm1uUTA4V2tJQ29zbHBDa2R5?=
+ =?utf-8?B?a1VPYTluN3BpN3FmeGFUS3EzdWJXNVMzUXJDaDM5T0hVOXNmZmJXRGRDVFlS?=
+ =?utf-8?B?ZTRxbGczZmlBQnZDWWIwVk4xUmxlWmVOd3JGSlF6OExqQ2phNUFNOE9FTGVG?=
+ =?utf-8?B?L05Eb0lsb3A1bFdGRXVzL2VnVkRxMFAvc0JwR21VTzlyYVdDU1FPL08wSUZR?=
+ =?utf-8?B?WERQVEpMMkVncHo2K3RQelpRenk3UHdTZ0o4UmxKeEMweWE2TlVUU3RTYm5z?=
+ =?utf-8?B?OUpURE9OS3ZidXRJOFJzaUlrenBBOWVMMG1wNmxtWXNLZUlHc2RzdklJUDhT?=
+ =?utf-8?B?U1VmNXpiS2lBVDRyVUUrOFYwcFR4T2p5clNGTjlmOHBOd1c4QU1veHQ0SWJP?=
+ =?utf-8?B?bFE2dm0rL29OMk9XSXVNWXpBcjlOMzlYbktOdGhmWE1hcjM1bzNIdDlFdHc0?=
+ =?utf-8?B?ZDBiY1Y3MW9UUmhvd2czWFZPM2VFUmtHcUIwQzlKOTh3N3FTR0F4MkwwSHQ5?=
+ =?utf-8?B?UmNUOWdsbGVHZWNYNXQrdUs4ckgzejk4S0dSeHFGOTF5YnB1WFpTZVdGbFh0?=
+ =?utf-8?B?WlB1dkdoMG1nNUg2U01ma3Rrc0hxaXpLdVZaRWdDY09vMnBzYng1c1ZERSt3?=
+ =?utf-8?B?TDBqemVBbzNkdFpKTTFkSzA2MWJzTGcvQmowalJ4Z1hsUFRGOU1ERmFxM3Nu?=
+ =?utf-8?B?a1ZYWXNTQTBlUzZib1RYejlYYVN4dk54TmhKbzBCR2QrQTVQbDFZWFN2WkJH?=
+ =?utf-8?B?QmtMWjJEUDZPZ2JuaUloS1pyYmFZR3VOeDl2QXlXQWUzSkk4VlQ3NXBwVS9j?=
+ =?utf-8?B?N0liN0NTeEtiSTlOeGFlQUl0RFQ3ZTRaczZNVkJrUitra1RSK0p1UnMwWCts?=
+ =?utf-8?B?Y0Z3cndiL1N2RUZEVFVHdEhJdUl1ZXF5cTBJS2cvTWNicCtoVERQeUVQL0Uv?=
+ =?utf-8?B?VTA5UDNNbzl6TTdnUkQ0WjJyYnRUN3g3VlBGbDJQSnZEdDZjNGRySXAvTTdB?=
+ =?utf-8?B?bWVvQkpsbzdZaVdpSEZzOW9jcTNZU2lkV1dPM2NKeFlveVhJL1kzSDI4azcr?=
+ =?utf-8?B?SXVJdTNMaUQrcit3WmV6NlFBbUlaSHNtN01wbk40TjFtVG1MVXVFdmJyc0Vx?=
+ =?utf-8?B?U3FTOFg5dys2NjNUcUJ6dlVpc2hMVDlzRE4rNCthZDN3SnIrR2JMVlJ5ZGwz?=
+ =?utf-8?B?ZFZnaWZNNXprRElxTzVDTnNUdUhIcjl3Z1p3a3FHanZBSlNLcnBsTGRvRWty?=
+ =?utf-8?B?OGpLK2ppZkJYdVpNK2Rrejc3MG9FKzZaNW1kaUhaVU94MGZZQlpkN3R4SGw2?=
+ =?utf-8?B?UGFHMDJUYmFOZWUwN2hyZ3V6ZnBoYzRycThpMDE0WVd0SThxSS91SmJpTnFD?=
+ =?utf-8?B?VmloSEZlRFk4dHBqRFN5U1lLSXpCV1haWGlxZ09mSGhSekxFeUxwM3hHZW5R?=
+ =?utf-8?B?TTdQcEpSQlgySDlyRkFIMlRYUmNRemkxVkhkMlYrL1dERnlIUW1lNTN0Zk5y?=
+ =?utf-8?B?cG95U29xOFpMUldxVnJVZ1VRVTNMME5RbTVtYjU5TWREb1RrNFhXVzlGZXow?=
+ =?utf-8?B?bUVsQnd0YmpxbHQreWZka3g5NnZhcnlHRklZYkQwSUNqeXB2YWVoZHN2MlVr?=
+ =?utf-8?B?SmJtRWcrRDhxUEFKZjlZb1BUNnhSRFlsT1F2TnpiNlNOS2NzQTBoVkMyRCtp?=
+ =?utf-8?B?VlhadGNvWGZObXRMU2pRSGZMTElkWXBIajAxVjVMNFJZNjM4eDF5d0xHVDU5?=
+ =?utf-8?B?dmx5M0dJSktYSU16bWpFQ01QM2kyaStCanlHWE5PUG5Kd3dnNk9PM2ozWnJU?=
+ =?utf-8?B?SEtOZnpRRjRraFVROFpVUjBtMzdvb3llVzcwbGZOdGQxa2RNRVU0d2xONTVZ?=
+ =?utf-8?B?WlF3cTM4VWFPVnVaOWdCL0FLWVZqd3AralUxSWhONmI1OU5TNkxVdDltTWhn?=
+ =?utf-8?B?Q2xYallmU0l0dFNOSjZGSWFFY01pcElKVExQVFNKeUIzYnVJd2VDQXA4cnFY?=
+ =?utf-8?Q?jN0/JGTKj6C4AR9hFgXfsFfv2?=
+Content-Type: multipart/related;
+	boundary="_004_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 806228c4-0c57-4246-7e5b-08dc26791abf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Feb 2024 18:34:36.1284
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: IMrpuLxwRHe0Dc0UVpD9P5zGkW1/GWWElWQ+0QoxovsHgnI7eG4uJWdx014UIEV0zCLUiwdCdhGTcLaSkXODSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR0101MB5302
+X-Proofpoint-ORIG-GUID: TiHDkpC7PI6e8t6mkpPdbaTypG2F02i2
+X-Proofpoint-GUID: TiHDkpC7PI6e8t6mkpPdbaTypG2F02i2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-02-05_12,2024-01-31_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ adultscore=0 bulkscore=0 malwarescore=0 clxscore=1015 mlxscore=0
+ suspectscore=0 spamscore=0 phishscore=0 mlxlogscore=999 impostorscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2401310000 definitions=main-2402050140
+
+--_004_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_
+Content-Type: multipart/alternative;
+	boundary="_000_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_"
+
+--_000_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Good afternoon Evan;
+
+Thank you for your response, I do appreciate it.  It is responses like thes=
+e that enable the Branch to make an informed, just decision regarding the s=
+ervices that are being removed and the amount of the rent that should be re=
+duced to balance out these services.
+
+Before I get to the more pressing issue I wanted to let you know how the Br=
+anch determines the cost of storage and laundry.  For storage; research is =
+done to find something similar to the dimensions you have, and close to you=
+r home.  For laundry we generally think 3 loads of laundry per week is aver=
+age/fair and then calculate the dollar amount of what it would cost you to =
+go to a laundromat.
+
+Current issue.
+
+Unfortunately I couldn=E2=80=99t access the video you showed me, I am assum=
+ing its because of our security firewall protocols.  I believe our system d=
+oes accept.mov files but I couldn=E2=80=99t open the ones you sent.
+
+I did have a reply from the property manager who advised me that they have =
+booked a cleaner to attend the building this week to ensure the area is cle=
+an and accessible.  The Branch though cannot stop the landlord from doing t=
+he renovations; only advising them that they must ensure you have access to=
+ the services until May 1, 2024.   If your items are damaged because of the=
+ landlord=E2=80=99s negligence (either due to the dust or security) then yo=
+u have the right to file a claim through our Branch for compensation.  A he=
+aring would be scheduled at which point a hearing officer would make a deci=
+sion regarding your claim.
+
+The Branch will be investigating the withdrawal of services for the other u=
+nits but on an individual unit basis.
+
+Please let me know if you are unable to access the laundry/storage due to t=
+he drilling so I can follow up with the property manager.
+
+Thank you
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Friday, February 2, 2024 12:15 PM
+To: Maclean, David <David.Maclean@gov.mb.ca<mailto:David.Maclean@gov.mb.ca>>
+Subject: Re: FW: NON COMPLIANCE - 585 Corydon Ave
+
+You don't often get email from evanroz@gmail.com<mailto:evanroz@gmail.com>.=
+ Learn why this is important<https://aka.ms/LearnAboutSenderIdentification>
+Good morning, There is currently drilling which is preventing me access and=
+ also welding that produces a hazardous environment. Although the construct=
+ion workers are using gear and appear to be following healthy work and safe=
+ty protocol what
+
+Good morning,
+
+There is currently drilling which is preventing me access and also welding =
+that produces a hazardous environment. Although the construction workers ar=
+e using gear and appear to be following healthy work and safety protocol wh=
+at about the effects on my health? The noise is above 120 dc and there are =
+toxic fumes being produced although the windows are opened a crack. How can=
+ I do my laundry or use my storage unit when this is underway? Notice in th=
+e video the inaccessibility.
+
+The measurements of the storage unit are 90 cm x 60 cm x 60 cm. The door is=
+ unlocked from 8:30 am until 4:30 pm each day of construction.
+
+Please note that on form 8 the landlord has stated there will be no rent re=
+duction despite stating otherwise in emails to me. I assume you have access=
+ to a copy.
+
+Mr. Maclean, this landlord has engaged in deceptive practices and the reaso=
+ns are clear: Although the laundry and storage services have been provided =
+to me since my tenancy began in 2012, new tenants have not had the services=
+ indicated in their lease agreements. The service of storage was denied to =
+new tenants without following proper protocol because the landlord has had =
+plans to do this two suite creation since 2018 upon purchase of the propert=
+y. Despite having the storage units available and identified as correlated =
+to individual suites (see photos in previous emails) the landlord has left =
+these services empty and were not provided to tenants at no cost to themsel=
+ves and with only the goal of making these renovations as cheap as possible=
+ for themselves. Good business practices would be to withdraw the services =
+which are a physical reality by following RTB protocol which was not done. =
+ The tenants who have either permitted or been deceived into permitting on =
+suite renovations in which their storage space was reduced further to make =
+room for the laundry services. The fact of the matter is that storage space=
+ in each of the renovated units has been decreased and each of the tenants =
+since 2018 have been denied the storage unit services despite being availab=
+le, accessible, and clearly indicated as correlated to the tenant suites. T=
+horwin Properties has engaged is deception and unethical treatment of their=
+ tenants and all tenants affected should be reimbursed for these self-servi=
+ng practices. Let me be clear, there have been a reduction in services prov=
+ided to all tenants and yet rent increases have increased each year which h=
+ave deceptively not reflected the reduction in storage space in each of the=
+ renovated tenants suites due to the laundry services being installed and d=
+enial of storage unit services despite availability and accessibility.
+
+This company has exploited RTB protocol on technicality and this cannot be =
+allowed.
+
+When you determine the amount of rent decrease that the withdrawal of servi=
+ce of my unit will result in monthly I have an additional request:
+
+Each of the tenants since 2018 have had access denied to services that have=
+ been clearly identified on each of the now destructed storage units. I wan=
+t the RTB to recognize that service withdrawal protocol was not followed by=
+ Thorwin, each of tenants should have had access to the associated storage =
+units as I have, and it would be prudent and just for the RTB to order Thor=
+win Properties to retroactively payback the equivalent month by month value=
+ of storage fees that are included in the rent amount paid by the tenants f=
+rom 2018 onwards.
+
+I look forward to your response.
+
+All the best,
+Evan Rosner
+[Image removed by sender.] IMG_2342.MOV<https://urldefense.com/v3/__https:/=
+/drive.google.com/file/d/1fm9XoKcO8tKxtFqbcfffFc97dkpp8H55/view?usp=3Ddrive=
+_web__;!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk6=
+9n1tKDXYMrbx5nrm77F_R0zJxh4441pXRjkkh$>[Image removed by sender.]
+
+[Image removed by sender.] IMG_2343.MOV<https://urldefense.com/v3/__https:/=
+/drive.google.com/file/d/1obNY8F-U0ivbc_geXz18LCIp2R0pUVCn/view?usp=3Ddrive=
+_web__;!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk6=
+9n1tKDXYMrbx5nrm77F_R0zJxh4441lTgwVgd$>[Image removed by sender.]
+
+
+
+
+On Thu, Feb 1, 2024 at 3:52=E2=80=AFPM Maclean, David <David.Maclean@gov.mb=
+.ca<mailto:David.Maclean@gov.mb.ca>> wrote:
+
+Good afternoon Evan
+
+Thank you for your email and patience.
+
+I have reached out to the property manager regarding this situation.  I hav=
+e read through the emails and photos and understand what you are saying.
+
+My part, as well as the rent increase file, is to determine a value on the =
+services the landlord is withdrawing.    Your rent will be reduced on the v=
+alue of these services.
+
+Do you know the dimensions of the storage area you have.  Is the outside do=
+or always locked but isn=E2=80=99t now because of the work being done?
+
+I will also be assisting you in what is currently happening to your current=
+ storage area and laundry.   Once I hear back from the property manager I c=
+an then let you know what the next step is.
+
+My contact information is below, should you prefer to call
+
+Thank you
+
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St<https://urldefense.com/v3/__https://www.google.com/maps/=
+search/155*Carlton*St**A0D*0A*Winnipeg,*MB*R3C*3H8?entry=3Dgmail&source=3Dg=
+__;KysrJSUrKysr!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfP=
+X2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441uG4IOqj$>
+Winnipeg, MB R3C 3H8<https://urldefense.com/v3/__https://www.google.com/map=
+s/search/155*Carlton*St**A0D*0A*Winnipeg,*MB*R3C*3H8?entry=3Dgmail&source=
+=3Dg__;KysrJSUrKysr!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9=
+lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441uG4IOqj$>
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Wednesday, January 31, 2024 3:38 PM
+To: Maclean, David <David.Maclean@gov.mb.ca<mailto:David.Maclean@gov.mb.ca>>
+Subject: Fwd: NON COMPLIANCE - 585 Corydon Ave<https://urldefense.com/v3/__=
+https://www.google.com/maps/search/585*Corydon*Ave?entry=3Dgmail&source=3Dg=
+__;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69=
+n1tKDXYMrbx5nrm77F_R0zJxh4441mOf1BZF$>
+
+You don't often get email from evanroz@gmail.com<mailto:evanroz@gmail.com>.=
+ Learn why this is important<https://urldefense.com/v3/__https://aka.ms/Lea=
+rnAboutSenderIdentification__;!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3=
+OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441rTm3TmP$>
+Please see the attached correspondence. The landlord is in breach of regula=
+tions and this requires immediate attention. This a clear violation of mine=
+ and tenant rights. This requires immediate escalation. Thank you, Evan ---=
+------- Forwarded
+Please see the attached correspondence. The landlord is in breach of regula=
+tions and this requires immediate attention. This a clear violation of mine=
+ and tenant rights. This requires immediate escalation.
+
+Thank you,
+Evan
+---------- Forwarded message ---------
+From: Susan Fehr <susan.fehr@thorwin.ca<mailto:susan.fehr@thorwin.ca>>
+Date: Wed, Jan 31, 2024 at 3:15=E2=80=AFPM
+Subject: RE: NON COMPLIANCE - 585 Corydon Ave<https://urldefense.com/v3/__h=
+ttps://www.google.com/maps/search/585*Corydon*Ave?entry=3Dgmail&source=3Dg_=
+_;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n=
+1tKDXYMrbx5nrm77F_R0zJxh4441mOf1BZF$>
+To: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>, +WPG725 - CC=
+A RTB (FIN) <rtb@gov.mb.ca<mailto:rtb@gov.mb.ca>>
+Cc: Grant Steele <grant.steele@thorwin.ca<mailto:grant.steele@thorwin.ca>>,=
+ Dasha Dorofeeva <Dasha.Dorofeeva@thorwin.ca<mailto:Dasha.Dorofeeva@thorwin=
+.ca>>, property.admin <property.administration@thorwin.ca<mailto:property.a=
+dministration@thorwin.ca>>
+
+Evan
+
+I have confirmed with the Construction Manager that both your locker and th=
+e laundry facilities at 585 Corydon are available for your use.
+The workers have been instructed to make sure that there is a safe and clea=
+r path to these amenities.
+
+Kind regards
+
+Susan Fehr
+General Manager =E2=80=93 Property Division
+
+E-mail: Susan.fehr@thorwin.ca<mailto:Susan.fehr@thorwin.ca>
+Office: 204-222-2422<tel:204-222-2422>
+Direct: 204-918-0032<tel:204-594-5409>
+Fax: 204-594-5414<tel:204-594-5414>
+
+www.thorwin.ca<https://urldefense.com/v3/__http://www.thorwin.ca/__;!!IqQd2=
+s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kq=
+aNj37hrlYRk9iu47IhyOxj7$>
+1274 Archibald Street, Winnipeg, Manitoba, R2J 0Z3<https://urldefense.com/v=
+3/__https://www.google.com/maps/search/1274*Archibald*Street,*Winnipeg,*Man=
+itoba,*R2J*0Z3?entry=3Dgmail&source=3Dg__;KysrKysr!!IqQd2s6KUyvHwNLtrw!sAIh=
+QNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441vZ=
+qN8tH$>
+LinkedIn<https://urldefense.com/v3/__https://www.linkedin.com/company/16167=
+495__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfM=
+FPlEWat7cN8kqaNj37hrlYRk9iu47P_DuW48$> | Facebook<https://urldefense.com/v3=
+/__https://www.facebook.com/myplacerealty__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46Ks=
+RGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47AmymoPE$=
+> | Twitter<https://urldefense.com/v3/__https://twitter.com/myplacerealty__=
+;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEW=
+at7cN8kqaNj37hrlYRk9iu47DTJ2_4C$> | Instagram<https://urldefense.com/v3/__h=
+ttps://www.instagram.com/myplacerealty/__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRG=
+Y3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47NFJcPy8$>
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Wednesday, January 31, 2024 2:43 PM
+To: Susan Fehr <susan.fehr@thorwin.ca<mailto:susan.fehr@thorwin.ca>>; +WPG7=
+25 - CCA RTB (FIN) <rtb@gov.mb.ca<mailto:rtb@gov.mb.ca>>
+Subject: re: NON COMPLIANCE - 585 Corydon Ave<https://urldefense.com/v3/__h=
+ttps://www.google.com/maps/search/585*Corydon*Ave?entry=3Dgmail&source=3Dg_=
+_;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n=
+1tKDXYMrbx5nrm77F_R0zJxh4441mOf1BZF$>
+
+Attention,
+
+You are informed that the actions occurring at 585 Corydon Ave<https://urld=
+efense.com/v3/__https://www.google.com/maps/search/585*Corydon*Ave?entry=3D=
+gmail&source=3Dg__;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlP=
+kP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441mOf1BZF$> are in breach of the=
+ regulations of the Residential Tenancy Act.
+
+I have received Form 8 dated January 23, 2024 indicating that common area l=
+aundry and storage lockers service withdrawal will occur on May 1. 2024.
+
+This is already happening and is an issue of non-compliance with provincial=
+ regulations.
+
+Cease and desist.
+
+Evan Rosner
+10-585 Corydon Ave<https://urldefense.com/v3/__https://www.google.com/maps/=
+search/585*Corydon*Ave?entry=3Dgmail&source=3Dg__;Kys!!IqQd2s6KUyvHwNLtrw!s=
+AIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh444=
+1mOf1BZF$>
+
+
+--_000_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:UICTFontTextStyleBody;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:wf_segoe-ui_normal;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.EmailStyle21
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Good afte=
+rnoon Evan;<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Thank you=
+ for your response, I do appreciate it.&nbsp; It is responses like these th=
+at enable the Branch to make an informed, just decision regarding the servi=
+ces that are being removed and the amount
+ of the rent that should be reduced to balance out these services.<o:p></o:=
+p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Before I =
+get to the more pressing issue I wanted to let you know how the Branch dete=
+rmines the cost of storage and laundry.&nbsp; For storage; research is done=
+ to find something similar to the dimensions
+ you have, and close to your home.&nbsp; For laundry we generally think 3 l=
+oads of laundry per week is average/fair and then calculate the dollar amou=
+nt of what it would cost you to go to a laundromat.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Current i=
+ssue.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Unfortuna=
+tely I couldn=E2=80=99t access the video you showed me, I am assuming its b=
+ecause of our security firewall protocols.&nbsp; I believe our system does =
+accept.mov files but I couldn=E2=80=99t open the ones you
+ sent.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">I did hav=
+e a reply from the property manager who advised me that they have booked a =
+cleaner to attend the building this week to ensure the area is clean and ac=
+cessible.&nbsp; The Branch though cannot
+ stop the landlord from doing the renovations; only advising them that they=
+ must ensure you have access to the services until May 1, 2024.&nbsp; &nbsp=
+;If your items are damaged because of the landlord=E2=80=99s negligence (ei=
+ther due to the dust or security) then you have the
+ right to file a claim through our Branch for compensation.&nbsp; A hearing=
+ would be scheduled at which point a hearing officer would make a decision =
+regarding your claim.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">The Branc=
+h will be investigating the withdrawal of services for the other units but =
+on an individual unit basis.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Please le=
+t me know if you are unable to access the laundry/storage due to the drilli=
+ng so I can follow up with the property manager.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Thank you=
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:black">David Maclean&nbsp;</spa=
+n><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,s=
+erif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Of=
+ficer&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times N=
+ew Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Br=
+anch&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times Ne=
+w Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">200-155 Carlton St&nbsp;=
+</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&qu=
+ot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbs=
+p;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&=
+quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Phone: 204-945-2484&nbsp=
+;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&q=
+uot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Fax: 204-945-6273&nbsp;<=
+/span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quo=
+t;,serif;color:black"><o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US">From:</span></b><span lang=
+=3D"EN-US"> Evan Rosner &lt;<a href=3D"mailto:evanroz@gmail.com">evanroz@gm=
+ail.com</a>&gt;
+<br>
+<b>Sent:</b> Friday, February 2, 2024 12:15 PM<br>
+<b>To:</b> Maclean, David &lt;<a href=3D"mailto:David.Maclean@gov.mb.ca">Da=
+vid.Maclean@gov.mb.ca</a>&gt;<br>
+<b>Subject:</b> Re: FW: NON COMPLIANCE - 585 Corydon Ave<o:p></o:p></span><=
+/p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"background:#A6A6A6;padding:5.25pt 1.5pt 5.25pt 1.5pt"></td>
+<td width=3D"100%" style=3D"width:100.0%;background:#EAEAEA;padding:5.25pt =
+3.75pt 5.25pt 11.25pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-element:frame;mso-element-frame-hspace:=
+2.25pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-el=
+ement-anchor-horizontal:column;mso-height-rule:exactly">
+<span style=3D"font-size:9.0pt;font-family:&quot;wf_segoe-ui_normal&quot;,s=
+erif;color:#212121">You don't often get email from
+<a href=3D"mailto:evanroz@gmail.com">evanroz@gmail.com</a>. <a href=3D"http=
+s://aka.ms/LearnAboutSenderIdentification">
+Learn why this is important</a><o:p></o:p></span></p>
+</div>
+</td>
+<td width=3D"75" style=3D"width:56.25pt;background:#EAEAEA;padding:5.25pt 3=
+.75pt 5.25pt 3.75pt;align:left">
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Good morning, There is currently drilling which=
+ is preventing me access and also welding that produces a hazardous environ=
+ment. Although the construction workers
+ are using gear and appear to be following healthy work and safety protocol=
+ what <o:p>
+</o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<div>
+<p class=3D"MsoNormal">Good morning,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">There is currently drilling which is preventing me a=
+ccess and also welding that produces a hazardous environment. Although the =
+construction workers are using gear and appear to be following healthy work=
+ and safety protocol what about the
+ effects on my health? The noise is above 120 dc and there are toxic fumes =
+being produced although the windows are opened a crack. How can I do my lau=
+ndry or use my storage unit when this is underway? Notice in the video the =
+inaccessibility.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">The measurements of the storage unit are 90 cm x 60<=
+span style=3D"font-family:&quot;UICTFontTextStyleBody&quot;,serif">&nbsp;cm=
+ x 60&nbsp;cm. The door is unlocked from 8:30 am until 4:30 pm each day of =
+construction.&nbsp;</span><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Please note that on form 8 the landlord has stated t=
+here will be no rent reduction despite stating otherwise in emails to me. I=
+ assume you have access to a copy.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Mr. Maclean, this landlord has engaged in deceptive =
+practices and the reasons are clear: Although the laundry and storage servi=
+ces have been provided to me since my tenancy began in 2012, new tenants ha=
+ve not had the services indicated
+ in their lease agreements. The service of storage&nbsp;was denied to new t=
+enants without following proper protocol because the landlord has had plans=
+ to do this two suite creation since 2018 upon purchase of the property. De=
+spite having the storage units available
+ and identified as correlated to individual suites (see photos in previous =
+emails) the landlord has left these services empty and were not provided to=
+ tenants at no cost to themselves and with only the goal of making these re=
+novations as cheap as possible for
+ themselves. Good business practices would be to withdraw the services whic=
+h are a
+<b>physical reality</b> by following RTB protocol which was not done.&nbsp;=
+ The tenants who have either permitted or been deceived into permitting on =
+suite renovations in which their storage space was reduced further to make =
+room for the laundry services. The fact
+ of the matter is that storage space in each of the renovated units has bee=
+n decreased and each of the tenants since 2018 have been denied the storage=
+ unit services despite being available, accessible, and clearly indicated a=
+s correlated to the tenant suites.
+ Thorwin Properties has engaged is deception and unethical treatment of the=
+ir tenants and all tenants affected should be reimbursed for these self-ser=
+ving practices. Let me be clear, there have been a reduction in services pr=
+ovided to all tenants and yet rent
+ increases have increased each year which have deceptively not reflected th=
+e reduction in storage space in each of the renovated tenants suites due to=
+ the laundry services being installed and denial of storage unit services d=
+espite availability and accessibility.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">This company has exploited RTB protocol on technical=
+ity and this cannot be allowed.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">When you determine the amount of rent decrease that =
+the withdrawal of service of my unit will result in monthly I have an addit=
+ional request:<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Each of the tenants since 2018 have had access denie=
+d to services that have been clearly identified on each of the now destruct=
+ed storage units. I want the RTB to recognize that service withdrawal proto=
+col was not followed by Thorwin, each
+ of tenants should have had access to the associated storage units as I hav=
+e, and it would be prudent and just for the RTB to order Thorwin Properties=
+ to retroactively payback the equivalent&nbsp;month by month value of stora=
+ge fees that are included in the rent
+ amount paid by the tenants from 2018 onwards.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I look forward to your response.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">All the best,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<div style=3D"border:solid #DDDDDD 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;ma=
+rgin-top:4.5pt;margin-bottom:4.5pt;max-height:20px;font-variant-numeric:nor=
+mal;font-variant-east-asian:normal;font-variant-alternates:normal;font-kern=
+ing:auto;font-feature-settings:normal;font-stretch:normal">
+<p class=3D"MsoNormal" style=3D"line-height:15.0pt;background:whitesmoke"><=
+span style=3D"font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif;col=
+or:black"><a href=3D"https://urldefense.com/v3/__https://drive.google.com/f=
+ile/d/1fm9XoKcO8tKxtFqbcfffFc97dkpp8H55/view?usp=3Ddrive_web__;!!IqQd2s6KUy=
+vHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F=
+_R0zJxh4441pXRjkkh$" target=3D"_blank"><span style=3D"color:#202124;border:=
+none windowtext 1.0pt;padding:0cm;text-decoration:none"><img border=3D"0" w=
+idth=3D"100" height=3D"100" style=3D"width:1.0416in;height:1.0416in" id=3D"=
+Picture_x0020_1" src=3D"cid:~WRD0001.jpg" alt=3D"Image removed by sender.">=
+</span><span style=3D"color:#202124;border:none windowtext 1.0pt;padding:0c=
+m">&nbsp;</span><span style=3D"color:#202124;border:none windowtext 1.0pt;p=
+adding:0cm;text-decoration:none">IMG_2342.MOV</span></a><span style=3D"bord=
+er:solid windowtext 1.0pt;padding:0cm"><img border=3D"0" width=3D"100" heig=
+ht=3D"100" style=3D"width:1.0416in;height:1.0416in" id=3D"Picture_x0020_2" =
+src=3D"cid:~WRD0001.jpg" alt=3D"Image removed by sender."></span></span><sp=
+an style=3D"font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif"><o:p=
+></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div style=3D"border:solid #DDDDDD 1.0pt;padding:8.0pt 8.0pt 8.0pt 8.0pt;ma=
+rgin-top:4.5pt;margin-bottom:4.5pt;max-height:20px;font-variant-numeric:nor=
+mal;font-variant-east-asian:normal;font-variant-alternates:normal;font-kern=
+ing:auto;font-feature-settings:normal;font-stretch:normal">
+<p class=3D"MsoNormal" style=3D"line-height:15.0pt;background:whitesmoke"><=
+span style=3D"font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif;col=
+or:black"><a href=3D"https://urldefense.com/v3/__https://drive.google.com/f=
+ile/d/1obNY8F-U0ivbc_geXz18LCIp2R0pUVCn/view?usp=3Ddrive_web__;!!IqQd2s6KUy=
+vHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F=
+_R0zJxh4441lTgwVgd$" target=3D"_blank"><span style=3D"color:#202124;border:=
+none windowtext 1.0pt;padding:0cm;text-decoration:none"><img border=3D"0" w=
+idth=3D"100" height=3D"100" style=3D"width:1.0416in;height:1.0416in" id=3D"=
+Picture_x0020_3" src=3D"cid:~WRD0001.jpg" alt=3D"Image removed by sender.">=
+</span><span style=3D"color:#202124;border:none windowtext 1.0pt;padding:0c=
+m">&nbsp;</span><span style=3D"color:#202124;border:none windowtext 1.0pt;p=
+adding:0cm;text-decoration:none">IMG_2343.MOV</span></a><span style=3D"bord=
+er:solid windowtext 1.0pt;padding:0cm"><img border=3D"0" width=3D"100" heig=
+ht=3D"100" style=3D"width:1.0416in;height:1.0416in" id=3D"Picture_x0020_4" =
+src=3D"cid:~WRD0001.jpg" alt=3D"Image removed by sender."></span></span><sp=
+an style=3D"font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif"><o:p=
+></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+<div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Thu, Feb 1, 2024 at 3:52=E2=80=AFPM Maclean, Davi=
+d &lt;<a href=3D"mailto:David.Maclean@gov.mb.ca" target=3D"_blank">David.Ma=
+clean@gov.mb.ca</a>&gt; wrote:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0cm;margin-=
+bottom:5.0pt">
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Good afternoon Evan<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you for your email and patience.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I have reached out to the property manager regarding this situatio=
+n.&nbsp; I have read through the emails and photos and understand what you =
+are saying.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">My part, as well as the rent increase file, is to determine a valu=
+e on the services the landlord is withdrawing. &nbsp;&nbsp;&nbsp;Your rent =
+will be reduced on the value of these services.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Do you know the dimensions of the storage area you have.&nbsp; Is =
+the outside door always locked but isn=E2=80=99t now because of the work be=
+ing done?<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I will also be assisting you in what is currently happening to you=
+r current storage area and laundry. &nbsp;&nbsp;Once I hear back from the p=
+roperty manager I can then let you know what the
+ next step is.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">My contact information is below, should you prefer to call<o:p></o=
+:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">David Maclean&nbsp;</span><o:p></o:p><=
+/p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Officer&nbsp;</s=
+pan><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Branch&nbsp;</sp=
+an><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">200-<a href=3D"https://urldefense.com/=
+v3/__https://www.google.com/maps/search/155*Carlton*St**A0D*0A*Winnipeg,*MB=
+*R3C*3H8?entry=3Dgmail&amp;source=3Dg__;KysrJSUrKysr!!IqQd2s6KUyvHwNLtrw!sA=
+IhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441=
+uG4IOqj$" target=3D"_blank">155
+ Carlton St</a>&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black"><a href=3D"https://urldefense.com/v3/_=
+_https://www.google.com/maps/search/155*Carlton*St**A0D*0A*Winnipeg,*MB*R3C=
+*3H8?entry=3Dgmail&amp;source=3Dg__;KysrJSUrKysr!!IqQd2s6KUyvHwNLtrw!sAIhQN=
+FCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441uG4I=
+Oqj$" target=3D"_blank">Winnipeg,
+ MB R3C 3H8</a>&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Phone: 204-945-2484&nbsp;</span><o:p><=
+/o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Fax: 204-945-6273&nbsp;</span><o:p></o=
+:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US"> Evan=
+ Rosner &lt;<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">evanroz@=
+gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Wednesday, January 31, 2024 3:38 PM<br>
+<b>To:</b> Maclean, David &lt;<a href=3D"mailto:David.Maclean@gov.mb.ca" ta=
+rget=3D"_blank">David.Maclean@gov.mb.ca</a>&gt;<br>
+<b>Subject:</b> Fwd: NON COMPLIANCE - <a href=3D"https://urldefense.com/v3/=
+__https://www.google.com/maps/search/585*Corydon*Ave?entry=3Dgmail&amp;sour=
+ce=3Dg__;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2b=
+p7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441mOf1BZF$" target=3D"_blank">
+585 Corydon Ave</a></span><o:p></o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"background:#A6A6A6;padding:5.25pt 1.5pt 5.25pt 1.5pt"></td>
+<td width=3D"100%" style=3D"width:100.0%;background:#EAEAEA;padding:5.25pt =
+3.75pt 5.25pt 11.25pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto;mso-element:frame;mso-element-frame-hspace:2.25pt;mso-element-wrap:=
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:=
+column;mso-height-rule:exactly">
+<span style=3D"font-size:9.0pt;font-family:&quot;wf_segoe-ui_normal&quot;,s=
+erif;color:#212121">You don't often get email from
+<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">evanroz@gmail.com</a=
+>. <a href=3D"https://urldefense.com/v3/__https://aka.ms/LearnAboutSenderId=
+entification__;!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfP=
+X2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441rTm3TmP$" target=3D"_blank">
+Learn why this is important</a></span><o:p></o:p></p>
+</div>
+</td>
+<td width=3D"75" style=3D"width:56.25pt;background:#EAEAEA;padding:5.25pt 3=
+.75pt 5.25pt 3.75pt">
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:1.0pt;color:white">Please see the attache=
+d correspondence. The landlord is in breach of regulations and this require=
+s immediate attention. This a clear violation
+ of mine and tenant rights. This requires immediate escalation. Thank you, =
+Evan ---------- Forwarded
+</span><o:p></o:p></p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Please see the attached correspondence. The landlord is in breach =
+of regulations and this requires immediate attention. This a clear violatio=
+n of mine and tenant&nbsp;rights. This requires
+ immediate escalation.&nbsp; <o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-bottom:12.0p=
+t">Evan&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">---------- Forwarded message ---------<br>
+From: <strong><span style=3D"font-family:&quot;Calibri&quot;,sans-serif">Su=
+san Fehr</span></strong> &lt;<a href=3D"mailto:susan.fehr@thorwin.ca" targe=
+t=3D"_blank">susan.fehr@thorwin.ca</a>&gt;<br>
+Date: Wed, Jan 31, 2024 at 3:15=E2=80=AFPM<br>
+Subject: RE: NON COMPLIANCE - <a href=3D"https://urldefense.com/v3/__https:=
+//www.google.com/maps/search/585*Corydon*Ave?entry=3Dgmail&amp;source=3Dg__=
+;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1=
+tKDXYMrbx5nrm77F_R0zJxh4441mOf1BZF$" target=3D"_blank">
+585 Corydon Ave</a><br>
+To: Evan Rosner &lt;<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">=
+evanroz@gmail.com</a>&gt;, +WPG725 - CCA RTB (FIN) &lt;<a href=3D"mailto:rt=
+b@gov.mb.ca" target=3D"_blank">rtb@gov.mb.ca</a>&gt;<br>
+Cc: Grant Steele &lt;<a href=3D"mailto:grant.steele@thorwin.ca" target=3D"_=
+blank">grant.steele@thorwin.ca</a>&gt;, Dasha Dorofeeva &lt;<a href=3D"mail=
+to:Dasha.Dorofeeva@thorwin.ca" target=3D"_blank">Dasha.Dorofeeva@thorwin.ca=
+</a>&gt;, property.admin &lt;<a href=3D"mailto:property.administration@thor=
+win.ca" target=3D"_blank">property.administration@thorwin.ca</a>&gt;<o:p></=
+o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-bottom:12.0p=
+t">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">Evan</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">I have confirmed with the Construction Manager that both yo=
+ur locker and the laundry facilities at 585 Corydon
+ are available for your use.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">The workers have been instructed to make sure that there is=
+ a safe and clear path to these amenities.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Kind regards</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Susan Fehr</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">General Manager =E2=80=93 Property Division&nbs=
+p;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">E-mail:&nbsp;<a href=3D"mailto:Susan.fehr@thorw=
+in.ca" target=3D"_blank">Susan.fehr@thorwin.ca</a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Office:&nbsp;<a href=3D"tel:204-222-2422" targe=
+t=3D"_blank">204-222-2422</a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Direct:&nbsp;<a href=3D"tel:204-594-5409" targe=
+t=3D"_blank">204-918-0032</a><br>
+Fax:&nbsp;<a href=3D"tel:204-594-5414" target=3D"_blank">204-594-5414</a></=
+span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light=
+&quot;,sans-serif;color:#2094BD">&nbsp;</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black"><a href=3D"https://urldefense.com/v3/__http://w=
+ww.thorwin.ca/__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZS=
+Z0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47IhyOxj7$" target=3D"_blank">www.tho=
+rwin.ca</a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:#00B0F0"><a href=3D"https://urldefense.com/v3/__https:=
+//www.google.com/maps/search/1274*Archibald*Street,*Winnipeg,*Manitoba,*R2J=
+*0Z3?entry=3Dgmail&amp;source=3Dg__;KysrKysr!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtW=
+y2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441vZqN8tH$=
+" target=3D"_blank">1274
+ Archibald Street, Winnipeg, Manitoba, R2J 0Z3</a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black"><a href=3D"https://urldefense.com/v3/__https://=
+www.linkedin.com/company/16167495__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKj=
+zivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47P_DuW48$" target=
+=3D"_blank"><span style=3D"color:#00B0F0">LinkedIn</span></a></span><span s=
+tyle=3D"font-size:13.0pt;font-family:&quot;Calibri Light&quot;,sans-serif;c=
+olor:#00B0F0">&nbsp;|&nbsp;</span><span style=3D"font-size:13.0pt;font-fami=
+ly:&quot;Calibri Light&quot;,sans-serif;color:black"><a href=3D"https://url=
+defense.com/v3/__https://www.facebook.com/myplacerealty__;!!IqQd2s6KUyvHwNL=
+trw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYR=
+k9iu47AmymoPE$" target=3D"_blank"><span style=3D"color:#00B0F0">Facebook</s=
+pan></a></span><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Li=
+ght&quot;,sans-serif;color:#00B0F0">&nbsp;|</span><span style=3D"font-size:=
+13.0pt;font-family:&quot;Calibri Light&quot;,sans-serif;color:black"><a hre=
+f=3D"https://urldefense.com/v3/__https://twitter.com/myplacerealty__;!!IqQd=
+2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8k=
+qaNj37hrlYRk9iu47DTJ2_4C$" target=3D"_blank"><span style=3D"color:#00B0F0">=
+&nbsp;Twitter</span></a></span><span style=3D"font-size:13.0pt;font-family:=
+&quot;Calibri Light&quot;,sans-serif;color:#00B0F0">&nbsp;|&nbsp;</span><sp=
+an style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&quot;,sans-ser=
+if;color:black"><a href=3D"https://urldefense.com/v3/__https://www.instagra=
+m.com/myplacerealty/__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5a=
+K97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47NFJcPy8$" target=3D"_blank"><=
+span style=3D"color:#00B0F0">Instagram</span></a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">&nbsp;</span><o:p></o:p></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US"> Evan=
+ Rosner &lt;<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">evanroz@=
+gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Wednesday, January 31, 2024 2:43 PM<br>
+<b>To:</b> Susan Fehr &lt;<a href=3D"mailto:susan.fehr@thorwin.ca" target=
+=3D"_blank">susan.fehr@thorwin.ca</a>&gt;; +WPG725 - CCA RTB (FIN) &lt;<a h=
+ref=3D"mailto:rtb@gov.mb.ca" target=3D"_blank">rtb@gov.mb.ca</a>&gt;<br>
+<b>Subject:</b> re: NON COMPLIANCE - <a href=3D"https://urldefense.com/v3/_=
+_https://www.google.com/maps/search/585*Corydon*Ave?entry=3Dgmail&amp;sourc=
+e=3Dg__;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp=
+7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441mOf1BZF$" target=3D"_blank">
+585 Corydon Ave</a></span><o:p></o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Attention,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">You are informed that the actions occurring&nbsp;at
+<a href=3D"https://urldefense.com/v3/__https://www.google.com/maps/search/5=
+85*Corydon*Ave?entry=3Dgmail&amp;source=3Dg__;Kys!!IqQd2s6KUyvHwNLtrw!sAIhQ=
+NFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R0zJxh4441mOf=
+1BZF$" target=3D"_blank">
+585 Corydon Ave</a> are in breach of the regulations of the Residential Ten=
+ancy Act.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I have received Form 8 dated January 23, 2024 indicating that comm=
+on area laundry and storage lockers service withdrawal&nbsp;will occur on M=
+ay 1. 2024.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">This is already happening and is an issue of non-compliance with p=
+rovincial&nbsp;regulations.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Cease and desist.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">10-<a href=3D"https://urldefense.com/v3/__https://www.google.com/m=
+aps/search/585*Corydon*Ave?entry=3Dgmail&amp;source=3Dg__;Kys!!IqQd2s6KUyvH=
+wNLtrw!sAIhQNFCtWy2umKpr1n-swd3OncLhnlPkP9lhfPX2bp7Fk69n1tKDXYMrbx5nrm77F_R=
+0zJxh4441mOf1BZF$" target=3D"_blank">585
+ Corydon Ave</a><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_--
+
+--_004_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_
+Content-Type: image/jpeg; name="~WRD0001.jpg"
+Content-Description: ~WRD0001.jpg
+Content-Disposition: inline; filename="~WRD0001.jpg"; size=823;
+	creation-date="Mon, 05 Feb 2024 16:54:38 GMT";
+	modification-date="Mon, 05 Feb 2024 18:34:28 GMT"
+Content-ID: <~WRD0001.jpg>
+Content-Transfer-Encoding: base64
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iii
+gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA
+CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK
+KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoo
+ooAKKKKACiiigAooooAKKKKACiiigD//2Q==
+
+--_004_YT4PR01MB9717AB88E11884A367E8575DB0472YT4PR01MB9717CANP_--

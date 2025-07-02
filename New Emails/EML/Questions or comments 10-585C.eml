@@ -1,0 +1,373 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a1c:5943:0:0:0:0:0 with SMTP id n64csp3153265wmb;
+        Tue, 25 Aug 2020 08:26:41 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwk/QWwO0jGa94eUD9WG835fnnc+T+tDETcMHsDuZbz66m0b2gotgeBDq7RSOcp0vG7vIDl
+X-Received: by 2002:a5d:9f0e:: with SMTP id q14mr9442924iot.69.1598369201819;
+        Tue, 25 Aug 2020 08:26:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1598369201; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=u+wMLd+2tbutlXWS9H5vSKc3T7VunrCt2XqZ3VeQlbYh1gwzTnClF+Yly8Xp7ETz/V
+         MtRT0gX3+0uB3+9smWp1lS0Ltr9UPksYBGPOp5W/PUs7EsaYp43IW2ULskf7ske8FO+6
+         dKItQbLkKhrXoIpDLTweajrhuUa0KE6F6bp9DcqQT/wE+7yeKlgtv0lPsGukAJpd6e9o
+         UTipu9Z6jmIf7HiPv3tFmVH4Y356PMqZQ1ROGDVFNQydZx2XWIFIBboQdn/TuRsHufKU
+         2fZfiqbiLTFMElVz1CV0u7uaIOpFdYX+OG+BHz2EVK+KHePTyovpB3dyUnOStPyOrxTz
+         YUSw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:cc:to:from:dkim-signature;
+        bh=YgrQ/f9g8rn/tIyup4Htg1EvCwhUIgd7iDusyjElQ30=;
+        b=FtyBs+I97Spg2aa7cJ4z4BB7s1HAxmfSqk4ndP8345neXFvm38FeJNrwT4Ds3MTiRH
+         jd9JSCo89eSGh0lnUrNj+k6u7RvesGfMYzF0NHFi/m9wgqSkV4E4+m5VJQ8TBmdnyaS8
+         ukf3xVxMUnaAlOweazQcUwhz0knWQN/cXAne68dJ/6teGg7jWIpstbsawa9TJnnTb+Sl
+         8vXHAJZ+Pw8Ne3DYJNuD6BoxpkoJxtnZNjuJ77JtGAhcYyG5XdrSdAzk6S5MHaCYDBMT
+         1d1zzXWycAU3M3RqlRP47i0ZtB6lQ74rnvOvlAoeZJq00h0ZYxKImSF/y73HEp5A4YR/
+         IaNQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@myplacerealty.onmicrosoft.com header.s=selector2-myplacerealty-onmicrosoft-com header.b=lG8jnpx3;
+       arc=pass (i=1 spf=pass spfdomain=myplace.ca dkim=pass dkdomain=myplace.ca dmarc=pass fromdomain=myplace.ca);
+       spf=pass (google.com: domain of darren.wilcox@myplace.ca designates 40.107.66.85 as permitted sender) smtp.mailfrom=Darren.Wilcox@myplace.ca
+Return-Path: <Darren.Wilcox@myplace.ca>
+Received: from CAN01-QB1-obe.outbound.protection.outlook.com (mail-eopbgr660085.outbound.protection.outlook.com. [40.107.66.85])
+        by mx.google.com with ESMTPS id w10si12667324jap.94.2020.08.25.08.26.41
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 25 Aug 2020 08:26:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of darren.wilcox@myplace.ca designates 40.107.66.85 as permitted sender) client-ip=40.107.66.85;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@myplacerealty.onmicrosoft.com header.s=selector2-myplacerealty-onmicrosoft-com header.b=lG8jnpx3;
+       arc=pass (i=1 spf=pass spfdomain=myplace.ca dkim=pass dkdomain=myplace.ca dmarc=pass fromdomain=myplace.ca);
+       spf=pass (google.com: domain of darren.wilcox@myplace.ca designates 40.107.66.85 as permitted sender) smtp.mailfrom=Darren.Wilcox@myplace.ca
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=T3f/IQIiUfqGrIadu94ILoWRMqQQn+bouwGRAL0QrKLgexwxhW+l2sOWIsg5iiONDNBDZPdmVNbGEBPCbp7Z6b0k7Vcy7HIolMxT3MRSaxGlFQWW+4CfCGYhs81+/Pl8SW/g3dDxKtihIjMDh8kCp8Diamulppl1F3vS+7skfFU3uu+qpYTNEPD1Rg3HEtapFuVV/XNPUYAqD7fiRKe6W2rojVDd8MJnWVzcYD+/IKl23Gg4riwxac1/exARSgDUbF4YDn93tc0h4LqcAhNm4e1nthLwUd6drtQxA9t3173n4We2FYX3hCjr0WoUbN0tWlvJwyD2MsvuhLZIsfwh2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YgrQ/f9g8rn/tIyup4Htg1EvCwhUIgd7iDusyjElQ30=;
+ b=AHVUA8Fkfbk2ELg0DsE+Gg27VlYQi4G3H1mBUBLJTbXNxtFqPlWDbfQoJXn/uSBtTeNqLeOtFKGAVLE1p6V8lNkhwxQV8oQ0OCiRB4Uk5bkKoyFvA2u3IHMJ6EIL+3NeToOnA4U9DPVqA+EJD8MQkRbsKj5A8ZTJa+XpkER01W2n5GO5KtkHF5inrtMeU65xDEoH77vmOQYiu2X9u2E3WfnPeb1vn/S2dmhRpDjuhzKl6N8sirt+KxIVTdzaxyc5xGLdOAji6Z+rufiCie4W0QAeM+xuxJLEu/0U8snjC1ChxUFVQZLvoJZGy/h6hlaN0n7oBD+VzYrFiUxIOeTf6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=myplace.ca; dmarc=pass action=none header.from=myplace.ca;
+ dkim=pass header.d=myplace.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=myplacerealty.onmicrosoft.com; s=selector2-myplacerealty-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YgrQ/f9g8rn/tIyup4Htg1EvCwhUIgd7iDusyjElQ30=;
+ b=lG8jnpx3GQW0odBPjkl7lOjWk/f62S9gZkStxrCM0qKroyjarukFfsFr9dvYTYbTU9DpUwGn/ew5BtZqJL/DpMX1HKbJnTvyWGnnmSXdQhMOaW9/uEKRBFcxSomUgHeQ0ZObufNH0Pz3h3pjBLJuymH4dohp5oQnUg5VgFskXxA=
+Received: from YTOPR0101MB2123.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b00:1e::27) by YTXPR0101MB2016.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b00:11::32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3305.24; Tue, 25 Aug
+ 2020 15:26:38 +0000
+Received: from YTOPR0101MB2123.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::5872:f86e:1ed5:90a]) by YTOPR0101MB2123.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::5872:f86e:1ed5:90a%3]) with mapi id 15.20.3305.026; Tue, 25 Aug 2020
+ 15:26:38 +0000
+From: Darren Wilcox <Darren.Wilcox@myplace.ca>
+To: "evanroz@gmail.com" <evanroz@gmail.com>
+CC: Eden Steele <eden.steele@myplace.ca>, Gina Lopes <gina.lopes@myplace.ca>
+Subject: Questions or comments 10-585C
+Thread-Topic: Questions or comments 10-585C
+Thread-Index: AdZ69BxtSm2ZhJxIT6+1Y/g9vPmv1g==
+Date: Tue, 25 Aug 2020 15:26:37 +0000
+Message-ID:
+ <YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570@YTOPR0101MB2123.CANPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-CA, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=myplace.ca;
+x-originating-ip: [184.71.90.186]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 8ba103cb-b335-4986-aa44-08d8490b4271
+x-ms-traffictypediagnostic: YTXPR0101MB2016:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs:
+ <YTXPR0101MB201613CDAA1C3712127387AF9F570@YTXPR0101MB2016.CANPRD01.PROD.OUTLOOK.COM>
+x-ms-oob-tlc-oobclassifiers: OLM:8882;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ YDef4gjguBSb4RoknC95SotKPxPIkZexybruDN5d88oxqZNOp5ro2oqfQoxNYWohG9tvqmtsEUEo7mBG04LYMxYT2BSt+RsvIQ0hjVHDzRyaxSk+iEQN3uGmM6sW56c6EA6IIe/M5crJIzMSH48ZJbBhROwF36Ru6P/NMnvdE+iVvPWdhEEBR4x+aAdOQ7/0glW3FGU0ApqdIrXdHFAYt1nqFiXYnBk180q6Rs6nUrFSZLVO12L+9gCi5IfB7kEMvHsv6BQuB1zY3jqVVjwvgRUjVrkv8wnNt7LcrdHthGmV5sVhsVfc/ISntYnMKq5hYXJYVXbc+AH64vwdGiPqprVXua48+68bdJu7UNp3ZsRpf3jqxSpWG2X0sm9LcJV0N4Rz/Ri9jjKJvBUd5OtdCA==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YTOPR0101MB2123.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(346002)(39830400003)(376002)(366004)(396003)(136003)(478600001)(4326008)(7696005)(316002)(86362001)(71200400001)(54906003)(6506007)(4744005)(6916009)(99936003)(55016002)(8936002)(52536014)(2906002)(33656002)(83380400001)(166002)(107886003)(186003)(66476007)(66446008)(64756008)(66556008)(66616009)(66946007)(76116006)(5660300002)(8676002)(9686003)(45080400002)(26005);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata:
+ qlcNVWr8ULvkzg7hRywKCAbLQivMww5+lPjqsGf8u9HqEYaf2XS0CtZkExEWTzgXaFlyUd/fIDdaxI/YuuFgPn/4kszSh5ZEGdqVNvsQ93njUIywNs7XDxFw9rIkd9QB9D1WQEupw3mgF9ELiWCQYZecQXSkUH9xOcqNr497RCeTGjiOHF91VAc/ktHvdOMfBzMjDyviQGxb6sC5LX/bxtCUaPgjhwbURhihaiBcWRx1TuZApv7UD2oVbSmQuAi1CzHPUQ+olckcbwNm2qUJWHpfPvbmyWQnI9rPVwXVcY4GqtphbV/yqDrcj1qCkBJPIfB/cO8BZcyKcFoeUsPXlrlVwzdTN1itc5zYudaJDq5+TyiDGUYxaAa74mcCFPYwvdbY3XCdrhdUyTSkG2VHXKe34aTR5pfJI6EOZIh6TDPUHAsmHJcGAoWYoAyD7Cd4paO7t4R7fJMIpN6BXkUNV3dNF+NZCL2syVq+hQb2fQSqQJjvxBpsikTM8QoFV+t5aKsDmLJ3/vNTfDVfQWrOxQQFyQLISuyz+EuMVxyqCwlj9Si7N4hLEPjs451bQi/nrb/SbhwXhiBiQDZz56A0HrqiOBIK/mCDZ3u4gvYLDQhibjdbqNotT09PB+aA5+eAbj/QhfVd1bJ1kUBRkKHKzA==
+Content-Type: multipart/related;
+	boundary="_004_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-OriginatorOrg: myplace.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YTOPR0101MB2123.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ba103cb-b335-4986-aa44-08d8490b4271
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Aug 2020 15:26:38.0079
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 70729076-2f3a-4aae-8561-644ec21834dd
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: cQM6HurHwu5/9EsgWq+H3THkzn6BhDm+Y/WaS/WgvJ7SrdkFfsARy1QtnV9pCEE60QJr7n5z8g7BqLoOq2R1sIVRx7oFHy+OBejvJM4NQXs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YTXPR0101MB2016
+
+--_004_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_
+Content-Type: multipart/alternative;
+	boundary="_000_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_"
+
+--_000_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Good Morning Evan
+
+Please feel free to email me with any questions or concerns you may have re=
+garding the building.
+
+You spoke of not seeing what types of improvements we are making to the bui=
+lding and units.  I would suggest perhaps contacting Eden your Resident Man=
+ager to show you what a renovated unit looks like once it is available to s=
+how.
+
+
+
+Kind Regards,
+
+Darren Wilcox
+Property Manager
+
+[my-place-reality-logo-1]
+
+E-mail: darren.wilcox@myplace.ca<mailto:darren.wilcox@myplace.ca>
+Direct: 204-594-5408
+Fax: 204-594-5414
+
+1274 Archibald Street, Winnipeg, Manitoba, R2J 0Z3
+LinkedIn<https://www.linkedin.com/company/16167495> | Facebook<https://www.=
+facebook.com/myplacerealty> | Twitter<https://twitter.com/myplacerealty> | =
+Instagram<https://www.instagram.com/myplacerealty/>
+
+Confidentiality Notice:  This email and documents in this transmission is i=
+ntended for the addressee(s) only and may contain confidential information.=
+  Any unauthorized use, disclosure, distribution, copying or dissemination =
+is strictly prohibited.  If you received this email in error, kindly notify=
+ the sender immediately and delete all copies of this email and attachment =
+in a secure manner.  Thank you.
+
+
+
+--_000_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schema=
+s.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html=
+40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Good Morning Evan<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Please feel free to email me with any questions or c=
+oncerns you may have regarding the building.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">You spoke of not seeing what types of improvements w=
+e are making to the building and units.&nbsp; I would suggest perhaps conta=
+cting Eden your Resident Manager to show you what a renovated unit looks li=
+ke once it is available to show.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Kind Regards,<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Darren Wilcox<o:p></o:p></p>
+<p class=3D"MsoNormal"><b>Property Manager<o:p></o:p></b></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><img width=3D"220" height=3D"65" style=3D"width:2.29=
+16in;height:.677in" id=3D"Picture_x0020_1" src=3D"cid:image001.jpg@01D67ACA=
+.364FA4E0" alt=3D"my-place-reality-logo-1"><o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">E-mail: <a href=3D"mailto:darren.wilcox@myplace.ca">=
+<span style=3D"color:#0563C1">darren.wilcox@myplace.ca</span></a><o:p></o:p=
+></p>
+<p class=3D"MsoNormal">Direct: 204-594-5408<br>
+Fax: 204-594-5414<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"color:#2094BD">1274 Archibald Street,=
+ Winnipeg, Manitoba, R2J 0Z3<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#2094BD"><a href=3D"https://www=
+.linkedin.com/company/16167495"><span style=3D"color:#2094BD">LinkedIn</spa=
+n></a> |
+<a href=3D"https://www.facebook.com/myplacerealty"><span style=3D"color:#20=
+94BD">Facebook</span></a> |<a href=3D"https://twitter.com/myplacerealty"><s=
+pan style=3D"color:#2094BD"> Twitter</span></a> |
+<a href=3D"https://www.instagram.com/myplacerealty/"><span style=3D"color:#=
+2094BD">Instagram</span></a>
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><i><span style=3D"font-size:10.0pt">Confidentiality =
+Notice:&nbsp; This email and documents in this transmission is intended for=
+ the addressee(s) only and may contain confidential information.&nbsp; Any =
+unauthorized use, disclosure, distribution, copying
+ or dissemination is strictly prohibited.&nbsp; If you received this email =
+in error, kindly notify the sender immediately and delete all copies of thi=
+s email and attachment in a secure manner.&nbsp; Thank you.<o:p></o:p></spa=
+n></i></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_--
+
+--_004_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_
+Content-Type: image/jpeg; name="image001.jpg"
+Content-Description: image001.jpg
+Content-Disposition: inline; filename="image001.jpg"; size=5727;
+	creation-date="Tue, 25 Aug 2020 15:26:37 GMT";
+	modification-date="Tue, 25 Aug 2020 15:26:37 GMT"
+Content-ID: <image001.jpg@01D67ACA.364FA4E0>
+Content-Transfer-Encoding: base64
+
+/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMpaHR0cDov
+L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
+aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
+OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6
+MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5
+OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHht
+bG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6
+Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUu
+Y29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBo
+b3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4RkY0MkY2NkJC
+MDMxMUU2OUI2Rjg5MzkzNTBDNEEzMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4RkY0MkY2
+N0JCMDMxMUU2OUI2Rjg5MzkzNTBDNEEzMiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0
+YW5jZUlEPSJ4bXAuaWlkOjhGRjQyRjY0QkIwMzExRTY5QjZGODkzOTM1MEM0QTMyIiBzdFJlZjpk
+b2N1bWVudElEPSJ4bXAuZGlkOjhGRjQyRjY1QkIwMzExRTY5QjZGODkzOTM1MEM0QTMyIi8+IDwv
+cmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJy
+Ij8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwM
+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
+AKAUAoDWf/8AMjfvf0VktzMJfkjZrEzFAf/Z
+
+--_004_YTOPR0101MB2123C3F929F362F7CA2B8D0B9F570YTOPR0101MB2123_--

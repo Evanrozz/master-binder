@@ -1,0 +1,1086 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:cd0c:0:b0:453:bbb3:df21 with SMTP id x12csp798506vqw;
+        Thu, 29 Feb 2024 13:12:15 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF8HF9TX1OKz6akjhJ9eDHq521vS1iqtgOJtWjZKk76Wu1K3n3ty93JWZNlb5L2IIT74nRy
+X-Received: by 2002:a17:906:e2d5:b0:a43:f020:57ed with SMTP id gr21-20020a170906e2d500b00a43f02057edmr77931ejb.73.1709241134826;
+        Thu, 29 Feb 2024 13:12:14 -0800 (PST)
+Return-Path: <David.Maclean@gov.mb.ca>
+Received: from mx0d-004a1001.pphosted.com (mx0d-004a1001.pphosted.com. [67.231.150.154])
+        by mx.google.com with ESMTPS id xo12-20020a170907bb8c00b00a4408312880si870451ejc.430.2024.02.29.13.12.14
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 29 Feb 2024 13:12:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.150.154 as permitted sender) client-ip=67.231.150.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=2-9-24 header.b=VViF0clD;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=zjzbetmO;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.150.154 as permitted sender) smtp.mailfrom=David.Maclean@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274428.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 41THmGDS015042
+	for <evanroz@gmail.com>; Thu, 29 Feb 2024 15:12:13 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	from:to:subject:date:message-id:references:in-reply-to
+	:content-type:mime-version; s=2-9-24; bh=KlE2ql6iKn+QunDr75Tj/hz
+	AG72jHEYEjeAm0vZxoWo=; b=VViF0clDLUKzmtMtwE7iJOgVfw3IdWwNT/WwP5W
+	SLNWpRJpnDE5+a1wswvIwpkbXY7oSlPUTRXZrdVsIwURSgm8hQgoHUjqrmkI0HmE
+	WtBrrN9W/qPUe0m5MPn9AKNnapJ66FtJCmWkaNJyus7q6yTMkdZioNkk9POQdwkm
+	vb5QubKrLFjo8Gdbh6zbgQsXq3EIrlO6Wy5iYbOWXelU8okeG9Cb1AyZCPfEk/Jx
+	MsU2F1rH7rTOITc7oYHt1PLsIcVsMTzePFM5jtfa4jORzoeKbJRBjZFBwvOIilsf
+	c6ZBN96Na2JGqCsvRfhaj6ILcj73VecGYxGrXd6+NhohbVw==
+Received: from can01-yqb-obe.outbound.protection.outlook.com (mail-yqbcan01lp2233.outbound.protection.outlook.com [104.47.75.233])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3wfcm3e50r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Thu, 29 Feb 2024 15:12:12 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fix3rGwfiIhKUi2Ve37XqOfJWfKJvSUzcCBq9xX5LiwW+Omk5vC0FcjD+drOqbwD6+KROcNUSDI6gpARXxaV29JpEGHlWtvL1d553I1kFowg9RUDgqS074iYr96mDdExeRvJq+90N2q/yYw22EDqOORyXCsRBrfBc3Q5g+C825gav5GvdEXRTAe8ZgwcEFBpyVHtq2ydBwH5LqnS1zVSL6WGBVeMfbfndIOdekcHBC7mOR3c6mEy54N+zhRuWRfm0REOEt84erhjMcCDO040gFmxKerCCqGCjwRN3zxZXfliHAANzIC49UWaO8MXtfoFt8vIRJVtKXOADV5P3vpHJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7xNn2Uu5und+c++ZGV6gDeUIrgvDq4cK1k1eEbcJICQ=;
+ b=gnK2QT0bWEaRB+elLNPhxXj+pbyyxl6Qv+W2JExJ9r1zgRXjMU93CFqpw81UIq4MiLy5CS5vF8w86v8NQslQo0jh1AtT+3gRcqom37ZkSekGNzL9dvPykmFL0duMNKvjlEkyNW/vW+p/akO+ZH0XYOXxdl9B+L6clMKVCNCxit6uAyOCDKZKaj1nw6BguJQoW1haEtzNe7UwgSSl7qPy0MqClU6H/CB0skRlxZUI9CfrAPFSng/qlfQ/9cLA4cNN0N+6615VwU5benpmRt3L1Qnb4x8qXxiPN9WqWx/g/aJaXuVrwM8hSYV5EiuFKHl9tbuTXiPmdlImuqtn7iQ11A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7xNn2Uu5und+c++ZGV6gDeUIrgvDq4cK1k1eEbcJICQ=;
+ b=zjzbetmOKAXSBBcuGiucJlCMqzArLpkylwaveLFjpKY0mbm2rtMQVBRN5nVegB6VqwSPn4KpYmowyzzaj/QVBIflfCCydIqL9N2ZVfdK3b77zTsNQlRxYO+Q5+i0dM/Lc/NbiOFCw3+QXYhPpPnMoJlZp24eGI9mip8j3VQT5VU=
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:e9::12)
+ by YQXPR01MB5540.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:2f::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7339.22; Thu, 29 Feb
+ 2024 21:12:10 +0000
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::5e73:90f3:be9d:cb86]) by YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::5e73:90f3:be9d:cb86%3]) with mapi id 15.20.7362.010; Thu, 29 Feb 2024
+ 21:12:07 +0000
+From: "Maclean, David" <David.Maclean@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: RE: 585 Corydon - Withdrawal
+Thread-Topic: 585 Corydon - Withdrawal
+Thread-Index: 
+ AdplxVlM3KOoAaDRQ2yWf4C07WnuRQAEW8UAACyDaaAAjwP1AAAGxEBgAJQdNYAACIzt0A==
+Date: Thu, 29 Feb 2024 21:11:42 +0000
+Deferred-Delivery: Thu, 29 Feb 2024 21:11:18 +0000
+Message-ID: 
+ <YT4PR01MB97179266B2313BE44C23DDA8B05F2@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+References: 
+ <YT4PR01MB9717633909F9DA2560A25B68B0562@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09EDXWpV8f6j4J6WRH5irnBmBuE1ZZBiLf7b9cMBr5cOiQ@mail.gmail.com>
+ <YT4PR01MB97172701EB5BAD03FF2907A3B0552@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09H3rsNgwe0PKsUsYKidqgUcmmC68xkLkOYqv5iTRe6iMw@mail.gmail.com>
+ <YT4PR01MB9717F2CB1C140A996593554DB05A2@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09F0BEzQ=yQ8psPBOcTbdb9e0BqRSbsKbY1dw5+gObfxJA@mail.gmail.com>
+In-Reply-To: 
+ <CABQF09F0BEzQ=yQ8psPBOcTbdb9e0BqRSbsKbY1dw5+gObfxJA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT4PR01MB9717:EE_|YQXPR01MB5540:EE_
+x-ms-office365-filtering-correlation-id: 44365f45-9a78-4b11-8a37-08dc396b1618
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ 6TGmP8cYa+UHAFIzlodTgBCUTVh+7kX5+0Gci0hBewJClSc1zq1mLxxgsS1oUkSMyISaR1ohVsw3YQ8gZCCCN8CjN8BFpqW++Bup53bos00ClnT5ED88VCYffdvPR07BLAXAKLxpYxbXU+7FwBh4crPzHvwv5JZjG1EwsIhjcnswAEKcILkMsTWc59xTls398YVHPu8iNa2fPJ0AzEZXWHxtsQ2jO/2M31MVHMuFYGCVyppy4zG00rTUUaQsTYF17SNxSMPCLwG//t1tHCdU0lHcQ9uhgDKYsXBesa/9s03deDY+fpuIDgFsL5yjA10ZKcIc8xClat8NRf21KN51VHmmm8f7rFlf2t/+3cc3scYwSl53RImtpYhW3uKo+sYcSnEa40ySwkNt3XFo8RSmpa212xpjyszbwARdBIiNZrFe83frFjwGWizQxZ2iTYvVYWIYIqwoyKGH/yDSVOR8wpeu3ziirqweE/hE36PRVNRCU237xktYUVu05reilqRAvBSKzePdQWfgw20xrN1a8GOz1Pn1p1kHYrKEYz0Vr/QX75HYAhXyzSzsRQN7JhVSKMlw5ZYs+q1gnjTYs9XcNDUWEzgYcsynOdM1aN7Uw8TYGvLpPX0k9SP6lFY7hA041Kqn/O8rtwc1Dcv8mvpfny1okJO5xET42kriDkExp5P1UkR2rz/JeBYhxyMEJDABWfPXiPpo0rkvK79Om3JgMFvSSLz0qzTKL6k8FHIfPlw=
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?utf-8?B?a3NveXBpZkdEVjFKVHNidkRvcm5WVlVPL0c2WmkrZUg1SHZkOWxhbVNzWFc1?=
+ =?utf-8?B?aVZ1WU9vZmVpKzU5bDd3WG5EN2JTcHdjSlRmV1RQMTN0YnptYW9xcHFCSjVG?=
+ =?utf-8?B?WTVMR3ArM3BkOUk4MlRvZ3loaFlWRi9pTk56Um02MU1tdzVqeUMvcGgrWDNC?=
+ =?utf-8?B?WmtMOE41UjIxdHZ1QWVteVE4N0FPSFNleHZ4UURaeHF6VzdOY3BLdWFKdDV1?=
+ =?utf-8?B?a3puY29zcVJxWjdWZzN3ZGN0VThkYmRpNitWUUJrWk9Cc1dJUkhvRWdMaXZw?=
+ =?utf-8?B?b3FiUFR5SUpmR24yekVBQTRqUlhKdU51ZlZ6dHVBekNDVkpnWFpxc3Npc3F5?=
+ =?utf-8?B?RzFHZFRUMUJoc0dreVFOTXBvVDVvblZHdGFIbUZrVFJJVFZsTlpmMlNCUjdT?=
+ =?utf-8?B?Qkh0YTcxNmk4NGJwNDlUTWVQWTE4eWtlbnVkZDZ6dFp5a2lCMUdWeDBqZDZy?=
+ =?utf-8?B?NmFtSHU2ZWNqOHF4RURIdm56TGtmbTE1MW4vQ0lMcG51QWNiQzFxTHZiZitD?=
+ =?utf-8?B?cFRqcm9QMy9wTTNRWUcvS0s1MWM3WjV0REZHc3RrTEpkd3pLcTE0MnFxejFI?=
+ =?utf-8?B?UlNldEJyOWdldXM2K3hha3ZRbnN4NWV4aEVqZlJaa0dGbFM2N2c4ejhPd1Yy?=
+ =?utf-8?B?NUhUUWhmL1o2RVNXSTNENGlZaG5LeFlNMEZ5N2tmaVh0NlhWNUJiK21wR0pi?=
+ =?utf-8?B?VlFCdDZUMWp1Vm9JSU9tNldSM0hTUlFmd2VGZVBvSTJSN0FKME1yT25TS1M5?=
+ =?utf-8?B?WFJvRTZ0RVpzbnlOOWlIamVseUZCR0JNcllQTUZob0RqY0dTaDhjc0pCQ2l2?=
+ =?utf-8?B?cXpReGlJMHpyYXB2c3RXMnZPdlJieXZkcG96ZUJOYXBMN1NlWERIV3IydkJG?=
+ =?utf-8?B?Rm9ObW1vQnlyeEFnS21QOUxGUER2bmtYQnN2NjF5NmZBOTV3VHltbStJaU81?=
+ =?utf-8?B?RUU3UW1aM3pTOVplOWdBT2k3bkZoU2poQlF1YmtLMmtuQW9DcHYza0RlTWwv?=
+ =?utf-8?B?R0VnaUQwUHpXYUw5T1hsUUdGQVVJSUhQWXZxeGoraG5wNVpRSVg5dVVkdGN5?=
+ =?utf-8?B?SFVXM2lFakVxZHEwLzU4blFJVUFCN1MvN0lYQnRyVUc0QjcraDc1TEl1d1F2?=
+ =?utf-8?B?cTFpaW1ZdTdZalUxV05KN3FmZUsrdzFBRGQ2WGE1cTBMZHVDeEdWS0NQdzFU?=
+ =?utf-8?B?RVkzTnhvU21sSjd1Uk5ac05najMrb2h0dDhzNXRLSTZ0RXBQTC90cnhkSVpw?=
+ =?utf-8?B?Qyticnh3WWxnbDA2Wk50a2U2MnBNUVY5dVFIMlc2eGFuVmk5Vmh3NFVrSVMz?=
+ =?utf-8?B?RlpWVGwyOGE1OHlkTXRHbXFGY3VqMjZSY3dqK01ac2JuRmZNd0o0Z3h6bnBv?=
+ =?utf-8?B?Mk02dU1CcEt3RjhwL0NxZlZTdGdHRERISGdMamtvdkQ2MHFnU05HM0VZODJF?=
+ =?utf-8?B?K3VwMDNoQjZET0szTTh3U3BXYzNRZWVkaHc2alRGUW5pWDlBZU5KRXpCUUpP?=
+ =?utf-8?B?SWo1czc3OFRFMVdoMk94QktTRmxvUG9Jc0hqZklFcVJyVERPTlJqalRoMU4x?=
+ =?utf-8?B?bkRZTWN4Q2lwOHA1d2sySnZEaGhTQTBYVHBmWVRoWGw4UWtlZncxdWg4K20w?=
+ =?utf-8?B?MU5BZ1pDUXRYU1FRUE5mTFB3allpYmUvaEdmakljdzh5elJxNEpGSmtDeTBS?=
+ =?utf-8?B?ZDQ0Z1NLVCtDM2dJY0xaY3N1QUpRaEd0UzdEUDZsZlI1Q3VpN2tVRSs3MkhJ?=
+ =?utf-8?B?QThsVG5xS1A3T0pxZmd6dU81MXdnK0FvUDlIdWhTTXBhSXJUbmhzcm9KaXhC?=
+ =?utf-8?B?Lzhkc2syV092WXgwbk8vT1pIaGxFMzc3UVRjVG9xK1c3NDEwRkxNcDRBaml0?=
+ =?utf-8?B?NWQ5bitQbXhzakcrOFljMjdOdzdUcC9OYWp3Z2lnZElaMzJQVjNOUElrcFpT?=
+ =?utf-8?B?Z1p0U29TU05oMnRxbm56TjA0ZWQzN3FKbGJaZ28wenIxVzhnMnQvb2NyVVkr?=
+ =?utf-8?B?aE5XVzVvd1k3WDdIZGpaZWFFL2Ztalh3OVMzTkZIT3V2SDNFZjQ4MElZWnNQ?=
+ =?utf-8?B?MHllK1VFY2NNcHBBd3VKZ1Y1WmRTcnM0RmJmMitWUFRYR1VzOFJTSVQ1aVNm?=
+ =?utf-8?Q?YRvCLGCtdqWR9tqpOuRzI1+hO?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT4PR01MB97179266B2313BE44C23DDA8B05F2YT4PR01MB9717CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44365f45-9a78-4b11-8a37-08dc396b1618
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Feb 2024 21:12:07.3978
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: KEwVlNwU1y3gburB8ZDVeIvgvDwh6INabJib9HRdwzpPCc4JLTTx39A+x1QPlNsjwAehGeD8cHdmccwJRYipXA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5540
+X-Proofpoint-GUID: tdaLnFCfrUND4oYd1n9EHm8BuPFIPedR
+X-Proofpoint-ORIG-GUID: tdaLnFCfrUND4oYd1n9EHm8BuPFIPedR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-02-29_06,2024-02-29_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 malwarescore=0
+ lowpriorityscore=0 suspectscore=0 mlxlogscore=999 mlxscore=0 bulkscore=0
+ priorityscore=1501 impostorscore=0 spamscore=0 phishscore=0 clxscore=1015
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2402120000
+ definitions=main-2402290165
+
+--_000_YT4PR01MB97179266B2313BE44C23DDA8B05F2YT4PR01MB9717CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Good afternoon Evan
+
+Thank you for the email.
+
+Although it is rare these days that landlords withdraw a service and apply =
+for an above guideline rent increase it does happen.  We actually have the =
+ability and space on our application forms (for the above guideline rent in=
+crease) to do both at the same time with one officer doing it under one app=
+lication  Unfortunately in this instance it didn=E2=80=99t work out that wa=
+y (as the rent increase and withdrawal dates are different)  but I was stil=
+l assigned both files anyway.  In no way did having both files impact the o=
+utcome for the rent increase or upcoming withdrawal.
+
+For the claim process, there is no timeframe as to when you must file a cla=
+im.  So no statue of limitations.
+
+Thanks Evan.
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+From: Evan Rosner <evanroz@gmail.com>
+Sent: Thursday, February 29, 2024 10:58 AM
+To: Maclean, David <David.Maclean@gov.mb.ca>
+Subject: Re: 585 Corydon - Withdrawal
+
+You don't often get email from evanroz@gmail.com<mailto:evanroz@gmail.com>.=
+ Learn why this is important<https://aka.ms/LearnAboutSenderIdentification>
+Greetings, Thank you for your reply. I noticed that you're the officer that=
+ signed off on the decision in favour of the landlord for the rent above th=
+e guidelines request. I consider it questionable that this was done despite=
+ our communications
+
+Greetings,
+
+Thank you for your reply.
+
+I noticed that you're the officer that signed off on the decision in favour=
+ of the landlord for the rent above the guidelines request. I consider it q=
+uestionable that this was done despite our communications over the past mon=
+th. Why was this not considered?
+
+Also, is there a statute of limitations regarding filing a claim for the se=
+rvices withdrawn?
+
+Thank you for your time and all the best,
+Evan
+
+
+On Mon, Feb 26, 2024 at 3:27=E2=80=AFPM Maclean, David <David.Maclean@gov.m=
+b.ca<mailto:David.Maclean@gov.mb.ca>> wrote:
+Good afternoon Evan;
+
+I cannot outright tell you if Daniel Chung has contacted me, however please=
+ give Mr Chung my email/phone so that he may contact me directly.  The Bran=
+ch generally thinks that 3 loads of laundry (3 each for washer and dryer) i=
+s fair.  Sometimes it can be more depending on the size of the family, natu=
+re of employment, etc.
+
+The travel costs for going to a laundromat up until the date of the withdra=
+wal (May 1, 2024) should be included in the claim amount.  Although I antic=
+ipate the withdrawal of service date on the Branch=E2=80=99s order won=E2=
+=80=99t be May 1, 2024 you have every right to claim for extra laundry cost=
+s because the services were removed earlier than required.    I say anticip=
+ate because the service has already been withdrawn; so I will factor this i=
+n when making a decision of how much to reduce the rent and  when the rent =
+must be reduced by.
+
+Thank you Evan
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Monday, February 26, 2024 9:03 AM
+To: Maclean, David <David.Maclean@gov.mb.ca<mailto:David.Maclean@gov.mb.ca>=
+>; danielmchung677@hotmail.com<mailto:danielmchung677@hotmail.com>
+Subject: Re: 585 Corydon - Withdrawal
+
+You don't often get email from evanroz@gmail.com<mailto:evanroz@gmail.com>.=
+ Learn why this is important<https://can01.safelinks.protection.outlook.com=
+/?url=3Dhttps%3A%2F%2Furldefense.com%2Fv3%2F__https%3A%2F%2Faka.ms%2FLearnA=
+boutSenderIdentification__%3B!!IqQd2s6KUyvHwNLtrw!oTAzUdC35JIiw-VDDvtwsxvrp=
+hOK48e7nauFMkbQE_F7a3jk6b7n9mZhnYM4MSh5SHyOdYOgOUBM0O10TiJs%24&data=3D05%7C=
+02%7CDavid.Maclean%40gov.mb.ca%7C74b89e690d49443f76a808dc39479662%7Cabf64de=
+92a5c4d77baa2a76265367d3a%7C0%7C0%7C638448226833327523%7CUnknown%7CTWFpbGZs=
+b3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%=
+7C%7C%7C&sdata=3DE1%2BgYg7su1ME1QgiyzqOCSkDQWb7c8zZYDPLALMT7T0%3D&reserved=
+=3D0>
+Good morning, Have you corresponded with Daniel Chung? He tells me that the=
+ door to the laundry services has been locked this weekend. He wants to fil=
+e a claim for reimbursement for the lack of laundry services for 3 weeks si=
+nce February 2,
+Good morning,
+
+Have you corresponded with Daniel Chung? He tells me that the door to the l=
+aundry services has been locked this weekend. He wants to file a claim for =
+reimbursement for the lack of laundry services for 3 weeks since February 2=
+, 2024. He also has not received correspondence from the landlord in regard=
+s to this matter.
+
+We need to know what the expectations are for tenant use of laundry service=
+s per week. I believe it is a reasonable expectation to do 3 loads of laund=
+ry (including both washer and dryer cycles) each week. However, because thi=
+s service withdrawal has implied travel costs and inconvenience this must a=
+lso be included in the claim.
+
+Thank you,
+Evan Rosner
+
+On Fri, Feb 23, 2024 at 3:04=E2=80=AFPM Maclean, David <David.Maclean@gov.m=
+b.ca<mailto:David.Maclean@gov.mb.ca>> wrote:
+Good afternoon Evan
+
+Thank you for this email and the one this morning.
+
+I don=E2=80=99t need to view the locker you received, I really (I apologise=
+, I should have been more clearer as to why I asked) just wanted to see if =
+it in anyway was a like for like space for the one you previously had.  Whi=
+ch it isn=E2=80=99t.  Would you say the work started in the storage area ar=
+ound February 1, 2024 or before?
+
+I have attached the claim form as well, there is no statue to say when you =
+have to file, there is a $50.00 filing fee (payable by cheque or if done in=
+ person by debit/credit card) however in your claim the plus costs part inc=
+ludes the $50.00 filing fee if you are successful in your claim.  The forms=
+ do need to be printed out on legal size, so I can mail this to you as well=
+ if it is easier.
+
+Thank you
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Thursday, February 22, 2024 3:34 PM
+To: Maclean, David <David.Maclean@gov.mb.ca<mailto:David.Maclean@gov.mb.ca>>
+Subject: Re: 585 Corydon - Withdrawal
+
+You don't often get email from evanroz@gmail.com<mailto:evanroz@gmail.com>.=
+ Learn why this is important<https://can01.safelinks.protection.outlook.com=
+/?url=3Dhttps%3A%2F%2Furldefense.com%2Fv3%2F__https%3A%2F%2Fcan01.safelinks=
+.protection.outlook.com%2F%3Furl%3Dhttps*3A*2F*2Furldefense.com*2Fv3*2F__ht=
+tps*3A*2F*2Faka.ms*2FLearnAboutSenderIdentification__*3B!!IqQd2s6KUyvHwNLtr=
+w!rwv0A8cGHKoIYmcmeuf2ZcOBKB1_pNbK0vIHydHf-LlUhHwaFESkiCcThcYFoRIt2AZwX_Bzs=
+zhD4Qyy7zD6*24%26data%3D05*7C02*7CDavid.Maclean*40gov.mb.ca*7Cfb7df8d782684=
+4c8431808dc36dc10e8*7Cabf64de92a5c4d77baa2a76265367d3a*7C0*7C0*7C6384455660=
+07194152*7CUnknown*7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTi=
+I6Ik1haWwiLCJXVCI6Mn0*3D*7C0*7C*7C*7C%26sdata%3DhZM5AwUISoCeNLhEEQHxu4Osv28=
+*2FNTu190crZStObAY*3D%26reserved%3D0__%3BJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJS=
+UlJQ!!IqQd2s6KUyvHwNLtrw!oTAzUdC35JIiw-VDDvtwsxvrphOK48e7nauFMkbQE_F7a3jk6b=
+7n9mZhnYM4MSh5SHyOdYOgOUBM0FqeMGpe%24&data=3D05%7C02%7CDavid.Maclean%40gov.=
+mb.ca%7C74b89e690d49443f76a808dc39479662%7Cabf64de92a5c4d77baa2a76265367d3a=
+%7C0%7C0%7C638448226833338505%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiL=
+CJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=3DLCpYGpMx=
+wtofWA2wajetsx96iZsvM%2FEiCK8xiCrV%2Bi8%3D&reserved=3D0>
+Thank you, David. As I have stated before, this landlord has engaged in nef=
+arious practices and now clearly criminal actions. In fact, the space my pe=
+rsonal property was moved into is NOT a locker. It is a closet with a singl=
+e lock. A locker
+Thank you, David.
+
+As I have stated before, this landlord has engaged in nefarious practices a=
+nd now clearly criminal actions. In fact, the space my personal property wa=
+s moved into is NOT a locker. It is a closet with a single lock. A locker s=
+hould be defined as a small lockable closet or compartment, typically as on=
+e of a number placed together and the tenants belongings are ALWAYS protect=
+ed by two locks - that of the locker itself and that of the storage facilit=
+y. The landlord has attempted to rename the space being used, moved and pot=
+entially damaged my property without my permission, which I expressly forba=
+de, and the result is less security than I had before.
+
+The measurements of the closet, which does not meet the requirements of den=
+otation of meaning for 'locker' I will get later.
+
+Please give me information on what forms I require for the filing of the cl=
+aim.
+
+Thank you,
+Evan Rosner
+
+
+On Thu, Feb 22, 2024 at 1:47=E2=80=AFPM Maclean, David <David.Maclean@gov.m=
+b.ca<mailto:David.Maclean@gov.mb.ca>> wrote:
+Hi Evan
+
+Thank you for your patience.  I have received an email back from the landlo=
+rd to advise that your belongings have been moved and the laundry has been =
+disconnected.  Although the Branch is firm in its stance that the services =
+must remain accessible (in its current state) until the permanent withdrawa=
+l date, the Branch cannot do more than tell the landlord this.
+
+The consequence of this though is that the withdrawal date will change.  I =
+will be formulating an amount for the rent reduction for the withdrawal of =
+the storage and laundry.
+
+I have your current measurements of the unit as 90cm by 60 cm by 60cm.  Do =
+you know what the provided locker space is?
+
+Also for laundry; can you let me know where you now have to go for laundry =
+services and how often you would have to go.  I also will be doing the same=
+ but welcome your input as well.
+
+Filing a claim.  You have every right, the landlord is also aware, that you=
+ can file a claim with the Branch for financial loss.  This could be, but n=
+ot restricted to=E2=80=A6. Any loss of personal items in the storage locker=
+, laundry services, locker space.  A hearing would take place and a hearing=
+ officer would make a ruling based on the evidence provided.
+
+Please let me know if you have any questions, thank you Evan
+
+
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+
+--_000_YT4PR01MB97179266B2313BE44C23DDA8B05F2YT4PR01MB9717CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:wf_segoe-ui_normal;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Good afte=
+rnoon Evan<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Thank you=
+ for the email.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Although =
+it is rare these days that landlords withdraw a service and apply for an ab=
+ove guideline rent increase it does happen.&nbsp; We actually have the abil=
+ity and space on our application forms (for
+ the above guideline rent increase) to do both at the same time with one of=
+ficer doing it under one application&nbsp; Unfortunately in this instance i=
+t didn=E2=80=99t work out that way (as the rent increase and withdrawal dat=
+es are different)&nbsp; but I was still assigned both
+ files anyway.&nbsp; In no way did having both files impact the outcome for=
+ the rent increase or upcoming withdrawal.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">For the c=
+laim process, there is no timeframe as to when you must file a claim.&nbsp;=
+ So no statue of limitations.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Thanks Ev=
+an.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:black">David Maclean&nbsp;</spa=
+n><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,s=
+erif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Of=
+ficer&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times N=
+ew Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Br=
+anch&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times Ne=
+w Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">200-155 Carlton St&nbsp;=
+</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&qu=
+ot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbs=
+p;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&=
+quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Phone: 204-945-2484&nbsp=
+;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&q=
+uot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Fax: 204-945-6273&nbsp;<=
+/span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quo=
+t;,serif;color:black"><o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US">From:</span></b><span lang=
+=3D"EN-US"> Evan Rosner &lt;evanroz@gmail.com&gt;
+<br>
+<b>Sent:</b> Thursday, February 29, 2024 10:58 AM<br>
+<b>To:</b> Maclean, David &lt;David.Maclean@gov.mb.ca&gt;<br>
+<b>Subject:</b> Re: 585 Corydon - Withdrawal<o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"background:#A6A6A6;padding:5.25pt 1.5pt 5.25pt 1.5pt"></td>
+<td width=3D"100%" style=3D"width:100.0%;background:#EAEAEA;padding:5.25pt =
+3.75pt 5.25pt 11.25pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-element:frame;mso-element-frame-hspace:=
+2.25pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-el=
+ement-anchor-horizontal:column;mso-height-rule:exactly">
+<span style=3D"font-size:9.0pt;font-family:wf_segoe-ui_normal;color:#212121=
+">You don't often get email from
+<a href=3D"mailto:evanroz@gmail.com">evanroz@gmail.com</a>. <a href=3D"http=
+s://aka.ms/LearnAboutSenderIdentification">
+Learn why this is important</a><o:p></o:p></span></p>
+</div>
+</td>
+<td width=3D"75" style=3D"width:56.25pt;background:#EAEAEA;padding:5.25pt 3=
+.75pt 5.25pt 3.75pt;align:left">
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Greetings, Thank you for your reply. I noticed =
+that you're the officer that signed off on the decision in favour of the la=
+ndlord for the rent above the guidelines
+ request. I consider it questionable that this was done despite our communi=
+cations
+<o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Greetings, <o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thank you for your reply.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I noticed that you're the officer that signed off on=
+ the decision in favour of the landlord for the rent above the guidelines r=
+equest. I consider it questionable that this was done despite our communica=
+tions over the past month. Why was
+ this not considered?<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Also, is there a statute of limitations regarding fi=
+ling a claim for the services withdrawn?<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thank you for your time and all the best,<o:p></o:p>=
+</p>
+</div>
+<div>
+<p class=3D"MsoNormal">Evan<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Mon, Feb 26, 2024 at 3:27=E2=80=AFPM Maclean, Dav=
+id &lt;<a href=3D"mailto:David.Maclean@gov.mb.ca">David.Maclean@gov.mb.ca</=
+a>&gt; wrote:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-right:0cm">
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Good afternoon Evan;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I cannot outright tell you if Daniel Chung has contacted me, howev=
+er please give Mr Chung my email/phone so that he may contact me directly.&=
+nbsp; The Branch generally thinks that 3
+ loads of laundry (3 each for washer and dryer) is fair.&nbsp; Sometimes it=
+ can be more depending on the size of the family, nature of employment, etc=
+.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">The travel costs for going to a laundromat up until the date of th=
+e withdrawal (May 1, 2024) should be included in the claim amount.&nbsp; Al=
+though I anticipate the withdrawal of service
+ date on the Branch=E2=80=99s order won=E2=80=99t be May 1, 2024 you have e=
+very right to claim for extra laundry costs because the services were remov=
+ed earlier than required.&nbsp;&nbsp;&nbsp; I say anticipate because the se=
+rvice has already been withdrawn; so I will factor this in when
+ making a decision of how much to reduce the rent <i>and </i>&nbsp;when the=
+ rent must be reduced by.&nbsp;
+<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you Evan<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">David Maclean&nbsp;</span><o:p></o:p><=
+/p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Officer&nbsp;</s=
+pan><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Branch&nbsp;</sp=
+an><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">200-155 Carlton St&nbsp;</span><o:p></=
+o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbsp;</span><o:p>=
+</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Phone: 204-945-2484&nbsp;</span><o:p><=
+/o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Fax: 204-945-6273&nbsp;</span><o:p></o=
+:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US"> Evan=
+ Rosner &lt;<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">evanroz@=
+gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Monday, February 26, 2024 9:03 AM<br>
+<b>To:</b> Maclean, David &lt;<a href=3D"mailto:David.Maclean@gov.mb.ca" ta=
+rget=3D"_blank">David.Maclean@gov.mb.ca</a>&gt;;
+<a href=3D"mailto:danielmchung677@hotmail.com" target=3D"_blank">danielmchu=
+ng677@hotmail.com</a><br>
+<b>Subject:</b> Re: 585 Corydon - Withdrawal</span><o:p></o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"background:#A6A6A6;padding:5.25pt 1.5pt 5.25pt 1.5pt"></td>
+<td width=3D"100%" style=3D"width:100.0%;background:#EAEAEA;padding:5.25pt =
+3.75pt 5.25pt 11.25pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto;mso-element:frame;mso-element-frame-hspace:2.25pt;mso-element-wrap:=
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:=
+column;mso-height-rule:exactly">
+<span style=3D"font-size:9.0pt;font-family:wf_segoe-ui_normal;color:#212121=
+">You don't often get email from
+</span><span style=3D"color:black"><a href=3D"mailto:evanroz@gmail.com" tar=
+get=3D"_blank"><span style=3D"font-size:9.0pt;font-family:wf_segoe-ui_norma=
+l">evanroz@gmail.com</span></a></span><span style=3D"font-size:9.0pt;font-f=
+amily:wf_segoe-ui_normal;color:#212121">.
+</span><span style=3D"color:black"><a href=3D"https://can01.safelinks.prote=
+ction.outlook.com/?url=3Dhttps%3A%2F%2Furldefense.com%2Fv3%2F__https%3A%2F%=
+2Faka.ms%2FLearnAboutSenderIdentification__%3B!!IqQd2s6KUyvHwNLtrw!oTAzUdC3=
+5JIiw-VDDvtwsxvrphOK48e7nauFMkbQE_F7a3jk6b7n9mZhnYM4MSh5SHyOdYOgOUBM0O10TiJ=
+s%24&amp;data=3D05%7C02%7CDavid.Maclean%40gov.mb.ca%7C74b89e690d49443f76a80=
+8dc39479662%7Cabf64de92a5c4d77baa2a76265367d3a%7C0%7C0%7C638448226833327523=
+%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haW=
+wiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=3DE1%2BgYg7su1ME1QgiyzqOCSkDQWb7c8z=
+ZYDPLALMT7T0%3D&amp;reserved=3D0" target=3D"_blank"><span style=3D"font-siz=
+e:9.0pt;font-family:wf_segoe-ui_normal">Learn
+ why this is important</span></a></span><o:p></o:p></p>
+</div>
+</td>
+<td width=3D"75" style=3D"width:56.25pt;background:#EAEAEA;padding:5.25pt 3=
+.75pt 5.25pt 3.75pt">
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:1.0pt;color:white">Good morning, Have you=
+ corresponded with Daniel Chung? He tells me that the door to the laundry s=
+ervices has been locked this weekend.
+ He wants to file a claim for reimbursement for the lack of laundry service=
+s for 3 weeks since February 2,
+</span><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Good morning,
+<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Have you corresponded with Daniel Chung? He tells me that the door=
+ to the laundry services has been locked this weekend. He wants to file a c=
+laim for reimbursement for the lack
+ of laundry services for 3 weeks since February 2, 2024. He also has not re=
+ceived correspondence from the landlord in regards to this matter.<o:p></o:=
+p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">We need to know what the expectations are for tenant use of laundr=
+y services per week. I believe it is a reasonable expectation to do 3 loads=
+ of laundry (including both washer and
+ dryer cycles) each week. However, because this service withdrawal has impl=
+ied travel costs and inconvenience this must also be included in the claim.=
+<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Evan Rosner<o:p></o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">On Fri, Feb 23, 2024 at 3:04=E2=80=AFPM Maclean, David &lt;<a href=
+=3D"mailto:David.Maclean@gov.mb.ca" target=3D"_blank">David.Maclean@gov.mb.=
+ca</a>&gt; wrote:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0cm;margin-=
+bottom:5.0pt">
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Good afternoon Evan<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you for this email and the one this morning.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I don=E2=80=99t need to view the locker you received, I really (I =
+apologise, I should have been more clearer as to why I asked) just wanted t=
+o see if it in anyway was a like for like space
+ for the one you previously had.&nbsp; Which it isn=E2=80=99t.&nbsp; Would =
+you say the work started in the storage area around February 1, 2024 or bef=
+ore?<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I have attached the claim form as well, there is no statue to say =
+when you have to file, there is a $50.00 filing fee (payable by cheque or i=
+f done in person by debit/credit card)
+ however in your claim the plus costs part includes the $50.00 filing fee i=
+f you are successful in your claim.&nbsp; The forms do need to be printed o=
+ut on legal size, so I can mail this to you as well if it is easier.&nbsp;
+<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">David Maclean&nbsp;</span><o:p></o:p><=
+/p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Officer&nbsp;</s=
+pan><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Branch&nbsp;</sp=
+an><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">200-155 Carlton St&nbsp;</span><o:p></=
+o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbsp;</span><o:p>=
+</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Phone: 204-945-2484&nbsp;</span><o:p><=
+/o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Fax: 204-945-6273&nbsp;</span><o:p></o=
+:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US"> Evan=
+ Rosner &lt;</span><a href=3D"mailto:evanroz@gmail.com" target=3D"_blank"><=
+span lang=3D"EN-US">evanroz@gmail.com</span></a><span lang=3D"EN-US">&gt;
+<br>
+<b>Sent:</b> Thursday, February 22, 2024 3:34 PM<br>
+<b>To:</b> Maclean, David &lt;</span><a href=3D"mailto:David.Maclean@gov.mb=
+.ca" target=3D"_blank"><span lang=3D"EN-US">David.Maclean@gov.mb.ca</span><=
+/a><span lang=3D"EN-US">&gt;<br>
+<b>Subject:</b> Re: 585 Corydon - Withdrawal</span><o:p></o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"background:#A6A6A6;padding:5.25pt 1.5pt 5.25pt 1.5pt"></td>
+<td width=3D"100%" style=3D"width:100.0%;background:#EAEAEA;padding:5.25pt =
+3.75pt 5.25pt 11.25pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto;mso-element:frame;mso-element-frame-hspace:2.25pt;mso-element-wrap:=
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:=
+column;mso-height-rule:exactly">
+<span style=3D"font-size:9.0pt;font-family:wf_segoe-ui_normal;color:#212121=
+">You don't often get email from
+</span><span style=3D"color:black"><a href=3D"mailto:evanroz@gmail.com" tar=
+get=3D"_blank"><span style=3D"font-size:9.0pt;font-family:wf_segoe-ui_norma=
+l">evanroz@gmail.com</span></a></span><span style=3D"font-size:9.0pt;font-f=
+amily:wf_segoe-ui_normal;color:#212121">.
+</span><span style=3D"color:black"><a href=3D"https://can01.safelinks.prote=
+ction.outlook.com/?url=3Dhttps%3A%2F%2Furldefense.com%2Fv3%2F__https%3A%2F%=
+2Fcan01.safelinks.protection.outlook.com%2F%3Furl%3Dhttps*3A*2F*2Furldefens=
+e.com*2Fv3*2F__https*3A*2F*2Faka.ms*2FLearnAboutSenderIdentification__*3B!!=
+IqQd2s6KUyvHwNLtrw!rwv0A8cGHKoIYmcmeuf2ZcOBKB1_pNbK0vIHydHf-LlUhHwaFESkiCcT=
+hcYFoRIt2AZwX_BzszhD4Qyy7zD6*24%26data%3D05*7C02*7CDavid.Maclean*40gov.mb.c=
+a*7Cfb7df8d7826844c8431808dc36dc10e8*7Cabf64de92a5c4d77baa2a76265367d3a*7C0=
+*7C0*7C638445566007194152*7CUnknown*7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQI=
+joiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0*3D*7C0*7C*7C*7C%26sdata%3DhZM5AwUISo=
+CeNLhEEQHxu4Osv28*2FNTu190crZStObAY*3D%26reserved%3D0__%3BJSUlJSUlJSUlJSUlJ=
+SUlJSUlJSUlJSUlJSUlJQ!!IqQd2s6KUyvHwNLtrw!oTAzUdC35JIiw-VDDvtwsxvrphOK48e7n=
+auFMkbQE_F7a3jk6b7n9mZhnYM4MSh5SHyOdYOgOUBM0FqeMGpe%24&amp;data=3D05%7C02%7=
+CDavid.Maclean%40gov.mb.ca%7C74b89e690d49443f76a808dc39479662%7Cabf64de92a5=
+c4d77baa2a76265367d3a%7C0%7C0%7C638448226833338505%7CUnknown%7CTWFpbGZsb3d8=
+eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7=
+C%7C&amp;sdata=3DLCpYGpMxwtofWA2wajetsx96iZsvM%2FEiCK8xiCrV%2Bi8%3D&amp;res=
+erved=3D0" target=3D"_blank"><span style=3D"font-size:9.0pt;font-family:wf_=
+segoe-ui_normal">Learn
+ why this is important</span></a></span><o:p></o:p></p>
+</div>
+</td>
+<td width=3D"75" style=3D"width:56.25pt;background:#EAEAEA;padding:5.25pt 3=
+.75pt 5.25pt 3.75pt">
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:1.0pt;color:white">Thank you, David. As I=
+ have stated before, this landlord has engaged in nefarious practices and n=
+ow clearly criminal actions. In fact,
+ the space my personal property was moved into is NOT a locker. It is a clo=
+set with a single lock. A locker
+</span><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you, David.
+<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">As I have stated before, this landlord has engaged in nefarious pr=
+actices and now clearly criminal actions. In fact, the space my personal pr=
+operty was moved into is NOT a locker.
+ It is a closet with a single lock. A locker should be defined as a small l=
+ockable closet or compartment, typically as one of a number placed together=
+ and the tenants belongings are ALWAYS protected by two locks - that of the=
+ locker itself and that of the storage
+ facility. The landlord has attempted to rename the space being used, moved=
+ and potentially damaged my property without my permission, which I express=
+ly forbade, and the result is less security than I had before.<o:p></o:p></=
+p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">The measurements of the closet, which does not meet the requiremen=
+ts of denotation&nbsp;of meaning for 'locker' I will get later.<o:p></o:p><=
+/p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Please give me information on what forms I require for the filing =
+of the claim.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">On Thu, Feb 22, 2024 at 1:47=E2=80=AFPM Maclean, David &lt;<a href=
+=3D"mailto:David.Maclean@gov.mb.ca" target=3D"_blank">David.Maclean@gov.mb.=
+ca</a>&gt; wrote:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0cm;margin-=
+bottom:5.0pt">
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Hi Evan<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you for your patience.&nbsp; I have received an email back f=
+rom the landlord to advise that your belongings have been moved and the lau=
+ndry has been disconnected.&nbsp; Although the
+ Branch is firm in its stance that the services must remain accessible (in =
+its current state) until the permanent withdrawal date, the Branch cannot d=
+o more than tell the landlord this.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">The consequence of this though is that the withdrawal date will ch=
+ange.&nbsp; I will be formulating an amount for the rent reduction for the =
+withdrawal of the storage and laundry.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I have your current measurements of the unit as 90cm by 60 cm by 6=
+0cm.&nbsp; Do you know what the provided locker space is?<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Also for laundry; can you let me know where you now have to go for=
+ laundry services and how often you would have to go.&nbsp; I also will be =
+doing the same but welcome your input as
+ well.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Filing a claim.&nbsp; You have every right, the landlord is also a=
+ware, that you can file a claim with the Branch for financial loss.&nbsp; T=
+his could be, but not restricted to=E2=80=A6. Any loss
+ of personal items in the storage locker, laundry services, locker space.&n=
+bsp; A hearing would take place and a hearing officer would make a ruling b=
+ased on the evidence provided.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Please let me know if you have any questions, thank you Evan<o:p><=
+/o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">David Maclean&nbsp;</span><o:p></o:p><=
+/p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Officer&nbsp;</s=
+pan><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Branch&nbsp;</sp=
+an><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">200-155 Carlton St&nbsp;</span><o:p></=
+o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbsp;</span><o:p>=
+</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Phone: 204-945-2484&nbsp;</span><o:p><=
+/o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Fax: 204-945-6273&nbsp;</span><o:p></o=
+:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT4PR01MB97179266B2313BE44C23DDA8B05F2YT4PR01MB9717CANP_--

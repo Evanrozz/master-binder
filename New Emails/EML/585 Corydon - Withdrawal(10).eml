@@ -1,0 +1,408 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:dc9c:0:b0:455:1835:77aa with SMTP id eg28csp2644576vqb;
+        Wed, 13 Mar 2024 13:28:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHMbnQr2LHuxQ7blT76WHDtG8e+wXciW2V/SMs9JdNkXrgiVMjaGMQpFmvo3ROcY+oaDpo8
+X-Received: by 2002:a17:907:8744:b0:a46:50ca:b318 with SMTP id qo4-20020a170907874400b00a4650cab318mr2691556ejc.16.1710361723308;
+        Wed, 13 Mar 2024 13:28:43 -0700 (PDT)
+Return-Path: <David.Maclean@gov.mb.ca>
+Received: from mx0d-004a1001.pphosted.com (mx0d-004a1001.pphosted.com. [67.231.150.154])
+        by mx.google.com with ESMTPS id r22-20020a170906365600b00a465d48539dsi872758ejb.242.2024.03.13.13.28.42
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 13 Mar 2024 13:28:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.150.154 as permitted sender) client-ip=67.231.150.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=2-9-24 header.b=IPc0sIYF;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=S3FWVth9;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.150.154 as permitted sender) smtp.mailfrom=David.Maclean@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274427.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 42DFuVpQ024581
+	for <evanroz@gmail.com>; Wed, 13 Mar 2024 15:28:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	from:to:subject:date:message-id:references:in-reply-to
+	:content-type:mime-version; s=2-9-24; bh=R29BpcKkhnbHzSWo2WImKKp
+	JVJ9k7VZuFnYzWWJfwio=; b=IPc0sIYF86RtaHDSjAudIYaViZJCzxskkcRtkH+
+	LINDzvBDlx2J+WzZa+gDNXC67hl5cuKAGBhBORwSXHT/+QEi0zL4oy3FXAi+GaOO
+	kRn/1j1DD64Qh8PslSNB5Q4+abl+XZ42BP2ENJx5WP4ilG/ANvyhzzPDl4eHNhIl
+	Y+KNE3WmrDFxRHuKyGdvTrTrFgVHUbSr0loo9Y7k2B73ylUVe4AMvoL3j5JixAAa
+	qMTTYvrYamZKmk3ArvlNeYAn4com0qE9/zYSZ+BpKglxzXrftag7YfvtPX00Cuj+
+	rafJNWWqFcn1X3+GUVuLl5KKvy5nc6lIlneL5HhmqzjTJJg==
+Received: from can01-yqb-obe.outbound.protection.outlook.com (mail-yqbcan01lp2232.outbound.protection.outlook.com [104.47.75.232])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3wrmgdvwvh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Wed, 13 Mar 2024 15:28:41 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=XcR3OnRG+VUmfHpNRWSNSggAeSxfm8Pwyl50dfs+3VtwW1tjQOXq1CmJzPZSSKR+77mK1dGTBX4L2qAVk3Nou7tFLaZlTCBNVuUBFMvWKLs0z+y/7C5lEGgwQpUE1zf1G0eqMpOPLW1YmkOmzNYBLpef7qT6ISaVhFKvs7kT2fIsl3d/HVSGA+UA4zBUkoYeZVGJxykqLxPlw4T5KT9Ic1MdhOj8npXDqPDvB5RorlxP/EOVBvbD8DGR1lSnsm2kblQ48LFo+aMMpoKtY1mD3xAIR+Al5OC/pnbLoF1QwcYv98+KO0kIp179es2iQY7qZc1KQ2q02zJZxzQUgeMJ5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lCWGfxS0UVl99LE7+1Wi3OLxv7wYnLFVFNYtUFVY2WU=;
+ b=lK3yxWuqzYKQT0+/XoeguKSDHXoPr0N3bLTXo+Qk23x7DiCiceTGZYlpwv8QhFHUZSaJACU73DrBqslgJl8vXz7np5IQ5PnAp9GkvlJyG2xti1fpHDItqF+vNW5dhgo1iD1XUDRVq8NYBZFf9+L+zZ+DFUipuJXjnnqBl8VGBQ0dJj5DdPSbeuQQyMZjHwt48IBrUhwADGGX72XZZ0xjg4ls1n90syiEFqwV00G03jOBIxPWCZOxZVyNUhy2aeYAkMv3NToIpXDr8RegCdK5Wp2q2e7mFsBPlWcxiU5/LvwDs+DHyzzOCnXLvB+bvqiOtDZtztvFwQbVsvmQ5376HA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lCWGfxS0UVl99LE7+1Wi3OLxv7wYnLFVFNYtUFVY2WU=;
+ b=S3FWVth9ZnplWLhuw4LYHLKzr13JfMN3CrIwcTqKfPp2BVKlA/+dRyx9rZSLaO7YCP1wmVQdwGe5xUop0kyAcNvBcqCzVkolQ0NurTdAeNvHBC9eB4b/Ywg5pJXOf8cR0T/1U01UOMi2uYpj9u86/jrNrXw5KaqImJndRaB/DRY=
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:e9::12)
+ by YQXPR01MB5478.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:2c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.19; Wed, 13 Mar
+ 2024 20:28:40 +0000
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::42cc:bec2:5f82:33ce]) by YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::42cc:bec2:5f82:33ce%4]) with mapi id 15.20.7386.017; Wed, 13 Mar 2024
+ 20:28:40 +0000
+From: "Maclean, David" <David.Maclean@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: RE: 585 Corydon - Withdrawal
+Thread-Topic: 585 Corydon - Withdrawal
+Thread-Index: AdplxVlM3KOoAaDRQ2yWf4C07WnuRQAEW8UAACRE6QADvlX/AAAIVs6AAACE9HA=
+Date: Wed, 13 Mar 2024 20:28:13 +0000
+Deferred-Delivery: Wed, 13 Mar 2024 20:28:13 +0000
+Message-ID: 
+ <YT4PR01MB9717BB50E02C9657072DB8ADB02A2@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+References: 
+ <YT4PR01MB9717633909F9DA2560A25B68B0562@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09EDXWpV8f6j4J6WRH5irnBmBuE1ZZBiLf7b9cMBr5cOiQ@mail.gmail.com>
+ <CABQF09G5Zi0YtcQztyrQ7+4Rr8vzemH3Av_PdCPfNcOoUMZEvA@mail.gmail.com>
+ <YT4PR01MB97175552DEF8EAEFC2CB8D33B02A2@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09GeJYa_FEpBM9WEgdOzmwVZBeO=-Vr1j-WH6=gO-835XQ@mail.gmail.com>
+In-Reply-To: 
+ <CABQF09GeJYa_FEpBM9WEgdOzmwVZBeO=-Vr1j-WH6=gO-835XQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT4PR01MB9717:EE_|YQXPR01MB5478:EE_
+x-ms-office365-filtering-correlation-id: e8352385-ac9c-40b7-3d73-08dc439c2b6c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ gGrpP4QbVH16rr7wrtanNPo4IjIMxxJ8d70DbYbs+n0+PwooNyDZE8qvgUqbkuQS3bAqN+Wiv9DvmlIroCXHWJ+VnF8UqoRWOoZthkK2vcJrmFR3iAUWIURhsAKHTDGkQgIg6Q0SXImw9JCmhtuKaBlU5ihCF8s7u7pqmahTDdLl1rCm42R/ZiUthWJ3qtRyp4If0VZ8DY36WEDC7AAnZA68Y1Wjn+KMR4IO1kRRuPS7kAoTpjAFI2jjV/HbuZjyHRRkcCdFXeNHpT5zi20MeUcmd3tPexC0riVZ/4og76yRpJeExVQVh4MnmckUTH+sFSQySR4acZxlvhe0+qjM+IJd21SYAItRHtWkHYN9UMZ04zFjqIb/kp7jBGorlcXz+ivLF1Qfi1x49YkimaBRnTo+fkej3q77KbXQ+ivLICQB3GZ3hNnN3rEbLl0SHDL9CL4YCsoZdbDo5gAJquCkTEgyU5p00WY9kHRrx9FrIwNHRlwMW8htZDyVUTWE6vUOktfC0Aiv9fLuAAHu5VhMkfU8AARnsNxE2BaN/CQOiGrjDL/qonfOddNIVkTEDb/k7yfbwTKKYz5imY3VZWfYQmnJXvt/nMR28bYmO+Nvj4g8fAGSeppfopoZrBZhv5Ri4S1NOTNsTrVaHuT+HKWffIy8W7le88z6mtG+3coReA43mezZZ9GdzjHEu5EnMMWv4UoYGifcsffsy4LM6iDvYfLEWkUxuV0yD/mmwY+GvxI=
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(1800799015)(376005)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?utf-8?B?bHBoaXB3UmxJWUF1dHQ3V0pEWmNhdlZFWHg0b1BGdXNvT2srRWxxUUlhSUlu?=
+ =?utf-8?B?aUF2UTFQWlJ3ckduSWx3U1pjRUFOSFIxN3RGM0JmclJwZVhKMUM0ZmRmMjRI?=
+ =?utf-8?B?NzlSTVMvbEIyaXo1QlM2NklmWWVpeHVhS2lKUUVLL3JJNWVQVjNXcUg2NHEv?=
+ =?utf-8?B?UXhUWXo3K1V2REZDdjVIeEpNU1p1bDcrMjAySy84SncxZ2J0dzhzNFA1YVlK?=
+ =?utf-8?B?TDVyR2ZPWGZtQ1E0aWI1QUZybDR3RHdlRnFwaGhtSmVGam5MRVB6c0ErRzB3?=
+ =?utf-8?B?My9GY25tU1hDRzdTUTZ4QUc2M0wvZjFmcTlUNU5LTXJBa0dHaVBuVnRtK3hF?=
+ =?utf-8?B?cmhZcyttblFrU2pKRzlSSXc4aVJHSDVUa1h6WVV5RWpWdHQ1TmJzNUpzTS9U?=
+ =?utf-8?B?c29TOE5zaHZ1M2QvVmlZQnF0OVNrRVAzTVltY09Cc0RRalJzN1JWaWVpS1V2?=
+ =?utf-8?B?Y3ZGRnA3NENSUXdDWjdGMFN2b05wVW9IcWV1ZFY4bS9JbDB3Q3RDNFlqN29C?=
+ =?utf-8?B?clBPc21vbW0wUEozWitxU2VMOWViTWp0QUtpbUtWWG5wd3pEcGg3T0hJcDMw?=
+ =?utf-8?B?ZE9MSVFPVlJ1WVFINHJRcVFuNnZVZ3podlM5Z1hBOGQyZm9iUUUzazRValVk?=
+ =?utf-8?B?U2RRTU81QnNzaEs5V3lpdkRUSTN6MHJFbnd5c2o3TVZqNFpSOFVKTm1EaUts?=
+ =?utf-8?B?MWNFWVRnR3JYRXQ3RERidmlCUHJlcld3R2l5OTY4c0hTNDF4bi8vYnhVY3M5?=
+ =?utf-8?B?RC8vR0VyRkxPdk1kRy8zemM4WXZsZWFwRkJIMjVIRWpZc0lrcThzSHU0K29X?=
+ =?utf-8?B?aHI5YUpxUGNUMG5kR2c0cW91UFlHa25xZVB2UFoveHlnTGRNalJjZWtrRlo0?=
+ =?utf-8?B?NmpHVlBPQnNjbW1ObEtsc2tEcDJpVVlJaVJoQU9IdEx6dmhGUWE4dWFKMGVK?=
+ =?utf-8?B?Z2pPOUQwQ0ZOdmtBZUFaczZqbmJFSHBYOTdJdXc0elhJbE5wZ3BZbGNKVXVT?=
+ =?utf-8?B?OHdiUTdJMUtNWTJkNm95d0lGQlA1Q1Q2ZU1sbUdNTUtyTDBCTTl1TDJkQTZP?=
+ =?utf-8?B?eFhkMEFLL2RzMEdsR1pKeS9SVTJHUVFzSnJZYWVMYkJneHZWQjNZTW9ydVFt?=
+ =?utf-8?B?SFVKOFJMK1l2L0dud0twTHNIYlZ4bXVySjgvV3JjSHRLNGZSQjBDRHZjdWhE?=
+ =?utf-8?B?RHBieXRpSmFhMVhBSVU1b0MwUDFocXVxemhzRXVNSS9qbU1iTHg4UUtUK05k?=
+ =?utf-8?B?bUF5NTBBZjlIVWMrMGdVSCtnVUNGS0g1TmJ5b2hxcXBNKzc2M1c3R29MVkdZ?=
+ =?utf-8?B?akR6V24zdUp1Mnhub3Y3ejBZSnFFOWtBTTVZS1VGM25walZDQ2NLd2lTVTdY?=
+ =?utf-8?B?YlVNTnVHdk1kaEdpNlVRWnRXSXdWV1hJaU14UkVGSFVQN0JkMHQ1UGd0SWZB?=
+ =?utf-8?B?RCs3QXRuT1JpVzVQa0RLK0RQWEFzRU1USzVOeUlrRW4xVDc2THh3MG9EWGlD?=
+ =?utf-8?B?aUZnU3dROG5CU3FDUVlFTXVQQlFLWWZsc1RGWDloMDNLa0lWcFNXZ0c1WWVV?=
+ =?utf-8?B?UnVZRWs5cG9hbFBqZHdoanVGdHArOWNZcVlWQmZsUG1uZW5CVGFWb05sZDVJ?=
+ =?utf-8?B?RkR4NTJ1MkRMRHJIQVQ4RVVzL0RoQmF2bVN2QU12OW1hN0NlYnpVZXVPcWtu?=
+ =?utf-8?B?bVdHR0NKdXo4bnQ4WjhGY2tqbDl2ODJzYk11VThFbjFRa2lyYnU0OXkrR1RL?=
+ =?utf-8?B?Nm1ubnBLT3ZtWG5ZYjhjNVo5d1JjWUYycVBWOGZSNjdzQUJibXdSczNWRm9E?=
+ =?utf-8?B?ck5CTWN6NkNyZUg4Z2I5K21yS3JNZzl4bFlyd0gvWGFBMVhUN1pJV2Zybkx0?=
+ =?utf-8?B?REhtc1ZvMlVEK2pOV1lWV2RtaURrZjhOMjVGMjBvYkJpN0JJRnhwZis1T2Ny?=
+ =?utf-8?B?ZTNINThFZ0wzcVluN2Fpd21kKy8zbXJxN29KUVdHaTdEcE15QlN2NHU5Nk42?=
+ =?utf-8?B?TkpESndVRW5Eb3R0UHpTUURocVZCQ211VWY3eE1zVjJpYnJkNmxLem9QYkJD?=
+ =?utf-8?B?MUw0YVZlemp3MjdQWFViSGNPUmFPQUdzMEh3SzhhOGJXT0ZIaE9SZmJ1a3I3?=
+ =?utf-8?Q?glB0zXta9LqXO/uRMORM8cHYP?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT4PR01MB9717BB50E02C9657072DB8ADB02A2YT4PR01MB9717CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8352385-ac9c-40b7-3d73-08dc439c2b6c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2024 20:28:40.2076
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Ha086HznHD4vhwXhvQJeQQz+poKDSADosXSZfJpax2VJ3qFV75my4aQ/jJvIE8uBq+2x36ISrU1G8gQ0QN4kUQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5478
+X-Proofpoint-GUID: FWKchFfVHa-35256ytzEibKv8ijky8Pd
+X-Proofpoint-ORIG-GUID: FWKchFfVHa-35256ytzEibKv8ijky8Pd
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-03-13_09,2024-03-13_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
+ spamscore=0 malwarescore=0 mlxscore=0 phishscore=0 lowpriorityscore=0
+ priorityscore=1501 suspectscore=0 clxscore=1015 mlxlogscore=999
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2402120000 definitions=main-2403130158
+
+--_000_YT4PR01MB9717BB50E02C9657072DB8ADB02A2YT4PR01MB9717CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Sorry Evan
+
+One final question
+
+Can you please tell me how much a wash and a dry cost before
+
+Thank you
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+From: Evan Rosner <evanroz@gmail.com>
+Sent: Wednesday, March 13, 2024 3:11 PM
+To: Maclean, David <David.Maclean@gov.mb.ca>
+Subject: Re: 585 Corydon - Withdrawal
+
+Yes, this is correct. 90 inch (7.=E2=80=8A5 feet tall) by 60 inch (5 feet w=
+ide) by 60 inch (5 feet long). I should never have borrowed my father's anc=
+ient American tape measure. On Wed, Mar 13, 2024 at 11:=E2=80=8A17 AM Macle=
+an, David <David.=E2=80=8AMaclean@=E2=80=8Agov.=E2=80=8Amb.=E2=80=8Aca>
+
+Yes, this is correct. 90 inch (7.5 feet tall) by 60 inch (5 feet wide) by 6=
+0 inch (5 feet long). I should never have borrowed my father's ancient Amer=
+ican tape measure.
+
+On Wed, Mar 13, 2024 at 11:17=E2=80=AFAM Maclean, David <David.Maclean@gov.=
+mb.ca<mailto:David.Maclean@gov.mb.ca>> wrote:
+Hi Evan
+
+Thank you for your patience, I am looking to have a decision on the withdra=
+wal of service shortly.
+
+Just reconfirming the measurements of your old locker.
+
+You said it was 90cm by 60cm by 60cm
+
+Looking at the pictures you provided would you said it is closer to 90inch =
+(7.5 feet tall) by 60 inch (5 feet wide) by 60 inch (5 feet long)
+
+Thanks Evan
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+--_000_YT4PR01MB9717BB50E02C9657072DB8ADB02A2YT4PR01MB9717CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.EmailStyle18
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Sorry Eva=
+n<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">One final=
+ question<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Can you p=
+lease tell me how much a wash and a dry cost before
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Thank you=
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:black">David Maclean&nbsp;</spa=
+n><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,s=
+erif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Of=
+ficer&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times N=
+ew Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Br=
+anch&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times Ne=
+w Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">200-155 Carlton St&nbsp;=
+</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&qu=
+ot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbs=
+p;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&=
+quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Phone: 204-945-2484&nbsp=
+;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&q=
+uot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Fax: 204-945-6273&nbsp;<=
+/span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quo=
+t;,serif;color:black"><o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US">From:</span></b><span lang=
+=3D"EN-US"> Evan Rosner &lt;evanroz@gmail.com&gt;
+<br>
+<b>Sent:</b> Wednesday, March 13, 2024 3:11 PM<br>
+<b>To:</b> Maclean, David &lt;David.Maclean@gov.mb.ca&gt;<br>
+<b>Subject:</b> Re: 585 Corydon - Withdrawal<o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Yes, this is correct. 90 inch (7.=E2=80=8A5 fee=
+t tall) by 60 inch (5 feet wide) by 60 inch (5 feet long). I should never h=
+ave borrowed my father's ancient American tape
+ measure. On Wed, Mar 13, 2024 at 11:=E2=80=8A17 AM Maclean, David &lt;Davi=
+d.=E2=80=8AMaclean@=E2=80=8Agov.=E2=80=8Amb.=E2=80=8Aca&gt;
+<o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Yes, this is correct. 90 inch (7.5 feet tall) by 60 =
+inch (5 feet wide) by 60 inch (5 feet long). I should never have borrowed&n=
+bsp;my father's ancient American tape measure.<o:p></o:p></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Mar 13, 2024 at 11:17=E2=80=AFAM Maclean, Da=
+vid &lt;<a href=3D"mailto:David.Maclean@gov.mb.ca">David.Maclean@gov.mb.ca<=
+/a>&gt; wrote:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-right:0cm">
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Hi Evan<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you for your patience, I am looking to have a decision on th=
+e withdrawal of service shortly.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Just reconfirming the measurements of your old locker.<o:p></o:p><=
+/p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">You said it was 90cm by 60cm by 60cm
+<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Looking at the pictures you provided would you said it is closer t=
+o 90inch (7.5 feet tall) by 60 inch (5 feet wide) by 60 inch (5 feet long)<=
+o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thanks Evan<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">David Maclean&nbsp;</span><o:p></o:p><=
+/p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Officer&nbsp;</s=
+pan><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Residential Tenancies Branch&nbsp;</sp=
+an><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">200-155 Carlton St&nbsp;</span><o:p></=
+o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbsp;</span><o:p>=
+</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Phone: 204-945-2484&nbsp;</span><o:p><=
+/o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"color:black">Fax: 204-945-6273&nbsp;</span><o:p></o=
+:p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT4PR01MB9717BB50E02C9657072DB8ADB02A2YT4PR01MB9717CANP_--

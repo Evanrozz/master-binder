@@ -1,0 +1,476 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:908e:0:b0:442:b898:d878 with SMTP id m14csp361473vqg;
+        Fri, 12 Jan 2024 06:59:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEdFvW+iqXHSE9x2pKHGGIVrXD9ZizYSlJdLPK0zHnsF+bsNQjMWBusAY5p3R4yDFFN+k7Y
+X-Received: by 2002:aa7:da8e:0:b0:554:1e3b:a616 with SMTP id q14-20020aa7da8e000000b005541e3ba616mr757634eds.43.1705071577968;
+        Fri, 12 Jan 2024 06:59:37 -0800 (PST)
+Return-Path: <rtb@gov.mb.ca>
+Received: from mx0d-004a1001.pphosted.com (mx0d-004a1001.pphosted.com. [67.231.150.154])
+        by mx.google.com with ESMTPS id t17-20020a50ab51000000b005581ef9ef15si1438190edc.386.2024.01.12.06.59.37
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 12 Jan 2024 06:59:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of rtb@gov.mb.ca designates 67.231.150.154 as permitted sender) client-ip=67.231.150.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=10-07-21 header.b=ZtTOVOAF;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=2lLspwIN;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of rtb@gov.mb.ca designates 67.231.150.154 as permitted sender) smtp.mailfrom=rtb@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274428.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 40C5uF2m018013
+	for <evanroz@gmail.com>; Fri, 12 Jan 2024 08:59:36 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	from:to:subject:date:message-id:references:in-reply-to
+	:content-type:mime-version; s=10-07-21; bh=byDNX+bn/1YJzSskysHAG
+	McNvQr9bz3sqKK0+3ZPd0o=; b=ZtTOVOAFSXpHcehtiMq3l4jE/RJH6Mj5ZG4jv
+	QiIz0IlwicVHB+20Vf3jbipYO9fekVnDW96nc1W0QjTVVweEPYFdQwGvpWWE2VEI
+	9H+rMXRYC5NaRRto+w9jPFaGJcKdkiBf5xIzeNcsphGD2sca8xXMYWROlsjJ/6+d
+	11naQ5sz56bo+dlfkWB+L9Zch7awiSZcXr4d3A6GNw4pNceHxN2TSKhSA7W2923x
+	neHcnOX/xEFL5Wsn6zBy32N8ndziYQCJRizt8B7HCEnrZuMs9kNm7h6m0WXKNVS2
+	kzNRPS5BoLXVTHfLWmlRCQ7XSrXR3HHi4Vr2Hh5/P0GGxtb9g==
+Received: from can01-yt3-obe.outbound.protection.outlook.com (mail-yt3can01lp2168.outbound.protection.outlook.com [104.47.75.168])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3vf3148j0e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Fri, 12 Jan 2024 08:59:36 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=IPrvHkqdMN0Z9rTf/6qndFU5GDMu911PDXcA74LE+v7mGWa90b2rB6u8fE/ZVIBhKyLEfSUaJp5CE4R+CF5qTtniosIS97hcsDnIfLVcgvG2kRYfBkOGOwkyXtYYvpwuCSjcwTEC5NkYSEWFpPJCSDh3VpjooT9ZHKvIOpinytYAeVHw/ckzHi15vkvfs5QhUe27za8y6Pb1ZFCW8T1NJiUdJpNMB/eZoFzADkwChq+2h/VSu9iVaRs17keI5hRhEXkEPiq/hC0BO7EUN86y8ivnJW3QH2lZOQRJd/Ebi3ldlnERFOHAhjz1A0ZFeg8t/LvSbSvDD1qlRxZEkyParA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mvX71AvIKBtiCasiRsV1rqzBO7QenRWDKt2yGKjGDHM=;
+ b=ltDoyIbwu8978ZX1fPQQC9F73LEty7R7d0RORXIIbRilKmiVg3SReIxhv3BwyvyHj96DicjOrbm9EEKmXlfEXi6OVIRaKQMy0Md5/HzY9/y9RaiEH86AsUX8WQ6cBtX5jMuXnsoaBLnU1cacdlsWJch73PHGqB9kJp4BMH92dXgi3PhxZgaRGfCgeuHVn6wQPbZkD9opgZ2sIite6dbXiJLZ6GXvQX6Zj1y33gasWNHC+0iqdHVIPssvDaBQYb1OZA3wtkJR2tTrkS/FJiJjGSaRXKV4DVXzfqaRyccMMOZtpUxW+4ega30CQ8/p0OoQCraOctJKYXbyfNalt9rGZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mvX71AvIKBtiCasiRsV1rqzBO7QenRWDKt2yGKjGDHM=;
+ b=2lLspwINaKxSaY16ZvRkJIZR42zgZhUFj/B/cVZJac0koqAZojmKIfHVfEeS9ie2TL+aDWshxt19ojhh6TZUd0BEzXvitPZr2JycE0Qs0SPPgcYJhlKSsaz0POnfm/od3UOY5KR44PNzq+3W8TKDs9GZV+IiMNvDjZyzlelmzlo=
+Received: from YT1PR01MB4439.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:42::8)
+ by YQXPR01MB6573.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:4d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7181.23; Fri, 12 Jan
+ 2024 14:59:34 +0000
+Received: from YT1PR01MB4439.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::8ab6:d7dc:a551:5809]) by YT1PR01MB4439.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::8ab6:d7dc:a551:5809%5]) with mapi id 15.20.7181.020; Fri, 12 Jan 2024
+ 14:59:34 +0000
+From: +WPG725 - CCA RTB <rtb@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: RE: Compliance
+Thread-Topic: Compliance
+Thread-Index: AQHaQzhA71WDilFEDU6FV18pGYhPhLDWSXGg
+Date: Fri, 12 Jan 2024 14:59:34 +0000
+Message-ID: 
+ <YT1PR01MB44391454D766D9477FB5D86EC46F2@YT1PR01MB4439.CANPRD01.PROD.OUTLOOK.COM>
+References: 
+ <CABQF09F9siQKndh4xCvWErPV1Vr-ZKxONhQ_m08sSON2VbYCjQ@mail.gmail.com>
+In-Reply-To: 
+ <CABQF09F9siQKndh4xCvWErPV1Vr-ZKxONhQ_m08sSON2VbYCjQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT1PR01MB4439:EE_|YQXPR01MB6573:EE_
+x-ms-office365-filtering-correlation-id: f216345f-c7de-45b8-c8fc-08dc137f16b1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ U0YDFtAqeSYolHDZez0xmMqUUgKv2XW0UXi/xV9u54ig9PuIxY9R/3MhNR4hLbNLGNbcgCULWwgjtE3o0DpJMJa1QJRZnO8Bk456n8NIfK7FjlvE6hPjjVSh6XFq+vQ4ynt+pAURDauq9LK7yUnisqQf3142TUNk90tQpYm+rUerZkd3ae4gQRCXUG8Lgj6Zi0V0TsztG2F6hU+LYDJpFfmg3D6nBW8pwE1WSWVmH6dA9j6JSaqxh+GjLzu4YimJzMvAjNrEOubp+r0pz0reNcnixK3pKYgPqsiewuyE9wM4Bfejy2MLO91yFDnXjRVxjRzuaU8AXZKmI0bIZ9WVTeW6kbxylglVGxY/IU8EP2bPbYKrr55BH3Ad3BQKLYuPtP8Vv7PL11x9pghINPA4+LY2LHlZJ1Z39Bp10NII8Wezrw0Fw2VcfAYH9UoroXX9FNwlaQVi+feku2ckQiWtSkcUp35hpqJoQQSt2+xGBGIuXBegJkb8OPnDG2iVed8CtYYGJDyEpy/bw5drBnbWiiMDp6zvyS9tQX0bkyWYYo/jB169lAWE8qepgvIA/OTX2IHkV8vrfz2gM0E6+B7I3avlRtpU6ImFeRB+EUZR00kpADzI6OAf9QQ/SkNZPtxRyr2N/a437nsbD+kdTGv8Vm+OMwVhqriuFr+atEZl4Bw=
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT1PR01MB4439.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(376002)(366004)(396003)(346002)(39860400002)(136003)(230173577357003)(230273577357003)(230922051799003)(186009)(64100799003)(451199024)(1800799012)(71200400001)(53546011)(9686003)(7696005)(6506007)(478600001)(66574015)(26005)(83380400001)(2906002)(41300700001)(5660300002)(66446008)(66476007)(66946007)(66556008)(64756008)(6916009)(316002)(76116006)(8936002)(8676002)(52536014)(7116003)(33656002)(38070700009)(55016003)(86362001)(38100700002)(122000001)(3480700007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?utf-8?B?MFluaHFQdVVLYXpVOUR3Y29Yc25mUDhmajlhQTZUSVlBWVhTcC9xSUZma0w2?=
+ =?utf-8?B?S3dOaGRXV21PbFV4d0FKeWFteHhCYWMxVXVjaGMrNkxwMENXczRLWkN5UEF6?=
+ =?utf-8?B?UlRQZ2Qxcm9naVVrcEpzc05oRWFIeG9VNFBZbzFJMW9wS045RVZjYk91ZmVD?=
+ =?utf-8?B?MXBmbTUxMHM2QXAvNFc2V08waE84UEhDcGd5V2hwcUNpTzhhdlQ2Nmp4clZj?=
+ =?utf-8?B?UHFXeUZsYmI3UC9lbUd1YlRXcmpxeENUcC8zTEtYMWptc24vbWkxLzFzNjJL?=
+ =?utf-8?B?Ylh1MlZWNFE5MG1zb2tuWTV6VXlrWkdUc1cxSHhWampIaHd2NGhLWXUwN3ZU?=
+ =?utf-8?B?bTZVSHRKd21XQkJzbUpQNVV2QzhyY3BKcFlLcWp6bUdtMFBpTUVUOGc5MExN?=
+ =?utf-8?B?Z2kxRTRuNzBwOUs2b2FJamZ4MEU0eFZDODcwU01oVHlCa3NkRExiWS9ldmVj?=
+ =?utf-8?B?SzN5NTVXYS8zdFVlUTlHUXY4azl2REFSQnUyb3o1a2NOYjdMN3NzbXdxTngx?=
+ =?utf-8?B?RXN2MVp5MDc1K3VxYzZYTVNHVy9pdVNpZHZodkY4My9tMGdweFZ2WVhFZGht?=
+ =?utf-8?B?b2g4RHBucjlybmNnaHJWVHpFZFluL2c5ZXd1ZmV1VVd5V3FrRXk2TGVndFNv?=
+ =?utf-8?B?em5YMTZ1QXpDS0xBd3BYdFFSbTZOdU41M2xZRWgwR2diVUxoNlZ2a1d5SktD?=
+ =?utf-8?B?TUk2dGNlQ2RVTEVWQnJhMjQrRXh6WHVXcTJyNGErbFhoNW1kb2MyaEFYVHUx?=
+ =?utf-8?B?VStTZ0JVelNmOWdFRkk1b04rTXNPWlIwekh0dGdwK1E2dEQxNTZFQzZCSkJh?=
+ =?utf-8?B?amNHMmwxM2hCV000Z2JkNXgwVFh1RVZhUGJxbDJBM1hOUkgyaWRJSEM3c3dZ?=
+ =?utf-8?B?NnZkNlBPa1JrYy9vR2ovd2VvanFWUWtZMjl0N3ArMDhDNUZmYWgvM3JXcnBX?=
+ =?utf-8?B?UFB6dnh4cC9pYkV1TEJtZll5SnhWTjBGWHRhcUdKaDgxcjhQQWdMSG5UQVE4?=
+ =?utf-8?B?dUU5cXNVSTUwNDUwdldDdWNUazYwZkhadWdZME81OTZPVmJMK3Z2d09ZNWQ3?=
+ =?utf-8?B?bHozYlErMUVIYjgyRGEwMDZDWnZsQjg2R296QTBDcU1iZ240a0daS25wSE9Z?=
+ =?utf-8?B?MFlWNG5pSVM0T0lSaDBqa1lZWmQ4V1FZY0NVaWFZK0MzbXJZOVk2RHovLzZk?=
+ =?utf-8?B?aER6WFR6OXVidDRHOUIxRjArckxhVTdQa1Ryb0RLSEJtSWFHNytMT3VRSGFv?=
+ =?utf-8?B?dTJpc2l2NThUU2w4Z09yTFNHejFDYW5WKzZjN1A1b2QrdlUyNFhWS3l2WFFu?=
+ =?utf-8?B?Uk1vMnBZN3FhL2pwa2VWZkFLdmxITzc0NVhBcFlSVG9NZ2xYNDRrY21ZWExn?=
+ =?utf-8?B?ODVyeDN6K01BeTRtcDdKcmtsSERkd05nVnhoYlZHR29MeFY5b3g3VTZqQlcv?=
+ =?utf-8?B?YnNHM0g3VXpjMzZIdWpNM2F0RFhmN1MyS2x0NmQyRGFKdkdZejBscFFhS2ZI?=
+ =?utf-8?B?cHNGalhPdHpZd0U0UzFmL3FSc21Mb05WbHZwSHhYWmF0SVQ2MVZvQW5VQ1JT?=
+ =?utf-8?B?NWQ2ZXRZS0MxQlJvMHNtZ3B0Ly9jNFFwYlBqQTZWZDRHMmFVSGc5M3dESlR4?=
+ =?utf-8?B?VGh3TDg2WVpacDE5ajk0MG1PcVF4UnFHdS9rSFVyMWtSV1JFTGZnNmg2MWR3?=
+ =?utf-8?B?YUVYYzBTb0o1dmFldysxRkVVejBoTTZUUWlqNG9BeENYTWluU0dpdXpYMGpP?=
+ =?utf-8?B?d1VnY3dMZkNEY05RY0JLOWFIR1gwc3hXM0ZoU0FSVit4bGRnUENHakErTWNu?=
+ =?utf-8?B?NjRjY0xRUE0yUys1VWFGZy9oQldZczhwOFl1Rm93Z2xMN1ZXekhvZ210SVFn?=
+ =?utf-8?B?ZzJvWXM4cHlheXJ3U3lKTm9Td2x6Q0ZtT2x6elVtNjBzYm5ia0xnRnFwdTNk?=
+ =?utf-8?B?U1BwUXJVQTRQV1UwekpjUEYrU2R0MGpkdUxhTFhxNHBQamxwckhoaWI3WmlU?=
+ =?utf-8?B?VWx1cURnT0xTWDlIRlVFOGw5Z1g3THhJR0hEU3dZREFxdlJtUy8veEl0eFdY?=
+ =?utf-8?B?eFV4N2ZiMmhHOEFIZ1J0VUplYmk2VlpqNkFEVDdXLzUyUFJuLzREQXpRWEhM?=
+ =?utf-8?Q?QG6Zmt+AsEdqRDb3dOiDedgmu?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT1PR01MB44391454D766D9477FB5D86EC46F2YT1PR01MB4439CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT1PR01MB4439.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: f216345f-c7de-45b8-c8fc-08dc137f16b1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Jan 2024 14:59:34.2210
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dgYQg9Mo4vfClqlKesmNhh95Tv4UnRKp0xyC+MWiri7hdWzOdLZkwUKSp7W+Nfs5uLgZxb41YvpiNgX5gTJJWuzXwplX2NcdHSZp1Id4SJY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB6573
+X-Proofpoint-ORIG-GUID: R2Ji4TPYTPXhxFlaBNDhhfLM9WzXCLbp
+X-Proofpoint-GUID: R2Ji4TPYTPXhxFlaBNDhhfLM9WzXCLbp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.997,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2023-12-09_02,2023-12-07_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=877 adultscore=0
+ phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0 mlxscore=0
+ clxscore=1015 spamscore=0 suspectscore=0 lowpriorityscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2311290000
+ definitions=main-2401120117
+
+--_000_YT1PR01MB44391454D766D9477FB5D86EC46F2YT1PR01MB4439CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Thank you for your email.
+
+Your email has been forwarded to the appropriate department.
+
+
+Best Regards,
+
+Del
+Client Services Officer
+Residential Tenancies Branch
+
+
+From: Evan Rosner <evanroz@gmail.com>
+Sent: Tuesday, January 9, 2024 2:13 PM
+To: +WPG725 - CCA RTB <rtb@gov.mb.ca>
+Subject: Compliance
+
+Greetings, I received the following email from the Landlord in regards to t=
+he storage unit that I have used since the beginning of my tenancy at 10-58=
+5 Corydon Ave. "Subject: Storage Lockers. Due to renovations starting in th=
+e basement.=E2=80=8A
+
+Greetings,
+
+I received the following email from the Landlord in regards to the storage =
+unit that I have used since the beginning of my tenancy at 10-585 Corydon A=
+ve.
+
+"Subject: Storage Lockers. Due to renovations starting in the basement. Res=
+idents are to have their storage lockers completely emptied by the end of t=
+he day on Wednesday, January 17th, 2024. We thank you for your co-operation=
+. Sincerely, Thorwin Properties'' (dated Monday January 8,2024)
+
+I have been a tenant at 10-585 Corydon Ave since signing a Standard Residen=
+tial Tenancy Agreement with Winpark Dorchester Properties on April 30, 2011=
+. I have been using the storage unit located in the basement since the begi=
+nning of my tenancy. The storage unit # is correlated with my suite #. I ha=
+ve been issued a key that provides access to the storage area as well as th=
+e laundry area. All the storage units have been associated with their corre=
+lated suites on site. Under the ownership of Winpark Dorchester Properties,=
+ each storage unit was labeled with an attached piece of A4 paper that clea=
+rly indicated the association between the tenant's suite and storage unit #=
+. These labels have since been removed.
+
+Winpark Dorchester Properties sold its property to MyPlace Reality which ha=
+s rebranded as Thorwin Properties.
+
+Form 2 (see attached) was not fully completed by Winpark Dorchester Propert=
+ies as seen in Section C "Services and Facilities Included in Basic Rent". =
+Although water, heat, laundry services, storage facilities, and appliances =
+have been provided since the start of the tenancy these boxes have not been=
+ checked. This appears to be an oversight and an error on my part for not b=
+eing aware that non-completion of Form 2 is a serious issue. There is a rea=
+sonable expectation that the services were included in the Standard Residen=
+tial Tenancy Agreement with Winpark Dorchester Properties as demonstrated b=
+y my continued and uninterrupted use of these services and reiterated in di=
+scussion with Celena Funk, Property Manager at Thorwin Properties.
+
+I have communicated with Thorwin Properties about the issue of the storage =
+unit (and the laundry services) and proposal for removal since May 4, 2023.=
+ As stated by Property Manager Celena Funk on Friday, May 5, 2023, "The Mob=
+ile Resident Manager was unaware that your storage locker had been grandfat=
+hered in prior to Thorwin Properties purchase of the building. Should at an=
+y time we decide to remove the storage units we will apply through the Resi=
+dential Tenancy Branch for a withdrawal of service."
+
+Further communications with Thorwin Properties have been ignored until rece=
+ntly and since May 4, 2023 I have been requesting that Thorwin Properties f=
+ollow legislated protocol.
+
+I feel that it is within my right to continue using the storage unit at 585=
+ Corydon Ave and I do not wish to remove my property from the space that I =
+have been provided since the beginning of my tenancy. The RTB has not recei=
+ved Form 9 (Application to Fix Value of Permanent Reduction or Withdrawal o=
+f Service) from Thorwin Properties and I have not received Form 8 (Notice t=
+o Tenant =E2=80=93 Permanent Reduction or Withdrawal of Service (Other than=
+ a tenant services reduction or withdrawal)).
+
+I would like to request an investigation and I would like to know what the =
+consequences of not removing my property from the storage unit on Wednesday=
+, January 7, 2024 entails. What response can I expect from the landlord?
+
+Thank you for your time,
+Evan Rosner
+10-585 Corydon Ave
+Winnipeg, MB, Canada
+R3L0P3
+2048991499
+
+--_000_YT1PR01MB44391454D766D9477FB5D86EC46F2YT1PR01MB4439CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EmailStyle18
+	{mso-style-type:personal-reply;
+	font-family:"Calibri Light",sans-serif;
+	color:#1F497D;
+	font-weight:normal;
+	font-style:normal;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ligatures:none;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US"><o:p=
+>&nbsp;</o:p></span></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79">Thank you for your email.<o:p><=
+/o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79">Your email has been forwarded t=
+o the appropriate department.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79">Best Regards,<o:p></o:p></span>=
+</p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79">Del<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79">Client Services Officer
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F4E79">Residential Tenancies Branch<o:=
+p></o:p></span></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:11.0pt;font-family:&q=
+uot;Calibri Light&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US=
+"><o:p><span style=3D"text-decoration:none">&nbsp;</span></o:p></span></u><=
+/b></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri Light&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US"><o:p=
+>&nbsp;</o:p></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif">From:</span></b><span lang=3D"EN-=
+US" style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"> =
+Evan Rosner &lt;evanroz@gmail.com&gt;
+<br>
+<b>Sent:</b> Tuesday, January 9, 2024 2:13 PM<br>
+<b>To:</b> +WPG725 - CCA RTB &lt;rtb@gov.mb.ca&gt;<br>
+<b>Subject:</b> Compliance<o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Greetings, I received the following email from =
+the Landlord in regards to the storage unit that I have used since the begi=
+nning of my tenancy at 10-585 Corydon
+ Ave. &quot;Subject: Storage Lockers. Due to renovations starting in the ba=
+sement.=E2=80=8A <o:p>
+</o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Greetings,<br>
+<br>
+I received the following email from the Landlord in regards to the storage =
+unit that I have used since the beginning of my tenancy at 10-585 Corydon A=
+ve.<br>
+<br>
+&quot;Subject: Storage Lockers. Due to renovations starting in the basement=
+. Residents are to have their storage lockers completely emptied by the end=
+ of the day on Wednesday, January 17th, 2024. We thank you for your co-oper=
+ation. Sincerely, Thorwin Properties''
+ (dated Monday January 8,2024)<br>
+<br>
+I have been a tenant at 10-585 Corydon Ave since signing a Standard Residen=
+tial Tenancy Agreement with Winpark Dorchester Properties on April 30, 2011=
+. I have been using the storage unit located in the basement since the begi=
+nning of my tenancy. The storage
+ unit # is correlated with my suite #. I have been issued a key that provid=
+es access to the storage area as well as the laundry area. All the storage =
+units have been associated with their correlated suites on site. Under the =
+ownership of Winpark Dorchester
+ Properties, each storage unit was labeled with an attached&nbsp;piece of A=
+4 paper that clearly indicated the association between the tenant's suite a=
+nd storage unit #. These labels have since been removed.<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Winpark Dorchester Properties sold its property to M=
+yPlace Reality which has rebranded as Thorwin Properties.
+<br>
+<br>
+Form 2 (see attached) was not fully completed by Winpark Dorchester Propert=
+ies as seen in Section C &quot;Services and Facilities Included in Basic Re=
+nt&quot;. Although water, heat, laundry services, storage facilities, and a=
+ppliances have been provided since the start
+ of the tenancy these boxes have not been checked. This appears to be an ov=
+ersight and an error on my part for not being aware that non-completion of =
+Form 2 is a serious issue. There is a reasonable expectation that the servi=
+ces were included in the Standard
+ Residential Tenancy Agreement with Winpark Dorchester Properties as demons=
+trated by my continued and uninterrupted use of these services and reiterat=
+ed in discussion with Celena Funk, Property Manager at Thorwin Properties.<=
+br>
+<br>
+I have communicated with Thorwin Properties about the issue of the storage =
+unit (and the laundry services) and proposal for removal since May 4, 2023.=
+ As stated by Property Manager Celena Funk on Friday, May 5, 2023, &quot;Th=
+e Mobile Resident Manager was unaware
+ that your storage locker had been grandfathered in prior to Thorwin Proper=
+ties purchase of the building. Should at any time we decide to remove the s=
+torage units we will apply through the Residential Tenancy Branch for a wit=
+hdrawal of service.&quot;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Further communications with Thorwin Properties have =
+been ignored until recently and since May 4, 2023 I have been requesting th=
+at Thorwin Properties follow legislated protocol.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I feel that it is within my right to continue using =
+the storage unit at 585 Corydon Ave and I do not wish to remove my property=
+ from the space that I have been provided since the beginning&nbsp;of my te=
+nancy. The RTB has not received Form 9
+ (Application to Fix Value of Permanent Reduction or Withdrawal of Service)=
+ from Thorwin Properties and I have not received Form 8 (Notice to Tenant =
+=E2=80=93 Permanent Reduction or Withdrawal of Service (Other than a tenant=
+ services reduction or withdrawal)).<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I would like to request an investigation and I would=
+ like to know what the consequences of not removing my property from the st=
+orage unit on Wednesday, January 7, 2024 entails. What response can I expec=
+t from the landlord?<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thank you for your time,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">10-585 Corydon Ave<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Winnipeg, MB, Canada<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">R3L0P3<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">2048991499<o:p></o:p></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT1PR01MB44391454D766D9477FB5D86EC46F2YT1PR01MB4439CANP_--

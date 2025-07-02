@@ -1,0 +1,415 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:a8a1:0:b0:44c:c385:878b with SMTP id w1csp1598463vqv;
+        Wed, 31 Jan 2024 13:03:28 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHR34gNkBfAnmSoHoQHkQ4LUUX/UvYaFkSi7vsThPiYnxQZOdhaWhZ6louPMVWkcecl4eHC
+X-Received: by 2002:a05:622a:1349:b0:42b:ec73:8201 with SMTP id w9-20020a05622a134900b0042bec738201mr1861365qtk.63.1706735008385;
+        Wed, 31 Jan 2024 13:03:28 -0800 (PST)
+Return-Path: <Darren.Cooper@gov.mb.ca>
+Received: from mx0c-004a1001.pphosted.com (mx0c-004a1001.pphosted.com. [67.231.159.213])
+        by mx.google.com with ESMTPS id s11-20020ac85ccb000000b0042a9d83bc75si8425060qta.571.2024.01.31.13.03.28
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 31 Jan 2024 13:03:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of darren.cooper@gov.mb.ca designates 67.231.159.213 as permitted sender) client-ip=67.231.159.213;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=10-07-21 header.b="bvNzO/or";
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=IJnYaI5a;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of darren.cooper@gov.mb.ca designates 67.231.159.213 as permitted sender) smtp.mailfrom=Darren.Cooper@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274425.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 40VKjGOv020596
+	for <evanroz@gmail.com>; Wed, 31 Jan 2024 15:03:27 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	from:to:cc:subject:date:message-id:references:in-reply-to
+	:content-type:mime-version; s=10-07-21; bh=J9LSbR5l+3FQT2esQ/x4z
+	2q6OdvL/SoCqQ0lEzIGGdY=; b=bvNzO/oruJRGl1Sl8ONDcz0HKgryMDli4ixLK
+	rEVAJUfrUWLyi8r6Psh41FmP/wV7ZmUvRV+J5ZumBLQhS1qZh4X/cN4jVQhqD4cW
+	+az7hAMRR2GpHi/xzgynYCELvyvB4NG4/AbleKPGxRIvsDxE8eXRWrTBngvHv6il
+	kK5Ue2hgBcG7ib8PRGv6P9IHlB2Jlqc+WZ93tt1dXPHltaK7mqVVjTbQ7uCPknw5
+	0Is3MITsWC6OJX2pQv0J7oaDifAwUS8vJAkYgPJMFtAwn+AEPn+xc+yThcPZcTzd
+	aGCMTJbyTgmCF2NSBvxS5LXbZuRPKS9t+Bw4nSnqkoSCXBvCw==
+Received: from can01-yqb-obe.outbound.protection.outlook.com (mail-yqbcan01lp2232.outbound.protection.outlook.com [104.47.75.232])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3vvxgycyy2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Wed, 31 Jan 2024 15:03:27 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=OrM4tRTLGSKB34WjvwT048yIjXwr7GfoqTejVlLYelZWHa+dEY3/knfL6yWuk7DBAaoWo9oVeL2nFy6gWKqaRR6+tOxwyofA37VtpA7c2FK8aSxbPVTsh7rspHITeqBu2TNXy6xV6JyfIjLtiltsX4/9dBsw2+CQOHlDFttI3bt8qGqKtQx8lKfjj2jMdt8NndZAZXUXszj+7wtd8KgPyACcdgyhJXOPP9gORyks/P1A3Du2HPyOA0uCdvmm98BL2YWC7wvtXL/vDdBbpPZXClUrmoHY1usvbDdm1W/70IFdgJo7bWFjchIa7/xb7Tqm2NWSpopqzZuDC21ZRvNvtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bpFcYovSyElbG1jDi6bWG9Jqvf+1ipLUfekOLD3NoE0=;
+ b=CeHkBm+ikHgei4OXenbUeFXOLmCytGLFKk1Xz839LwbEyKAlgJFeU/B0nG106glPt7bM3XP0dyzFET0i8L7XK1Il+tAJpLdDUiTGSeznov0uTs8cV+rc0bLfBRqr4CAE7IXpA0xR+EbB6U2RZRJWWttYluyuRaEb424V4cOZBWJy4cWrXhf6I2/oCj/vFyXihb9ayXsE+ijBQ5uOvNgOeU3CcgZQCBz3fFTrSQwJwE4im9sO2qJXDxrricsU1Wnjw4PeM/uuHrQrLxZ3mgwV0sKDENVxd9t0NXyMAd3kv9hzDjDiScURXS2GKJQd6qCOeKD3fGjLeC/bZIkz+z5/2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bpFcYovSyElbG1jDi6bWG9Jqvf+1ipLUfekOLD3NoE0=;
+ b=IJnYaI5a6s7VemnUqc+EK+H5gU6wBikMvFTK7cI5HnCMAS7vhfVvmP2TWvkNis+iuOfnXbYRkNeEDU7cY3ml63x92GhBkUeEXo1nnEazCJQa70XxhBd99kF8BM3SoI9quPbw+WtzsSDZ398EvxYT4wnbh/o8p1PhEujZpxIqgg8=
+Received: from YT1PR01MB4220.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:33::11)
+ by YQXPR01MB5260.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:2e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.24; Wed, 31 Jan
+ 2024 21:03:25 +0000
+Received: from YT1PR01MB4220.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::8c03:b3cd:c847:d386]) by YT1PR01MB4220.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::8c03:b3cd:c847:d386%5]) with mapi id 15.20.7249.024; Wed, 31 Jan 2024
+ 21:03:25 +0000
+From: "Cooper, Darren" <Darren.Cooper@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+CC: "Maclean, David" <David.Maclean@gov.mb.ca>
+Subject: RE: NON COMPLIANCE - 585 Corydon Ave
+Thread-Topic: NON COMPLIANCE - 585 Corydon Ave
+Thread-Index: AQHaVIi0oH/XiebEQ06PIX2kfrYRv7D0aKiw
+Date: Wed, 31 Jan 2024 21:03:24 +0000
+Message-ID: 
+ <YT1PR01MB42209B3F151ABEE5992EAEA2AD7C2@YT1PR01MB4220.CANPRD01.PROD.OUTLOOK.COM>
+References: 
+ <CABQF09G7M5K1HJfDkjwveNLtm44ns_trd9NVRL0VtSHZYnwF2g@mail.gmail.com>
+ <CABQF09FyoOsik+oeqk9edL8TL9RqFh5xrNJn7mbjnxaXNvNcPA@mail.gmail.com>
+In-Reply-To: 
+ <CABQF09FyoOsik+oeqk9edL8TL9RqFh5xrNJn7mbjnxaXNvNcPA@mail.gmail.com>
+Accept-Language: en-CA, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT1PR01MB4220:EE_|YQXPR01MB5260:EE_
+x-ms-office365-filtering-correlation-id: 633d5f87-1e03-4ad6-32dd-08dc22a010b2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ FuewVSo7x8bqheyz9uLI8YbpYoMk8dU3KSdAXjYZIrOJ3aXStEF+sxa3/Wwg91M6JpmcIzx/kTFMi+sy31pUG834e6uR6bpWE5zGTMTIhoUzxlZwIgqJKYfQ0145UnsnFvNM+bRvxrE+y7UsygIf4lqvmioVCLyUy4mN23BOp6w1bC7H1pPx5FsFk5104merh5JlMWW+26XqCVK9e3ijeenDOD8WIawuEXr7P3Ow4QI2hBrvHjoR46ibP0TUtTDjv30vO9WL9Wxb/JNDaR4L4EcWXn+5UxixEReSabRiA9GtJxRdYdVZbl/+x9YTq5ZrAavunzti4EFvnFckluvuUA1f2S9ePGV73pw0Fzt7h0KRFZJ6SLcwgEu7JAzWf2XGmofyR5oc+zB+IAgPmtzlcDZVOw+jEmV4r5nz35MmJ5im3xWVEWugqJQf312BP0DHOPoC4IEDDJjTis03jJKz9VwAiXGgh/1OVFfoQiDsed8RgYr2DMvpGefdgPDjMvWWfjcOGEfkUHZAjYSIGFqwloaSV8NyP2iPC1KfIhvXPzvhGylF61IoiogpJoZWkOvdzCiPFkKsbtOXfray+EMZa8kG7uoQi5mw31PkoOC7ocq4stUXVTTZ7JID8SE6jI25CKlKQhfdQKy0dxva3s5yCiJxmkFxdOp9PW+JipFsQTgsNoSTf0A54/IRYDZ8GV+I7XUJxsC2OWLc/M88cnDGOg==
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT1PR01MB4220.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(39860400002)(366004)(136003)(376002)(346002)(396003)(230922051799003)(230173577357003)(230473577357003)(230373577357003)(230273577357003)(64100799003)(1800799012)(186009)(451199024)(55016003)(83380400001)(26005)(66574015)(52536014)(53546011)(6506007)(9686003)(71200400001)(7696005)(38100700002)(122000001)(166002)(478600001)(6916009)(66476007)(64756008)(316002)(66446008)(8676002)(66946007)(4326008)(8936002)(38070700009)(76116006)(66556008)(40140700001)(2906002)(5660300002)(33656002)(41300700001)(86362001);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?utf-8?B?aUtHOUs0Y21RZC9TSzV1bXYzQ09pL1hldzMyanFNa2ZtTDVpZ3U4bFVSbHQv?=
+ =?utf-8?B?K2hJVUJPclpITlc0Tk00TTFGUlBrdWxML2w4YldtVERuOENRN0RsYko4bUx2?=
+ =?utf-8?B?QlVFUDk0Slh4NklvLzllODZlNHl4RnlITmtVNmhkTmt6OUJzcnpQWXkzcVgv?=
+ =?utf-8?B?OXk5aE1jZUpwaEM2K1VzUVlRZ0pCSWNabU9Ra3FCNm1DVUFIYkt2Q3NFdkNM?=
+ =?utf-8?B?aXVPY3A5WnMzaWtXd2xKMnpsYUtyVUZJRFkwckt5QXFrWVBrYmVhUFZYV2ZU?=
+ =?utf-8?B?MEYwbFQxa1pUMVVMWE1wVHBscUQ3QWkyc1VHYWY2S1dvT08yY2gwMGpSYXJn?=
+ =?utf-8?B?VUQ3My94NjZUTEsrUGN4WFZqL3psVXYxQStrdXZ5OXdseVhncU9iVWZBUm5k?=
+ =?utf-8?B?T21QNHpvVTRMM1Jvbmt6aG8rUzQvSXhMZEZoMlVEK3RpQy9FdXM3S0dFRUlE?=
+ =?utf-8?B?SW94dVhUWmdBMm9VK2JkeXVlQ0U4V05LNkNFYmdjcGZ1VkpReGgyWXJ2Rldk?=
+ =?utf-8?B?aXM1c00rM2ZCd3EzMjYzS0tYM0thS0NLSnBYVDBmbVNmSlNBeWRQYzVHL2s2?=
+ =?utf-8?B?NFIralpaZDIzN3ZWejh3WFQ2NEprdXM4cS85QlMxdDVTa3VaVWR1Wmo2Qld3?=
+ =?utf-8?B?WXVKMHdILzRTZWhnZXAybnROVDJvd2RHb1dQMkMwYjRldjFjNWhISlBWeDZp?=
+ =?utf-8?B?RGZ3ZDBhL1l3Qk0wSE5pM0N5YXdsM1JFTVl6NkZlTllkQXNNclBCMG9BbCtO?=
+ =?utf-8?B?TzI0MFRKWWZkZThLTWo2T0NaMllpQ09NYmxERStUd2pLTzFOOGQzc2JkejRF?=
+ =?utf-8?B?SHNsU05Ebm1kQUllUDRTK1VnbFdyaVZwZlREM3hDNjYrVDFnMm5oa0NXRWNE?=
+ =?utf-8?B?OXBHU0lmdGIrMnFaOW5nODZSWXhwVjJ1NnVHWTN0Wjk5aHQxWEVhem41Slhi?=
+ =?utf-8?B?L1RWZTlpYmhUQ0liRnY1VlZGOUxLajkwNnBsYnpkZExpMDcyM0RTMjJNemRq?=
+ =?utf-8?B?Qm1KV0V2YWxURHJ4cUtNR2V5VGhwd3d1MkZvVG9EeUYrNmN4OVlPbnFOSTZY?=
+ =?utf-8?B?Y1dYZFVLWkVUMEJjVWJaL2tiNEQ4MitjRERhTzFsWnJOV0FheCtSRlpJZ0F3?=
+ =?utf-8?B?d3VjZ3poWm5MZDlxUGZXQkZKMUFTMVE3K1ZoT0ZSd1pITVllZTZjNnUvOHBZ?=
+ =?utf-8?B?K1pMVGFWcHJkbEFwZDVBdkY5dFVJaExXeXlrbFVxUTM2OFhyTVFTR2RKQzVp?=
+ =?utf-8?B?MHkrbFoxMk9yc29YN2I0NVhBMkVoOVBBZGdiblhpNHYzYXVrMUhiYmtUWTMz?=
+ =?utf-8?B?MVdQNkpHajJIWXlHaktTNjZzOUZpZllpZDFES3duRHo5NUFodDdEOG1ZR0tS?=
+ =?utf-8?B?ejdnV0xwWE5ZVmR6d0EyR3hXT2pWZ3R3THJyeFNTWkJycW5Bb1FRZ3Mrc3o0?=
+ =?utf-8?B?WHpWZHFqUFMrbnhGNmlOYXFER3NScmRPY0QrS2JadG5ZWGw5WUtNbmxDRktz?=
+ =?utf-8?B?aTVuU2F3WFphWXRnOGxyR2FLNXBlNVl1R3ViMEw2QU03eXFvRzVtNEVlM2xC?=
+ =?utf-8?B?aDVOT0p3cW1RK0VJVkRrdUVVazhReDNENWc0eGp5VkhCWVQvT0JtNk1CVDBT?=
+ =?utf-8?B?c1hXU0lrR3B6TWt2OXZJbmdWK0hCcnNHMlF0OUNVQWE5MlNYNXY3aTdnQ2lC?=
+ =?utf-8?B?WnZYVE8zQlZxQWVIS2hyZzFKakllOHFWTE5NWHhvQ2svWDlpM2tlMjZiSEc0?=
+ =?utf-8?B?ZTRGZ09aWXZ5S0tTM01WQTBlNmdrbWRXUXhIVTNqaWtOcmpmSlM4UjQwWXVo?=
+ =?utf-8?B?YnBidTFnVzZZNnB5QytpblpZWk1VU1Vwc01ZZlJWYmwrV0xYNkx3bGpEOVFm?=
+ =?utf-8?B?TkozZG1XOVlZM3czUlR2R2VLc1ZCUFNsWkplSlRiZzZScHdmWDdwWkNUYUZ6?=
+ =?utf-8?B?ZERLZUpnbUlWNE1wWXZGTGE3clErRy8wRUQ4RDZSVFZOTGJOSkxMMGpRbldD?=
+ =?utf-8?B?YjFXdW9pZnJKY2tvR0RiampWcWlxQUdvYkNCRU9kalBsVUF3NFdOblRDWE1U?=
+ =?utf-8?B?OU1rcUtFeVNzSjJuSWJNRTRrcFh4N0E0ZEk1aXlzalpCSzdRaitGYkc5Mmlp?=
+ =?utf-8?Q?iZhjpQq59pQibe2dqcTYWzXjt?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT1PR01MB42209B3F151ABEE5992EAEA2AD7C2YT1PR01MB4220CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT1PR01MB4220.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 633d5f87-1e03-4ad6-32dd-08dc22a010b2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jan 2024 21:03:24.9906
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: M5TX6NSGAtU5hxcOM30SJ6YoywPU0pTDQMDOV8YV67tLlkSWIq/Y3j8WlEElNKrKP4RUT4WbH7HfyNAWZaAn1w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5260
+X-Proofpoint-ORIG-GUID: R_Kbrb_tDYDAtweRqsyZtdVpdhaSgZZS
+X-Proofpoint-GUID: R_Kbrb_tDYDAtweRqsyZtdVpdhaSgZZS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-01-31_10,2024-01-31_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 spamscore=0
+ impostorscore=0 clxscore=1015 adultscore=0 priorityscore=1501 bulkscore=0
+ phishscore=0 mlxscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2401190000
+ definitions=main-2401310163
+
+--_000_YT1PR01MB42209B3F151ABEE5992EAEA2AD7C2YT1PR01MB4220CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Evan Rosner.
+
+Your landlord=E2=80=99s application to withdraw services has been received =
+by our Branch.  David Maclean is the officer in charge of assessing this ap=
+plication.  If you have any questions or concerns, please feel free to cont=
+act David.
+
+Sincerely,
+
+Darren Cooper
+
+Manager, Rent Regulation
+Residential Tenancies Branch
+Consumer Protection and Government Services
+204-945-4435
+darren.cooper@gov.mb.ca<mailto:darren.cooper@gov.mb.ca>
+
+
+
+From: Evan Rosner <evanroz@gmail.com>
+Sent: Wednesday, January 31, 2024 3:02 PM
+To: Cooper, Darren <Darren.Cooper@gov.mb.ca>
+Subject: Fwd: NON COMPLIANCE - 585 Corydon Ave
+
+You don't often get email from evanroz@gmail.com<mailto:evanroz@gmail.com>.=
+ Learn why this is important<https://aka.ms/LearnAboutSenderIdentification>
+---------- Forwarded message --------- From: Evan Rosner <evanroz@=E2=80=8A=
+gmail.=E2=80=8Acom> Date: Wed, Jan 31, 2024 at 2:=E2=80=8A43 PM Subject: re=
+: NON COMPLIANCE - 585 Corydon Ave To: <susan.=E2=80=8Afehr@=E2=80=8Athorwi=
+n.=E2=80=8Aca>, +WPG725 - CCA RTB (FIN) <rtb@=E2=80=8Agov.=E2=80=8Amb.=E2=
+=80=8Aca>Attention,You
+
+
+---------- Forwarded message ---------
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Date: Wed, Jan 31, 2024 at 2:43=E2=80=AFPM
+Subject: re: NON COMPLIANCE - 585 Corydon Ave
+To: <susan.fehr@thorwin.ca<mailto:susan.fehr@thorwin.ca>>, +WPG725 - CCA RT=
+B (FIN) <rtb@gov.mb.ca<mailto:rtb@gov.mb.ca>>
+
+Attention,
+
+You are informed that the actions occurring at 585 Corydon Ave are in breac=
+h of the regulations of the Residential Tenancy Act.
+
+I have received Form 8 dated January 23, 2024 indicating that common area l=
+aundry and storage lockers service withdrawal will occur on May 1. 2024.
+
+This is already happening and is an issue of non-compliance with provincial=
+ regulations.
+
+Cease and desist.
+
+Evan Rosner
+10-585 Corydon Ave
+
+
+--_000_YT1PR01MB42209B3F151ABEE5992EAEA2AD7C2YT1PR01MB4220CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Franklin Gothic Demi";
+	panose-1:2 11 7 3 2 1 2 2 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.EmailStyle20
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Dear Evan=
+ Rosner. <o:p>
+</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Your land=
+lord=E2=80=99s application to withdraw services has been received by our Br=
+anch.&nbsp; David Maclean is the officer in charge of assessing this applic=
+ation.&nbsp; If you have any questions or concerns, please
+ feel free to contact David.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Sincerely, <o:p></o:p></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Franklin Gothic =
+Demi&quot;,sans-serif"><o:p>&nbsp;</o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Franklin Gothic =
+Demi&quot;,sans-serif">Darren Cooper<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Franklin Gothic =
+Demi&quot;,sans-serif"><o:p>&nbsp;</o:p></span></b></p>
+<p class=3D"MsoNormal">Manager, Rent Regulation<o:p></o:p></p>
+<p class=3D"MsoNormal">Residential Tenancies Branch<o:p></o:p></p>
+<p class=3D"MsoNormal">Consumer Protection and Government Services<o:p></o:=
+p></p>
+<p class=3D"MsoNormal">204-945-4435<o:p></o:p></p>
+<p class=3D"MsoNormal"><a href=3D"mailto:darren.cooper@gov.mb.ca"><span sty=
+le=3D"color:#0563C1">darren.cooper@gov.mb.ca</span></a><o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US">From:</span></b><span lang=
+=3D"EN-US"> Evan Rosner &lt;evanroz@gmail.com&gt;
+<br>
+<b>Sent:</b> Wednesday, January 31, 2024 3:02 PM<br>
+<b>To:</b> Cooper, Darren &lt;Darren.Cooper@gov.mb.ca&gt;<br>
+<b>Subject:</b> Fwd: NON COMPLIANCE - 585 Corydon Ave<o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"background:#A6A6A6;padding:5.25pt 1.5pt 5.25pt 1.5pt"></td>
+<td width=3D"100%" style=3D"width:100.0%;background:#EAEAEA;padding:5.25pt =
+3.75pt 5.25pt 11.25pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-element:frame;mso-element-frame-hspace:=
+2.25pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-el=
+ement-anchor-horizontal:column;mso-height-rule:exactly">
+<span style=3D"font-size:9.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;=
+color:#212121">You don't often get email from
+<a href=3D"mailto:evanroz@gmail.com">evanroz@gmail.com</a>. <a href=3D"http=
+s://aka.ms/LearnAboutSenderIdentification">
+Learn why this is important</a><o:p></o:p></span></p>
+</div>
+</td>
+<td width=3D"75" style=3D"width:56.25pt;background:#EAEAEA;padding:5.25pt 3=
+.75pt 5.25pt 3.75pt;align:left">
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">---------- Forwarded message --------- From: Ev=
+an Rosner &lt;evanroz@=E2=80=8Agmail.=E2=80=8Acom&gt; Date: Wed, Jan 31, 20=
+24 at 2:=E2=80=8A43 PM Subject: re: NON COMPLIANCE - 585 Corydon Ave
+ To: &lt;susan.=E2=80=8Afehr@=E2=80=8Athorwin.=E2=80=8Aca&gt;, +WPG725 - CC=
+A RTB (FIN) &lt;rtb@=E2=80=8Agov.=E2=80=8Amb.=E2=80=8Aca&gt;Attention,You
+<o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12.0pt"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal">---------- Forwarded message ---------<br>
+From: <strong><span style=3D"font-family:&quot;Calibri&quot;,sans-serif">Ev=
+an Rosner</span></strong> &lt;<a href=3D"mailto:evanroz@gmail.com">evanroz@=
+gmail.com</a>&gt;<br>
+Date: Wed, Jan 31, 2024 at 2:43=E2=80=AFPM<br>
+Subject: re: NON COMPLIANCE - 585 Corydon Ave<br>
+To: &lt;<a href=3D"mailto:susan.fehr@thorwin.ca">susan.fehr@thorwin.ca</a>&=
+gt;, +WPG725 - CCA RTB (FIN) &lt;<a href=3D"mailto:rtb@gov.mb.ca">rtb@gov.m=
+b.ca</a>&gt;<o:p></o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12.0pt"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal">Attention, <o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">You are informed that the actions occurring&nbsp;at =
+585 Corydon Ave are in breach of the regulations of the Residential Tenancy=
+ Act.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I have received Form 8 dated January 23, 2024 indica=
+ting that common area laundry and storage lockers service withdrawal&nbsp;w=
+ill occur on May 1. 2024.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">This is already happening and is an issue of non-com=
+pliance with provincial&nbsp;regulations.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Cease and desist.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">10-585 Corydon Ave<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT1PR01MB42209B3F151ABEE5992EAEA2AD7C2YT1PR01MB4220CANP_--

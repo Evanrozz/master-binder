@@ -1,0 +1,1310 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:9f05:0:b0:3ff:a07f:7d65 with SMTP id u5csp4332966vqx;
+        Fri, 8 Dec 2023 09:54:30 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFvDMYRQPNJB6vPnAFGB/6Dk7tB2E8hjlKEnCkRRUbIpGLAuJI2AxSLFmGIm30ZZTUbEBYO
+X-Received: by 2002:a05:6512:2187:b0:50c:180:2166 with SMTP id b7-20020a056512218700b0050c01802166mr147580lft.51.1702058070099;
+        Fri, 08 Dec 2023 09:54:30 -0800 (PST)
+Return-Path: <rtb@gov.mb.ca>
+Received: from mx0d-004a1001.pphosted.com (mx0d-004a1001.pphosted.com. [67.231.150.154])
+        by mx.google.com with ESMTPS id v22-20020a50d096000000b0054bc5b4c3c2si1048201edd.375.2023.12.08.09.54.29
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 08 Dec 2023 09:54:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of rtb@gov.mb.ca designates 67.231.150.154 as permitted sender) client-ip=67.231.150.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=10-07-21 header.b=e+nc87CK;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b="z/ae0f8B";
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of rtb@gov.mb.ca designates 67.231.150.154 as permitted sender) smtp.mailfrom=rtb@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274428.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 3B8GInE1019688
+	for <evanroz@gmail.com>; Fri, 8 Dec 2023 11:54:28 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=from : to : subject :
+ date : message-id : references : in-reply-to : content-type :
+ mime-version; s=10-07-21; bh=e5CJLHzauLmcDNcMY7FpV2WwAUyak3s5xZRVkbF3D0Q=;
+ b=e+nc87CKiBXwTV+bGUXxmkPZKxGH8/yASC7zCyTADaihb3oHtmgrhSxPrDMROtbwcEA3
+ 4I+SBMAEXt5ZyPSfx4gEUtTAU6JfEaELjQ7GbmpMJBiZaR/mWgSuvX7Roo3IHMEw1FN4
+ uW8rMzy6P45Bftl/tWvNLKcWO2EWHyUYWHKkDl1C0vWVE0rcN6MDCKgKQ1wsYAsOQ2CC
+ PndbY6svLIQcy3fTbYD2Drfe/DLj3ZOnJa2/lXZME1mcT/gPORjV46vaNK9Kvezn1SPT
+ m9YgML6OeHV60I556EtneU9r3yJ5MOj9+lr1h333aznVhVvY61sZwTtP0vxM0V0VG8pK wg== 
+Received: from can01-yt3-obe.outbound.protection.outlook.com (mail-yt3can01lp2168.outbound.protection.outlook.com [104.47.75.168])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3utd1bm287-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Fri, 08 Dec 2023 11:54:28 -0600
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=PyU2teg7LshBOy6gCIKcAw8Af9zhkFLS/2rwU0B69WvrujE2oyPozNl4hllE8i41haPBnao+zDpSPYxsC5tv1z+ht8QDhL/f6HfLGXtcvhYIDsefUXsJJT1w7zhEO+f2BZ4BYusxXSbG/mI1MNY7Kajvgrx7ElE5rSm9fXVqhHFlCFAAzWaCGpkaeVESUYC9Gsevxe6hbOj7BTlm4rGFWs6/Rt/aIY8EbOyNbfm3DFxxB+GRP64ut14iFf4kScQmGhxPJzpUB3hsRnetZth86TORfvgC82BkDH7OW8H+0skID9Qz7pKcal1ynzCjSdWdj0lB0ek9PPfCR5R5WagEdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SWiIWEP6vnahjlw6z2yFxDF58S4oWxlgNOAM9NdYs34=;
+ b=bQEBPfqyck2CI1nMGQdZB16MyG5mf3gtvbeJSFLfK81oon8ffrItgHqhR523/ohzMwDnlii1n+t5Jj0E7fpJ9bx+Ir/Z8w6QTxV6TRvlZJp0YoiCYu0bfgnt/FTiR2DXp5gSqHVT9KzSF0nv1/eh8y4eekiAtuTiNDijBLOtbtNtvnOwXbbb6/CFKeEdoGSfPKiWggzUbXEXnaLeDdlekl+6icT2iCGliHz34GzhAACteKnBt01J2KcyCZ4fsTMEtOHYxGvgPaasFGgOLkfrtBHHuONYkNr1MCVvfEdoaO2TiqPzG/8c9B0w/2lLJoTh9l1pWCWgXZDlBIjZCRb6ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SWiIWEP6vnahjlw6z2yFxDF58S4oWxlgNOAM9NdYs34=;
+ b=z/ae0f8BHjNjVduB+2Uq7/ipIfMglCtohYjoJ6stYIstZwnQgD2Si95KsaRoEoB8cM5edpjSmAEjImdvi9KkB6HlsGbanpCLCO6p5fJIqSNn3KRj1bop6R2joeBHSWSNRkgGtij80xX3oIrUL93kZvqK69rHxmEb+6Ud6q7eito=
+Received: from YT3PR01MB9426.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:a3::20)
+ by YQBPR0101MB8912.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:5b::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7068.28; Fri, 8 Dec
+ 2023 17:54:26 +0000
+Received: from YT3PR01MB9426.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::da28:a387:dfa1:887c]) by YT3PR01MB9426.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::da28:a387:dfa1:887c%5]) with mapi id 15.20.7068.028; Fri, 8 Dec 2023
+ 17:54:26 +0000
+From: +WPG725 - CCA RTB <rtb@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: RE: Tenant Rights in this situation
+Thread-Topic: Tenant Rights in this situation
+Thread-Index: AQHaGZ530QCHI7l4+kKIXw4dP4h8rbCGf/zigBk8pACAAAzIEA==
+Date: Fri, 8 Dec 2023 17:54:25 +0000
+Message-ID: 
+ <YT3PR01MB9426D55C59CEC13AEB6DA7BDD88AA@YT3PR01MB9426.CANPRD01.PROD.OUTLOOK.COM>
+References: 
+ <CABQF09FJUX_6hom+p=tjZx8zhhtksMv5zecA3timjVUXKNPuPQ@mail.gmail.com>
+ <YT2PR01MB9192D847FDDD653EBE8041A7D3BAA@YT2PR01MB9192.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09G6O_1DhSOWJyvDLq4HRewHxyXEK-qEK6r7h14NgRMjmg@mail.gmail.com>
+ <CABQF09GXXhDZD5NuSmqQO7G1qZ4OiLAUn4t6rzQhRt=P2q4NuQ@mail.gmail.com>
+In-Reply-To: 
+ <CABQF09GXXhDZD5NuSmqQO7G1qZ4OiLAUn4t6rzQhRt=P2q4NuQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT3PR01MB9426:EE_|YQBPR0101MB8912:EE_
+x-ms-office365-filtering-correlation-id: ac390844-e545-4452-4465-08dbf816b7b5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ FwasxBG3dyOjB02fR1WPEIWGmAGK4FBg0pOjkC+19MAuoovx3vtC2k0J1NOg8WH1AGBPU9dRZlspMhY4sF6UXTL70O8sy5IrOVcT7qTRgFSKsQW3nMWcyQdUuyvtPmZ/tpIDuToZrEnYgk1XyKhz8XxEIE9mJ4MiEdIbfYZDcAczrGDXyI71hCPZ/nczvVmJ9moPKQ56QDWwJFgC0pJu/Zbw4AMhWsgaiWBVHIMO2mrbf3b9lbSeY9fW65sx1KEWOq6MNDHDLhkpu2LBS91wuYkOwLB571vWsnPmDIzg8I14ouVm5YIhLTdpMrD6AP/jsl1pAENudvP4X6F2bw/z4n6zdmLTgmgwQS7WJfBSZSrHGKGPGn4liU7J5wdO+hP+lxtp5NHao8pPetfdDbkEAIPV4LVbQnpiX3fnRTJuqItszLV+81UJP7nSHhJVcIT/uBkx+Sx4aYM9fL5WblB4XWngNG7zLB6/oKTngcUGn76ver1KEva34yTPJfnJSyysJEDS9441AhNuzA0wVMCshepqAd8ylXlHdPCim2JdhmCMsS/k+yIQs+QXunhn1DhKoOE32YLdVXbfru2CbWYgE0QG9YygrG63cBxcXh069Pcrj9X23GMKKo9WkTM2atPhSw8vEZ08yuFNJwDxYE2PRw==
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT3PR01MB9426.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(346002)(376002)(136003)(366004)(396003)(39860400002)(230273577357003)(230922051799003)(230173577357003)(64100799003)(451199024)(1800799012)(186009)(76116006)(30864003)(64756008)(66446008)(66946007)(66476007)(66556008)(6916009)(316002)(2906002)(83380400001)(86362001)(40140700001)(9686003)(52536014)(122000001)(166002)(478600001)(26005)(38070700009)(71200400001)(8676002)(8936002)(45080400002)(38100700002)(53546011)(7696005)(6506007)(41300700001)(66574015)(33656002)(55016003)(5660300002)(579004);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?utf-8?B?N1J3Tys0U1JrQlJMc0tSV0R6THFCV291Njc5UnM3V1M4dEExN0hPdS9XMFU5?=
+ =?utf-8?B?a211dVF1Nm9vN1J3dUh1c29OY0ZyeTlURWpYdVdQWjBkNkJKUFRyYy9hNHZB?=
+ =?utf-8?B?bGQ2OGZBai9sU1VDUXU5dGNoaCtpenhXTDBzZUdrQnFFYW54YVl4S21tcFUr?=
+ =?utf-8?B?R1VVQldzcm42Sm5VUFRIMmw1b2pGUkR3UjJrdjloK2lEeEQyeFBMeStXcERz?=
+ =?utf-8?B?bGhIcHZBaXdSK0hxM0gxaFdzeWNRZis2M1M0UmdGYWlUdFhHQUNzempySks3?=
+ =?utf-8?B?Y1U3OWJGK3BvR1VHSVRpTUpPemFtakpENDhvaFYrRUpxbHcvOGt3dUdtRW1S?=
+ =?utf-8?B?UG1oazZPMnNhbUM4clUvWDhYaFhyNnkrRWdObjNlb2wwZTRzQUZHSGlndysz?=
+ =?utf-8?B?akhmRG82Q2pwNm1zdnBDQ2FkK1N1eUFmM2EvUFk5KzJwcVUwdnFGVUdaMlRW?=
+ =?utf-8?B?MHpNQm9GV29xSXdzb2JRQUxLL29VMUw4SiswNkJvVWhncERZenVDNVlJaVdl?=
+ =?utf-8?B?N0xyZWg0QzV6TzJGRGNodTRQNGhUNXRMNUhQK1d6OGZGRlBsSTVoN2pCREtj?=
+ =?utf-8?B?VmZROFpQYk1hY1N0TEh2L3Z2OC8veEViOVBxaE1hdHhVWStoazdBa3FTT2tS?=
+ =?utf-8?B?KzFxZEZnUE96N1ozWElRVFJLNVM1R3BueVcyWUhiL1cwSFErdENOczJ1aW14?=
+ =?utf-8?B?UWNtei93VFpmUGFNT2J6RFRKekZGWVZRQ3ZSRDMwNGNwV3RwTVVkbkhJYWdV?=
+ =?utf-8?B?OU9EL0p5YmkrVzNHdk51VGMya3N4N0FnMFM1SEpBM0lrWk9Oc1gyVnlyb295?=
+ =?utf-8?B?K0hvZlhtNDZEeDE2RWxhdlpOVlBiTzZzUWFCdXEyRlpUcUVQdlZNL0Ryc0pY?=
+ =?utf-8?B?NWNncTV3RDB1S0hVdzJjYWVzWDIyZnZxNE1VK0xYM3crODJwU0E3RTVSZ1ZV?=
+ =?utf-8?B?THhOTFZFTWpLNVBHMnF0U2NRZTMySHBxVzdJYStYS0xtTGJ6bFdhRDdjd2wz?=
+ =?utf-8?B?ZUtHbkUzcUc1RnNiLzNMWEJSdStKd1RIT3hBWWpqSXRxYnBicTAzcEtoT2J3?=
+ =?utf-8?B?QWQzRytuSUxGVitRaEF5OUx6bDdHcjUzMC9nWGs4UVV0dmR3MmJvakpkd2Mx?=
+ =?utf-8?B?TEVHNFpDMU1OWmhPY0JpVHhWK3RqeDYwcWk2Skh2b05VdE8zWENxaEZibFZG?=
+ =?utf-8?B?V2lqZmFuOTJrS3JXRVFHN3ZJbThIUmo1NnFhSlI5YXRWd1dSRlh1d3JIM1do?=
+ =?utf-8?B?REFsdnAvVkk4OEkzZzAweTAxbVFuZlV6eXFKWHArOE9oMnhOMXdCQ2FNN3FU?=
+ =?utf-8?B?UHYxSkZ5eUpWYlJ5RXhIeHJreVVXTURraVN2a1YycncrVE5xdWljdkV1QTdo?=
+ =?utf-8?B?Ui9RMEx1emxpcFZybWpHMGtlMUt2eXdNaGowbkhna2pwZjNxVG1GdGJqL3A5?=
+ =?utf-8?B?TlBXSyt3WmRCRGF0dHZ6WUU5eXhQQUl2aTVQcEVpU2VhNkpaOFpDS0tIR085?=
+ =?utf-8?B?ZVlSanBqSUJ6djRTOVFSd1VBamg2THpCQ2NobkF0Qk50aFlkbWtYS01BQTZV?=
+ =?utf-8?B?aExwajlHUGwwakxSQnE2SGpRY1drR3FSVXJVUXVGTk05Vjk2WGRDSnh0K2xH?=
+ =?utf-8?B?QnRUeGJrclhIZE42czAxSHRDbTk1OEhjcWRzdXVaZTdVOEhZNjhhaU9DTXhu?=
+ =?utf-8?B?UkdDZXVjMVFYb1Vxb3hKNXZtUVBiZWVEZnR1MURHY2tIV005dUxIWlVWeXJ5?=
+ =?utf-8?B?SVdLaDdGVjVSR0d0NUIzSmZrZis0d3U4aGRFZlgxNjcrandrN3k5clExVUFG?=
+ =?utf-8?B?dmZMMkxZTVlXZEErWWRSQkZpa2M5SHA1K2VBMmllU2R1Z0hwQ2t3RjF4TEZa?=
+ =?utf-8?B?NkRVL01IVUtVbVFkMGdsWFBsVlRodmRMZTA1Sk9JWENKVnp6aHdkWFJGZEJp?=
+ =?utf-8?B?bytleE9iNy9yQm5LM0hJY3BsSFFEeFplVHhLQXpYSFB4MGZVWkhMZ2pJQ2x5?=
+ =?utf-8?B?Y2ZtUlhPdFBzeEFJTHVZT2FOZmxFLzdPTFFhZlRONXlETzFHTDVDTVdpR0JF?=
+ =?utf-8?B?UmNTcUkvbitScWFXdFBIbzJSOTNLZGJKYmd2b2ZKb2U4ZzB5M1pUZHVCUzUw?=
+ =?utf-8?B?N0lqczM2bmZoYS9pM1dlNmxvS0VtdEpXWDBFYlB3eloyK0d2UjlEcjVvbTlq?=
+ =?utf-8?B?RkE9PQ==?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT3PR01MB9426D55C59CEC13AEB6DA7BDD88AAYT3PR01MB9426CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT3PR01MB9426.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac390844-e545-4452-4465-08dbf816b7b5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Dec 2023 17:54:25.7788
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2nMf8DThYn5ur/L6xEJd/BEZAbWnSupmE+EBGihA7YJ9qBg1ICgn5UtPQ3isbRxKXLbdaSZfHpaDrcgdMZsGpaRAffT95ZLv8XmzFj1EO28=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR0101MB8912
+X-Proofpoint-GUID: CsF1Xc6l_bdGc78O3sAVsseMgrqaGZl4
+X-Proofpoint-ORIG-GUID: CsF1Xc6l_bdGc78O3sAVsseMgrqaGZl4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.997,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2023-12-08_12,2023-12-07_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 malwarescore=0 mlxscore=0 phishscore=0 spamscore=0
+ lowpriorityscore=0 adultscore=0 mlxlogscore=999 suspectscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2311290000
+ definitions=main-2312080148
+
+--_000_YT3PR01MB9426D55C59CEC13AEB6DA7BDD88AAYT3PR01MB9426CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+The right of first refusal refers to a tenants right to move back in once t=
+he renovations are complete. It does not imply any right to refuse the reno=
+vations.
+If you refuse to move out based on the notice the landlord has the right to=
+ file for an Order of Possession.
+Assuming that the landlord had followed the procedure correctly (using prop=
+er form, following proper timeline) it could be a very easy win for them if=
+ they pursued an eviction against you, in such a situation.
+If the landlord does not do the renovations within six months of the tenant=
+ moving out, the tenant can come back and make a claim against the landlord=
+ on the basis that they gave the notice in bad faith. This can include clai=
+ming for the difference of your rent for up to twelve months.
+The landlord has no obligation to provide you with an alternative apartment=
+ while they are doing the renovations.
+The landlord must provide a breakdown of the renovations they intend to do =
+and an estimate of what the rent will be when the renovations are complete.
+
+RTB/SS
+
+From: Evan Rosner <evanroz@gmail.com>
+Sent: December 8, 2023 11:00 AM
+To: +WPG725 - CCA RTB <rtb@gov.mb.ca>
+Subject: Re: Tenant Rights in this situation
+
+Hello, Any updates for me? The clock is ticking and I don't want to be forc=
+ed to relocate and neither do I want to be forced into having my home renov=
+ated. Thanks, Evan On Wed, Nov 22, 2023 at 9:=E2=80=8A35 AM Evan Rosner <ev=
+anroz@=E2=80=8Agmail.=E2=80=8Acom>
+
+Hello,
+
+Any updates for me? The clock is ticking and I don't want to be forced to r=
+elocate and neither do I want to be forced into having my home renovated.
+
+Thanks,
+Evan
+
+
+On Wed, Nov 22, 2023 at 9:35=E2=80=AFAM Evan Rosner <evanroz@gmail.com<mail=
+to:evanroz@gmail.com>> wrote:
+Good morning,
+
+Thank you for the information.
+
+I do not intend to refuse entry but I would like to dispute the potential r=
+enovations and prevent them from occurring. Can you please define for me 'r=
+ight of first refusal'?
+
+Yes, I would like the RTB to contact them because they were unable to answe=
+r my questions;
+
+  1.  What is the location of the apartment that you have suggested for the=
+ tenant to occupy during renovations?
+  2.  What is your proposed timeline for renovations?
+  3.  Please list ALL of the renovations that you have planned for this sui=
+te.
+Instead their response was, "We also work closely with RTB to ensure our re=
+sidents=E2=80=99 rights are protected during renovations. Please let me kno=
+w if RTB says anything different.
+
+We=E2=80=99ve been talking about doing this project in early January. The p=
+roject is in planning stage, and we will keep you updated on the requested =
+information as it comes."
+
+You can contact Thorwin Properties at Dasha.dorofeeva@thorwin.ca<mailto:Das=
+ha.dorofeeva@thorwin.ca>, carol.patterson@thorwin.ca<mailto:carol.patterson=
+@thorwin.ca>, grant.steele@thorwin.ca<mailto:grant.steele@thorwin.ca>.
+
+Thank you for your time,
+Evan Rosner
+
+
+On Wed, Nov 22, 2023 at 9:25=E2=80=AFAM +WPG725 - CCA RTB <rtb@gov.mb.ca<ma=
+ilto:rtb@gov.mb.ca>> wrote:
+Hello,
+
+The landlord has a right to enter your unit for the following reasons:
+Landlord's right to enter rental unit
+54(1)   A landlord shall not enter a rental unit occupied by a tenant under=
+ a tenancy agreement except where
+(a) an emergency exists and entry to the rental unit is necessary;
+(b) the tenant consents to the entry;
+(c) the landlord shows the rental unit to a prospective tenant after notice=
+ of termination is given under this Act but before the tenant has vacated t=
+he unit;
+(d) the landlord inspects the rental unit on the day the tenant is required=
+ to vacate the unit to complete a rental unit condition report or to determ=
+ine if the tenant has fulfilled the tenant's obligations under this Act and=
+ the tenancy agreement, and the inspection takes place at a reasonable time;
+(e) the landlord in good faith believes that the rental unit has been aband=
+oned by the tenant and gives written notice to the tenant in accordance wit=
+h subsection (2);
+(f) the landlord gives written notice in accordance with subsection (3) and=
+ entry is for one of the following purposes:
+(i) to perform an obligation of the landlord under this Act or the tenancy =
+agreement or to inspect the rental unit to determine if an obligation shoul=
+d be performed,
+(ii) to complete a rental unit condition report if the tenant has requested=
+ the landlord's consent to an assignment or subletting,
+(iii) to permit a mortgagee or insurer or prospective mortgagee or insurer =
+to inspect the unit when a mortgage or insurance coverage is being arranged=
+ or renewed on the residential complex, or
+(iv) to show the rental unit to prospective purchasers of the rental unit o=
+r residential complex;
+(g) the landlord enters the rental unit to provide tenant services to the t=
+enant in accordance with the tenancy agreement.
+
+
+You will notice that renovations is not listed in that section of the Act. =
+There is a separate process for doing extensive renovations and that proces=
+s involves terminating your tenancy where you would have to move out comple=
+tely so that they can do the renovations. If you wanted to move back in aft=
+er those renovations are completed you would have the right of first refusa=
+l. The question becomes, is this an extensive renovation? If it would mean =
+that you would be without water and maybe even electricity for some extende=
+d period of time, it might qualify as that.
+
+If you refuse them entry to do this they may give you a warning letter stat=
+ing that you cannot refuse entry. If you continue to refuse entry after tha=
+t they could give you an eviction notice. If that happens you have a right =
+to dispute the notice and not move. They would more than likely contact us =
+to schedule a hearing about the eviction and at this hearing we would then =
+make a decision on whether you had a right to refuse and whether this was s=
+omething the landlord had a right to do.
+
+We can also try to reach out to the landlord and ask them some questions ab=
+out this and determine whether or not they can do this now or after termina=
+ting a tenancy. If you would like us to contact them please provide a conta=
+ct and phone number for your landlord.
+
+Thanks.
+
+Rtb/lg
+
+
+
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: November 17, 2023 3:39 PM
+To: +WPG725 - CCA RTB <rtb@gov.mb.ca<mailto:rtb@gov.mb.ca>>
+Subject: re: Tenant Rights in this situation
+
+Greetings, I have been informed by the landlord that they intend to renovat=
+e part of the suite I occupy which I am strongly opposed to. As well, Throw=
+in Property's plan is to remove the storage facility and the washing servic=
+es from the
+Greetings,
+
+I have been informed by the landlord that they intend to renovate part of t=
+he suite I occupy which I am strongly opposed to.
+
+As well, Throwin Property's plan is to remove the storage facility and the =
+washing services from the building in order to create two more units. I use=
+ the washing services and I use the storage space as I have been for my ent=
+ire tenancy for the past 11 years.
+
+They propose installing a washer and dryer in my suite but the electrical s=
+ystem is a fusebox from the 1950s so it will require upgrade, the plumbing =
+will require ripping the floor up to extend the pipes, the closet they inte=
+nd to use is too small for the dimensions of ANY washer and dryer combinati=
+on unit, and this will cause a reduction of storage space which will alread=
+y be reduced because of their removal of the storage unit.
+
+These proposed changes will significantly affect my life as I work from hom=
+e, my cat will be disturbed, and I do not want these renovations done.
+
+This corporation has increased my rent consistently above the guidelines ea=
+ch year that they have had ownership of the property.
+
+They are aware that I do not want any renovations and they have not provide=
+d me with any timeline or compromise nor any plan to address my concerns.
+
+What are my options here? Am I legally allowed to refuse entry? What is the=
+ process in seeking arbitration?
+
+Thank you for your response.
+
+Sincerely,
+Evan Rosner
+10-585 Corydon Ave
+R3L0P3
+Winnipeg, MB
+
+Please find attached my email correspondence with Thorwin Properties.
+
+***
+
+Nov 17,2023
+
+Hi Evan,
+
+Thank you for letting me know about your concerns regarding our plans for r=
+enovations. It is going to be uncomfortable, and it won=E2=80=99t look pret=
+ty for just the two weeks, however, in the end, I am almost certain that yo=
+u will notice the value and feel happy about in-suite laundry. In addition,=
+ we put aside a vacant apartment, and you will be able to use it at any tim=
+e until your apartment is fully put back together.
+
+Sincerely,
+
+Dasha Dorofeeva
+Property Manager
+
+E-mail: Dasha.Dorofeeva@thorwin.ca<mailto:Dasha.Dorofeeva@thorwin.ca>
+Direct: 204-594-5410
+Office: 204-222-2422
+
+www.thorwin.ca<https://urldefense.com/v3/__http://www.thorwin.ca/__;!!IqQd2=
+s6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582tADjU_UYaOvEZlrleZ5R36=
+xAlbVTe0ZCIYIcOaA$>
+1274 Archibald Street, Winnipeg, Manitoba, R2J 0Z3
+LinkedIn<https://urldefense.com/v3/__https://ca.linkedin.com/company/thorwi=
+n-properties__;!!IqQd2s6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582=
+tADjU_UYaOvEZlrleZ5R36xAlbVTe0ZDhMOetJg$> | Facebook<https://urldefense.com=
+/v3/__https://www.facebook.com/thorwinproperties__;!!IqQd2s6KUyvHwNLtrw!vzR=
+oEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582tADjU_UYaOvEZlrleZ5R36xAlbVTe0ZCZ4xnJrQ=
+$> | Twitter<https://urldefense.com/v3/__https://twitter.com/thorwinwinnipe=
+g?lang=3Den__;!!IqQd2s6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582t=
+ADjU_UYaOvEZlrleZ5R36xAlbVTe0ZD_mo39kA$> | Instagram<https://urldefense.com=
+/v3/__https://www.instagram.com/thorwinpropertieswinnipeg/__;!!IqQd2s6KUyvH=
+wNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582tADjU_UYaOvEZlrleZ5R36xAlbVTe=
+0ZCi_PdkTw$> | YouTube<mailto:youtube.com/@ThorwinProperties>
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Monday, November 13, 2023 10:22 AM
+To: Dasha Dorofeeva <Dasha.dorofeeva@thorwin.ca<mailto:Dasha.dorofeeva@thor=
+win.ca>>
+Subject: Fwd: Laundry Services at 585 Corydon Ave
+
+Good morning Dasha,
+
+I have been expecting a response from Darren Willcox for several months and=
+ I have just learned he was let go. I have questions and concerns about Tho=
+rwin's plan for my suite.
+
+Thank you,
+Evan
+---------- Forwarded message ---------
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Date: Mon, Nov 13, 2023 at 10:13=E2=80=AFAM
+Subject: Re: Laundry Services at 585 Corydon Ave
+To: Darren Wilcox <Darren.Wilcox@myplace.ca<mailto:Darren.Wilcox@myplace.ca=
+>>
+
+Greetings,
+
+I hope you're doing well.
+
+Last Friday Thorwin agents came to my suite to identify a solution for the =
+upcoming removal of laundry services and storage facilities with the goal o=
+f installing en suite laundry machines.
+
+It has been 129 days since my previous email to you regarding this issue an=
+d I have not received any clarity on what your plan is.
+
+The electrical system in my suite is from the 1950s, there is no storage sp=
+ace for a washer/dryer in the suite, and if there were some space with whic=
+h to place the units it would require opening up the floor boards and exten=
+ding the pipes.
+
+My understanding is that Thorwin has full intention of removing the storage=
+ and laundry services, which I have paid for in my entire residency here, f=
+orcing a renovation on me that will negatively affect my quality of living =
+through the day to day work, reducing my storage space capabilities, and of=
+ course, increasing the rent far above what it should be if provincial guid=
+elines were followed in good faith.
+
+I want to be clear that I do not want en suite laundry services and I do no=
+t want my storage space removed.
+
+I look forward to hearing your solutions.
+
+Thank you,
+Evan Rosner
+10-585 Corydon Ave
+
+
+
+
+On Fri, Jul 7, 2023 at 12:20=E2=80=AFPM Evan Rosner <evanroz@gmail.com<mail=
+to:evanroz@gmail.com>> wrote:
+Greetings,
+
+I'm looking for clarification of laundry services for this year. I expect t=
+he laundry and storage facilities to be removed. I would like to know what =
+you have in mind for me as I have signed our renewal, the electrical system=
+ and plumbing system in my suite will not be able to handle on suite laundr=
+y services, and I require storage space.
+
+Keeping in mind that I have been a long term resident in good standing I wo=
+uld appreciate some consideration in this matter.
+
+Thank you,
+Evan Rosner
+
+--_000_YT3PR01MB9426D55C59CEC13AEB6DA7BDD88AAYT3PR01MB9426CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:101808774;
+	mso-list-template-ids:1875285188;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US">The right =
+of first refusal refers to a tenants right to move back in once the renovat=
+ions are complete. It does not imply any right
+ to refuse the renovations.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US">If you ref=
+use to move out based on the notice the landlord has the right to file for =
+an Order of Possession.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US">Assuming t=
+hat the landlord had followed the procedure correctly (using proper form, f=
+ollowing proper timeline) it could be a very easy
+ win for them if they pursued an eviction against you, in such a situation.=
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US">If the lan=
+dlord does not do the renovations within six months of the tenant moving ou=
+t, the tenant can come back and make a claim against
+ the landlord on the basis that they gave the notice in bad faith. This can=
+ include claiming for the difference of your rent for up to twelve months.<=
+o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US">The landlo=
+rd has no obligation to provide you with an alternative apartment while the=
+y are doing the renovations.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US">The landlo=
+rd must provide a breakdown of the renovations they intend to do and an est=
+imate of what the rent will be when the renovations
+ are complete.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US"><o:p>&nbsp=
+;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US">RTB/SS<o:p=
+></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1F497D;mso-fareast-language:EN-US"><o:p>&nbsp=
+;</o:p></span></p>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;fo=
+nt-family:&quot;Calibri&quot;,sans-serif">From:</span></b><span lang=3D"EN-=
+US" style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"> =
+Evan Rosner &lt;evanroz@gmail.com&gt;
+<br>
+<b>Sent:</b> December 8, 2023 11:00 AM<br>
+<b>To:</b> +WPG725 - CCA RTB &lt;rtb@gov.mb.ca&gt;<br>
+<b>Subject:</b> Re: Tenant Rights in this situation<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Hello, Any updates for me? The clock is ticking=
+ and I don't want to be forced to relocate and neither do I want to be forc=
+ed into having my home renovated. Thanks,
+ Evan On Wed, Nov 22, 2023 at 9:=E2=80=8A35 AM Evan Rosner &lt;evanroz@=E2=
+=80=8Agmail.=E2=80=8Acom&gt; <o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Hello,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Any updates for me? The clock is ticking and I don't=
+ want to be forced to relocate and neither do I want to be forced into havi=
+ng my home renovated.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thanks,<br>
+Evan<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Nov 22, 2023 at 9:35=E2=80=AFAM Evan Rosner =
+&lt;<a href=3D"mailto:evanroz@gmail.com">evanroz@gmail.com</a>&gt; wrote:<o=
+:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-right:0cm">
+<div>
+<p class=3D"MsoNormal">Good morning,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thank you for the information.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I do not intend to refuse entry but I would like to =
+dispute the potential renovations and prevent them from occurring. Can you =
+please define for me 'right of first refusal'?<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Yes, I would like the RTB to contact them because th=
+ey were unable to answer my questions;&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<ol start=3D"1" type=3D"1">
+<li class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto;mso-list:l0 level1 lfo1">
+What is the location of the apartment&nbsp;that you have suggested for the =
+tenant to occupy during renovations?&nbsp;<o:p></o:p></li><li class=3D"MsoN=
+ormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list=
+:l0 level1 lfo1">
+What is your proposed timeline for renovations?&nbsp;<o:p></o:p></li><li cl=
+ass=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-alt:au=
+to;mso-list:l0 level1 lfo1">
+Please list ALL of the renovations that you have planned for this suite.<o:=
+p></o:p></li></ol>
+</div>
+<div>
+<p class=3D"MsoNormal">Instead their response was, &quot;We also work close=
+ly with RTB to ensure our residents=E2=80=99 rights are protected during re=
+novations. Please let me know if RTB says anything different.<o:p></o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">We=E2=80=99ve been talking about doing this project in early Janua=
+ry. The project is in planning stage, and we will keep you updated on the r=
+equested information as it comes.&quot;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">You can contact Thorwin Properties at&nbsp;<span style=3D"font-siz=
+e:13.0pt;font-family:&quot;Helvetica&quot;,sans-serif;color:#5E5E5E"><a hre=
+f=3D"mailto:Dasha.dorofeeva@thorwin.ca" target=3D"_blank">Dasha.dorofeeva@t=
+horwin.ca</a>,&nbsp;</span><span style=3D"font-size:13.0pt;font-family:&quo=
+t;Helvetica&quot;,sans-serif"><a href=3D"mailto:carol.patterson@thorwin.ca"=
+ target=3D"_blank">carol.patterson@thorwin.ca</a>,&nbsp;<a href=3D"mailto:g=
+rant.steele@thorwin.ca" target=3D"_blank">grant.steele@thorwin.ca</a>.</spa=
+n><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Helvetica&quot;,=
+sans-serif">Thank you for your time,</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Helvetica&quot;,=
+sans-serif">Evan Rosner</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><o:p>&nbsp;</o:p></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Nov 22, 2023 at 9:25=E2=80=AFAM +WPG725 - CC=
+A RTB &lt;<a href=3D"mailto:rtb@gov.mb.ca" target=3D"_blank">rtb@gov.mb.ca<=
+/a>&gt; wrote:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-right:0cm">
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">Hello,</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">The landlord has a right to enter your unit for the fol=
+lowing reasons:</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-bottom:3.6pt=
+;margin-left:12.0pt;background:#FDFEFE">
+<b><span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:black">Lan=
+dlord's right to enter rental unit</span></b><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"margin:6.0pt;text-align:justify;background:=
+#FDFEFE"><b><span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,s=
+ans-serif;color:black">54(1) &nbsp;</span></b><span style=3D"font-size:13.0=
+pt;font-family:&quot;Arial&quot;,sans-serif;color:black">&nbsp;A landlord
+ shall not enter a rental unit occupied by a tenant under a tenancy agreeme=
+nt except where</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:54.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(a)&nbsp;an emergency exists and entry to the rental unit is nec=
+essary;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:54.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(b)&nbsp;the tenant consents to the entry;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:54.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(c)&nbsp;the landlord shows the rental unit to a prospective ten=
+ant after notice of termination is given under this Act but before the tena=
+nt has vacated the unit;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:54.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(d)&nbsp;the landlord inspects the rental unit on the day the te=
+nant is required to vacate the unit to complete a rental unit condition rep=
+ort or to determine if the tenant has fulfilled the
+ tenant's obligations under this Act and the tenancy agreement, and the ins=
+pection takes place at a reasonable time;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:54.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(e)&nbsp;the landlord in good faith believes that the rental uni=
+t has been abandoned by the tenant and gives written notice to the tenant i=
+n accordance with subsection&nbsp;(2);</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:54.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(f)&nbsp;the landlord gives written notice in accordance with su=
+bsection&nbsp;(3) and entry is for one of the following purposes:</span><o:=
+p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:72.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(i)&nbsp;to perform an obligation of the landlord under this Act=
+ or the tenancy agreement or to inspect the rental unit to determine if an =
+obligation should be performed,</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:72.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(ii)&nbsp;to complete a rental unit condition report if the tena=
+nt has requested the landlord's consent to an assignment or subletting,</sp=
+an><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:72.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(iii)&nbsp;to permit a mortgagee or insurer or prospective mortg=
+agee or insurer to inspect the unit when a mortgage or insurance coverage i=
+s being arranged or renewed on the residential complex,
+ or</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:72.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(iv)&nbsp;to show the rental unit to prospective purchasers of t=
+he rental unit or residential complex;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-right:6.0pt;=
+margin-bottom:6.0pt;margin-left:54.0pt;text-align:justify;background:#FDFEF=
+E">
+<span style=3D"font-size:13.0pt;font-family:&quot;Arial&quot;,sans-serif;co=
+lor:black">(g)&nbsp;the landlord enters the rental unit to provide tenant s=
+ervices to the tenant in accordance with the tenancy agreement.</span><o:p>=
+</o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">You will notice that renovations is not listed in that =
+section of the Act. There is a separate process
+ for doing extensive renovations and that process involves terminating your=
+ tenancy where you would have to move out completely so that they can do th=
+e renovations. If you wanted to move back in after those renovations are co=
+mpleted you would have the right
+ of first refusal. The question becomes, is this an extensive renovation? I=
+f it would mean that you would be without water and maybe even electricity =
+for some extended period of time, it might qualify as that.</span><o:p></o:=
+p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">If you refuse them entry to do this they may give you a=
+ warning letter stating that you cannot refuse entry.
+ If you continue to refuse entry after that they could give you an eviction=
+ notice. If that happens you have a right to dispute the notice and not mov=
+e. They would more than likely contact us to schedule a hearing about the e=
+viction and at this hearing we would
+ then make a decision on whether you had a right to refuse and whether this=
+ was something the landlord had a right to do.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">We can also try to reach out to the landlord and ask th=
+em some questions about this and determine whether
+ or not they can do this now or after terminating a tenancy. If you would l=
+ike us to contact them please provide a contact and phone number for your l=
+andlord.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">Thanks.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">Rtb/lg</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:11.0pt;font-family:&quot;Arial&quot;,sans=
+-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;font-family:&quo=
+t;Calibri&quot;,sans-serif">From:</span></b><span lang=3D"EN-US" style=3D"f=
+ont-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"> Evan
+ Rosner &lt;<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">evanroz@=
+gmail.com</a>&gt;
+<br>
+<b>Sent:</b> November 17, 2023 3:39 PM<br>
+<b>To:</b> +WPG725 - CCA RTB &lt;<a href=3D"mailto:rtb@gov.mb.ca" target=3D=
+"_blank">rtb@gov.mb.ca</a>&gt;<br>
+<b>Subject:</b> re: Tenant Rights in this situation</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:1.0pt;color:white">Greetings, I have been=
+ informed by the landlord that they intend to renovate part of the suite I =
+occupy which I am strongly opposed to.
+ As well, Throwin Property's plan is to remove the storage facility and the=
+ washing services from the
+</span><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Greetings,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I have been informed by the landlord that they intend to renovate =
+part of the suite I occupy which I am strongly opposed to.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">As well, Throwin Property's plan is to remove the storage facility=
+ and the washing services from the building in order to create two more uni=
+ts. I use the washing services and I
+ use the storage space as I have been for my entire tenancy for the past 11=
+ years.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">They propose installing a washer and dryer in my suite but the ele=
+ctrical&nbsp;system is a fusebox from the 1950s so it will require upgrade,=
+ the plumbing will require ripping the floor
+ up to extend the pipes, the closet they intend to use is too small for the=
+ dimensions of ANY washer and dryer combination unit, and this will cause a=
+ reduction of storage space which will already be reduced because of their =
+removal of the storage unit.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">These proposed changes will significantly affect my life as I work=
+ from home, my cat will be disturbed, and I do not want these renovations d=
+one.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">This corporation has increased my rent consistently&nbsp;above the=
+ guidelines each year that they have had ownership of the property.<o:p></o=
+:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">They are aware that I do not want any renovations and they have no=
+t provided me with any timeline or compromise nor any plan to address my co=
+ncerns.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">What are my options here? Am I legally allowed to refuse entry? Wh=
+at is the process in seeking arbitration?<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you for your response.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Sincerely,<br>
+Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">10-585 Corydon Ave<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">R3L0P3<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Winnipeg, MB<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Please find attached my email correspondence&nbsp;with Thorwin Pro=
+perties.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">***<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Nov 17,2023<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Hi Evan,<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you for letting me know about your concerns regarding our pl=
+ans for renovations. It is going to be uncomfortable, and it won=E2=80=99t =
+look pretty for just the two weeks, however,
+ in the end, I am almost certain that you will notice the value and feel ha=
+ppy about in-suite laundry. In addition, we put aside a vacant apartment, a=
+nd you will be able to use it at any time until your apartment is fully put=
+ back together.<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US">Sincerely,</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US">Dasha Dorofeeva</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US">Property Manager</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"color:black">&nbsp;</span><o:p></o:p=
+></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"color:black">E-mail:&nbsp;</span><a =
+href=3D"mailto:Dasha.Dorofeeva@thorwin.ca" target=3D"_blank"><span style=3D=
+"color:#0563C1">Dasha.Dorofeeva@thorwin.ca</span></a><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"color:black">Direct: 204-594-5410</s=
+pan><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"color:black">Office: 204-222-2422</s=
+pan><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"color:black">&nbsp;</span><o:p></o:p=
+></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><a href=3D"https://urldefense.com/v3/__http://www.thorwin.ca/__;!!=
+IqQd2s6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582tADjU_UYaOvEZlrle=
+Z5R36xAlbVTe0ZCIYIcOaA$" target=3D"_blank"><b><span style=3D"color:#0563C1"=
+>www.thorwin.ca</span></b></a><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">1274 Archibald Street, Winnipeg, Manitoba, R2J 0Z3<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><a href=3D"https://urldefense.com/v3/__https://ca.linkedin.com/com=
+pany/thorwin-properties__;!!IqQd2s6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8=
+DYz1CyHl582tADjU_UYaOvEZlrleZ5R36xAlbVTe0ZDhMOetJg$" target=3D"_blank"><spa=
+n style=3D"color:#0563C1">LinkedIn</span></a>&nbsp;|&nbsp;<a href=3D"https:=
+//urldefense.com/v3/__https://www.facebook.com/thorwinproperties__;!!IqQd2s=
+6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582tADjU_UYaOvEZlrleZ5R36x=
+AlbVTe0ZCZ4xnJrQ$" target=3D"_blank"><span style=3D"color:#0563C1">Facebook=
+</span></a>&nbsp;|&nbsp;<a href=3D"https://urldefense.com/v3/__https://twit=
+ter.com/thorwinwinnipeg?lang=3Den__;!!IqQd2s6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7B=
+k9obbR8pN8DYz1CyHl582tADjU_UYaOvEZlrleZ5R36xAlbVTe0ZD_mo39kA$" target=3D"_b=
+lank"><span style=3D"color:#0563C1">Twitter</span></a>&nbsp;|&nbsp;<a href=
+=3D"https://urldefense.com/v3/__https://www.instagram.com/thorwinproperties=
+winnipeg/__;!!IqQd2s6KUyvHwNLtrw!vzRoEOUhBv1nlOWa7Bk9obbR8pN8DYz1CyHl582tAD=
+jU_UYaOvEZlrleZ5R36xAlbVTe0ZCi_PdkTw$" target=3D"_blank"><span style=3D"col=
+or:#0563C1">Instagram</span></a>&nbsp;|&nbsp;<a href=3D"mailto:youtube.com/=
+@ThorwinProperties" target=3D"_blank"><span style=3D"color:#0563C1">YouTube=
+</span></a><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US">&nbsp=
+;Evan Rosner &lt;<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">eva=
+nroz@gmail.com</a>&gt;<br>
+<b>Sent:</b>&nbsp;Monday, November 13, 2023 10:22 AM<br>
+<b>To:</b>&nbsp;Dasha Dorofeeva &lt;<a href=3D"mailto:Dasha.dorofeeva@thorw=
+in.ca" target=3D"_blank">Dasha.dorofeeva@thorwin.ca</a>&gt;<br>
+<b>Subject:</b>&nbsp;Fwd: Laundry Services at 585 Corydon Ave</span><o:p></=
+o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Good morning Dasha,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I have been expecting a response from Darren Willcox for several m=
+onths and I have just learned he was let go. I have questions and concerns =
+about Thorwin's plan for my suite.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-bottom:12.0p=
+t">Evan<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">---------- Forwarded message ---------<br>
+From:&nbsp;<strong><span style=3D"font-family:&quot;Calibri&quot;,sans-seri=
+f">Evan Rosner</span></strong>&nbsp;&lt;<a href=3D"mailto:evanroz@gmail.com=
+" target=3D"_blank">evanroz@gmail.com</a>&gt;<br>
+Date: Mon, Nov 13, 2023 at 10:13=E2=80=AFAM<br>
+Subject: Re: Laundry Services at 585 Corydon Ave<br>
+To: Darren Wilcox &lt;<a href=3D"mailto:Darren.Wilcox@myplace.ca" target=3D=
+"_blank">Darren.Wilcox@myplace.ca</a>&gt;<o:p></o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;margin-bottom:12.0p=
+t">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Greetings,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I hope you're doing well.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Last Friday Thorwin agents came to my suite to identify a solution=
+ for the upcoming removal of laundry services and storage facilities with t=
+he goal of installing en suite laundry
+ machines.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">It has been 129 days since my previous email to you regarding this=
+ issue and I have not received any clarity on what your plan is.&nbsp;<o:p>=
+</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">The electrical system in my suite is from the 1950s, there is no s=
+torage space for a washer/dryer in the suite, and if there were some space =
+with which to place the units it would
+ require opening up the floor boards and extending the pipes.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">My understanding is that Thorwin has full intention of removing th=
+e storage and laundry services, which I have paid for in my entire residenc=
+y here, forcing a renovation on me that
+ will negatively affect my quality of living through the day to day work, r=
+educing my storage space capabilities, and of course, increasing the rent f=
+ar above what it should be if provincial guidelines were followed in good f=
+aith.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I want to be clear that I do not want en suite laundry services an=
+d I do not want my storage space removed.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I look forward to hearing your solutions.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">10-585 Corydon Ave<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">On Fri, Jul 7, 2023 at 12:20=E2=80=AFPM Evan Rosner &lt;<a href=3D=
+"mailto:evanroz@gmail.com" target=3D"_blank">evanroz@gmail.com</a>&gt; wrot=
+e:<o:p></o:p></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #CCCCCC 1.0pt;padding:0c=
+m 0cm 0cm 6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0cm;margin-=
+bottom:5.0pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Greetings,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I'm looking for clarification&nbsp;of laundry services for this ye=
+ar. I expect the laundry and storage facilities to be removed. I would like=
+ to know what you have in mind for me as
+ I have signed our renewal, the electrical system and plumbing system in my=
+ suite will not be able to handle on suite laundry services, and I require&=
+nbsp;storage space.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Keeping in mind that I have been a long term resident in good stan=
+ding I would appreciate some consideration in this matter.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Thank you,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Evan Rosner<o:p></o:p></p>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</blockquote>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT3PR01MB9426D55C59CEC13AEB6DA7BDD88AAYT3PR01MB9426CANP_--

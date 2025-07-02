@@ -1,0 +1,324 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:d0c2:0:b0:44c:c385:878b with SMTP id br2csp480939vqb;
+        Thu, 22 Feb 2024 11:47:09 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGO9UXeA/vCLS6hWFi1N8eGS2EsIZlBHz9ZzQkUqlpxKDAv2MM1OGxzdSrLVRzmAVrtwtcT
+X-Received: by 2002:a05:6830:155:b0:6e4:7bce:b33f with SMTP id j21-20020a056830015500b006e47bceb33fmr11308otp.26.1708631229177;
+        Thu, 22 Feb 2024 11:47:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1708631229; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=NiPmHMvQzuWn54SI8KZ8lWhDLVhVu4LPoQHKs1AElo2NKOhvSmJ0PPzaEEsKWPG5kH
+         syAe86KJM5UhDC4MyU8Fqn9Kqe/TKM9MakZo/qUlwYh4rLKyGtJi78myV3xlLTjjWnCF
+         WFjJ/lg71i/PDkKSt17CAzhlLSu2Y+kG9900x378Mu+88ILC/df6nNGHbReewRTlJM58
+         Z1mF4qAnd1aM4E0WkbKV7ZSEmbRUhV84x2E2zaEsRe2+HP9glI2Zv0aX1WbSsRsO/osT
+         1TnefSYE3titFKjm1uqqGmv7DDl7qPvHICnehsBxk5L2NakxdSowjfy/Xj7kEXaFZQL0
+         6rlA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id
+         :deferred-delivery:date:thread-index:thread-topic:subject:to:from
+         :dkim-signature:dkim-signature;
+        bh=n6Ul7kcE6WMYAV+uQcFT8zSVBkx799rSwEOEPa/QWjk=;
+        fh=npmqSOjMSav2FRsqG7beEMWqR208VHSgjwp/w4aL8Nc=;
+        b=LpacUpZQ7WhWUUBh9Cvf3F3wPXL5JkZNNESKxqo5u1Hnu3t9ZpSjkEyV9iD5z8vfli
+         ZisvBBDHHRikVIMWU3f8T+Qb+xs/cr6zvdX+SWYpEUMo1i4a6GAN4WTw8EEderkdRQbQ
+         P5Jda5rDYSec2UxY3qZpfiPl96oOdy3waaxJC7zWOHhoEvDna4Cf69vEuAZhqTJoNnNN
+         RoElpNRpfeFh2N4ksEBQUkd5cpqwt/MHyc7Z0dvhxl8sUArNU8NfMBYcZsHrWEJQpNRW
+         1/zLuuEP0LqtY2fgbw6uz4+6PzeDZVu80Yax/+D1Vk6BmaS+YOzF8oW9u+UYwp3md3C8
+         zFHA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=2-9-24 header.b=LGbXumxX;
+       dkim=pass header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=jqiXjkFP;
+       arc=pass (i=1 spf=pass spfdomain=gov.mb.ca dkim=pass dkdomain=gov.mb.ca dmarc=pass fromdomain=gov.mb.ca);
+       spf=pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.159.213 as permitted sender) smtp.mailfrom=David.Maclean@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Return-Path: <David.Maclean@gov.mb.ca>
+Received: from mx0c-004a1001.pphosted.com (mx0c-004a1001.pphosted.com. [67.231.159.213])
+        by mx.google.com with ESMTPS id jz11-20020a0562140e6b00b0068f7497703bsi8871207qvb.215.2024.02.22.11.47.08
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 22 Feb 2024 11:47:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.159.213 as permitted sender) client-ip=67.231.159.213;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=2-9-24 header.b=LGbXumxX;
+       dkim=pass header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=jqiXjkFP;
+       arc=pass (i=1 spf=pass spfdomain=gov.mb.ca dkim=pass dkdomain=gov.mb.ca dmarc=pass fromdomain=gov.mb.ca);
+       spf=pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.159.213 as permitted sender) smtp.mailfrom=David.Maclean@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274425.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 41MH9TUT024096
+	for <evanroz@gmail.com>; Thu, 22 Feb 2024 13:47:08 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	from:to:subject:date:message-id:content-type:mime-version; s=
+	2-9-24; bh=n6Ul7kcE6WMYAV+uQcFT8zSVBkx799rSwEOEPa/QWjk=; b=LGbXu
+	mxXeUfOxaj4fCqu/+Aw4iehOxIlcZI+0TZ39od6j5Zhc45u+PK1EC6jxeC07GX19
+	bGGnf4ZSp0xXfSKr2R1vDs5g0Odm3i/fYuFmqwauK+B2jwbq7YJxLhEl8yO3s68y
+	/SkVbGZeVnRSWmNjOPaEMyAqkddPglyvoIOsjzQ/dsiQHi6PGvFmmia7r+swlbSb
+	LckzgR7O/jBvrZsfkHIPKjE5qEo7JauqoW2hmBR6CxhmkwwRbItn+E2RfvtIj2Ei
+	gtMa5d5letIi6wp8iyzm4rikO+pTI+fP4x4o+zdnLL4ImVCAgYvKTVFNfhzPvi4w
+	X+/GV3Pfues/kKT6w==
+Received: from can01-yqb-obe.outbound.protection.outlook.com (mail-yqbcan01lp2233.outbound.protection.outlook.com [104.47.75.233])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3wd213350q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Thu, 22 Feb 2024 13:47:08 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=NpDqaSSOxVYSqv3ELviUVYcWmg6xx2nAIjEoY3YkCDSfln9WneQHM1PlTYjj7gyfoM/XCrmEDGTEfktXST27GtzYQkN6wSNzYZB/1UjEYsF2XafCN2/Qy9Mptsj0G5jBbOK4uMB0BsViK+QXQJoPbtvvdoix0QZ3SFRDuwym5o7F2lpIpmod39c7M0JlH1jA3cOTZn9JlhGesZLSBGgOSzcnN2nuIQomKw06uOYmOMN4Qm8F1sMXgXVX8aZ46kA5PWWvCBkf+U/idNj8HXWrsKDLZDthFIhdaw8ihlmvJ8MPte24Q8m/CJOeJkxBAtaMk++AcPbJySuYdMeH7etoew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n6Ul7kcE6WMYAV+uQcFT8zSVBkx799rSwEOEPa/QWjk=;
+ b=FTaiS5gmBlFYx+4ihJ1dOCsHxih48w18PJTrw1PtpL1YzODK0Cb1oQjnlOosck3gjlA1JlUjlBQokgG0dwhXktcq1O/Sf3HgLbd9pLMicSUrKpo9ckfao0R25LdzQmaywWzUygmJ65rw48NwRLZK3kr4+Sh9ET1AgBrJac2WFFZvzW/XCPKAEfdK18q+VnUCmcxeMN0SgAikIeRjEkhiVi7d7E/Nsj7FCYoa1ASHp0oLbTGTQ8VxtF8HHB8sx5Klf7UHv0LQDSXfv8ZzN9N5y8H4t5pUGgaJ6iwrehaGKlOhWhcUA42Y3lTbEZ1cVaAZTMevCpro4QMNC9JO/29hnA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n6Ul7kcE6WMYAV+uQcFT8zSVBkx799rSwEOEPa/QWjk=;
+ b=jqiXjkFP2AxtIqd134nEhbLmoTEoZGvdKS6U+reoZioXBiasm9ODD4/Cz83OZWoJiR1gMZadejDmScwcQaGaeBvjJdgeVOXm89weoSdkAnwTndJWOM2j++9CCvi8Tmaye6THd+xaQUF6RYm71Bck8vgdWScX+ZgfHpZ2IIWNWlA=
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:e9::12)
+ by YQXPR01MB5947.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:28::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7316.21; Thu, 22 Feb
+ 2024 19:47:07 +0000
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::f3e6:2ca6:a83f:4904]) by YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::f3e6:2ca6:a83f:4904%3]) with mapi id 15.20.7339.009; Thu, 22 Feb 2024
+ 19:47:07 +0000
+From: "Maclean, David" <David.Maclean@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: 585 Corydon - Withdrawal
+Thread-Topic: 585 Corydon - Withdrawal
+Thread-Index: AdplxVlM3KOoAaDRQ2yWf4C07WnuRQ==
+Date: Thu, 22 Feb 2024 19:46:42 +0000
+Deferred-Delivery: Thu, 22 Feb 2024 19:45:46 +0000
+Message-ID: 
+ <YT4PR01MB9717633909F9DA2560A25B68B0562@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT4PR01MB9717:EE_|YQXPR01MB5947:EE_
+x-ms-office365-filtering-correlation-id: 13a5159e-0a93-4896-c19a-08dc33df0d1d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ Ls+tSb/XKyXDCyt5KsudH8vG5zKf3h0vVkZbSrM3oyyww8xuvhL0hHgFhxH3LPM6KbfkwuzJ+3jqREBHRuPyVU57c4DloUTmEvubS/Y0541LfbzaN1Nbisl/wD5P0NRKYWrvUBYMXaT9dJF9BieXdQcAtHCQW4ep1xjwnAAaSbWNf2OBzWSQVNYPYNSRa3yuEAvPYr+O8TcRze2ViKbPYnofdfwO7UVta2u2VE6Q+uEVSXDGvrQorCCTx0/ojQa+9HW2Ilmc1AsgA7bm49tIcvJV9j8upsal7CdZ/yd1acPS5mkux9Dfv5/Qf82SKaob2aSQl6FQSg2ovCYbCnIPb2YPs+z4gn8qZoyl3TXdzvFu8xSpAwzaCljTv+RpuQai/x+t5TUqHy4152/PDrUlfaXyO7kyT1KcosmyP7IXhoaiqufTDfY9bTpUIHLAd5hfVZl9GJ6mfzGPAZTWmlmUmZP/fqedz2Jl9s+IkhiJTcbrGWGuFRIOMVsIwIZ/eeRJZ6oVbjxFL1Rxof34Z2hK//7QGS6S0oS4ATtRZbmUF6X50DtOdJ4AmjI+Kfg1t/jVU+rF0JmPXckOJpsUmo6l+5n6jKUWicx6cbOl02E+kVi3e6g7XlMN4hujdUveaNiQ
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?us-ascii?Q?bB0ddFp1qGHbvF3KAilWGE46fO7ZHV68cvbdQbOyyUF4jjNuyfEbsVw+xxBO?=
+ =?us-ascii?Q?yd2D9a6mODymzWJIEifIs34IjfJPzcQNau/k5Okgxi2hCtfIRy+N+aCXPPJ+?=
+ =?us-ascii?Q?mIjh+fWFE5vGX6+s09xqsxUFMie3akAZNmXZ2nnJVk50zjtfA5rEO7x7VZZU?=
+ =?us-ascii?Q?vmICFuwJOXLSRITDGuMrvJvXIfXgIE3gYCtntY27FFtI5sn0K4YhGPcrQd28?=
+ =?us-ascii?Q?ubuTn8jkgfP01qTWQl4AASlCTabUGrjpKrRicp96UT151UWhFWGp1Da4Ohc7?=
+ =?us-ascii?Q?KwYdR9OAji4nZNPFPTEU1M+Y7YnqrvRWfJf+KFW9OSBkXZ/rle0iK8Wrrc4w?=
+ =?us-ascii?Q?stS4zx+m19te5jOuR84xwvt1lJ4v5D57czAsp2w5t25sKDsAkNVIS3GodeX+?=
+ =?us-ascii?Q?KJqIDf8e6ulI6DT6tzPHMFwQgihu4/QuKQ8HCDwLiGfAq6u+0sf4mla7R0nn?=
+ =?us-ascii?Q?FRhhl0j0k6DIuAVt6T02HUPdeFd4OedeELl0NqGKJuYbW8hhrraOd3Cwp/Tl?=
+ =?us-ascii?Q?dqPfY4DasGtCA6Gy0Fu/kuXpPDZeRLdZZab3eYuAwNuwC+kp0jrMuz2vrgE4?=
+ =?us-ascii?Q?Bp5uFhOy5HqwiVhO4vFkWG8zZUL0E29sUv7qNhLDgXUCnMGTuA0mpY+WL3gd?=
+ =?us-ascii?Q?frR4lXL7P4eDk6tLAoe9NN20wt+x+B8jOuyVKJLohfUbdBSXTpFd87PoPM1v?=
+ =?us-ascii?Q?9kIr38aKLjtVKePKkRpBIj+xtxWmUjvvcZQc3DP9SKYUfnCBVcLmB6GVqvB5?=
+ =?us-ascii?Q?AgAilulutOUCkCeg/5D6uPOulUmRV+bsa3UJwsr/iaZati3qPD/e1LHACxma?=
+ =?us-ascii?Q?Q5qfgnyPdnLbxoQsj6LMi/KdX0oHQEuudaFoVxeynwPunQaF/UydPZBIIbVo?=
+ =?us-ascii?Q?LTyV/DErGaSnbOEZtDJ1fvmXpteYA/wgfCla75I4YfeNUCUL2MVw8JEvIM3g?=
+ =?us-ascii?Q?FFeja2mRDT0nIbfo4xRUs36/GTQeyv3pDaTew8Y94aF5U+rP2y/6q9UvZa/0?=
+ =?us-ascii?Q?7sRJbFDsiF/d9O0e4Ld90cUDvt2C7Jde03qcrHgENHZ1A8Hmya4BZ8dJ0E68?=
+ =?us-ascii?Q?O/deoZAxeCAKBtq0R3AMksbrJS3PySvBPaMRHQovDMLG155DRnz2emdDmARk?=
+ =?us-ascii?Q?5X6IBUtaigcCdEqP9cQ9mWAaKjgxo0amDSLwywwYvPOATgA6BCnaUI+Ty3qd?=
+ =?us-ascii?Q?3/Eqr4wW+M1DgedcMkBHrAYhTNLr+84u31bLMd7lflijGgKfqtUk11KBXnRR?=
+ =?us-ascii?Q?NdlE9sppmZxScqgngNdaOPi3dMJiqAjjk7u6CNlHq6fNPJ3CMaPW1lmVUVBy?=
+ =?us-ascii?Q?2qx7uy9Q5w03hD+OA7gCEApHwAmypg50W8L2SlyH0AX17Qlel8hHDUrtPQMM?=
+ =?us-ascii?Q?F9tkVwrUt5XO+4BciD3F/EWbMDyYI+1ITI+EjHjF2nAj03MFefrhWOAo2OKn?=
+ =?us-ascii?Q?Oq2JE03KFg7USzQaDpaUofGrocl9NJMjTI1nZozSJ+H95ZBhg5KCDbKP5Ta6?=
+ =?us-ascii?Q?BqV6643KEWjWKXghG+UozjgX/Oy9CE4/LqzleRwklXH12gY6iMGcPe0/HwgR?=
+ =?us-ascii?Q?2lbe8HT84DQJm/auKCvLy2mN2CCoHzJQTDI7EgJx?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT4PR01MB9717633909F9DA2560A25B68B0562YT4PR01MB9717CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13a5159e-0a93-4896-c19a-08dc33df0d1d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Feb 2024 19:47:07.0225
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BSFtv+pDLkpdpiTwoLWaIlmbMgTkiL5lFH4I8Xv3JWhYjf0GKXqOO/b7A7MJk42WgZOVTyywRJpcVK+Aj48cqg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5947
+X-Proofpoint-ORIG-GUID: D0WOEOOKL69VgpmO1NJemLteyS1eLnKB
+X-Proofpoint-GUID: D0WOEOOKL69VgpmO1NJemLteyS1eLnKB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-02-22_15,2024-02-22_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
+ bulkscore=0 malwarescore=0 mlxscore=0 phishscore=0 priorityscore=1501
+ suspectscore=0 spamscore=0 adultscore=0 lowpriorityscore=0 mlxlogscore=848
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2402120000
+ definitions=main-2402220155
+
+--_000_YT4PR01MB9717633909F9DA2560A25B68B0562YT4PR01MB9717CANP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Evan
+
+Thank you for your patience.  I have received an email back from the landlo=
+rd to advise that your belongings have been moved and the laundry has been =
+disconnected.  Although the Branch is firm in its stance that the services =
+must remain accessible (in its current state) until the permanent withdrawa=
+l date, the Branch cannot do more than tell the landlord this.
+
+The consequence of this though is that the withdrawal date will change.  I =
+will be formulating an amount for the rent reduction for the withdrawal of =
+the storage and laundry.
+
+I have your current measurements of the unit as 90cm by 60 cm by 60cm.  Do =
+you know what the provided locker space is?
+
+Also for laundry; can you let me know where you now have to go for laundry =
+services and how often you would have to go.  I also will be doing the same=
+ but welcome your input as well.
+
+Filing a claim.  You have every right, the landlord is also aware, that you=
+ can file a claim with the Branch for financial loss.  This could be, but n=
+ot restricted to.... Any loss of personal items in the storage locker, laun=
+dry services, locker space.  A hearing would take place and a hearing offic=
+er would make a ruling based on the evidence provided.
+
+Please let me know if you have any questions, thank you Evan
+
+
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+
+--_000_YT4PR01MB9717633909F9DA2560A25B68B0562YT4PR01MB9717CANP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ligatures:standardcontextual;
+	mso-fareast-language:EN-US;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Hi Evan<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Thank you for your patience.&nbsp; I have received a=
+n email back from the landlord to advise that your belongings have been mov=
+ed and the laundry has been disconnected.&nbsp; Although the Branch is firm=
+ in its stance that the services must remain
+ accessible (in its current state) until the permanent withdrawal date, the=
+ Branch cannot do more than tell the landlord this.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">The consequence of this though is that the withdrawa=
+l date will change.&nbsp; I will be formulating an amount for the rent redu=
+ction for the withdrawal of the storage and laundry.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">I have your current measurements of the unit as 90cm=
+ by 60 cm by 60cm.&nbsp; Do you know what the provided locker space is?<o:p=
+></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Also for laundry; can you let me know where you now =
+have to go for laundry services and how often you would have to go.&nbsp; I=
+ also will be doing the same but welcome your input as well.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Filing a claim.&nbsp; You have every right, the land=
+lord is also aware, that you can file a claim with the Branch for financial=
+ loss.&nbsp; This could be, but not restricted to&#8230;. Any loss of perso=
+nal items in the storage locker, laundry services,
+ locker space.&nbsp; A hearing would take place and a hearing officer would=
+ make a ruling based on the evidence provided.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Please let me know if you have any questions, thank =
+you Evan<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-ligatures:none;mso-fa=
+reast-language:EN-CA">David Maclean&nbsp;</span><span style=3D"font-size:12=
+.0pt;font-family:&quot;Times New Roman&quot;,serif;color:black;mso-ligature=
+s:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-ligatures:none;mso-fa=
+reast-language:EN-CA">Residential Tenancies Officer&nbsp;</span><span style=
+=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:bl=
+ack;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-ligatures:none;mso-fa=
+reast-language:EN-CA">Residential Tenancies Branch&nbsp;</span><span style=
+=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:bl=
+ack;mso-ligatures:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-ligatures:none;mso-fa=
+reast-language:EN-CA">200-155 Carlton St&nbsp;</span><span style=3D"font-si=
+ze:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:black;mso-lig=
+atures:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-ligatures:none;mso-fa=
+reast-language:EN-CA">Winnipeg, MB R3C 3H8&nbsp;</span><span style=3D"font-=
+size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:black;mso-l=
+igatures:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-ligatures:none;mso-fa=
+reast-language:EN-CA">Phone: 204-945-2484&nbsp;</span><span style=3D"font-s=
+ize:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:black;mso-li=
+gatures:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black;mso-ligatures:none;mso-fa=
+reast-language:EN-CA">Fax: 204-945-6273&nbsp;</span><span style=3D"font-siz=
+e:12.0pt;font-family:&quot;Times New Roman&quot;,serif;color:black;mso-liga=
+tures:none;mso-fareast-language:EN-CA"><o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_YT4PR01MB9717633909F9DA2560A25B68B0562YT4PR01MB9717CANP_--

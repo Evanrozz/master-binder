@@ -1,0 +1,655 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:b691:0:b0:44c:c385:878b with SMTP id q17csp546490vqj;
+        Thu, 1 Feb 2024 13:52:04 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG3uYM/zuFh+qMCYrPX90sLHtahZ6N94xIV3LiJwItxAPiVPn53ZNh3OmKFrySbuxMUr7tq
+X-Received: by 2002:a05:620a:4c9:b0:785:404e:6cf3 with SMTP id 9-20020a05620a04c900b00785404e6cf3mr382791qks.68.1706824323892;
+        Thu, 01 Feb 2024 13:52:03 -0800 (PST)
+Return-Path: <David.Maclean@gov.mb.ca>
+Received: from mx0c-004a1001.pphosted.com (mx0c-004a1001.pphosted.com. [67.231.159.213])
+        by mx.google.com with ESMTPS id d24-20020a05620a159800b0078407bf6454si490880qkk.398.2024.02.01.13.52.03
+        for <evanroz@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 01 Feb 2024 13:52:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.159.213 as permitted sender) client-ip=67.231.159.213;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gov.mb.ca header.s=10-07-21 header.b=V2e8BpGX;
+       dkim=neutral (body hash did not verify) header.i=@govmb.onmicrosoft.com header.s=selector2-govmb-onmicrosoft-com header.b=uS3qVZij;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of david.maclean@gov.mb.ca designates 67.231.159.213 as permitted sender) smtp.mailfrom=David.Maclean@gov.mb.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gov.mb.ca
+Received: from pps.filterd (m0274423.ppops.net [127.0.0.1])
+	by mx0c-004a1001.pphosted.com (8.17.1.24/8.17.1.24) with ESMTP id 411KLg6o024988
+	for <evanroz@gmail.com>; Thu, 1 Feb 2024 15:52:03 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gov.mb.ca; h=
+	from:to:subject:date:message-id:references:in-reply-to
+	:content-type:mime-version; s=10-07-21; bh=KpOEETy/yM1aDyly9o9NM
+	XEx8pJGo/UMCxT4fsW5amA=; b=V2e8BpGXhS33B1cktkPLWpdB1IPs0xtObdRjD
+	WVgldbEMQwV0JehSutMwwhPeMeSlyZ1d7EM+PtZMJ+QW7a6vIK2Qpjx8u49x8URI
+	u9w0AzVVPIP6EqWjXJRnlSI6Mwzq6mOoZhq8NG8bu9zlBWLX1aD6TUomM5Me4JEV
+	JeStH3kWpQP0RFa0kqBRLuQrpZHJBQ8PiG8nm+ONxTNDVnwk1Un4U6/oy3O3gtiD
+	rwtPY9iY4YNgHEnPjPnSOUtOndfUJrdFrLARjISJD4FAfYJLFERouyjhPgJd/Pa7
+	05pxtqerpvjU/p7jA//8XnZ4CW0+mZqecK435w83Pp8EOZ90Q==
+Received: from can01-yqb-obe.outbound.protection.outlook.com (mail-yqbcan01lp2232.outbound.protection.outlook.com [104.47.75.232])
+	by mx0c-004a1001.pphosted.com (PPS) with ESMTPS id 3vvxp76bbe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <evanroz@gmail.com>; Thu, 01 Feb 2024 15:52:02 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=MkZezzpewYjX+TwusbiSg7gTZ2xSWHbKbMrHkmAxbNjDrGe5aDjyX4/38uPz/intHSJD8yGpNJg9Mj3bCwNCnfvDEPkQTYOYfjK2e9nL1MIGBh17KeRJReT8Ug1UM9g8lwH6iwC4i6Tn4Q5onoeLyhqI4+TO3VcdB3EEYN1pk3PWIb5kPLqCU4Af4awfTXRC55a612PAKgN+KRROeywkNMQxO/cs6ikWlHNSTM8fOQDQokoxjMxnUXX1CQcCnRTzB261f5LFgbuWNgeBRFHO92/zLrgozebHEwFVMp2NfcdEIzEen5CABIo34j77Os+bAoWpk1fLGOCl50Y/Co3Y7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pL2cJT0Sxms6Adffjyt9XHqEo3BZQsf7iN4nMaOzITg=;
+ b=WdVUmJlE+/NkvUHAeA+Lt7KPctx8GhI3nNROBXduBTdZvOpRSIOxLCr4qE7DwW40JGcAnZaWn9hBu0GGxRhVJi258kwVQur4hGMRn/acKfCKg+dSXgFtt3LPz64Jd34NcS9/JxTVz/ZuxnKtnIRzoAv+3Ft8MYF8ZvMp62OUux53jgd5UX+ntEEHO8m+t3cDL9PsECgcskoyRfSaiiLadgxzhWIHQEBbNk5Wz51ACWCJdY03KH4KbssBWAKB5lvPUEOKF5pVV3NtJdJxYQ3fsOqJR9KiIiYnyMXGrCgaXrXR1tDy+oaDi8l6Y/FPOZVdfVVIpOXAGq4MG/v87tcPjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gov.mb.ca; dmarc=pass action=none header.from=gov.mb.ca;
+ dkim=pass header.d=gov.mb.ca; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govmb.onmicrosoft.com;
+ s=selector2-govmb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pL2cJT0Sxms6Adffjyt9XHqEo3BZQsf7iN4nMaOzITg=;
+ b=uS3qVZijwnLDdDJ6DjKxEI5FyxdrSHq/kWY7pbJCSgq5g9KMPO/X6yrb8/t97OEG06+L1/da7cNjwxNAW19yltMcKRXMfzSW2ONYhZ4b335QAIQXgqLYYl51qSXxNdEde+Xpf+tlfzEGzae7QWGFtLk2QQkcSRen39hioNbHIqk=
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:e9::12)
+ by YT3PR01MB10671.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:f8::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.26; Thu, 1 Feb
+ 2024 21:52:01 +0000
+Received: from YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::f3e6:2ca6:a83f:4904]) by YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::f3e6:2ca6:a83f:4904%3]) with mapi id 15.20.7228.029; Thu, 1 Feb 2024
+ 21:52:01 +0000
+From: "Maclean, David" <David.Maclean@gov.mb.ca>
+To: Evan Rosner <evanroz@gmail.com>
+Subject: FW: NON COMPLIANCE - 585 Corydon Ave
+Thread-Topic: NON COMPLIANCE - 585 Corydon Ave
+Thread-Index: AQHaVI3PoH/XiebEQ06PIX2kfrYRv7D2A40AgAAEL0A=
+Date: Thu, 1 Feb 2024 21:51:47 +0000
+Deferred-Delivery: Thu, 1 Feb 2024 21:50:56 +0000
+Message-ID: 
+ <YT4PR01MB9717ED11DE77EB7DAD47725BB0432@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+References: 
+ <CABQF09G7M5K1HJfDkjwveNLtm44ns_trd9NVRL0VtSHZYnwF2g@mail.gmail.com>
+ <YT2PR01MB50873F5FD874376FE1B599EFEA7C2@YT2PR01MB5087.CANPRD01.PROD.OUTLOOK.COM>
+ <CABQF09HybThynpx5WDB-pnjdqsqZ7O3HREShGzX4V6EE2ToCcg@mail.gmail.com>
+ <YT4PR01MB97174990ACFAAB31D44E19E5B0432@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: 
+ <YT4PR01MB97174990ACFAAB31D44E19E5B0432@YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: YT4PR01MB9717:EE_|YT3PR01MB10671:EE_
+x-ms-office365-filtering-correlation-id: 8051199f-b0bf-48ef-377c-08dc2370054c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ fHJXcaBcH9AJHEzroNKdOGBL8LmhyFnf7xunEfSzODu9E7zf+7XDa3HBb4T4tPDVOsViP6ya4VDLY+INZ21b/D9MV+NziAsYcGXGE/7QB9cz18aoHrRzdf4e3L4QNZvf85EG+wCE3X+zGmxDXLv6YG+gAjpRwaUc4qQL5xkQuCSRWUP75xABSYeFX3RVcRw/LuDGb1NR6LGY29G2RZk67ITxmCi5Ug7JDn2JYsZL8frQ/cOA73jJwr0RHLMYLezQ9nus9oD2Kymsx3H9+86lfj2JD3dbXUN3ekLTHTrEjFif/W20ZM689qHPhOe5Xof9KwtN4G8zlU/MS6O04OZOEXXWinYF9e3KTisIrz/AU4TGVMYSs8FoNQM61lRQUZkPlto4Z+0OStQJBNZEEXzAOj1gX7o6dRmu7cffBz2Cc4Bjr2h5lO4V0rDuXlBOuOhZxAAH2nx77zKfEsO22DUxUgekvAivtljcEOlYE1N2ip0H4+9PoSII0Xs1jNkuXmI52Ez/ycRnPHOwoqmbDr/o50Qj4uSqrQY3xdpqDodR9bTF2B8r1gGTLmzMLSCDjl+BTrood/X5y4qVhhnQ8ZZew/I6zbNDt8sRw4dqf3YtQf5sbykqt6daPZp9qoXLMX5B4C6oyGCpAYkf+6Kuyfcwb8dA3jcCa25XkpAlA0xKmXWxsoWSvmEJ2/mOadOmTqdv
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(366004)(39860400002)(136003)(396003)(376002)(346002)(230173577357003)(230473577357003)(230373577357003)(230922051799003)(230273577357003)(1800799012)(64100799003)(186009)(451199024)(55016003)(2906002)(478600001)(5660300002)(83380400001)(38070700009)(52536014)(64756008)(76116006)(8936002)(8676002)(66476007)(66556008)(316002)(66446008)(53546011)(6916009)(2940100002)(7696005)(45080400002)(6666004)(40140700001)(9686003)(71200400001)(86362001)(33656002)(6506007)(41300700001)(66574015)(26005)(166002)(66946007)(122000001)(38100700002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?utf-8?B?alJBMWNnUDhGT0NaYlo5WDVTNzREOW1yajFnS2NIcGQ3V2s3aXhFUmM3enR3?=
+ =?utf-8?B?YVJXa0ljcjVDbk5RM0lpanJ3WXZMTGt2dEJoNzN4ZWZma2FiVGtKV29OelFm?=
+ =?utf-8?B?dkFkY0p1TnI4M2dsdzFUaWQ1OGRIUnpNNURhSy9hTmQwVlBnbUdDQm1EbEpk?=
+ =?utf-8?B?VCtjZUthcklsVFF0Mld1NVRTeTVDUWxkT3lzVStsVjVkQ1lBT0JsM0MwaUlL?=
+ =?utf-8?B?NnRTekNrU1dqQ1BCMmt3SmwvNnByM0FKRndpdTN4UTQxejZ4UUVXbnJwN1hq?=
+ =?utf-8?B?V25iN0Y1a2RoSzd6aWo1SUdJL21nVWYrbjdScHVWdnN3KzRwUitHeDM4SlV4?=
+ =?utf-8?B?ZnBuVW1HaDhwclVtaDdvdXZoZ0FSeWY0WlJIYXJEVnEwYlFaSEFWOUR4cEtw?=
+ =?utf-8?B?dlB5VFlwL2xnWCs2SlBUeDF6VlBoQm56M1dyL051a2FYdUpJMHhaajBkVXhF?=
+ =?utf-8?B?NFFhNFlMbG9sN3BNMmhEYzkwL0RVam5nYk5ncjh1OUs1TFBXUFV0M1ZvdWZj?=
+ =?utf-8?B?VmtxbWpoZHM2L2NTVkNRc0F1UDdRNXJINXpXdE0zcXBLcmljWXdCYWY4YmV3?=
+ =?utf-8?B?YXBpS3JlUHdYamVTdXVmSnhiOEF3Q3psKzMwV1dvSEdJTlNjbjkzM2g1V2Ix?=
+ =?utf-8?B?c2FFdXNxbkNYMEkxN2drL3VMRU44S0VZUU1kNlZCeGo3cWN1ZUZTM05nRnZt?=
+ =?utf-8?B?QStUVWJQQUoyelV0U0RFekVZZDZtMUVDSWpZNW9NYi9NY1Z5TUJTaC9udnd0?=
+ =?utf-8?B?UHdOOHQ5TnA4Y3E3NlN5akxRS3FFWkpFOU13MmN4MzVzdmRXaktnbG9CZ2RI?=
+ =?utf-8?B?NXlGQjRQWVBBcms0TDNOamN1cDl0ZWRrcE4xTm9VeGZ2UFJjbjlnRC91c0JW?=
+ =?utf-8?B?VXdwOENhaEhpcDM3amdTWitYRnBmRkhycEJ0cEtLbHVMUC9HV29taUIzOENi?=
+ =?utf-8?B?K1VFNkN0Zm0xS1IzMk5pbDJ5Z3gwZ2pWa3NNYlZPNldUdEVpblhUeTBIZFk1?=
+ =?utf-8?B?YnRzeEFKQVgvVU5MZFVQVDJwOFVqM3dOUWc1NVhhZ21zSFVVNkdlbkozMzFZ?=
+ =?utf-8?B?Q0dYbDQ5ZENmMlhWbnFrL2FLRjhudTJsT3ZZNWdiYlRoQnNjNjhaR29vQmRG?=
+ =?utf-8?B?Z2lnZ2Q3eWc4VUQ1M04zSzRrN0hNRjJmc3hyVXFtRkV5UGZ1RGJUS0FlcmVJ?=
+ =?utf-8?B?RTNxNzFEaXo3bEYvSG5HUHA4MzZhdXNXOWxtRzk0NTlWdVNwc3c0Nk50NERi?=
+ =?utf-8?B?RWxMeU9pL2ZIWFNKa1A3UW4rVVo3NUNwWDRDcUMyaXg1SkhiQkMrZjJuNWY0?=
+ =?utf-8?B?NFd0djJsajN5MUp3RUxaU0w0c3FqY0NHdE9nbjJoM2JmUGVGTHdHd0Jhc3RL?=
+ =?utf-8?B?Q3h5ZVlWSWgrOFhadTViR2Ixa1VQeDFHZHZuSW4xYWdiaExnWXVvNVF1ZDJl?=
+ =?utf-8?B?OVFRMmQ5VlJMU0R5cjBtY1lHYTR3U3c1Z0FuQ0crdGRYZFNzUVRFRnExWG9j?=
+ =?utf-8?B?bXZMR3JsSjNBbnJIZVBIVThza3FWcFNPU1hIWlIyL0dqcG5DQW85dTVxUkV2?=
+ =?utf-8?B?VUlVTVR0WlE4ajZ5QU9panhKLzhpWmFhQUdwQ2RUR3p5U3QxelcxZFNIY0NV?=
+ =?utf-8?B?dE5aT05oMzN6cWsrWWtnNDRwZnVON3dpSWNTYk1PNzd6ajY3SlNhTE93Y2hL?=
+ =?utf-8?B?cndHeFZKUjBQWnJCUDJWMGpTMTJYYkI4TERKbkxtQktEcFBKazBSaDNLNW5s?=
+ =?utf-8?B?aGtsTXFqcHFPbHpEMVNvUlFLR3o2Z3RWTkc2VUZhL08wS0FDZHN3OGRGd3Bk?=
+ =?utf-8?B?elh6ZHN0OHo3RkhKN1lmR2NVRVVDZWdvakE5VU40NS9yTmNqWkkrVy8vakda?=
+ =?utf-8?B?OExUU3hVL2gyU3BVVVdrZlphaHVHWE1KbndsT1RoTFYweXI1M2hZMVBxV2tK?=
+ =?utf-8?B?OFpSYlZTb3dpOENlRkdHT1poSVhlN3dLZGFQVE0zcjRxZWxMMUJodGRnZXRu?=
+ =?utf-8?B?WDFJWDNMMFUyVVYxakh5emlnZjcrS1FuUmlQTWZjTnhDOXZFci9KcU4yNXJk?=
+ =?utf-8?B?dFlUb3VqRWZjZEN0S3ovOFN5aEZkNFJjZitxRGJPamt0c1JKdnFWT0xadEFr?=
+ =?utf-8?Q?49+F+NR9p921sLjJh61uRs3zT?=
+Content-Type: multipart/alternative;
+	boundary="_000_YT4PR01MB9717ED11DE77EB7DAD47725BB0432YT4PR01MB9717CANP_"
+MIME-Version: 1.0
+X-OriginatorOrg: gov.mb.ca
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: YT4PR01MB9717.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8051199f-b0bf-48ef-377c-08dc2370054c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Feb 2024 21:52:01.1490
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: abf64de9-2a5c-4d77-baa2-a76265367d3a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: pRZvWDH4qMAn6wnWoapHN28EKBQHa45zRAj9fVS3nrQHfnJLFBYowwXnETX4Z0mGaG9F2etQm1sTljcMxfkoUA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB10671
+X-Proofpoint-GUID: xYZ3H_sBDx_ZHN_bYLv2btx7uxZwNO-_
+X-Proofpoint-ORIG-GUID: xYZ3H_sBDx_ZHN_bYLv2btx7uxZwNO-_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
+ definitions=2024-02-01_08,2024-01-31_01,2023-05-22_02
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 spamscore=0
+ clxscore=1015 phishscore=0 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 impostorscore=0 mlxlogscore=999 priorityscore=1501
+ bulkscore=0 adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2401190000 definitions=main-2402010169
+
+--_000_YT4PR01MB9717ED11DE77EB7DAD47725BB0432YT4PR01MB9717CANP_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+Good afternoon Evan
+
+Thank you for your email and patience.
+
+I have reached out to the property manager regarding this situation.  I hav=
+e read through the emails and photos and understand what you are saying.
+
+My part, as well as the rent increase file, is to determine a value on the =
+services the landlord is withdrawing.    Your rent will be reduced on the v=
+alue of these services.
+
+Do you know the dimensions of the storage area you have.  Is the outside do=
+or always locked but isn=E2=80=99t now because of the work being done?
+
+I will also be assisting you in what is currently happening to your current=
+ storage area and laundry.   Once I hear back from the property manager I c=
+an then let you know what the next step is.
+
+My contact information is below, should you prefer to call
+
+Thank you
+
+
+David Maclean
+Residential Tenancies Officer
+Residential Tenancies Branch
+200-155 Carlton St
+Winnipeg, MB R3C 3H8
+Phone: 204-945-2484
+Fax: 204-945-6273
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Wednesday, January 31, 2024 3:38 PM
+To: Maclean, David <David.Maclean@gov.mb.ca<mailto:David.Maclean@gov.mb.ca>>
+Subject: Fwd: NON COMPLIANCE - 585 Corydon Ave
+
+You don't often get email from evanroz@gmail.com<mailto:evanroz@gmail.com>.=
+ Learn why this is important<https://aka.ms/LearnAboutSenderIdentification>
+Please see the attached correspondence. The landlord is in breach of regula=
+tions and this requires immediate attention. This a clear violation of mine=
+ and tenant rights. This requires immediate escalation. Thank you, Evan ---=
+------- Forwarded
+
+Please see the attached correspondence. The landlord is in breach of regula=
+tions and this requires immediate attention. This a clear violation of mine=
+ and tenant rights. This requires immediate escalation.
+
+Thank you,
+Evan
+---------- Forwarded message ---------
+From: Susan Fehr <susan.fehr@thorwin.ca<mailto:susan.fehr@thorwin.ca>>
+Date: Wed, Jan 31, 2024 at 3:15=E2=80=AFPM
+Subject: RE: NON COMPLIANCE - 585 Corydon Ave
+To: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>, +WPG725 - CC=
+A RTB (FIN) <rtb@gov.mb.ca<mailto:rtb@gov.mb.ca>>
+Cc: Grant Steele <grant.steele@thorwin.ca<mailto:grant.steele@thorwin.ca>>,=
+ Dasha Dorofeeva <Dasha.Dorofeeva@thorwin.ca<mailto:Dasha.Dorofeeva@thorwin=
+.ca>>, property.admin <property.administration@thorwin.ca<mailto:property.a=
+dministration@thorwin.ca>>
+
+Evan
+
+I have confirmed with the Construction Manager that both your locker and th=
+e laundry facilities at 585 Corydon are available for your use.
+The workers have been instructed to make sure that there is a safe and clea=
+r path to these amenities.
+
+Kind regards
+
+Susan Fehr
+General Manager =E2=80=93 Property Division
+
+E-mail: Susan.fehr@thorwin.ca<mailto:Susan.fehr@thorwin.ca>
+Office: 204-222-2422<tel:204-222-2422>
+Direct: 204-918-0032<tel:204-594-5409>
+Fax: 204-594-5414<tel:204-594-5414>
+
+www.thorwin.ca<https://urldefense.com/v3/__http://www.thorwin.ca/__;!!IqQd2=
+s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kq=
+aNj37hrlYRk9iu47IhyOxj7$>
+1274 Archibald Street, Winnipeg, Manitoba, R2J 0Z3
+LinkedIn<https://urldefense.com/v3/__https://www.linkedin.com/company/16167=
+495__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfM=
+FPlEWat7cN8kqaNj37hrlYRk9iu47P_DuW48$> | Facebook<https://urldefense.com/v3=
+/__https://www.facebook.com/myplacerealty__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46Ks=
+RGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47AmymoPE$=
+> | Twitter<https://urldefense.com/v3/__https://twitter.com/myplacerealty__=
+;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEW=
+at7cN8kqaNj37hrlYRk9iu47DTJ2_4C$> | Instagram<https://urldefense.com/v3/__h=
+ttps://www.instagram.com/myplacerealty/__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRG=
+Y3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47NFJcPy8$>
+
+From: Evan Rosner <evanroz@gmail.com<mailto:evanroz@gmail.com>>
+Sent: Wednesday, January 31, 2024 2:43 PM
+To: Susan Fehr <susan.fehr@thorwin.ca<mailto:susan.fehr@thorwin.ca>>; +WPG7=
+25 - CCA RTB (FIN) <rtb@gov.mb.ca<mailto:rtb@gov.mb.ca>>
+Subject: re: NON COMPLIANCE - 585 Corydon Ave
+
+Attention,
+
+You are informed that the actions occurring at 585 Corydon Ave are in breac=
+h of the regulations of the Residential Tenancy Act.
+
+I have received Form 8 dated January 23, 2024 indicating that common area l=
+aundry and storage lockers service withdrawal will occur on May 1. 2024.
+
+This is already happening and is an issue of non-compliance with provincial=
+ regulations.
+
+Cease and desist.
+
+Evan Rosner
+10-585 Corydon Ave
+
+
+--_000_YT4PR01MB9717ED11DE77EB7DAD47725BB0432YT4PR01MB9717CANP_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:wf_segoe-ui_normal;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-CA" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Good afte=
+rnoon Evan<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Thank you=
+ for your email and patience.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">I have re=
+ached out to the property manager regarding this situation.&nbsp; I have re=
+ad through the emails and photos and understand what you are saying.<o:p></=
+o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">My part, =
+as well as the rent increase file, is to determine a value on the services =
+the landlord is withdrawing. &nbsp;&nbsp;&nbsp;Your rent will be reduced on=
+ the value of these services.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Do you kn=
+ow the dimensions of the storage area you have.&nbsp; Is the outside door a=
+lways locked but isn=E2=80=99t now because of the work being done?<o:p></o:=
+p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">I will al=
+so be assisting you in what is currently happening to your current storage =
+area and laundry. &nbsp;&nbsp;Once I hear back from the property manager I =
+can then let you know what the next step is.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">My contac=
+t information is below, should you prefer to call<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US">Thank you=
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:black">David Maclean&nbsp;</spa=
+n><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,s=
+erif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Of=
+ficer&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times N=
+ew Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Residential Tenancies Br=
+anch&nbsp;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times Ne=
+w Roman&quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">200-155 Carlton St&nbsp;=
+</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&qu=
+ot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Winnipeg, MB R3C 3H8&nbs=
+p;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&=
+quot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Phone: 204-945-2484&nbsp=
+;</span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&q=
+uot;,serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:black">Fax: 204-945-6273&nbsp;<=
+/span><span style=3D"font-size:12.0pt;font-family:&quot;Times New Roman&quo=
+t;,serif;color:black"><o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-US"><o:p>&nbs=
+p;</o:p></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US">From:</span></b><span lang=
+=3D"EN-US"> Evan Rosner &lt;<a href=3D"mailto:evanroz@gmail.com">evanroz@gm=
+ail.com</a>&gt;
+<br>
+<b>Sent:</b> Wednesday, January 31, 2024 3:38 PM<br>
+<b>To:</b> Maclean, David &lt;<a href=3D"mailto:David.Maclean@gov.mb.ca">Da=
+vid.Maclean@gov.mb.ca</a>&gt;<br>
+<b>Subject:</b> Fwd: NON COMPLIANCE - 585 Corydon Ave<o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"background:#A6A6A6;padding:5.25pt 1.5pt 5.25pt 1.5pt"></td>
+<td width=3D"100%" style=3D"width:100.0%;background:#EAEAEA;padding:5.25pt =
+3.75pt 5.25pt 11.25pt">
+<div>
+<p class=3D"MsoNormal" style=3D"mso-element:frame;mso-element-frame-hspace:=
+2.25pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;mso-el=
+ement-anchor-horizontal:column;mso-height-rule:exactly">
+<span style=3D"font-size:9.0pt;font-family:wf_segoe-ui_normal;color:#212121=
+">You don't often get email from
+<a href=3D"mailto:evanroz@gmail.com">evanroz@gmail.com</a>. <a href=3D"http=
+s://aka.ms/LearnAboutSenderIdentification">
+Learn why this is important</a><o:p></o:p></span></p>
+</div>
+</td>
+<td width=3D"75" style=3D"width:56.25pt;background:#EAEAEA;padding:5.25pt 3=
+.75pt 5.25pt 3.75pt;align:left">
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Please see the attached correspondence. The lan=
+dlord is in breach of regulations and this requires immediate attention. Th=
+is a clear violation of mine and tenant
+ rights. This requires immediate escalation. Thank you, Evan ---------- For=
+warded
+<o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Please see the attached correspondence. The landlord=
+ is in breach of regulations and this requires immediate attention. This a =
+clear violation of mine and tenant&nbsp;rights. This requires immediate esc=
+alation.&nbsp;
+<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thank you,<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12.0pt">Evan&nbsp;<o:p></o:p>=
+</p>
+<div>
+<div>
+<p class=3D"MsoNormal">---------- Forwarded message ---------<br>
+From: <strong><span style=3D"font-family:&quot;Calibri&quot;,sans-serif">Su=
+san Fehr</span></strong> &lt;<a href=3D"mailto:susan.fehr@thorwin.ca">susan=
+.fehr@thorwin.ca</a>&gt;<br>
+Date: Wed, Jan 31, 2024 at 3:15=E2=80=AFPM<br>
+Subject: RE: NON COMPLIANCE - 585 Corydon Ave<br>
+To: Evan Rosner &lt;<a href=3D"mailto:evanroz@gmail.com">evanroz@gmail.com<=
+/a>&gt;, +WPG725 - CCA RTB (FIN) &lt;<a href=3D"mailto:rtb@gov.mb.ca">rtb@g=
+ov.mb.ca</a>&gt;<br>
+Cc: Grant Steele &lt;<a href=3D"mailto:grant.steele@thorwin.ca">grant.steel=
+e@thorwin.ca</a>&gt;, Dasha Dorofeeva &lt;<a href=3D"mailto:Dasha.Dorofeeva=
+@thorwin.ca">Dasha.Dorofeeva@thorwin.ca</a>&gt;, property.admin &lt;<a href=
+=3D"mailto:property.administration@thorwin.ca">property.administration@thor=
+win.ca</a>&gt;<o:p></o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12.0pt"><o:p>&nbsp;</o:p></p>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">Evan</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">I have confirmed with the Construction Manager that both yo=
+ur locker and the laundry facilities at 585 Corydon
+ are available for your use.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">The workers have been instructed to make sure that there is=
+ a safe and clear path to these amenities.</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Kind regards</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Susan Fehr</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">General Manager =E2=80=93 Property Division&nbs=
+p;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">&nbsp;</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">E-mail:&nbsp;<a href=3D"mailto:Susan.fehr@thorw=
+in.ca" target=3D"_blank">Susan.fehr@thorwin.ca</a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Office:&nbsp;<a href=3D"tel:204-222-2422" targe=
+t=3D"_blank">204-222-2422</a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black">Direct:&nbsp;<a href=3D"tel:204-594-5409" targe=
+t=3D"_blank">204-918-0032</a><br>
+Fax:&nbsp;<a href=3D"tel:204-594-5414" target=3D"_blank">204-594-5414</a></=
+span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><u><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light=
+&quot;,sans-serif;color:#2094BD">&nbsp;</span></u><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black"><a href=3D"https://urldefense.com/v3/__http://w=
+ww.thorwin.ca/__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZS=
+Z0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47IhyOxj7$" target=3D"_blank">www.tho=
+rwin.ca</a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:#00B0F0">1274 Archibald Street, Winnipeg, Manitoba, R2=
+J 0Z3</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif;color:black"><a href=3D"https://urldefense.com/v3/__https://=
+www.linkedin.com/company/16167495__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKj=
+zivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47P_DuW48$" target=
+=3D"_blank"><span style=3D"color:#00B0F0">LinkedIn</span></a></span><span s=
+tyle=3D"font-size:13.0pt;font-family:&quot;Calibri Light&quot;,sans-serif;c=
+olor:#00B0F0">&nbsp;|&nbsp;</span><span style=3D"font-size:13.0pt;font-fami=
+ly:&quot;Calibri Light&quot;,sans-serif;color:black"><a href=3D"https://url=
+defense.com/v3/__https://www.facebook.com/myplacerealty__;!!IqQd2s6KUyvHwNL=
+trw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYR=
+k9iu47AmymoPE$" target=3D"_blank"><span style=3D"color:#00B0F0">Facebook</s=
+pan></a></span><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Li=
+ght&quot;,sans-serif;color:#00B0F0">&nbsp;|</span><span style=3D"font-size:=
+13.0pt;font-family:&quot;Calibri Light&quot;,sans-serif;color:black"><a hre=
+f=3D"https://urldefense.com/v3/__https://twitter.com/myplacerealty__;!!IqQd=
+2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5aK97eZSZ0bXQPfBUfMFPlEWat7cN8k=
+qaNj37hrlYRk9iu47DTJ2_4C$" target=3D"_blank"><span style=3D"color:#00B0F0">=
+&nbsp;Twitter</span></a></span><span style=3D"font-size:13.0pt;font-family:=
+&quot;Calibri Light&quot;,sans-serif;color:#00B0F0">&nbsp;|&nbsp;</span><sp=
+an style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&quot;,sans-ser=
+if;color:black"><a href=3D"https://urldefense.com/v3/__https://www.instagra=
+m.com/myplacerealty/__;!!IqQd2s6KUyvHwNLtrw!uM4XJM46KsRGY3kJKjzivyb13PJFI5a=
+K97eZSZ0bXQPfBUfMFPlEWat7cN8kqaNj37hrlYRk9iu47NFJcPy8$" target=3D"_blank"><=
+span style=3D"color:#00B0F0">Instagram</span></a></span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:13.0pt;font-family:&quot;Calibri Light&qu=
+ot;,sans-serif">&nbsp;</span><o:p></o:p></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm =
+0cm 0cm">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US">From:</span></b><span lang=3D"EN-US"> Evan=
+ Rosner &lt;<a href=3D"mailto:evanroz@gmail.com" target=3D"_blank">evanroz@=
+gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Wednesday, January 31, 2024 2:43 PM<br>
+<b>To:</b> Susan Fehr &lt;<a href=3D"mailto:susan.fehr@thorwin.ca" target=
+=3D"_blank">susan.fehr@thorwin.ca</a>&gt;; +WPG725 - CCA RTB (FIN) &lt;<a h=
+ref=3D"mailto:rtb@gov.mb.ca" target=3D"_blank">rtb@gov.mb.ca</a>&gt;<br>
+<b>Subject:</b> re: NON COMPLIANCE - 585 Corydon Ave</span><o:p></o:p></p>
+</div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Attention,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">You are informed that the actions occurring&nbsp;at 585 Corydon Av=
+e are in breach of the regulations of the Residential Tenancy Act.&nbsp;<o:=
+p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">I have received Form 8 dated January 23, 2024 indicating that comm=
+on area laundry and storage lockers service withdrawal&nbsp;will occur on M=
+ay 1. 2024.&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">This is already happening and is an issue of non-compliance with p=
+rovincial&nbsp;regulations.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Cease and desist.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">Evan Rosner<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">10-585 Corydon Ave<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_YT4PR01MB9717ED11DE77EB7DAD47725BB0432YT4PR01MB9717CANP_--

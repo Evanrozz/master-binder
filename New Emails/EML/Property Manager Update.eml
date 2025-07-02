@@ -1,0 +1,607 @@
+Delivered-To: evanroz@gmail.com
+Received: by 2002:a59:cccb:0:b0:3dd:7b00:5c22 with SMTP id q11csp4522044vqv;
+        Wed, 21 Jun 2023 13:26:07 -0700 (PDT)
+X-Google-Smtp-Source: ACHHUZ6KjKg4wS/ax0cme3/RFkJ+QM0IqxBKVjUCzPm723N/PTbHdHIhwVMfQpbqZzgtxI3FH3aW
+X-Received: by 2002:a05:6808:14d0:b0:39e:cb40:b705 with SMTP id f16-20020a05680814d000b0039ecb40b705mr12288472oiw.50.1687379167126;
+        Wed, 21 Jun 2023 13:26:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1687379167; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ba9/0wm6GQbOdQYlE6pDH+CllEeJerFMH0I0Ol29loSV/O39KwUiWodSi6+69ZPn/2
+         ATQH0wUELcAPhIU+uqpfQvBrPpXbLIRitSTVY8s90dnCoIXZpzkVSwjWBtQo3Mx/wK6j
+         m6vY5Gq9RzG7t9GPUE06WCs35h0A9wg+/etF9eybaF5X57tmYNs3xMz+UA1nRHBIl9QG
+         gVR/vCKuqnr6kcwR98yzRaXgG9mb8dFsWTLVsWucj2DYQWA3L8BFOr9b4VtSWRC2tcEF
+         uNPnsC/FDI9UQJLQtEs1KOQi2L8Hf4EzM6Vz7k3KQ7JR94Ss04j0XCulBIn1XfZ/30IH
+         9mJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:mime-version:subject:cc:to:reply-to:from
+         :feedback-id:dkim-signature;
+        bh=9GuTGdRKAQzjKdu8XpgLALNN+zyEZq1SGmhC1/N1zSs=;
+        b=p68jF365USeKbGhgb8g0LNvnjh1zDwZKTG8ZUmkUP2Hg+A0lf02hiRwoi99+GyWYxc
+         Bq0EK0LLMkVMJCzUeNJKHAnvuLziBUMrHit/2bJ0gTlMLlDE3Qlh99mwGJUnEpWuOmoO
+         jI/BgKwiOKC9X5yJrbYRAI57UNxIHuc+AjmVgGbKaDLWohv1VBTi7geW7+6sYdbM6jFb
+         S8Ln7TqRlZ+RyGNZUV35WYE+8/NLE2tOh5iqdCxOudL+Dsd8G2pbaeCNA/wGYqCPIgFG
+         chOq8pZ+MjOAEGhf8Xpi/mLakZuiw9gPrXZ5okmRJWqDB0yUWP80QFCuI0KLyiYH/1f1
+         +nRw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@rentcafe.com header.s=yardi-asp-dkim2 header.b=Q9vsoIBc;
+       spf=pass (google.com: domain of no-reply@rentcafe.com designates 104.156.175.239 as permitted sender) smtp.mailfrom=no-reply@rentcafe.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=rentcafe.com
+Return-Path: <no-reply@rentcafe.com>
+Received: from smtp239us.rentcafe.com (smtp239us.rentcafe.com. [104.156.175.239])
+        by mx.google.com with ESMTPS id bj11-20020a056808198b00b0039c474c353dsi2574916oib.58.2023.06.21.13.26.06
+        for <evanroz@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jun 2023 13:26:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of no-reply@rentcafe.com designates 104.156.175.239 as permitted sender) client-ip=104.156.175.239;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@rentcafe.com header.s=yardi-asp-dkim2 header.b=Q9vsoIBc;
+       spf=pass (google.com: domain of no-reply@rentcafe.com designates 104.156.175.239 as permitted sender) smtp.mailfrom=no-reply@rentcafe.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=rentcafe.com
+Received: from [10.246.6.219] (unknown [10.246.6.219])
+	by pca303smtpl155 (Postfix) with ESMTP id 4QmZlL02CjzYrZ7D
+	for <evanroz@gmail.com>; Wed, 21 Jun 2023 15:26:06 -0500 (CDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rentcafe.com;
+	s=yardi-asp-dkim2; t=1687379166;
+	bh=9GuTGdRKAQzjKdu8XpgLALNN+zyEZq1SGmhC1/N1zSs=;
+	h=From:Reply-To:To:Cc:Subject:Date:From;
+	b=Q9vsoIBcYM6zWALlO9eQPWDSrfKnPbnhNwUTxG4b3t4cOI2BZf8VzcSp/nCJk+HSE
+	 6uBMyEFjdoUGVy6CuQZo71tE5rwBFQ/V6rRBEG/8WD7QIscqUTAnVSBVMo0JBPFjL3
+	 XlMLIkrgIAevcW8xJg1Wf3EhZYozSyQBSNGP1HNv8oXgWdtDh+MOr+k/q8a6HKLsAk
+	 jBLiO3Uu6dcujGz64YrCHuiXdMY7dqy+km+1zmIpV7kQzt/ckFaJBATvabiePMjLAR
+	 zutvcgMxOLFdxjntHPrQbg6PKuJZxMrhdENU0Vq7JfI67EXAjCjzmlx7tpw+DSHe5H
+	 67IyF0lr3JOWw==
+Feedback-ID: 12314501:128018::R3n7C@f3FI3L
+From: Thorwin Properties <no-reply@rentcafe.com>
+Reply-To: no-reply@rentcafe.com
+To: evanroz@gmail.com
+Cc: 
+Subject: Property Manager Update
+MIME-Version: 1.0
+Content-Type: text/html; charset=us-ascii
+Message-Id: <4QmZlL02CjzYrZ7D@pca303smtpl155>
+Date: Wed, 21 Jun 2023 15:26:06 -0500 (CDT)
+X-YWM-PCA303MAIL-ID: 4QmZlL02CjzYrZ7D@pca303smtpl155
+
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<style type="text/css">html {
+	width: 100%;
+}
+ ::-moz-selection {
+background:#ffcf65;
+color:#ffffff;
+}
+::selection {
+	background: #ffcf65;
+	color: #ffffff;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #ececec;
+}
+.ReadMsgBody {
+	width: 100%;
+	background-color: #ffffff;
+}
+.ExternalClass {
+	width: 100%;
+	background-color: #ffffff;
+}
+a {
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 400;
+	font-style: normal;
+}
+a:hover {
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 400;
+	font-style: normal;
+}
+p, div {
+	margin: 0!important;
+}
+table {
+	border-collapse: collapse;
+}
+.btn-primary {
+	margin: 0 80px 0 150px;
+	width: 300px;
+}
+;
+
+@media only screen and (max-width:640px) {
+body {
+	width: auto!important;
+	background-color: #ececec;
+}
+table table {
+	width: 100%!important;
+}
+td[class=full_width] {
+	width: 100%!important;
+}
+.reHideMedium {
+	display: none !important;
+}
+.reShowMedium {
+	display: block !important;
+}
+.reCenterMedium {
+	text-align: center !important;
+}
+div[class=div_scale] {
+	width: 440px!important;
+	margin: 0 auto!important;
+}
+.div_scale {
+	width: 440px!important;
+	margin: 0 auto!important;
+}
+table[class=table_scale] {
+	width: 440px!important;
+	margin: 0 auto!important;
+}
+td[class=td_scale] {
+	width: 440px!important;
+	margin: 0 auto!important;
+}
+img[class=img_scale] {
+	width: 100%!important;
+	height: auto!important;
+}
+td[class=spacer] {
+	display: none!important;
+}
+td[class=spacer_spec] {
+	display: none!important;
+}
+td[class=divider] {
+	width: 100%!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=center] {
+	text-align: center!important;
+}
+td[class=social_left] {
+	float: left;
+	width: 400px;
+	display: block!important;
+	text-align: center!important;
+	padding: 20px!important;
+}
+td[class=social_right] {
+	float: left;
+	width: 400px;
+	display: block!important;
+	text-align: center!important;
+	padding: 0 20px 20px!important;
+}
+td[class=one_one] {
+	width: 440px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_half] {
+	width: 440px!important;
+	padding-bottom: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_half_last] {
+	width: 440px!important;
+	margin-top: 40px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+	padding: 0!important;
+}
+td[class=one_half_alt_last] {
+	width: 440px!important;
+	margin-top: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+	padding: 0!important;
+}
+td[class=one_third] {
+	width: 440px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=two_third] {
+	width: 440px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=two_third_last] {
+	width: 440px!important;
+	margin-top: 40px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=two_third_alt_last] {
+	width: 440px!important;
+	margin-top: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_third_last] {
+	width: 440px!important;
+	margin-top: 40px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_third_alt_last] {
+	width: 440px!important;
+	margin-top: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_fourth] {
+	width: 85px!important;
+	display: block!important;
+	padding-left: 20px!important;
+	padding-bottom: 0!important;
+	float: left;
+	text-align: inherit!important
+}
+td[class=one_fourth_last] {
+	width: 85px!important;
+	margin-top: 0!important;
+	display: block!important;
+	padding-top: 20px!important;
+	padding-left: 20px!important;
+	float: left;
+	text-align: inherit!important;
+}
+.reCenterSmall{
+	display: block;
+	padding: 25px 25px;
+	text-align: center;
+}
+}
+
+@media only screen and (max-width:479px) {
+body {
+	width: auto!important;
+	background-color: #ececec;
+}
+table table {
+	width: 100%!important;
+}
+td[class=full_width] {
+	width: 100%!important;
+}
+.reHideSmall {
+	display: none !important;
+}
+.btn-primary {
+	margin: 0 10px 0 60px;
+	width: 150px !important;
+}
+
+div[class=div_scale] {
+	width: 280px!important;
+	margin: 0 auto!important;
+}
+
+table[class=table_scale] {
+	width: 280px!important;
+	margin: 0 auto!important;
+}
+td[class=td_scale] {
+	width: 280px!important;
+	margin: 0 auto!important;
+}
+img[class=img_scale] {
+	width: 100%!important;
+	height: auto!important;
+}
+td[class=spacer] {
+	display: none!important;
+}
+td[class=spacer_spec] {
+	display: none!important;
+}
+td[class=divider] {
+	width: 100%!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=center] {
+	text-align: center!important;
+}
+td[class=social_left] {
+	float: left;
+	width: 240px;
+	display: block!important;
+	text-align: center!important;
+	padding: 20px!important;
+}
+td[class=social_right] {
+	float: left;
+	width: 240px;
+	display: block!important;
+	text-align: center!important;
+	padding: 0 20px 20px!important;
+}
+td[class=one_one] {
+	width: 280px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_half] {
+	width: 280px!important;
+	padding-bottom: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_half_last] {
+	width: 280px!important;
+	margin-top: 40px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+	padding: 0!important;
+}
+td[class=one_half_alt_last] {
+	width: 280px!important;
+	margin-top: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+	padding: 0!important;
+}
+td[class=one_third] {
+	width: 280px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=two_third] {
+	width: 280px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=two_third_last] {
+	width: 280px!important;
+	margin-top: 40px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=two_third_alt_last] {
+	width: 280px!important;
+	margin-top: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_third_last] {
+	width: 280px!important;
+	margin-top: 40px!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_third_alt_last] {
+	width: 280px!important;
+	margin-top: 0!important;
+	display: block!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_fourth] {
+	width: 110px!important;
+	display: block!important;
+	padding-left: 20px!important;
+	padding-bottom: 0!important;
+	float: left;
+	text-align: inherit!important;
+}
+td[class=one_fourth_last] {
+	width: 110px!important;
+	margin-top: 0!important;
+	display: block!important;
+	padding-top: 20px!important;
+	padding-left: 20px!important;
+	float: left;
+	text-align: inherit!important;
+}
+.reCenterSmall{
+	display: block;
+	padding: 25px 25px !important;
+	text-align: center;
+}
+}
+.fa {
+  color: #ffffff;
+}
+.fa:hover {
+  color: #76973C;
+}
+</style>
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="padding:0; margin:0;" width="100%"><!-- START VERTICAL SPACER BLOCK-->
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#ececec" class="full_width" style="" width="100%">
+			<div class="div_scale" style="width:600px;">
+			<table align="center" bgcolor="#ececec" border="0" cellpadding="0" cellspacing="0" class="table_scale" style="padding:0; margin: 0;" width="600">
+				<tbody>
+					<tr>
+						<td align="center" bgcolor="#ececec" class="td_scale" height="20" style="height:30px; font-size:0 ; color:#ececec; font-family:Helvetica, Arial, sans-serif; line-height:0;" valign="middle" width="600">&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+		<!-- END VERTICAL SPACER BLOCK--><!-- START HEADER FOR LOGO-->
+		<tr>
+			<td align="center" bgcolor="#ececec" class="full_width" style="" width="100%">
+			<div class="div_scale" style="width:600px;">
+			<table align="center" bgcolor="#ececec" border="0" cellpadding="0" cellspacing="0" class="table_scale" style="padding:0; margin:0;" width="600">
+				<tbody>
+					<tr>
+						<td align="left" bgcolor="#ffffff" class="one_one" style="padding-top:20px; padding-bottom: 20px;" valign="middle" width="600">
+						<table width="100%">
+							<tbody>
+								<tr>
+									<td align="center" class="center" style="font-family:Arial, sans-serif; font-style:normal; color:#000000; font-size:36px; line-height:18px; text-align: center;" valign="middle"><a href="https://www.rentcafe.com/t/el?ref=MzQ1NjA5NDY3NQ%3d%3d-qjES58KpXyU%3d,aHR0cDovLw%3d%3d-nm018iqyYuU%3d" ><img src='http://www.rentcafe.com/dmslivecafe/2/128018/Thorwin-Properties_Horizontal_Logo_WEB(1).png?width=186&height=58&mode=pad&' title='' border='0' alt='Thorwin Properties'  style="background-color:transparent; font-family:'Raleway', Helvetica, Arial, sans-serif; font-size:14px; text-align:left; vertical-align:middle;"/></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#ffffff" height="5" style="border-top:5px solid #2192bc;" width="600"><img alt="banner image" class="img_scale" src="https://sitemanager.rentcafe.com/dmslivecafe/2/128018/apartment-2094702_1920.jpg" /></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="#ececec" class="full_width" style="" width="100%">
+			<div class="div_scale" style="width:600px;">
+			<table align="center" bgcolor="#ececec" border="0" cellpadding="0" cellspacing="0" class="table_scale" style="padding:0; margin:0;" width="600">
+				<tbody>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+		<!-- END VERTICAL SPACER BLOCK--><!-- START 1/1 COLUMN-->
+		<tr>
+			<td align="center" bgcolor="#ececec" class="full_width" style="" width="100%">
+			<div class="div_scale" style="width:600px;">
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="table_scale" style="padding:0; margin: 0;" width="600">
+				<tbody>
+					<tr>
+						<td bgcolor="#ffffff" height="15" width="600">&nbsp;</td>
+					</tr>
+					<tr>
+						<td style="padding: 10px;" width="600">
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td align="left" bgcolor="#ffffff" class="full_width" style="padding: 15px; color: #444;" valign="top" width="570"><span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size:16px;"><span style="color:#000000;"><strong>Subject: Property Manager Update</strong><br />
+									<br />
+									We have reassigned the 585 Corydon community to ensure that we are meeting the Vision, Mission and Values of Thorwin Properties.&nbsp;<br />
+									<br />
+									Darren Wilcox will now be the Property Manager. He can be reached&nbsp;at&nbsp;</span><a href="mailto:darren.wilcox@thorwin.ca"><a href="mailto:darren.wilcox@thorwin.ca"><span style="color:#000000;">darren.wilcox@thorwin.ca</span></a><span style="color:#000000;"></a>&nbsp;or at&nbsp;(204) 594-5408. Celena Funk is still with the company and will be available to ensure the transition goes smoothly.&nbsp;<br />
+									<br />
+									Grant Steele is still your Resident Community Manager and your first point of contact with Thorwin Properties. You can reach him at </span><a href="mailto:585.corydon@thorwin.ca"><span style="color:#000000;">585.corydon@thorwin.ca</span></a><span style="color:#000000;"></a>&nbsp;or (204) 918-2629.<br />
+									<br />
+									We thank you for your patience while your Property Manager becomes familiar with the building.&nbsp;&nbsp;<br />
+									<br />
+									Sincerely,&nbsp;<br />
+									Thorwin Properties</span></span></span></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#ffffff" height="15" width="600">&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+		<!-- START FOOTER AREA-->
+		<tr>
+			<td align="center" bgcolor="#ececec" class="full_width" style="" width="100%">
+			<div class="div_scale" style="width:600px;">
+			<table align="center" bgcolor="#ececec" border="0" cellpadding="0" cellspacing="0" class="table_scale" style="padding:0; margin:0;" width="600">
+				<tbody>
+					<tr>
+						<td valign="top" width="600">
+						<table bgcolor="#425363" border="0" cellpadding="0" cellspacing="0" width="600">
+							<tbody>
+								<tr>
+									<td bgcolor="#ffffff" class="reCenterSmall" style="font-style: normal; font-stretch: normal; font-size: 13px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: rgb(68, 68, 68); border-top: 5px solid rgb(33, 146, 188); padding: 25px 0px !important; text-align: center;" valign="top" width=""><span style="color:#000000;">1274 Archibald Street<br />
+									Winnipeg, MB R2J 0Z3<br />
+									(204) 222 - 2422</span>
+									<p><span style="color:#000000;"><a href="mailto:reception@thorwin.ca"><a href="mailto:reception@thorwin.ca">reception@thorwin.ca</span></a></a></p>
+									</a></a></a></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+		<!-- END FOOTER AREA-->
+		<tr>
+			<td align="center" bgcolor="#EDEDED" class="full_width" style="" width="100%">
+			<div class="div_scale" style="width:600px;">
+			<table align="center" bgcolor="#ececec" border="0" cellpadding="0" cellspacing="0" class="table_scale" style="padding:0; margin:0;" width="">
+				<tbody>
+					<tr>
+						<td align="left" bgcolor="#EDEDED" class="full_width" style="" valign="top" width="600">
+						<table width="100%">
+							<tbody>
+								<tr>
+									<td bgcolor="#EDEDED" height="30" style="padding:0; line-height:0;">&nbsp;</td>
+								</tr>
+								<!-- START TEXT-->
+								<tr>
+									<td align="center" style="padding:0px 30px; font-style: italic; font-size:9px; color:#424242; font-family:Helvetica, Arial, sans-serif; line-height:16px;" valign="top">THE INFORMATION CONTAINED IN THIS MESSAGE AND ANY ATTACHMENT MAY BE PRIVILEGED, CONFIDENTIAL, PROPRIETARY OR OTHERWISE PROTECTED FROM DISCLOSURE. If the reader of this message is not the intended recipient, you are hereby notified that any dissemination, distribution, copying or use of this message and any attachment is strictly prohibited. If you have received this message in error, please notify the sender and permanently delete it from your computer and destroy any printout thereof.</td>
+								</tr>
+								<!-- END TEXT-->
+								<tr>
+									<td bgcolor="#EDEDED" height="30" style="padding:0; line-height: 0;">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+	</tbody>
+</table><table align="center">
+	<tr>
+		<td align="center">
+			<table>
+				<tbody>
+					<tr>
+						<td align="center" bgcolor="#ffffff" colspan="3" style="padding:15px;font: 10px Helvetica,Arial; color: #696969;border-bottom:1px solid #ebebeb;" valign="middle">
+							<p><span data-selenium-id='PropertyAddress'>585 Corydon Avenue</span>, <span data-selenium-id='PropertyCity'>Winnipeg</span>, <span data-selenium-id='PropertyState'>MB</span> <span data-selenium-id='PropertyZip'>R3L 0P3</span></p>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" bgcolor="#ffffff" colspan="3" style="padding:15px;font: 10px Helvetica,Arial; color: #696969" valign="middle">
+							<p>This email was sent to evanroz@gmail.com. To ensure you continue receiving our emails, please add us to your address book or safe list.<span data-selenium-id='UnsubscribeUrl'> You can opt out of email notifications by <a style="text-decoration:underline;" href="https://www.rentcafe.com/t/el?ref=MzQ1NjA5NDY3NQ%3d%3d-qjES58KpXyU%3d,aHR0cHM6Ly93d3cucmVudGNhZmUuY29tL3Jlc2lkZW50c2VydmljZXMvdGhlLXBpbmVzLTEwL2VtYWlsbm90aWZpY2F0aW9ucy5hc3B4P2VoPVpYWmhibkp2ZWtCbmJXRnBiQzVqYjIwJTNkLU16R1RNajVVMzQ4JTNkJnJUeXBlPTEmb2JqdHlwZT0zJm9ianBvaW50ZXI9MTEwNTk5OA%3d%3d-Nl3jww7AOA4%3d" >clicking here</a>.</span></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+</table><img width="1" height="1" src="https://www.rentcafe.com/t/teo?ref=MzQ1NjA5NDY3NQ%3d%3d-qjES58KpXyU%3d"/>
