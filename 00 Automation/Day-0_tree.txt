@@ -1,0 +1,1207 @@
+.
+├── .DS_Store
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── HEAD
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── push-to-checkout.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       └── heads
+│   │           └── main
+│   ├── objects
+│   │   ├── 01
+│   │   │   ├── 4b14ac76934b515c4dd1263063d27d6ff3fa3b
+│   │   │   ├── 6e690eaaebb765b2dde2f0f61d3a3091b61eb7
+│   │   │   ├── 75f74396248f97f5cfae57d178fd09cf9aa25b
+│   │   │   └── c3c15a344644957a37741e65b8f5f5b4e471de
+│   │   ├── 02
+│   │   │   ├── 0c580278610ced9a6d58152dc30dbaa212e9dc
+│   │   │   ├── 7e3c0f882c1ca7621ced3dc271a4f64d482b86
+│   │   │   └── e504200645e4bae2629c7617a93f46c15a7f14
+│   │   ├── 04
+│   │   │   ├── 1e1aea28104d987f79f4afb2ae6b086b7be512
+│   │   │   ├── 36f7dcd04fe032d8fe2ef60a965134317abc0a
+│   │   │   ├── 4003c6ce691ced67d04e11e66f8eba22c771d9
+│   │   │   └── a17f6a20721468293d96d3802e0e7037050b5e
+│   │   ├── 05
+│   │   │   ├── 57fa37a129e75c372584fdb993974ff48283f4
+│   │   │   └── cfd714e53ad8c3ce6fccc09e069dd22d6ac2a2
+│   │   ├── 06
+│   │   │   ├── 7b707cb344e3f64e170eb29644c3c5e74f339b
+│   │   │   ├── c91480e390b684236c7d64507bada3cf951b83
+│   │   │   └── f8aa95fbf3c2a09b887f0b4f616ae6f438a62a
+│   │   ├── 08
+│   │   │   ├── 0a7d0c8f7e5e02e56e4d634a056909b41628c1
+│   │   │   └── 7e5f665d041edaeed17bebffc7c1f5e0be13c4
+│   │   ├── 09
+│   │   │   ├── 3418041ccbeadb1ef655946d4362cc71071f56
+│   │   │   ├── 5c3259bec17ac624f738b93964679cc0a49826
+│   │   │   └── f2e6838ab4405d68b360867475167863f797ce
+│   │   ├── 0b
+│   │   │   ├── 110f213aa11eafd1fdf4848e116b6eb1e7097d
+│   │   │   └── ab608942800e8e11a397b5dd04bd8bf90ef509
+│   │   ├── 0d
+│   │   │   └── 709ab3069751951ea6c0558359d7539e65aaa5
+│   │   ├── 0e
+│   │   │   ├── 230daca5489900323fd9927f2f4c5559620c44
+│   │   │   ├── bdbd6a03dd0204093169479558b6719af0e527
+│   │   │   └── f375db56e886bca59258e3fb3bae0e71f95367
+│   │   ├── 0f
+│   │   │   ├── 00c70d6e90c381321964cebb089ec8fcd1216b
+│   │   │   ├── 2c2b9cb94d8841daf576cd7b44f4438b3788ac
+│   │   │   ├── 5d56d2481bfa992ab572e1a542f9e6facb7dce
+│   │   │   └── 7e516f4af030fed700fa8ea856d9aaa434e476
+│   │   ├── 10
+│   │   │   └── 7efe660dc1de15c582a5f1da27ecd6fe33bb2c
+│   │   ├── 11
+│   │   │   ├── 2777257fc76629a5161da1b331b1f9b7868445
+│   │   │   ├── 926caadf6af4bda538d824ebb0adf82498c26e
+│   │   │   ├── da46d3cf0c7253e6e1cda27fb14371a06a6782
+│   │   │   └── f678cfab63551864df9151ec9e760a97d19cde
+│   │   ├── 12
+│   │   │   ├── 40c22fc3b0dcfc78098249e0bdbd3d5c14a1fb
+│   │   │   └── a149dd725835fe8f6683f7f6cb6eb25465e8a6
+│   │   ├── 13
+│   │   │   ├── 9caf50ea6a92f1af5e889225c3093aaf536206
+│   │   │   └── d0f394bcd63e7c4d0807bbaf8ac30a83f9f959
+│   │   ├── 15
+│   │   │   ├── 1cbdb66f7b4b8416fbbcc06c8ab11f2ee5ad0a
+│   │   │   └── a8e384ebb654b1d1e0e5a2618ec81532af36be
+│   │   ├── 16
+│   │   │   └── d656274e53ce8df6effc4d650b7c8e80f8bfaf
+│   │   ├── 18
+│   │   │   ├── 4555ae92936ea6c0103d26997f55b586c155df
+│   │   │   └── 76ccaa8dd112575a54fa6dbb466e8338ef35d5
+│   │   ├── 19
+│   │   │   └── e6891103541c6a027db407223281b5d94b2c3f
+│   │   ├── 1b
+│   │   │   └── bb93bf7d693d76728cd86b39531a9b15010ac8
+│   │   ├── 1c
+│   │   │   ├── 3c5a65b5b79c1874a3413f76d4679e46059146
+│   │   │   └── 824893531875cad44a6e4df7e36b9ffef2b812
+│   │   ├── 1d
+│   │   │   ├── b97133f2ad4a59d0ba0e33aa8c8f413dd1bc6e
+│   │   │   └── c2784fcffb15bb66f5f409c30f2d3821e505b2
+│   │   ├── 1e
+│   │   │   ├── 7da6c5cce5ce5f6cb4fd1ad6e998f3b07cb44b
+│   │   │   ├── ac9ce5e1eef5baf4669afff99cba4788dc8b9d
+│   │   │   └── f9abd9272ef2c25506d709b39001651ae4a44a
+│   │   ├── 1f
+│   │   │   ├── 4205735eb0e20e829d5e181a153f9d3bf06a3d
+│   │   │   └── a277bc10caf9b3adc8fdb09dd5de3da69e29be
+│   │   ├── 20
+│   │   │   ├── 1a9eb3bfa91b3d1d003896db178c360e5eddf5
+│   │   │   ├── 75d769e909ec3ea0e8178197eb1b9329ba243f
+│   │   │   ├── affb357023060def2c2cd4ef709e4010015f8d
+│   │   │   └── f2ceb8c35c81eb633829f328184de7d3e83dfb
+│   │   ├── 21
+│   │   │   └── 06fa13150c19c3ae707483db0b321b925aa694
+│   │   ├── 22
+│   │   │   └── 7f27ff313d2b5b074f889e035ec42ed223ecaf
+│   │   ├── 23
+│   │   │   └── c1a14d925c0c397eb2ea045e4009fcf6ae19d3
+│   │   ├── 24
+│   │   │   └── c14f47b3345f350647b135370d5fd78defca9d
+│   │   ├── 25
+│   │   │   ├── 52c36190e8e34765e28e5b861f73922144bb63
+│   │   │   ├── 82f908bf82dcef06b0c415b9816b23f67086ea
+│   │   │   ├── 9e53ffeaae486ab7220b3500e62f94c94f5bfb
+│   │   │   └── f09b0a89b0add731d1c3b064953a67385d8661
+│   │   ├── 26
+│   │   │   └── 8418e05cf9249c4d155fc98818d0b6dcf2bb28
+│   │   ├── 27
+│   │   │   └── 61a71937d44225c02802cf6c432e3b3a403010
+│   │   ├── 28
+│   │   │   └── 2c8a849415e6bc3df326480f4210ba7293d50e
+│   │   ├── 29
+│   │   │   └── 8fc0ed3c9f7b013bcc619146d8ce0ba2d647a5
+│   │   ├── 2a
+│   │   │   ├── 36762b173ac0992d98911086410d38ed6ec3e9
+│   │   │   ├── 5b7d5e48d668503505360e539f56461ec5d2ac
+│   │   │   └── 7468d21a89e95fb5d63e7944f17a94cc9cfccc
+│   │   ├── 2b
+│   │   │   └── e316155cb54f20f216810812e9b64393b9c8d0
+│   │   ├── 2c
+│   │   │   └── 88d08b574d46fa93d557da0d75eb05662d0bb7
+│   │   ├── 2d
+│   │   │   └── abd7199084687fbe6a96e9860fad166799dfe5
+│   │   ├── 2e
+│   │   │   ├── 292a88a71c3ef8b7f4765aa67d9a65c9c18caf
+│   │   │   └── 97c357423c857e0b12b0a9782a733c54b15e4a
+│   │   ├── 30
+│   │   │   ├── 7845fd71d6dac89908b4c3f9cedd204fb4a7ef
+│   │   │   └── 9f8a713e8100353cf406f840cfcdad230da98a
+│   │   ├── 31
+│   │   │   ├── 592ec4f6514d7c3a827d47ca28b524206ad914
+│   │   │   └── bf82d61abcfde1a374354f232fecd5cdacea68
+│   │   ├── 32
+│   │   │   ├── d788bad32e37bf3607842a764ba6b88a838218
+│   │   │   └── e0741ded35044cafd28238c0368e265d2a6716
+│   │   ├── 33
+│   │   │   ├── 583afec24c980856b61421cba05e0528bd8683
+│   │   │   └── 7fa7bc5053d8633c298eb518df12f86bb0011b
+│   │   ├── 34
+│   │   │   ├── 751650d7292b062b2eca472e8157de6be6d2e1
+│   │   │   └── 7bb855e37cf36f1bfb2e157067a1c122bd4dfc
+│   │   ├── 35
+│   │   │   ├── 059d74b017bd29e38da288dfbf97861e96b718
+│   │   │   ├── 1df6138a4feb5ad768baafe168bf493837a958
+│   │   │   ├── 53a2017944a3bba2019cdf8a2217077023c788
+│   │   │   ├── a3784ed07c2f21d4bc0627747d5ca6cf0882fd
+│   │   │   └── eac3e3420b54ea63ed87931e1c04dcfc5618b1
+│   │   ├── 36
+│   │   │   ├── 1b4a159672e8400fb3ff9e0b56b906928839b9
+│   │   │   ├── 233ebc76b0c1653c15be906bc824913401ee6b
+│   │   │   ├── 6b4070cf98d41ae3db3a6b42765cd1fb5187fd
+│   │   │   └── f5b41623209258067791628f66ba7fac841c13
+│   │   ├── 37
+│   │   │   ├── 5337af16f94b031f39c21053bbcb6ee23cc16f
+│   │   │   ├── a47936b6ebd059e9458486c2d21f0c5213eeb4
+│   │   │   └── cf787d2e93d1e492514c0b8504e2019c36e137
+│   │   ├── 38
+│   │   │   ├── 42c2e176fc808c690b622dfa472433737ea7f1
+│   │   │   ├── 7c86b5ecb45d13e280e26f6f89d17fbdbea69d
+│   │   │   └── 9eb77502823030599bb8f9d49dc6e86760d73b
+│   │   ├── 39
+│   │   │   └── 9e1422852523fdc9bec6803134bbb8beffdc42
+│   │   ├── 3a
+│   │   │   ├── 30ff1ec49589e31beba0db532df37a7ad83ec1
+│   │   │   ├── 7d780e17ab12ded8d368c0a5ec39c88ebc0247
+│   │   │   ├── 8e946a5c67ed62b53e8f98a0ec54c87866e7cb
+│   │   │   ├── a436af9b5e9896db02c0b2915527d7f59637b0
+│   │   │   └── ba3d6819077cf9ee1e26a87a3cad460a6c3ab6
+│   │   ├── 3b
+│   │   │   ├── 0fcb85495f42842f14d8ca7da8fb5a494c466a
+│   │   │   └── 393551427777f2003a328f1bd6363d5eb2b237
+│   │   ├── 3c
+│   │   │   └── ca8f183326f0277d429d7a6d89feb7bcec166d
+│   │   ├── 3d
+│   │   │   ├── 01fed3d1e75900f8163eaf5f014b7ecc8431d2
+│   │   │   └── 486d14153b0c8656ec310be18991fb325ca70e
+│   │   ├── 3e
+│   │   │   └── f1d7824c3881ef179fe833a3ad187438628f51
+│   │   ├── 40
+│   │   │   ├── 5fdd8d99154f86b4bc0b28cb901fa765b175c6
+│   │   │   └── cf6c081bee67aa28eef8f6f07e0fa4d59d8f07
+│   │   ├── 41
+│   │   │   ├── 4b54537cf5eca09d4896dd72e3de4057c5f5b4
+│   │   │   └── 8872c4889442a2b377ac3791c9c5accdaaff51
+│   │   ├── 42
+│   │   │   └── 03ae6e8665816b2be6fe9802f8fab81fedb6c4
+│   │   ├── 43
+│   │   │   ├── 163ac8de1058b8deee8f2dc7cdd6ee973d9c92
+│   │   │   ├── 40082993b962d76489190f0d2e7db6a210a07a
+│   │   │   ├── 48df5a00a6517e719dcd014360449a862c8009
+│   │   │   ├── 68ebd8b61d43d465b277c9549a5f48b15aadb5
+│   │   │   └── ae16b96cf0d1e66de395c064b411ca1214ec1e
+│   │   ├── 45
+│   │   │   └── bf1c7a40cc3dbb4f243edc175cf20d26d4fc0e
+│   │   ├── 46
+│   │   │   ├── 8f7c39d25c78b2bee694a5ae563043fa9905f4
+│   │   │   └── fc9ef415c54f053aec19a748632ddeccbc6ebd
+│   │   ├── 47
+│   │   │   └── c7858d3d42d1760c6f1b8f1a7ac97f3b9991ba
+│   │   ├── 49
+│   │   │   ├── 638b0bee53eea39a6d70d379ec886462a07ed6
+│   │   │   └── dcbfe9eaeeb95607121b962ced062bd1fb5155
+│   │   ├── 4a
+│   │   │   ├── 6d2075243ddc02c65c6db190b9ba10a0943a58
+│   │   │   └── 890dc6114746df2b5ee15002bcb875f3464dbb
+│   │   ├── 4b
+│   │   │   └── ed6754728fa6e5eadf9fcab2c9d8fc4a9007e9
+│   │   ├── 4c
+│   │   │   ├── 339093e1752310249c286234f5e6bda52d615b
+│   │   │   └── 65fbc41980fb0e438439008050df20ddd72adb
+│   │   ├── 4d
+│   │   │   ├── 5a922c38f93fffb83188d33736e74aaab66e59
+│   │   │   ├── 85c32427605f7e3c569cf785e08ca644ba6f8c
+│   │   │   └── db9a718c4805df459b1b3b7a193bc49a09f546
+│   │   ├── 4e
+│   │   │   └── 32aa763c4c4e29bec23acde856be15577d240d
+│   │   ├── 4f
+│   │   │   ├── 1f670f57c075d79c29b33fbc062223981d56fa
+│   │   │   ├── 234fb6fd9d0003f9737da4ffafb247ddf8d8b0
+│   │   │   └── 8f019d5a7ac1dd9a0783e7b87f5dc04d0c7c6d
+│   │   ├── 50
+│   │   │   ├── 3da3f58f99f01a89be32d27779611876ac6e1b
+│   │   │   ├── 4b49f6e3daf3d07403d025818556044ba3c8b5
+│   │   │   └── a735bd14da1a30cc7f0f0cd23c7ba23f1856d9
+│   │   ├── 52
+│   │   │   ├── b436be9f18b86f07321ae6f96473014d8b7446
+│   │   │   └── db6937d189f10fe5f8dd7899da358030df3df5
+│   │   ├── 53
+│   │   │   ├── c391f8456541947ffed6fb957fc5bd9c12ecad
+│   │   │   ├── c728435faa543dd25bb495bac2a785dd2098f2
+│   │   │   ├── dba926ce5ac650cb0e60c9045a135a2a6c5bd7
+│   │   │   └── f4a8439374cd8b4041e805883f7577703f14d2
+│   │   ├── 54
+│   │   │   ├── 637f70842f6b51872e73a534428074859c1a06
+│   │   │   └── 79e7e2489f8264bdde97feadd120a605016f1d
+│   │   ├── 55
+│   │   │   └── ab4121c7cf19ba9021381db9a98153416387c0
+│   │   ├── 56
+│   │   │   └── efda959036d9bb2c5f0bdc846f446e036721f0
+│   │   ├── 58
+│   │   │   └── 0e16385e3f6a4e3fab7213d07223c47a666918
+│   │   ├── 59
+│   │   │   ├── 17dfbc9a08c914c46d9e382756c34090edcdbe
+│   │   │   ├── 72b7aeb7927626d5695677dd5d5527d1c069e2
+│   │   │   └── bfebbf9ff7600c927ae0f1aae7a177258fd3cf
+│   │   ├── 5a
+│   │   │   ├── 2438c9bb9d7d2f4292ea316123e9aae4b41baa
+│   │   │   └── b2c21f6942b3a40fab5a471b2deb9db85c8914
+│   │   ├── 5b
+│   │   │   ├── 2ad1b9af0e5ad96099dc926bbce52fc03dd69e
+│   │   │   ├── 52610fc7fe5aa50beb99e773378cfb8b3976e0
+│   │   │   └── 890c54181573fdd922125494d68e42339a652f
+│   │   ├── 5c
+│   │   │   ├── 7d809f72866a948f322470e9e62bd8b4fad59c
+│   │   │   ├── d0a950bd53ec19766b35374e58ac812c05973c
+│   │   │   └── d7f668b282fb6bc37730cf75204dd7af900fb6
+│   │   ├── 5d
+│   │   │   └── 69df74963460113d287b4e1e1863ffa06717b1
+│   │   ├── 5e
+│   │   │   ├── 155ca414081b17ead23f3e29e94ea913dd856e
+│   │   │   ├── 7198711ce0a9ab724024a3defcd7c5aefb425e
+│   │   │   └── 7d464222d393e9995aa76dc9b7f8e670cb7ce2
+│   │   ├── 5f
+│   │   │   ├── c03d4ab6852103577f7571988fba5f25e183b8
+│   │   │   └── ef8f7bde8be67701f77bdb45cad8943b1a3f64
+│   │   ├── 60
+│   │   │   └── 2ea1e8ea2dc4d14bd223586b720e3e454fb1ed
+│   │   ├── 62
+│   │   │   ├── 4c1409e3fbfd4073c34046b658af9ec78a1bfb
+│   │   │   └── 71b89a08e4cb24454714f01ea8bcb2f94942f5
+│   │   ├── 63
+│   │   │   ├── 72f2adf2c69e23661d1f38a9619e0f6235d158
+│   │   │   └── f9604509fabb6fc18822a8593da8d21a7ff99d
+│   │   ├── 64
+│   │   │   ├── 3a5027f5c3ae16f6b64960654b2893b081b048
+│   │   │   ├── 476c424bb839f96c323027578dab75958e95c4
+│   │   │   ├── 4f3b3feb70f904625a047ea4c0e9a4daeb2ec3
+│   │   │   └── 930af4efd90e679942595742bf643c72139f9b
+│   │   ├── 65
+│   │   │   ├── 1f2247ef3bd99ba23b06037d0397194511a7f6
+│   │   │   ├── 390ca9f95f9e21841ff905016ca068fa40f4ad
+│   │   │   └── 4329251c6064675dc9b62e61dd5d5a9971d516
+│   │   ├── 66
+│   │   │   └── cdc8f2f23e739c89c1f22e7b5f4e88df973240
+│   │   ├── 67
+│   │   │   ├── 1069f0c0471aac0a1ff4cc139ebd8f83605460
+│   │   │   └── 871368a2fc2d69206fb856fbd1689e0bb4ae6c
+│   │   ├── 69
+│   │   │   ├── db805467b6c34fef93a550adecd3cc2eff5921
+│   │   │   └── fe9654e2f087c157a382e746756172838cb949
+│   │   ├── 6a
+│   │   │   └── 3af717a8323290af91367ee2e07719ca7c545a
+│   │   ├── 6b
+│   │   │   ├── b139c6a97182a04f211a188302a6de71f872c7
+│   │   │   └── cd3c237e56c3e80c3fcf9905dedfda2b371248
+│   │   ├── 6c
+│   │   │   ├── 2cd91410ee77933189865b0982d65045927bd8
+│   │   │   └── 6ae13ddac1640a501051a3084fca896c29736f
+│   │   ├── 6d
+│   │   │   ├── 1a68282231ad8243e058ceaeb006a12ff4eb03
+│   │   │   └── e30dae4840ae3e3ab7f12e42da1c8618d26590
+│   │   ├── 6e
+│   │   │   ├── 655c8d407071b34b3e6332782abbcd39e76023
+│   │   │   └── a8c37dde9f6303fb62d8835389e0acaf23bb61
+│   │   ├── 6f
+│   │   │   ├── 173eafafef2caeac75d862bb4b6dedc03caed7
+│   │   │   ├── d7aaf1a1fd7b9b494db032cebf1763156eb4d3
+│   │   │   └── ef674a4a516a0f7526080088524a8d885e1d8b
+│   │   ├── 71
+│   │   │   ├── 319745463b74d3bf8b18f127ff26cb51874d1a
+│   │   │   ├── aa26e6c366a9576bc129117f1cf9b1e3684f3a
+│   │   │   ├── d2df8515ed78a0ae77311fc0d98975f27d7d78
+│   │   │   └── f536110a7a50ecf90d195be174aff695f5b1cb
+│   │   ├── 76
+│   │   │   └── 928dbad604ab72219298891b738f115c613064
+│   │   ├── 77
+│   │   │   └── 69de09a67a309249cd8b89fbddca441aa53de4
+│   │   ├── 7b
+│   │   │   ├── 7d59a138c632b63234a376667c9620fef6adeb
+│   │   │   └── bd70d78e75ce41723a97f7e0f4229e02ae7af6
+│   │   ├── 7c
+│   │   │   ├── c97825d1e84683672c3a1d3545d1997a7a0710
+│   │   │   └── d91d20987b7df15d9e2a3fc4839cb727ed3f08
+│   │   ├── 7e
+│   │   │   ├── 189eab6c7774323e6ab5c210935baf26df1000
+│   │   │   └── 59918e147db306ad9cdd1892d59379e7c8e487
+│   │   ├── 7f
+│   │   │   └── 13667b7af598906b1d352e8994582f947adea5
+│   │   ├── 80
+│   │   │   └── ff15c613bae7215da3609e9ffb13aa27432caf
+│   │   ├── 82
+│   │   │   ├── 2d28eba395ca226ee1194ec7dadfd9cf56c4a3
+│   │   │   └── 6756b039ba73d66e6172ba3086a69833d08c76
+│   │   ├── 83
+│   │   │   └── 07174ca18c1d3c1b78a0d4e3e7224226d9d7f8
+│   │   ├── 84
+│   │   │   └── dc8280538585dbb2badbebf83d2c9edc8742c0
+│   │   ├── 85
+│   │   │   ├── 3981eb2baa2195d4de49c2b982839d9f314043
+│   │   │   └── 9f6d377ffb5fa3d39fe6b954d859301fcaeba2
+│   │   ├── 86
+│   │   │   ├── 616e1a1f90d04f526b334bda06b38d42ea9bbc
+│   │   │   ├── 77cdade6fba9a9b6f03673bc3e2ee88dad67bd
+│   │   │   └── ab8555d926ecab58f524c5eab10ee080c2f586
+│   │   ├── 87
+│   │   │   ├── cb76de287b8a2d842944461cc4bc954a745c5f
+│   │   │   └── ec4994129a21ae530a13c94f158105ef1ba04c
+│   │   ├── 88
+│   │   │   ├── afe7fcacf5ece178425871199429b0a2cbe968
+│   │   │   └── da0e96eb6eab7e987299ce38b631eee93e61f8
+│   │   ├── 8a
+│   │   │   ├── 11534eb7f8356ab0084a9bf190faa2b89fdf68
+│   │   │   └── d3cddf9a9d80b54953213a63758eecadfa5e75
+│   │   ├── 8c
+│   │   │   ├── 6a5e0b4f0a34c15d7dc77b4474efcbdee1eb9f
+│   │   │   └── ec936a512e845db7287f67c08f7a73b9d9e1f6
+│   │   ├── 8d
+│   │   │   └── fbda3d32445b890ce0182283a0034a0f5969f8
+│   │   ├── 8e
+│   │   │   ├── 2465c33b866a99747d1f7ef0ae5800233c8951
+│   │   │   └── 5a24973ee80475c6bc5297c713d7f05553a621
+│   │   ├── 90
+│   │   │   └── 71f8d36d937a50855f8a434842197e234f8485
+│   │   ├── 91
+│   │   │   └── 269b5c908021e2de8e455a23f7db360de25870
+│   │   ├── 92
+│   │   │   ├── 5e89fb5d595417e4c123692dfe280226e71105
+│   │   │   ├── 7caae6c86cfe2b95f3c02ac7af688395ab13fe
+│   │   │   ├── bbff6714d55f8a0eb3f33a37286754d49a8e6a
+│   │   │   └── d74d48ead364353e027f3ace883e1a7468979c
+│   │   ├── 93
+│   │   │   ├── 149ce92197d4a6cd10aaadb1696ce57b009f5b
+│   │   │   └── 24c5f0e548ef09447b0c17cf0b77778835a9d3
+│   │   ├── 94
+│   │   │   ├── 7b940fc38d6b04d5afce4bbe87ae8bcdb3ec4b
+│   │   │   ├── 8f09eb9bb2367b463741846a849e97c191d7f1
+│   │   │   ├── b4b718aa45476fffc7a9626d4a2e750680d217
+│   │   │   ├── cde94b560107d545992206c980de32b33c1614
+│   │   │   └── e8b5a858e36dfcd475382b11996f8217cedfbb
+│   │   ├── 95
+│   │   │   └── 24b778bc8d766ff1db792bb0d098309148eda0
+│   │   ├── 97
+│   │   │   ├── cc8714be3087cd93985e62ef159442c6720d62
+│   │   │   └── e935cef56107b75a550026401f9423344ecb95
+│   │   ├── 98
+│   │   │   ├── 1f1b025a1a7fea525c1ca572c37889a316ee24
+│   │   │   ├── be64f01f09bf8c8d98aa0a630446fb602b90b5
+│   │   │   └── d41cf369d4fe21f26bf4f251ca53a27a65613b
+│   │   ├── 9a
+│   │   │   └── 7d8f815427c3f867f72360f254373756e5c4ff
+│   │   ├── 9c
+│   │   │   └── 0bf709b71ed95ee6375b078b578ff85ad8a61b
+│   │   ├── 9d
+│   │   │   ├── 2072c9117e68c0ef56e392b59db0011b255f20
+│   │   │   └── 8cc1279a381c21e3619d1299ed340c5d38e140
+│   │   ├── 9e
+│   │   │   ├── 4280b0152848c3bba9aaeab1fbc8de96ef0fc1
+│   │   │   └── 8ee53353b6355df318a0d8031c3a2f8d9c8574
+│   │   ├── 9f
+│   │   │   ├── cba0f43e86d32590a3075ba964b8322efd49e5
+│   │   │   └── d024d1c754a2123c6cafdfd01cdff3e85115ca
+│   │   ├── a0
+│   │   │   ├── 47922df130984760e3a39a6efed28e9e62230c
+│   │   │   └── f25128f42b13e70071937a2acb45c69b1f5ec8
+│   │   ├── a1
+│   │   │   ├── b285020b8640304b209cff5ad0fdc873960d9d
+│   │   │   └── e8462e8ea2ec13b0ed9a0fb0fe024aa9e14e3a
+│   │   ├── a2
+│   │   │   └── 0fadc9cf0919658ef31abf0c98c5d0efc89ff1
+│   │   ├── a3
+│   │   │   └── 450b9c31582abab782a5174cbada650ca2f569
+│   │   ├── a4
+│   │   │   ├── 1bef0afae319d4ddfe35dc11d982e0eb1293ea
+│   │   │   ├── 8b8592dae817435e9c190fd666cdfeb69e377b
+│   │   │   └── f4646c1083b7391a4b9b0a4af113a9301cb9b3
+│   │   ├── a5
+│   │   │   ├── b1eaf749a9f0da768d2690a51d5277677dbf74
+│   │   │   └── f1cefb88c84d1bc26852d7f0a21ef0e87c0331
+│   │   ├── a6
+│   │   │   ├── 27483556e0687a07de80721ed59cb882e5b4b0
+│   │   │   ├── ad542971e32c950aed54346277d29193d3dba1
+│   │   │   ├── c71eb1284de5a6cd32e515b8ab6915e2922e05
+│   │   │   └── d739481ccf925f3f0f182dd83c23c9e00d9367
+│   │   ├── a7
+│   │   │   └── 062b524e3e6ae18c693af8e20789be4bc2cd96
+│   │   ├── a8
+│   │   │   ├── 70e16efd196498558447130f6b574af8eefb39
+│   │   │   └── ef6651af2688f3967da930356423f08e0aa6d3
+│   │   ├── a9
+│   │   │   ├── b447e990b0c2b06592b654d6eaa0e30a29df8c
+│   │   │   └── d94c64c0edf2f6a4063f1bcb3a34fc16943ff0
+│   │   ├── ac
+│   │   │   ├── 0e126ad6edc39386f9f0c66cd9effa932dc5ec
+│   │   │   └── c2bc31696361877d8aaf2f1e82a69762f65595
+│   │   ├── ad
+│   │   │   ├── 18ed9f37bfbd537e5aa61a284c4cbfb4a648f5
+│   │   │   ├── 7040651a105cbd632c9ded74fa8340d6b39f1a
+│   │   │   └── 7d6cd257a1a860dbcebb3cac9b14adba846419
+│   │   ├── ae
+│   │   │   ├── 2303ec893eb4c0aed86b80fe8b549d5cfc0cfc
+│   │   │   └── 6a7328f1ff3029eed851d9e54cff1d41219f94
+│   │   ├── af
+│   │   │   └── afffe24de1fc60d58c965510ab543543cdf864
+│   │   ├── b0
+│   │   │   ├── 23d9b007cf00140edd7f0202fad352ead4d1f0
+│   │   │   └── d1e8e168d01d039b684b5f91b3acc75e6bc277
+│   │   ├── b2
+│   │   │   └── e3072aa9440b332e358e9376015b79da25f20d
+│   │   ├── b3
+│   │   │   ├── 59fdc00460729f9b03b9063c7613cc081ef678
+│   │   │   ├── 61f9eb27a0ba6a1dd87e2ce26004accdf36f0e
+│   │   │   ├── 62870f9be6d7253c99a5069d1a224883be2e1d
+│   │   │   └── f8bd29529ff0a37c24f44c02948bdbddc3e0d9
+│   │   ├── b4
+│   │   │   └── 507524c8935032dee48c6229518877e067bfb2
+│   │   ├── b5
+│   │   │   └── 51e8081004384dba892e4b265c24d586601975
+│   │   ├── b6
+│   │   │   └── c2767ddf0f17833f1c9690ae244d89bfba3b74
+│   │   ├── b7
+│   │   │   └── 62ae5b8e32f77e5e500fe093b37858deff55cb
+│   │   ├── b8
+│   │   │   ├── 4f092f77f8e6989bdae04b0aa4435b711e9d59
+│   │   │   ├── 7ea83049a956dedbe04213a87c49988d42a32b
+│   │   │   ├── 8bfc19e03fa3c3d86c7297f87ce1da6952e3ca
+│   │   │   ├── bd60fd3d7203b92b3a2553af35d78632bc14cd
+│   │   │   ├── bf159aef31c29abbafead9d20e84c4fc098da3
+│   │   │   └── fda6de22dbc73dafc89916a687be0f6c33b45d
+│   │   ├── ba
+│   │   │   ├── 0c849d0bd9b2949c3c9e8b90adee75e85ed8d2
+│   │   │   └── d23020322aee5af93f27687f8f95779296045a
+│   │   ├── bd
+│   │   │   └── 15c8652dc8eb22e0090a3558f8b3a407f91b99
+│   │   ├── be
+│   │   │   ├── 19084d8afca8fba50a55552ebf4aee45361429
+│   │   │   ├── 39afc2753c45a3aea15aaf1323a49a33b8567f
+│   │   │   ├── e36e0c0f6bb433e7986dd3653e63b3e4efaa84
+│   │   │   └── f5f37c0eb0f6760b580fe5b16e1d342b87480c
+│   │   ├── c0
+│   │   │   ├── 9dbeb667e6026272a56796ec7e5c47f7b160a6
+│   │   │   ├── e8b7f47f7b6df48cb92847755f35c8200752c4
+│   │   │   └── f468d94cf60b2ea7a731a5558c79c93ef79fa0
+│   │   ├── c2
+│   │   │   ├── a5351a0f383392e07c90ac6d7f3f9b43047f78
+│   │   │   ├── c5438e2887101bab96f3a4ffc5f151b05e9471
+│   │   │   └── fa8b18e65269d9adf1c1a58b23b4822ca7512a
+│   │   ├── c3
+│   │   │   └── b445155a462ca86ac99faa1ab02c8c553bff55
+│   │   ├── c4
+│   │   │   ├── 27669d0f7c473b0a334c5e154f90d96c3efc28
+│   │   │   ├── 842584e50dcb71e2cb18f03a90b662063c2d00
+│   │   │   ├── e6d49de70b68bb6f66dfeeef146c69ca868ef4
+│   │   │   └── f7911906d0bb839dd609cd60e0006c42a99c6c
+│   │   ├── c5
+│   │   │   ├── 2de9678ade9fbd754f8f992fdaf34824292b5a
+│   │   │   ├── 3ead5ee66585b1da6ad5161bc28d89279a721b
+│   │   │   ├── b487ac13da5b76937e8ce9f4e606311cbe7a66
+│   │   │   └── bda8c93f227f73b3896c6f1a6af5ceb04f4e24
+│   │   ├── c6
+│   │   │   ├── 57ae263d57da18ba9fbe06c33d8d8ca5f1aeaa
+│   │   │   ├── 9ed3d4005c044f66c58c0808256ac30b1e4d2f
+│   │   │   └── b586b892068497802981aefd67cfcf84df5e37
+│   │   ├── c7
+│   │   │   ├── 4532fb04ed665538d3d6ccf5061f61e8f7a10a
+│   │   │   └── 82dc1be8da4ff90ff07b902f7a268d36894e78
+│   │   ├── c8
+│   │   │   ├── 102e7eccc311c97817d727f56828bd67c4cda5
+│   │   │   ├── b25d917bf73aa111db7f15d3aab1e292043412
+│   │   │   └── d352cac805e7f9963421fecfcf690b88eaf737
+│   │   ├── c9
+│   │   │   ├── 43a6085843579812a9b69c161e4df53581b078
+│   │   │   └── 860d29f751e6f9e9226732680430ad1d75348f
+│   │   ├── ca
+│   │   │   └── 22f1c44b65b7e73b99ea00ca46c91fd63d4268
+│   │   ├── cb
+│   │   │   └── a38e91c667afb931b1070cdca29d23ed718afb
+│   │   ├── cc
+│   │   │   ├── 1828fb73bb2af449ee8bb697970ff586416256
+│   │   │   └── b109a085fdc48ec918eac55d492abaa4c637ac
+│   │   ├── ce
+│   │   │   └── 748fb779cb5f5607b4269708557c42dcf1d85c
+│   │   ├── cf
+│   │   │   ├── 0ef9f6a542853c49fb1add4d6e2284437e25af
+│   │   │   └── 71b007f597e489b5ac9714f40800d073ba99b0
+│   │   ├── d0
+│   │   │   ├── 3cc48a67665c5678ed24a19f7ad114163713a8
+│   │   │   ├── 902413ec4037e8c09826085a86005fa4ccf293
+│   │   │   ├── a1b9d9d8b13e8f3558702074b2cd3fa1a65b58
+│   │   │   └── eac2ddb31c66bea3495e1174112dfb88792588
+│   │   ├── d2
+│   │   │   ├── 385536bb26c2596c117ac3fb7a1a59d1bc4400
+│   │   │   └── fac5b42a94cfe56b12cf704bb4a5e514100645
+│   │   ├── d4
+│   │   │   ├── 2f5964c8beaf90e7fca78857f27d8be4c0f3ec
+│   │   │   └── ca26ea28579d25ab7bd160cc949dd9ef7ef2d6
+│   │   ├── d5
+│   │   │   ├── 0f0dfcfab58721131381bc6bca9da931df0e9b
+│   │   │   ├── 9c18cb2de540c07ea25d8814741c630464d7a2
+│   │   │   └── b6edfc804af10fc7982bbec8744ae2a14f3643
+│   │   ├── d6
+│   │   │   └── f09e7a314a73ba47d66c3cb6bbfa74e3ca09be
+│   │   ├── d7
+│   │   │   ├── 119a2250ef4b02c09b5dc01d10df38d53271b9
+│   │   │   ├── 2188966124c6318efa662ce44562484ccb61c4
+│   │   │   ├── 41946778bc7291bc9a133c880cf9dbcbae6589
+│   │   │   ├── 4fa272b91c15ced51feb38d38887e813fdf8e5
+│   │   │   └── 60cffcf4d18d7255aec6fb9117b7222b9c2e5b
+│   │   ├── d8
+│   │   │   ├── b42055facf2da5601a717570f039a9d46c02f4
+│   │   │   ├── de931df6946e21790933db92f022e1b9963730
+│   │   │   └── efef4603333fd88a55cc0dbfdbf0d8882b7575
+│   │   ├── da
+│   │   │   ├── 1c5cb5cc57650f91f2959c23ba558cb9f6909e
+│   │   │   └── 49221e06f1456d62714b58fc15804f280bc876
+│   │   ├── db
+│   │   │   └── 2acb31f73395f9b80e788acaf6dd7f2f634900
+│   │   ├── dc
+│   │   │   ├── 30af579c807e26e91128d922824d2d7484d7cd
+│   │   │   ├── 4baa25cdb7f1f1132e6fbcc1c320ee84d7950c
+│   │   │   └── f7ee8863d6f9465d30eb4b19df4eb2d8667f50
+│   │   ├── de
+│   │   │   ├── 34a33a8d6e78f2613734ddcbdb129f5537dda1
+│   │   │   └── ea5b61dae4fedafb263807041fbee260a2e741
+│   │   ├── df
+│   │   │   ├── 37529f8a682d14e94b8ccb8d5ccf750bf7dc9b
+│   │   │   └── f06df0d99dae6c43f5a6c9c1aa6af2e4e2374d
+│   │   ├── e0
+│   │   │   └── 42df2b59313a285598ea79683203a7c658d581
+│   │   ├── e1
+│   │   │   ├── 5c82e836201cff6415611b45ef7803a8c40d4f
+│   │   │   └── da62d037ce7bc0105188031cf32794a919d06c
+│   │   ├── e2
+│   │   │   ├── b00d46b622d4b7a5a4abf3838149afc5f9611c
+│   │   │   └── eeea09a96b2e029803f3af2c2c09cd2cf0236f
+│   │   ├── e3
+│   │   │   └── e06bab7ebb12ddb08abbf7af8651cb5703f66e
+│   │   ├── e4
+│   │   │   └── 4ecf57272b0f851abfbc250f1de8a0fbde846d
+│   │   ├── e5
+│   │   │   └── cd128d6a6f24f022c75777a152ac889d9adc6b
+│   │   ├── e6
+│   │   │   ├── 32fe09e22db2913940b67f8ddda5b850a645cc
+│   │   │   └── d6717b5ce1dc8727e4948480eac91eda0b3fe9
+│   │   ├── e9
+│   │   │   ├── 8e73de594615be862e7aeb44c0e5ad7e42498c
+│   │   │   └── cbc53ffa437ed1a91341908c7abe6e378d425f
+│   │   ├── ea
+│   │   │   └── a66d3c76b9bf71caa2d76b6f467df6b4c04dae
+│   │   ├── ed
+│   │   │   ├── 5677f301d6299038156b7eb8c006bac4fef739
+│   │   │   ├── 980ebe16eeba50338813e1d540ebceea7842e9
+│   │   │   └── cb5be289b63718e6b59f5178bcce9b533dc757
+│   │   ├── ee
+│   │   │   └── e0e5d67d094bc561143a4303ef5ed6e5e4a29b
+│   │   ├── f0
+│   │   │   ├── 821c09871f193686dff3bc9245ba1575250112
+│   │   │   └── a96685c75db00a926b6d1907c46517400b5e67
+│   │   ├── f1
+│   │   │   ├── 2d42289198e2e5700da114567ebe1db7aec4d5
+│   │   │   └── 9fb5ee6e2e085c002c8fa674dacba450745267
+│   │   ├── f2
+│   │   │   ├── d23f8b292a3d918cbd601fe5a60a561f948d97
+│   │   │   └── f02117a3a49feb1978b0b67adf3329bb4d0d93
+│   │   ├── f3
+│   │   │   ├── 0e5a3f883170e927a14fba46107e3e4f2b2b51
+│   │   │   ├── 1e934d7314628bf588692a015b17ce2b17a87b
+│   │   │   └── f030af7f5c24c5dd079cde3a315bcc1d88f4d8
+│   │   ├── f4
+│   │   │   ├── 2b2163512223b9237426871f24c25774447549
+│   │   │   └── 5140079a096ecd8f36e4bc7a48f27c7ad82a33
+│   │   ├── f6
+│   │   │   ├── 623ab7671984d5f91c346fb42bb19a302c2d07
+│   │   │   └── eb04ad6d316a78eb81dfd31a6780787e9f90ef
+│   │   ├── f7
+│   │   │   ├── 72f0dc3c8bff76e84079c5789bb0445f683891
+│   │   │   └── d5d58aff1a5b15756aba9ac54a0aca0c2b6401
+│   │   ├── f8
+│   │   │   └── 2b5cbf797e3ef67ae8a77d1c79741b96683411
+│   │   ├── fa
+│   │   │   ├── 370af1120267f3f95951a1566873e6e264d841
+│   │   │   └── e4dfd832b1c5ea0009781dc90a6902d6f2e455
+│   │   ├── fc
+│   │   │   ├── 1c55a3fe6e4f1e4e10a83c6610f1efd7ce5cd8
+│   │   │   └── 8b25349eaac741240a23776a97df5fb04d4238
+│   │   ├── fd
+│   │   │   ├── 44d81ed90d6ce6d19958b0ba617c9adcf059b0
+│   │   │   ├── 87cbb5484b0bcbc8bc9566ce8776e7c217696e
+│   │   │   ├── 9851f3a53c812db69e2d4b284053d99888189a
+│   │   │   ├── ae6fd544d019aa349ed6b0b7919b7b9284cc6d
+│   │   │   ├── b96db3c4d1bf5411d05c4893fcd8dffc991550
+│   │   │   └── d7b626ce547d595bfbb9a9bf1d2116c2552fcc
+│   │   ├── fe
+│   │   │   └── 025283500d44ffe8ee5f8c1ff85b2f723df522
+│   │   ├── ff
+│   │   │   ├── 03bf9d1867367e48c48a77cc42703c4f2f398d
+│   │   │   ├── 9d1d03b93b3e043f455732372f1f8f4975aaf4
+│   │   │   ├── ae9fe4efaade42e7e5b6215c3b1bb05d3a3f6b
+│   │   │   ├── c8a38142de78c7d9a1af08608ed6c8db501236
+│   │   │   └── d25966687b407a83b14aa677fb78fc4396486c
+│   │   ├── info
+│   │   └── pack
+│   └── refs
+│       ├── heads
+│       │   └── main
+│       └── tags
+├── .gitignore
+├── 00 Automation
+│   └── Day-0_tree.txt
+├── 01 Tenancy Agreements
+│   ├── .DS_Store
+│   ├── 2012-05-01_Rosner_Lease_Form1.pdf
+│   ├── 2021-03-01_Chung_Lease_Form1.pdf
+│   ├── 2021-11-01_Ateah_Lease_Form1.pdf
+│   └── 2022-02-01_Laube-Gilchrist_Lease_Form1.pdf
+├── 02 Renewal Agreements
+│   ├── .DS_Store
+│   ├── 02a Assignments-Sublets
+│   │   └── 2021-02-01_Resillas_Assignment_Form3.pdf
+│   ├── 02b New-Tenant Notices (Form 2)
+│   │   ├── 2012-04-27_Rosner_NewTenantNotice_Form2.pdf
+│   │   ├── 2021-01-18_Resillas_NewTenantNotice_Form2.pdf
+│   │   └── 2021-10-12_Ateah_NewTenantNotice_Form2.pdf
+│   ├── 02c Lease Extensions
+│   │   └── 2024-08-01_Chung_LeaseExtension_Form4-Supp.pdf
+│   └── 02d Form 4 Renewals
+│       ├── 2013-07-01_Rosner_Renewal_Form4.pdf
+│       ├── 2014-07-01_Rosner_Renewal_Form4.pdf
+│       ├── 2015-07-01_Rosner_Renewal_Form4.pdf
+│       ├── 2016-07-01_Rosner_Renewal_Form4.pdf
+│       ├── 2017-07-01_Rosner_Renewal_Form4.pdf
+│       ├── 2018-07-01_Rosner_Renewal_Form4.pdf
+│       ├── 2019-11-01_Flores_Renewal_Form4.pdf
+│       ├── 2021-05-01_Resillas_Renewal_Form4.pdf
+│       ├── 2021-08-01_Chung_Renewal_Form4.pdf
+│       ├── 2021-10-01_Rosner_Renewal_Form4.pdf
+│       ├── 2022-05-01_Breitkreitz-Bravo_Renewal_Form4.pdf
+│       ├── 2022-05-01_Resillas_Renewal_Form4.pdf
+│       ├── 2022-08-01_Chung_Renewal_Form4.pdf
+│       ├── 2022-10-01_Rosner_Renewal_Form4.pdf
+│       ├── 2023-02-01_Laube-Gilchrist_Renewal_Form4.pdf
+│       ├── 2023-05-01_Breitkreitz_Renewal_Form4.pdf
+│       ├── 2023-05-01_Breitkreitz-Bravo_Renewal_Form4.pdf
+│       ├── 2023-10-01_Rosner_Renewal_Form4.pdf
+│       ├── 2024-02-01_Laube-Gilchrist_Renewal_Form4.pdf
+│       ├── 2024-10-01_Rosner_Renewal_Form4.pdf
+│       ├── 2025-02-01_Laube-Gilchrist_Renewal_Form4.pdf
+│       └── 2025-10-01_Rosner_Renewal_Form4.pdf
+├── 03 Form 1A Notices of Rent Increase
+│   ├── .DS_Store
+│   ├── 03a Rosner
+│   │   ├── 2012-04-27_Rosner_NORI_Form1A_Eff2012-07-01.pdf
+│   │   ├── 2013-05-01_Rosner_NORI_Form1A_Eff2013-07-01.pdf
+│   │   ├── 2014-04-24_Rosner_NORI_Form1A_Eff2014-07-01.pdf
+│   │   ├── 2015-03-04_Rosner_NORI_Form1A_Eff2015-07-01.pdf
+│   │   ├── 2017-04-01_Rosner_NORI_Form1A_Eff2017-07-01.pdf
+│   │   ├── 2018-04-01_Rosner_NORI_Form1A_Eff2018-07-01.pdf
+│   │   ├── 2019-03-26_Rosner_NORI_Form1A_Eff2019-07-01.pdf
+│   │   ├── 2020-03-30_Rosner_NORI_Form1A_Eff2020-07-01.pdf
+│   │   ├── 2021-03-26_Rosner_NORI_Form1A_Eff2021-07-01.pdf
+│   │   ├── 2022-03-18_Rosner_NORI_Form1A_Eff2022-07-01.pdf
+│   │   ├── 2023-03-27_Rosner_NORI_Form1A_Eff2023-07-01.pdf
+│   │   ├── 2024-03-20_Rosner_NORI_Form1A_Eff2024-07-01.pdf
+│   │   └── 2025-03-24_Rosner_NORI_Form1A_Eff2025-07-01.pdf
+│   ├── 03b Chung
+│   ├── 03c Ateah
+│   │   ├── 2022-08-29_Ateah_NORI_Form1A_Eff2023-07-01.pdf
+│   │   ├── 2024-03-20_Ateah_NORI_Form1A_Eff2024-07-01.pdf
+│   │   └── 2025-03-24_Ateah_NORI_Form1A_Eff2025-07-01.pdf
+│   ├── 03d Laube-Gilchrist
+│   │   ├── 2022-10-25_Laube-Gilchrist_NORI_Form1A_Eff2023-02-01.pdf
+│   │   ├── 2023-10-20_Laube-Gilchrist_NORI_Form1A_Eff2024-02-01.pdf
+│   │   └── 2024-10-17_Laube-Gilchrist_NORI_Form1A_Eff2025-02-01.pdf
+│   ├── 03e Breitkreitz
+│   │   └── 2023-02-01_Breitkreitz_NORI_Form1A_Eff2023-05-01.pdf
+│   └── 03f Resillas
+│       └── 2021-07-28_Resillas_NORI_Form1A_Eff2021-11-01.pdf
+├── 04 RTB & RTC Order OCR
+│   ├── :04a_RTB Orders
+│   ├── :04c_AGI Applications (Form 3s)
+│   ├── :04d_Service Withdrawal (Form 8s & Orders)
+│   ├── :04e_Repair Orders & Tenant Submissions
+│   ├── .DS_Store
+│   ├── 2018-06-15_Form3_AGIApplication_2017-2018_MyPlace.pdf
+│   ├── 2018-09-05_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2018-09-05_RTB_AGI_Order_W2018-003010-009_Rosner.pdf
+│   ├── 2019 07 01 RTB Order.pdf
+│   ├── 2019-07-26_Form3_AGIApplication_2018-2019_MyPlace.pdf
+│   ├── 2020 01-31 Order Increase 585C-10.pdf
+│   ├── 2020-01-08_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2020-01-08_RTB_AGI_Order_W2019-003958-009.pdf
+│   ├── 2020-01-29_RentIncreaseAppeal_W2019-003958-009.pdf
+│   ├── 2020-01-29_RTC_AGI_NoticeOfAppeal_W2019-003958-009_Rosner.pdf
+│   ├── 2020-08-14_Form3_AGIApplication_2019-2020_MyPlace.pdf
+│   ├── 2020-09-11_RTC_AGI_Order_W2019-003958-009A.pdf
+│   ├── 2020-11-06_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2020-11-06_RTB_AGI_Order_W2020-002401-010.pdf
+│   ├── 2021-08-09_Form3_AGIApplication_2020-2021_Thorwin.pdf
+│   ├── 2021-11-15_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2021-11-15_RTB_AGI_Order_W2021-003524-010.pdf
+│   ├── 2022-10-12_Form3_AGIApplication_2021-2022_Thorwin.pdf
+│   ├── 2022-12-12_RTB_AGI_Order_W2022-005191-010.pdf
+│   ├── 2023 05-05 Letter communication with Thorwin ocr.pdf
+│   ├── 2023-01-04_RTC_AppealNotice_Rosner_Unit10.pdf
+│   ├── 2023-06-22_RTC_AGI_Decision_Rosner_585Corydon.pdf
+│   ├── 2023-06-22_RTC_AGI_Order_W2022-005191-010.pdf
+│   ├── 2023-06-22_RTC_AGI_Order_W2022-005191-019.pdf
+│   ├── 2023-11-08_Form3_AGIApplication_2022-2023_Thorwin.pdf
+│   ├── 2023-12-23_RTC_AGI_Decision_W2023-006121-003A_Rosner.pdf
+│   ├── 2024-02-07_RTB_Order_W2024-000472_Moukoko.pdf
+│   ├── 2024-02-14_RTB_ServiceWithdrawal_Application_SWL-2024-000070.pdf
+│   ├── 2024-02-20_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2024-02-20_RTB_AGI_Order_W2023-006121-003_Rosner.pdf
+│   ├── 2024-02-20_RTB_AGI_Order_W2023-006121-004_Ateah.pdf
+│   ├── 2024-04-02_RTB_ServiceWithdrawal_Order_W2024-001539_Rosner.pdf
+│   ├── 2024-06-21_TenantEvidence_Submission_Rosner.pdf
+│   ├── 2024-07-15_RTB_Compensation_Order_W2024-002994_Rosner.pdf
+│   ├── 2024-10-25_Form3_AGIApplication_2023-2024_Thorwin.pdf
+│   ├── 2024-12-23_RTC_AGI_Reasons_W2023-006121-003A.pdf
+│   ├── 2025-01-15_RTB_AGI_AmendedOrder_W2024-005149-001.pdf
+│   ├── 2025-01-15_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2025-01-15_RTB_AGI_Order_W2024-005149-001.pdf
+│   ├── 2025-02-27_RTB_RepairOrder_W2025-000880_Rosner.pdf
+│   ├── 2025-06-27_RTB_Order_W2025WRR-000040_Rosner.pdf
+│   └── Landlord Application for Laundry Increase Jan 12 2022.pdf
+├── 05 Court Filings (King’s Bench)
+│   └── 2025-05-30_KB_ServiceRequest_Forieg-v-Thorwin.pdf
+├── 06 Correspondence & Logs
+│   ├── :06a_Correspondence with Landlord
+│   ├── :06b_RTB:RTC Email Logs
+│   ├── :06c_Ombudsman & RCMP
+│   ├── :06d_Tenant Communications
+│   ├── .DS_Store
+│   └── RTB Director Meeting Audio
+│       ├── Audio of Meeting with RTB Director June 27 2025.m4a
+│       └── Audio of Meeting with RTB Director June 27 2025.pdf
+├── 07 Financial Exhibits & Valuations
+│   ├── :07a_Ledgers by Tenant
+│   ├── :07b_Receipts by Year
+│   ├── :07c_Valuation Models (e.g., laundry:storage calculations)
+│   ├── .DS_Store
+│   ├── 2022 Julie and Kodi Unit4-2022 Receipt.pdf
+│   ├── 2023 Julie and Kodi Unit4-2023 Receipt.pdf
+│   ├── 2023 LeaseLedger 5-585 corydon Isabelle B.pdf
+│   ├── 2024 Julie and Kodi Unit4 Receipt.pdf
+│   ├── Danielrx_IntRes_LeaseLedger_Canada (64).pdf
+│   ├── Evan Rosner Ledger 1:24:2025.pdf
+│   ├── Evan Rosner Ledger 5-1-2025 b.pdf
+│   ├── Evan Rosner Ledger 5:1:2025 a.pdf
+│   ├── Evan Rosner Ledger 5:1:2025 b.pdf
+│   ├── JulieKodirx_IntRes_LeaseLedger_Canada (69).pdf
+│   ├── Kathryn Receipt__8395_116.pdf
+│   ├── Kathryn Receipt__8395_9.pdf
+│   ├── Kathryn rent receipt 2023.pdf
+│   ├── Kathrynrx_IntRes_LeaseLedger_Canada (65).pdf
+│   ├── Ledger Binder OCR.pdf
+│   └── Rent Receipts June 28.pdf
+├── 08 Photographic Evidence
+│   ├── :08a_Laundry Evidence
+│   ├── :08a_Laundry Evidence.zip
+│   ├── :08b_Storage Locker Evidence
+│   │   └── Storage Lockers.eml
+│   ├── :08b_Storage Locker Evidence.zip
+│   ├── :08c_Bike Room Evidence
+│   │   ├── 4e91260af1e065446a097589d47228c97036ef868b847ec7d085c8bca754759f.pdf
+│   │   ├── 8b700c02069826c4c3526c85480e39f253808c8307f8ec618477b5a32af543aa.pdf
+│   │   ├── c1d20a02e7c50a6b2e77b34df72d2f78a3704c89b3a5ec97bb5e3a5532fb3e3c.pdf
+│   │   ├── c6aec6cd668da8d8a48e9dc8ce2eb909ee910efcfff5c1830d711042f63d4b15.pdf
+│   │   ├── Change Log- Evolution of the Bike-Storage Room.txt
+│   │   ├── Dasha Bike Closet Feb 14 Comment required - 585 Corydon Ave.eml
+│   │   ├── Isabelle Bike Closet Mention 20240201-Re_Notice of Non-renewal of lease 05-585c_ ELT_ as-33.eml
+│   │   └── Storage Lockers.eml
+│   ├── :08c_Bike Room Evidence.zip
+│   ├── :08d_Ceiling Leak & Maintenance
+│   ├── :08d_Ceiling Leak & Maintenance.zip
+│   ├── :08e_Electrical & Entry Issues
+│   ├── :08e_Electrical & Entry Issues.zip
+│   ├── :08f_Damaged Personal Property
+│   ├── :08f_Damaged Personal Property.zip
+│   ├── :08g_False Advertising & Online Listings
+│   ├── :08g_False Advertising & Online Listings.zip
+│   ├── :08h_Landlord Documents (from portal)
+│   ├── :08h_Landlord Documents (from portal) 2.zip
+│   ├── :08h_Landlord Documents (from portal).zip
+│   ├── :08i_Witness Declarations & Statements
+│   │   ├── 2025-06-28_22-46-00_FullPortalListing.png
+│   │   └── 2025-06-28_22-46-00_FullPortalListing.sha256.txt
+│   ├── :08i_Witness Declarations & Statements.zip
+│   ├── :08z_To Rename
+│   │   ├── 2024 04-02 RTB Order.pdf
+│   │   ├── 2025-KG-TEXT Record.pdf
+│   │   ├── 585 Corydon Apartment, 585 Corydon Avenue, Winnipeg, MB - RentCafe.pdf
+│   │   ├── Basement layout.pdf
+│   │   ├── Bike Storage Closet 1.pdf
+│   │   ├── Bike Storage Closet 2.pdf
+│   │   ├── Blockd Laundry Room Door.pdf
+│   │   ├── Construction worker unlawful entry.pdf
+│   │   ├── DashaEvidenceof Supervising.pdf
+│   │   ├── Ensuite Closet with Washer and Dryer.pdf
+│   │   ├── Evan's Keys to Front and Back door and Storage Room.pdf
+│   │   ├── EvanLockerDemolitionFeb222024.pdf
+│   │   ├── False representation
+│   │   │   ├── 585 Corydon Apartment, 585 Corydon Avenue, Winnipeg, MB - RentCafe.pdf
+│   │   │   ├── 585 False Advertising May 30.pdf
+│   │   │   └── False Advertising Jan 2024.pdf
+│   │   ├── False work order complete email.pdf
+│   │   ├── Feb 21 2024 last letter to 10-585c about locker.pdf
+│   │   ├── Feb 21 Locker Threat.pdf
+│   │   ├── Gmail - New Key Fobs.pdf
+│   │   ├── IMG_0085.JPG
+│   │   ├── IMG_0086.JPG
+│   │   ├── IMG_0094.JPG
+│   │   ├── IMG_0095.JPG
+│   │   ├── IMG_0098.JPG
+│   │   ├── IsabelleRenovatedensuitepersonalcloset.pdf
+│   │   ├── IsabelleWasherDryerInstall.pdf
+│   │   ├── Kathryn's Keys to Front and Back door and Storage Room.pdf
+│   │   ├── Laundry mileage.pdf
+│   │   ├── NewBikeStorageMay291.pdf
+│   │   ├── NewBikeStorageMay292.pdf
+│   │   ├── NoticeofEntryApril182023.pdf
+│   │   ├── RTC Reciept2024.pdf
+│   │   ├── Tenant Claim for Compensation amended.pdf
+│   │   ├── Unrenovated Closet.pdf
+│   │   ├── Unresolved Ceiling Leak.pdf
+│   │   └── Witness Statement - Robert FS.pdf
+│   ├── .DS_Store
+│   ├── Affidavit of Evan Rosner June 4 2025.docx
+│   ├── Bike Closet
+│   │   ├── 4e91260af1e065446a097589d47228c97036ef868b847ec7d085c8bca754759f.pdf
+│   │   ├── 8b700c02069826c4c3526c85480e39f253808c8307f8ec618477b5a32af543aa.pdf
+│   │   ├── c1d20a02e7c50a6b2e77b34df72d2f78a3704c89b3a5ec97bb5e3a5532fb3e3c.pdf
+│   │   ├── c6aec6cd668da8d8a48e9dc8ce2eb909ee910efcfff5c1830d711042f63d4b15.pdf
+│   │   └── Change Log- Evolution of the Bike-Storage Room.txt
+│   ├── Bike Closet.zip
+│   ├── Ceiling Leak Evidence
+│   │   ├── .DS_Store
+│   │   ├── Ceiling Leak Fan Installed May 26, 2025 .pdf
+│   │   ├── Ceiling Leak Fan Installed1.pdf
+│   │   ├── Ceiling Leak Light Fixture April 7 2025.MOV
+│   │   ├── Ceiling Leak May 16 2025.pdf
+│   │   ├── Ceiling Leak No Fan Installed1.pdf
+│   │   ├── Ceiling Leak No Fan Installed1May 26, 2025.pdf
+│   │   ├── Ceiling Leak Old Crack May 16 2025 .MOV
+│   │   ├── CeilingLeakvideo.MOV
+│   │   └── JPEG
+│   │       ├── Ceiling Leak Fan Installed May 26, 2025 .jpeg
+│   │       ├── Ceiling Leak Fan Installed1.jpeg
+│   │       ├── Ceiling Leak May 16 2025.jpeg
+│   │       ├── Ceiling Leak No Fan Installed1.jpeg
+│   │       └── Ceiling Leak No Fan Installed1May 26, 2025.jpeg
+│   ├── Ceiling Leak Evidence.zip
+│   ├── City sues owner of long-vacant south Osborne apartment block, historic downtown house.docx
+│   ├── Damaged Personal Property
+│   │   ├── .DS_Store
+│   │   └── Evidence of Damage Photographic Evidence
+│   │       ├── .DS_Store
+│   │       ├── Bike Closet Condition April 30 2024
+│   │       │   ├── .DS_Store
+│   │       │   ├── Bike Closet Condition April 30 2024.pdf
+│   │       │   └── JPEG
+│   │       │       ├── IMG_2551 Medium.jpeg
+│   │       │       ├── IMG_2552 Medium.jpeg
+│   │       │       ├── IMG_2553 Medium.jpeg
+│   │       │       ├── IMG_2554 Medium.jpeg
+│   │       │       ├── IMG_2555 Medium.jpeg
+│   │       │       ├── IMG_2556 Medium.jpeg
+│   │       │       └── IMG_2557 Medium.jpeg
+│   │       ├── Bike Closet Condition February 23 2024
+│   │       │   ├── .DS_Store
+│   │       │   ├── Bike Closet Condition February 23 2024.pdf
+│   │       │   └── JPEG
+│   │       │       ├── IMG_2503 Medium.jpeg
+│   │       │       ├── IMG_2504 Medium.jpeg
+│   │       │       ├── IMG_2505 Medium.jpeg
+│   │       │       └── IMG_2506 Medium.jpeg
+│   │       └── Personal Property Damage April 30 2024
+│   │           ├── .DS_Store
+│   │           ├── JPEG
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2558 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2559 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2560 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2561 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2563 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2567 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2568 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2569 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2570 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2571 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2572 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2573 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2574 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2575 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2577 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2578 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2579 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2580 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2581 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2582 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2583 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2584 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2628 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2629 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2630 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2631 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2632 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2633 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2634 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2635 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2636 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2637 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2638 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2639 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2640 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2641 Medium.jpeg
+│   │           │   ├── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2642 Medium.jpeg
+│   │           │   └── Evidence of Damage Photographic April 30 2024  EvidenceIMG_2643 Medium.jpeg
+│   │           └── Personal Property Damage April 30 2024.pdf
+│   ├── Damaged Personal Property.zip
+│   ├── Electrical Evidence
+│   │   ├── .DS_Store
+│   │   ├── Electrical Evidence.pdf
+│   │   ├── Electricalissues.MOV
+│   │   └── JPEG
+│   │       ├── Electrical Breaker 1.jpeg
+│   │       └── Electrical Breaker 2.jpeg
+│   ├── Electrical Evidence.zip
+│   ├── False misrepresentation of suites
+│   │   ├── .DS_Store
+│   │   ├── 585 Corydon Apartment, 585 Corydon Avenue, Winnipeg, MB - RentCafe.pdf
+│   │   ├── 585 False Advertising May 30.pdf
+│   │   └── False Advertising Jan 2024.pdf
+│   ├── False misrepresentation of suites.zip
+│   ├── Final closing letter - Password protected-1 OMBUDSman.pdf
+│   ├── Gmail - Remittance to ROSNER for $103.99 on 2024-07-25 20_47_22.0.pdf
+│   ├── JPEG
+│   │   ├── 2025-KG-TEXT Record.jpg
+│   │   ├── Basement layout.jpeg
+│   │   ├── Bike Storage Closet 1.jpeg
+│   │   ├── Bike Storage Closet 2.jpeg
+│   │   ├── Blockd Laundry Room Door.jpeg
+│   │   ├── Construction worker unlawful entry.png
+│   │   ├── Ensuite Closet with Washer and Dryer.jpeg
+│   │   ├── Evan's Keys to Front and Back door and Storage Room.jpeg
+│   │   ├── EvanLockerDemolitionFeb222024.png
+│   │   ├── False work order complete email.png
+│   │   ├── IsabelleRenovatedensuitepersonalcloset.jpg
+│   │   ├── IsabelleWasherDryerInstall.jpg
+│   │   ├── Kathryn's Keys to Front and Back door and Storage Room.jpeg
+│   │   ├── Laundry mileage.png
+│   │   ├── NewBikeStorageMay291.jpeg
+│   │   ├── NewBikeStorageMay292.jpeg
+│   │   ├── NoticeofEntryApril182023.jpeg
+│   │   ├── RTC Reciept2024.jpeg
+│   │   ├── Tenant Claim for Compensation amended.jpeg
+│   │   ├── Tenant Claim for Compensation amended2.jpeg
+│   │   ├── Unrenovated Closet.jpeg
+│   │   └── Unresolved Ceiling Leak.jpeg
+│   ├── Landlord Photos of Laundry
+│   │   ├── Capture 2.PNG
+│   │   ├── Capture_4.PNG
+│   │   └── Unfinished Laundry Room_1.PNG
+│   ├── Landlord Photos of Laundry.zip
+│   ├── Laundry Photographic Evidence
+│   │   ├── .DS_Store
+│   │   ├── Laundry Photographic Evidence 2. shows construction materialsjpeg.jpeg
+│   │   ├── Laundry room Photographic Evidence 1 shows blockage.jpeg
+│   │   ├── Laundry Room Photographic Evidence 1 Shows laundry services removed.jpeg
+│   │   └── Laundry room Photographic Evidence 2 shows blockage.jpeg
+│   ├── Laundry Photographic Evidence.zip
+│   ├── LockerPhotos
+│   │   ├── exif_report.txt
+│   │   ├── file_hashes.txt
+│   │   ├── IMG_2316.HEIC
+│   │   ├── IMG_2317.HEIC
+│   │   ├── IMG_2318.HEIC
+│   │   ├── IMG_2319.HEIC
+│   │   ├── IMG_2320.HEIC
+│   │   ├── IMG_2323.HEIC
+│   │   ├── IMG_2324.HEIC
+│   │   ├── IMG_2325.HEIC
+│   │   ├── IMG_2326.HEIC
+│   │   ├── IMG_2327.HEIC
+│   │   ├── IMG_2328.HEIC
+│   │   ├── IMG_2329.HEIC
+│   │   ├── LockerPhotos.zip
+│   │   └── Screenshot 2025-06-04 at 2.38.26 PM.png
+│   ├── LockerPhotos.zip
+│   ├── Mariana Feijo.png
+│   ├── Ombudman Voicemail May 27 2025
+│   │   ├── Ombudman Voicemail MAy 27 2025.m4a
+│   │   └── Ombudman Voicemail MAy 27 2025.PNG
+│   ├── Screen Shot 2022-04-27 at 7.50.51 PM.png
+│   ├── Screen Shot 2022-04-27 at 7.51.31 PM.png
+│   ├── Screen Shot 2022-04-29 at 6.21.52 AM.png
+│   ├── Storage Locker Photographic Evidence 1
+│   │   ├── Locker Photographic Evidence 1.jpeg
+│   │   ├── Locker Photographic Evidence 10 construction materials.jpeg
+│   │   ├── Locker Photographic Evidence 2 Displays Dryer and Washer storage in tenant locker.jpeg
+│   │   ├── Locker Photographic Evidence 3 Show assigned suite numbers.jpeg
+│   │   ├── Locker Photographic Evidence 4 shows entry door that tenants had access to.jpeg
+│   │   ├── Locker Photographic Evidence 5 shows ongoing demolition.jpeg
+│   │   ├── Locker Photographic Evidence 6 Shows construction material storage in laundry room.jpeg
+│   │   ├── Locker Photographic Evidence 6 Shows laundry room and lock room combined.jpeg
+│   │   ├── Locker Photographic Evidence 7 Evan locker.jpeg
+│   │   ├── Locker Photographic Evidence 8 shows construction materials.jpeg
+│   │   ├── Locker Photographic Evidence 9 shows construction materials.jpeg
+│   │   ├── Locker Video Evidence 1 shows blockages to laundry and to locker.MOV
+│   │   └── Locker Video Evidence 2 Show Bike closet subtitute for evan locker.MOV
+│   ├── Storage Locker Photographic Evidence 1.zip
+│   ├── Thorwin Properties Web Portal Documents
+│   │   ├── .DS_Store
+│   │   ├── 2018 03-07 Receipt of Payment.pdf
+│   │   ├── 2019 Receipt 585C10.pdf
+│   │   ├── Landlord Photos of Laundry
+│   │   │   ├── Capture 2.PNG
+│   │   │   ├── Capture_4.PNG
+│   │   │   └── Unfinished Laundry Room_1.PNG
+│   │   ├── OCRReceipt__1068_116 2022.pdf
+│   │   ├── OCRReceipt__1068_9 2020.pdf
+│   │   ├── OCRReceipt__1068_9 2021.pdf
+│   │   └── OCRReceipt__1068_9 2024.pdf
+│   └── Thorwin Properties Web Portal Documents.zip
+├── 09 Master Indexes
+├── 10 Legal Submissions & Strategic Letters
+│   ├── :10a_RTB – A-1 Amendment & Rebuttals
+│   ├── :10b_RTC – Commissioner Audit Requests
+│   ├── :10c_Ombudsman Complaints
+│   ├── :10d_RCMP Criminal Referral
+│   ├── :10e_Final Settlement Demands
+│   ├── :10z_Working Drafts & Templates
+│   └── .DS_Store
+├── 11 Inspections & Condition Reports 
+│   ├── :11a_RUCRs & Move-In Reports
+│   │   └── 2012-04-30_RUCR_Move-InCondition_Suite10_Rosner.pdf
+│   ├── :11b_Inspection Reports & Follow-Ups
+│   ├── :11c_Affidavits & Declarations
+│   └── .DS_Store
+├── 12 Land-Title & Corporate Registry Records
+│   ├── :12a_Property Title Records
+│   │   ├── .DS_Store
+│   │   ├── 1975371-1 05-30-2025 155255.pdf
+│   │   ├── 2989108-1 05-30-2025 155240 1975371-1 05-30-2025 155255 OCR.pdf
+│   │   └── 2989108-1 05-30-2025 155240.pdf
+│   ├── :12b_Corporate Registry Filings
+│   ├── :12c_Criminal History of Officers (e.g., Thorkelson conviction)
+│   └── .DS_Store
+├── 2025 06-02 Ledger Breakdown Explanation-1.pdf
+├── 2025-06-28_22-46-00_FullPortalListing.png
+├── 2025-06-28_22-46-00_FullPortalListing.sha256.txt
+├── Applying Strategy Docs
+│   ├── .DS_Store
+│   ├── ### Is Thorwin’s failure to post the Form 8 on the tenant‑portal a legal defect.docx
+│   ├── Below is a ready-to-paste package for the Master Case File v2025-07-05i.docx
+│   ├── Bike Closet.docx
+│   ├── Bike Storage Market Comparables Collected (June 2025).docx
+│   ├── Bike storage Residential Tenancies Commission – Preliminary Merits Review.docx
+│   ├── Commissioner’s Preliminary Assessment – Repair Failures at Suite 10-585 Corydon.docx
+│   ├── Commissioner’s Re‑Review (Truth‑Discipline Mode).docx
+│   ├── Effect of “No Locker Clause” in the Written Leases.docx
+│   ├── Form 3 Audit – Parking Fee Treatment.docx
+│   ├── Hansard – Budget Speech, 3rd Sess., 42nd Leg. (Apr 7 2021).docx
+│   ├── Hazell Rebuttal Memo V3.pdf
+│   ├── Integration Brief — New Evidence & Valuation Memos (ready for Master Case File v2025-07-05e).docx
+│   ├── Integration Directive – Master Case File v2025‑07‑05 k ➞ v2025‑08‑10 (upgrade path incorporating turn‑0 files).docx
+│   ├── Integration of Avoiding Libel – June 4 Safeguards.docx
+│   ├── Liability Grid – Feb 20-22 2024 Locker Episode.docx
+│   ├── Master Case File — Land-Title Evidence Insert (Version 2025-06-30).docx
+│   ├── NOTICE TO ADMIT form 8.docx
+│   ├── Parking‑Fee Compliance Snapshot (All Active Tenants – 585 Corydon Ave.docx
+│   ├── Re‑audit of the Three Core Ledger‑Based Allegations.docx
+│   ├── Residential Tenancies Commission – Order Varying WD2024‑001539.docx
+│   ├── Separate s. 55 Damages Theory – Proof of Causation & Quantum.docx
+│   ├── Strategic Memo – Value of Legislative‑Intent Evidence at the Residential Tenancies Commission (RTC).docx
+│   ├── Targeted insertions for Master Case File v2025-07-05b.docx
+│   └── Targeted Strategic Analysis – Susan Fehr’s Knowledge & Misrepresentation.docx
+├── Bike Closet
+│   ├── Dasha Bike Closet Feb 14 Comment required - 585 Corydon Ave.eml
+│   └── Isabelle Bike Closet Mention 20240201-Re_Notice of Non-renewal of lease 05-585c_ ELT_ as-33.eml
+├── Form 8 Notice to Tenant - Permanent Reduction or Withdrawal of Service.pdf
+├── Form 8 Serve Withdrawl.jpeg
+├── Land Titles OCR.pdf
+├── Reference Case Law
+│   ├── 2012-03-19_RTB_Order_W2011-027040_Edison.pdf
+│   ├── 2022-05-11_RTB_Order_W2022-002063_Buchart.pdf
+│   ├── 2023-05-03_RTB_Order_W2023-002124_Beaulieu.pdf
+│   ├── 2023-06-12_RTB_Order_W2023-002827_Forieg.pdf
+│   └── 2024-02-07_RTB_Order_W2024-000472_Moukoko.pdf
+├── Repairs
+│   ├── 20250514-Re_Subject_ Follow-Up Maintenance Complaint_ Unres-87922.eml
+│   ├── 20250604-Re_2526-PSD-0559, 2526-PSD-0569, 2526-PSD-0617, 25-88314.eml
+│   ├── 20250604-Re_Tenant's Request for Repairs-88316.eml
+│   ├── 20250618-Re_10-585 Ceiling repair _ rescheduled to July 18-88467.eml
+│   └── 20250618-thorwin notices TOTAL to June 18-88468.eml
+├── RTB & RTC Orders
+│   ├── .DS_Store
+│   ├── 2018-06-15_Form3_AGIApplication_2017-2018_MyPlace.pdf
+│   ├── 2018-09-05_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2018-09-05_RTB_AGI_Order_W2018-003010-009_Rosner.pdf
+│   ├── 2019 07 01 RTB Order.pdf
+│   ├── 2019-07-26_Form3_AGIApplication_2018-2019_MyPlace.pdf
+│   ├── 2020 01-31 Order Increase 585C-10.pdf
+│   ├── 2020-01-08_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2020-01-08_RTB_AGI_Order_W2019-003958-009.pdf
+│   ├── 2020-01-29_RentIncreaseAppeal_W2019-003958-009.pdf
+│   ├── 2020-01-29_RTC_AGI_NoticeOfAppeal_W2019-003958-009_Rosner.pdf
+│   ├── 2020-08-14_Form3_AGIApplication_2019-2020_MyPlace.pdf
+│   ├── 2020-09-11_RTC_AGI_Order_W2019-003958-009A.pdf
+│   ├── 2020-11-06_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2020-11-06_RTB_AGI_Order_W2020-002401-010.pdf
+│   ├── 2021-08-09_Form3_AGIApplication_2020-2021_Thorwin.pdf
+│   ├── 2021-11-15_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2021-11-15_RTB_AGI_Order_W2021-003524-010.pdf
+│   ├── 2022-10-12_Form3_AGIApplication_2021-2022_Thorwin.pdf
+│   ├── 2022-12-12_RTB_AGI_Order_W2022-005191-010.pdf
+│   ├── 2023 05-05 Letter communication with Thorwin ocr.pdf
+│   ├── 2023-01-04_RTC_AppealNotice_Rosner_Unit10.pdf
+│   ├── 2023-06-22_RTC_AGI_Decision_Rosner_585Corydon.pdf
+│   ├── 2023-06-22_RTC_AGI_Order_W2022-005191-010.pdf
+│   ├── 2023-06-22_RTC_AGI_Order_W2022-005191-019.pdf
+│   ├── 2023-11-08_Form3_AGIApplication_2022-2023_Thorwin.pdf
+│   ├── 2023-12-23_RTC_AGI_Decision_W2023-006121-003A_Rosner.pdf
+│   ├── 2024-02-07_RTB_Order_W2024-000472_Moukoko.pdf
+│   ├── 2024-02-20_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2024-02-20_RTB_AGI_Order_W2023-006121-003_Rosner.pdf
+│   ├── 2024-02-20_RTB_AGI_Order_W2023-006121-004_Ateah.pdf
+│   ├── 2024-06-21_TenantEvidence_Submission_Rosner.pdf
+│   ├── 2024-07-15_RTB_Compensation_Order_W2024-002994_Rosner.pdf
+│   ├── 2024-10-25_Form3_AGIApplication_2023-2024_Thorwin.pdf
+│   ├── 2024-12-23_RTC_AGI_Reasons_W2023-006121-003A.pdf
+│   ├── 2025-01-15_RTB_AGI_AmendedOrder_W2024-005149-001.pdf
+│   ├── 2025-01-15_RTB_AGI_Decision_585Corydon.pdf
+│   ├── 2025-01-15_RTB_AGI_Order_W2024-005149-001.pdf
+│   ├── 2025-02-27_RTB_RepairOrder_W2025-000880_Rosner.pdf
+│   ├── 2025-06-27_RTB_Order_W2025WRR-000040_Rosner.pdf
+│   └── Form 8 Service Withdrawals
+│       ├── 2024-01-23_Form8_LockerLaundryWithdrawal_Suite10_Rosner.pdf
+│       ├── 2024-02-14_RTB_ServiceWithdrawal_Application_SWL-2024-000070.pdf
+│       ├── 2024-04-02_RTB_ServiceWithdrawal_Order_W2024-001539_Rosner.pdf
+│       └── Landlord Application for Laundry Increase Jan 12 2022.pdf
+└── Work Orders
+    ├── Screenshot 2025-06-30 at 18-02-25 Apartments in Winnipeg MB RENTCafe.png
+    └── Screenshot_2025-06-30_hash.txt
+
+303 directories, 902 files
